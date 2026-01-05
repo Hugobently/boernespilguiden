@@ -1,0 +1,49 @@
+// Prisma schema for Børnespilguiden
+// SQLite database for development
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String
+  type        String   // "DIGITAL" or "BOARD"
+  minAge      Int
+  maxAge      Int
+  minPlayers  Int?
+  maxPlayers  Int?
+  playTime    String?
+  imageUrl    String?
+  rating      Float?
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  categories GameCategory[]
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String @unique
+  slug  String @unique
+  icon  String?
+
+  games GameCategory[]
+}
+
+model GameCategory {
+  game       Game     @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  gameId     String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId String
+
+  @@id([gameId, categoryId])
+}

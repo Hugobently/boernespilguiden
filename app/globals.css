@@ -2,26 +2,161 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Google Fonts - Playful display + clean body */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Fonts */
+  --font-display: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Primary palette */
+  --candy-pink: #FF6B9D;
+  --candy-purple: #9B59B6;
+  --candy-blue: #3498DB;
+  --candy-cyan: #00D9FF;
+  --candy-green: #2ECC71;
+  --candy-yellow: #F1C40F;
+  --candy-orange: #FF8C42;
+  --candy-red: #E74C3C;
+
+  /* Backgrounds */
+  --cream: #FFF8E7;
+  --sky: #E8F4FD;
+  --mint: #E8F8F5;
+  --lavender: #F3E8FF;
+
+  /* Text */
+  --charcoal: #2D3436;
+  --slate: #636E72;
+
+  /* Computed */
+  --background: var(--cream);
+  --foreground: var(--charcoal);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
+/* Decorative background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 107, 157, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(52, 152, 219, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(46, 204, 113, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 3px solid var(--candy-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Selection color */
+::selection {
+  background: var(--candy-pink);
+  color: white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--candy-pink), var(--candy-purple));
+  border-radius: 10px;
+  border: 3px solid var(--cream);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--candy-purple), var(--candy-blue));
+}
+
+/* Utility classes */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple), var(--candy-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-playful {
+    background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+  }
+
+  .bg-gradient-cool {
+    background: linear-gradient(135deg, var(--candy-blue), var(--candy-cyan));
+  }
+
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, var(--candy-orange), var(--candy-yellow));
+  }
+
+  .bg-gradient-nature {
+    background: linear-gradient(135deg, var(--candy-green), var(--candy-cyan));
+  }
+
+  /* Blob shapes */
+  .blob {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  .blob-2 {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  /* Card hover effect */
+  .card-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-4px);
+  }
 }
+
+/* Animation delays for staggered effects */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
