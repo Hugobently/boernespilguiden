@@ -97,6 +97,17 @@ model Game {
   requiresInternet  Boolean  @default(false)
   dataCollection    String?  // "ingen", "minimal", "moderat", "omfattende"
 
+  // Dybdegående forældreinfo (fra indholdsstrategi)
+  parentInfo        String?  // "Hvad forældre skal vide" - længere tekst (100-150 ord)
+  hasSocialFeatures Boolean  @default(false)
+  hasChat           Boolean  @default(false)
+  hasNotifications  Boolean  @default(false)
+  hasManipulativeDesign Boolean @default(false) // FOMO, streaks, etc.
+  hasScaryContent   Boolean  @default(false)
+  isCoppaCompliant  Boolean  @default(true)
+  requiresReading   Boolean  @default(false)
+  typicalSessionMinutes Int? // Typisk spilletid pr. session
+
   // Pris
   price             Float    @default(0)
   priceModel        String   // "gratis", "engangskøb", "abonnement", "freemium"

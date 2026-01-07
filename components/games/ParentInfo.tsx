@@ -640,4 +640,296 @@ export function SafetyBadge({
   );
 }
 
+// ============================================================================
+// PARENT INFO EXPANDED (Hvad forældre skal vide - fra indholdsstrategi)
+// ============================================================================
+
+interface ParentInfoExpandedProps {
+  // Tekst-baseret info
+  parentInfo?: string | null; // Den dybdegående "Hvad forældre skal vide" tekst
+  parentTip?: string | null;
+
+  // Reklamer og køb
+  hasAds?: boolean;
+  hasInAppPurchases?: boolean;
+  price?: number | null;
+  priceModel?: PriceModel;
+
+  // Skærmtid og engagement
+  hasManipulativeDesign?: boolean; // FOMO, streaks, etc.
+  hasNotifications?: boolean;
+  typicalSessionMinutes?: number | null;
+
+  // Social interaktion
+  hasSocialFeatures?: boolean;
+  hasChat?: boolean;
+
+  // Indhold
+  hasScaryContent?: boolean;
+
+  // Privatliv
+  dataCollection?: DataCollection;
+  isCoppaCompliant?: boolean;
+
+  // Tilgængelighed
+  requiresReading?: boolean;
+  isOfflineCapable?: boolean;
+
+  // Klassisk info
+  minAge?: number;
+  maxAge?: number;
+}
+
+export function ParentInfoExpanded({
+  parentInfo,
+  parentTip,
+  hasAds,
+  hasInAppPurchases,
+  price,
+  priceModel,
+  hasManipulativeDesign,
+  hasNotifications,
+  typicalSessionMinutes,
+  hasSocialFeatures,
+  hasChat,
+  hasScaryContent,
+  dataCollection,
+  isCoppaCompliant,
+  requiresReading,
+  isOfflineCapable,
+  minAge,
+  maxAge,
+}: ParentInfoExpandedProps) {
+
+  // Feature badges baseret på spil egenskaber
+  const badges: Array<{ icon: string; label: string; positive: boolean }> = [];
+
+  if (hasAds === false) badges.push({ icon: '🚫', label: 'Ingen reklamer', positive: true });
+  if (hasInAppPurchases === false) badges.push({ icon: '✅', label: 'Ingen køb i app', positive: true });
+  if (isOfflineCapable === true) badges.push({ icon: '📵', label: 'Offline-tilstand', positive: true });
+  if (hasSocialFeatures === false && hasChat === false) badges.push({ icon: '👤', label: 'Ingen fremmede', positive: true });
+  if (hasManipulativeDesign === false) badges.push({ icon: '🧘', label: 'Ingen FOMO', positive: true });
+  if (hasNotifications === false) badges.push({ icon: '🔕', label: 'Ingen notifikationer', positive: true });
+  if (dataCollection === 'ingen') badges.push({ icon: '🛡️', label: 'Ingen datahøstning', positive: true });
+  if (isCoppaCompliant === true) badges.push({ icon: '👶', label: 'COPPA-godkendt', positive: true });
+  if (requiresReading === false) badges.push({ icon: '🎨', label: 'Ingen læsning krævet', positive: true });
+
+  // Advarsels-badges
+  if (hasAds === true) badges.push({ icon: '📢', label: 'Indeholder reklamer', positive: false });
+  if (hasInAppPurchases === true) badges.push({ icon: '💳', label: 'In-app køb', positive: false });
+  if (hasChat === true) badges.push({ icon: '💬', label: 'Chat med fremmede', positive: false });
+  if (hasManipulativeDesign === true) badges.push({ icon: '⚠️', label: 'Manipulativt design', positive: false });
+  if (hasScaryContent === true) badges.push({ icon: '😱', label: 'Skræmmende elementer', positive: false });
+
+  return (
+    <div className="bg-gradient-to-br from-[#E8F4EA] to-[#D8F3DC] rounded-3xl overflow-hidden border border-[#95D5B2]/30">
+      {/* Header */}
+      <div className="bg-[#2D6A4F]/10 px-6 py-4 border-b border-[#95D5B2]/30">
+        <div className="flex items-center gap-3">
+          <span className="text-3xl">👨‍👩‍👧‍👦</span>
+          <div>
+            <h2 className="font-bold text-xl text-[#2D6A4F]">
+              Hvad forældre skal vide
+            </h2>
+            {minAge !== undefined && maxAge !== undefined && (
+              <p className="text-sm text-[#2D6A4F]/70">
+                Anbefalet alder: {minAge}-{maxAge} år
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Badges */}
+      {badges.length > 0 && (
+        <div className="px-6 py-4 border-b border-[#95D5B2]/30">
+          <div className="flex flex-wrap gap-2">
+            {badges.map((badge, index) => (
+              <span
+                key={index}
+                className={cn(
+                  'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold',
+                  badge.positive
+                    ? 'bg-[#D8F3DC] text-[#2D6A4F] border border-[#95D5B2]'
+                    : 'bg-[#FFD1DC] text-[#8B4563] border border-[#FFB6C1]'
+                )}
+              >
+                <span>{badge.icon}</span>
+                <span>{badge.label}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Hovedtekst - Hvad forældre skal vide */}
+      {parentInfo && (
+        <div className="px-6 py-5">
+          <p className="text-[#4A4A4A] leading-relaxed text-base">
+            {parentInfo}
+          </p>
+        </div>
+      )}
+
+      {/* Detaljerede kategorier */}
+      <div className="px-6 pb-5 grid sm:grid-cols-2 gap-4">
+        {/* Reklamer og køb */}
+        <div className="bg-white/50 rounded-2xl p-4">
+          <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
+            <span>💰</span>
+            <span>Reklamer og køb</span>
+          </h3>
+          <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
+            <li className="flex items-start gap-2">
+              <span className={hasAds ? 'text-[#FF6B6B]' : 'text-[#77DD77]'}>
+                {hasAds ? '✗' : '✓'}
+              </span>
+              <span>{hasAds ? 'Indeholder reklamer' : 'Ingen reklamer'}</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className={hasInAppPurchases ? 'text-[#FF6B6B]' : 'text-[#77DD77]'}>
+                {hasInAppPurchases ? '✗' : '✓'}
+              </span>
+              <span>
+                {hasInAppPurchases
+                  ? `Køb i appen${price && price > 0 ? ` (op til ${price} kr)` : ''}`
+                  : 'Ingen køb i appen'}
+              </span>
+            </li>
+            {priceModel && (
+              <li className="flex items-start gap-2">
+                <span className="text-[#7A7A7A]">•</span>
+                <span>
+                  {priceModel === 'gratis' && 'Helt gratis'}
+                  {priceModel === 'engangskøb' && `Engangskøb${price ? ` (${price} kr)` : ''}`}
+                  {priceModel === 'abonnement' && 'Abonnement'}
+                  {priceModel === 'freemium' && 'Gratis med betalte funktioner'}
+                </span>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        {/* Skærmtid og engagement */}
+        <div className="bg-white/50 rounded-2xl p-4">
+          <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
+            <span>⏱️</span>
+            <span>Skærmtid</span>
+          </h3>
+          <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
+            {typicalSessionMinutes && (
+              <li className="flex items-start gap-2">
+                <span className="text-[#7A7A7A]">•</span>
+                <span>Typisk session: {typicalSessionMinutes} min</span>
+              </li>
+            )}
+            <li className="flex items-start gap-2">
+              <span className={hasManipulativeDesign ? 'text-[#FF6B6B]' : 'text-[#77DD77]'}>
+                {hasManipulativeDesign ? '✗' : '✓'}
+              </span>
+              <span>
+                {hasManipulativeDesign
+                  ? 'Bruger FOMO/streaks'
+                  : 'Ingen manipulativt design'}
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className={hasNotifications ? 'text-[#FFA500]' : 'text-[#77DD77]'}>
+                {hasNotifications ? '!' : '✓'}
+              </span>
+              <span>
+                {hasNotifications
+                  ? 'Sender notifikationer'
+                  : 'Ingen notifikationer'}
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Social interaktion */}
+        <div className="bg-white/50 rounded-2xl p-4">
+          <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
+            <span>👥</span>
+            <span>Social interaktion</span>
+          </h3>
+          <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
+            <li className="flex items-start gap-2">
+              <span className={hasSocialFeatures ? 'text-[#FFA500]' : 'text-[#77DD77]'}>
+                {hasSocialFeatures ? '!' : '✓'}
+              </span>
+              <span>
+                {hasSocialFeatures
+                  ? 'Sociale funktioner aktiveret'
+                  : 'Ingen sociale funktioner'}
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className={hasChat ? 'text-[#FF6B6B]' : 'text-[#77DD77]'}>
+                {hasChat ? '✗' : '✓'}
+              </span>
+              <span>
+                {hasChat
+                  ? 'Chat med fremmede mulig'
+                  : 'Ingen chat med fremmede'}
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Privatliv */}
+        <div className="bg-white/50 rounded-2xl p-4">
+          <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
+            <span>🔒</span>
+            <span>Privatliv</span>
+          </h3>
+          <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
+            {dataCollection && (
+              <li className="flex items-start gap-2">
+                <span className={
+                  dataCollection === 'ingen' ? 'text-[#77DD77]' :
+                  dataCollection === 'minimal' ? 'text-[#77DD77]' :
+                  dataCollection === 'moderat' ? 'text-[#FFA500]' :
+                  'text-[#FF6B6B]'
+                }>
+                  {dataCollection === 'ingen' || dataCollection === 'minimal' ? '✓' : '!'}
+                </span>
+                <span>
+                  Datahøstning: {dataCollection}
+                </span>
+              </li>
+            )}
+            {isCoppaCompliant !== undefined && (
+              <li className="flex items-start gap-2">
+                <span className={isCoppaCompliant ? 'text-[#77DD77]' : 'text-[#FF6B6B]'}>
+                  {isCoppaCompliant ? '✓' : '✗'}
+                </span>
+                <span>
+                  {isCoppaCompliant
+                    ? 'COPPA-compliant (børnevenlig)'
+                    : 'Ikke COPPA-compliant'}
+                </span>
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
+
+      {/* Tip til forældre */}
+      {parentTip && (
+        <div className="px-6 pb-6">
+          <div className="bg-[#FFF3B0]/50 rounded-2xl p-4 border border-[#FFE66D]/50">
+            <div className="flex items-start gap-3">
+              <span className="text-2xl flex-shrink-0">💡</span>
+              <div>
+                <h4 className="font-semibold text-[#7D6608] mb-1">Tip til forældre</h4>
+                <p className="text-[#4A4A4A] text-sm leading-relaxed">{parentTip}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default ParentInfo;

@@ -3,9 +3,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { getAgeLabel } from '@/lib/utils';
-import { parseJsonArray, Platform } from '@/lib/types';
+import { parseJsonArray, Platform, DataCollection, PriceModel } from '@/lib/types';
 import { Footer } from '@/components/layout';
-import { GameCard } from '@/components/games';
+import { GameCard, ParentInfoExpanded } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { getGameWithTranslation, getGamesWithTranslation } from '@/lib/translations';
 import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
@@ -340,73 +340,27 @@ export default async function GameDetailPage({ params }: PageProps) {
               <p className="text-[#4A4A4A] text-lg leading-relaxed">{game.description}</p>
             </div>
 
-            {/* Parent Info Box */}
-            <div className="bg-gradient-to-br from-[#D8F3DC] to-[#B8E0D2] rounded-3xl p-6 shadow-sm">
-              <h2 className="text-lg font-bold text-[#2D6A4F] mb-4 flex items-center gap-2">
-                <span className="text-2xl">👨‍👩‍👧</span>
-                {t('parentInfo')}
-              </h2>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div
-                  className={`rounded-2xl p-4 text-center ${
-                    game.hasAds ? 'bg-[#FFB5A7]/30' : 'bg-white/50'
-                  }`}
-                >
-                  <span className="text-3xl block mb-2">
-                    {game.hasAds ? '⚠️' : '✅'}
-                  </span>
-                  <span
-                    className={`text-sm font-medium ${
-                      game.hasAds ? 'text-[#6B3A2E]' : 'text-[#2D6A4F]'
-                    }`}
-                  >
-                    {game.hasAds ? t('hasAds') : t('noAds')}
-                  </span>
-                </div>
-
-                <div
-                  className={`rounded-2xl p-4 text-center ${
-                    game.hasInAppPurchases ? 'bg-[#FFE66D]/30' : 'bg-white/50'
-                  }`}
-                >
-                  <span className="text-3xl block mb-2">
-                    {game.hasInAppPurchases ? '💰' : '✅'}
-                  </span>
-                  <span
-                    className={`text-sm font-medium ${
-                      game.hasInAppPurchases ? 'text-[#7D6608]' : 'text-[#2D6A4F]'
-                    }`}
-                  >
-                    {game.hasInAppPurchases ? t('hasInAppPurchases') : t('noInApp')}
-                  </span>
-                </div>
-
-                <div
-                  className={`rounded-2xl p-4 text-center ${
-                    game.isOfflineCapable ? 'bg-white/50' : 'bg-[#BAE1FF]/30'
-                  }`}
-                >
-                  <span className="text-3xl block mb-2">
-                    {game.isOfflineCapable ? '📱' : '🌐'}
-                  </span>
-                  <span
-                    className={`text-sm font-medium ${
-                      game.isOfflineCapable ? 'text-[#2D6A4F]' : 'text-[#1D4E89]'
-                    }`}
-                  >
-                    {game.isOfflineCapable ? t('offlineOK') : t('requiresInternet')}
-                  </span>
-                </div>
-
-                <div className="rounded-2xl p-4 text-center bg-white/50">
-                  <span className="text-3xl block mb-2">🔒</span>
-                  <span className="text-sm font-medium text-[#2D6A4F] capitalize">
-                    {game.dataCollection || t('unknownData')}
-                  </span>
-                </div>
-              </div>
-            </div>
+            {/* Hvad forældre skal vide - Udvidet sektion */}
+            <ParentInfoExpanded
+              parentInfo={(game as { parentInfo?: string | null }).parentInfo}
+              parentTip={game.parentTip}
+              hasAds={game.hasAds}
+              hasInAppPurchases={game.hasInAppPurchases}
+              price={game.price}
+              priceModel={game.priceModel as PriceModel}
+              hasManipulativeDesign={(game as { hasManipulativeDesign?: boolean }).hasManipulativeDesign}
+              hasNotifications={(game as { hasNotifications?: boolean }).hasNotifications}
+              typicalSessionMinutes={(game as { typicalSessionMinutes?: number | null }).typicalSessionMinutes}
+              hasSocialFeatures={(game as { hasSocialFeatures?: boolean }).hasSocialFeatures}
+              hasChat={(game as { hasChat?: boolean }).hasChat}
+              hasScaryContent={(game as { hasScaryContent?: boolean }).hasScaryContent}
+              dataCollection={game.dataCollection as DataCollection}
+              isCoppaCompliant={(game as { isCoppaCompliant?: boolean }).isCoppaCompliant}
+              requiresReading={(game as { requiresReading?: boolean }).requiresReading}
+              isOfflineCapable={game.isOfflineCapable}
+              minAge={game.minAge}
+              maxAge={game.maxAge}
+            />
 
             {/* Details Grid */}
             <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm border border-[#FFB5A7]/10">

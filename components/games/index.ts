@@ -23,7 +23,7 @@ export {
 export type { GameDetailProps } from './GameDetail';
 
 // Parent Info Components
-export { ParentInfo, SafetyBadge } from './ParentInfo';
+export { ParentInfo, SafetyBadge, ParentInfoExpanded } from './ParentInfo';
 export type { ParentInfoProps } from './ParentInfo';
 
 // Featured Game (Legacy)
