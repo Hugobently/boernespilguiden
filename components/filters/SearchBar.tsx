@@ -289,17 +289,17 @@ export function SearchBar({
   const variantStyles = {
     default: {
       container: 'max-w-xl',
-      input: 'px-5 py-3 text-base',
+      input: 'py-3 text-base',
       icon: 'left-3.5 w-5 h-5',
     },
     hero: {
       container: 'max-w-2xl',
-      input: 'px-6 py-4 text-lg',
-      icon: 'left-4 w-6 h-6',
+      input: 'py-4 text-lg',
+      icon: 'left-5 w-6 h-6',
     },
     compact: {
       container: 'max-w-md',
-      input: 'px-4 py-2.5 text-sm',
+      input: 'py-2.5 text-sm',
       icon: 'left-2.5 w-4 h-4',
     },
   };
@@ -340,7 +340,7 @@ export function SearchBar({
               'text-[#4A4A4A] placeholder:text-[#9CA3AF]',
               'focus:outline-none focus:border-[#FFB5A7] focus:shadow-[0_0_0_4px_rgba(255,181,167,0.2)]',
               'transition-all duration-200',
-              variant === 'compact' ? 'pl-9' : variant === 'hero' ? 'pl-[4.5rem]' : 'pl-11',
+              variant === 'compact' ? 'pl-9' : variant === 'hero' ? 'pl-16' : 'pl-11',
               styles.input
             )}
           />
