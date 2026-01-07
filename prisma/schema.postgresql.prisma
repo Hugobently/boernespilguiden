@@ -76,7 +76,7 @@ model Game {
   // Aldersgruppe
   minAge            Int
   maxAge            Int
-  ageGroup          String   // "0-3", "3-6", "7-10", "11-15"
+  ageGroup          String   // "0-3", "3-6", "7+"
 
   // Kategorier og tags (native PostgreSQL arrays)
   categories        Json     @default("[]") // ["læring", "eventyr", "puslespil", "kreativ", "action"]

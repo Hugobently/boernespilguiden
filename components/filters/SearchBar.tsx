@@ -164,8 +164,10 @@ export function SearchBar({
 
   const debouncedQuery = useDebounce(query, 300);
 
-  // Fetch suggestions
+  // Fetch suggestions with request cancellation to prevent race conditions
   useEffect(() => {
+    const abortController = new AbortController();
+
     const fetchSuggestions = async () => {
       if (debouncedQuery.length < 2) {
         setSuggestions([]);
@@ -174,7 +176,10 @@ export function SearchBar({
 
       setIsLoading(true);
       try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(debouncedQuery)}&limit=5`);
+        const response = await fetch(
+          `/api/search?q=${encodeURIComponent(debouncedQuery)}&limit=5`,
+          { signal: abortController.signal }
+        );
         if (response.ok) {
           const data = await response.json();
           const gameSuggestions: SearchSuggestion[] = (data.results || []).map((game: { slug: string; title: string; type: string }) => ({
@@ -187,13 +192,21 @@ export function SearchBar({
           setSuggestions(gameSuggestions);
         }
       } catch (error) {
-        console.error('Search error:', error);
+        // Ignore abort errors - they're expected when query changes quickly
+        if (error instanceof Error && error.name !== 'AbortError') {
+          console.error('Search error:', error);
+        }
       } finally {
-        setIsLoading(false);
+        if (!abortController.signal.aborted) {
+          setIsLoading(false);
+        }
       }
     };
 
     fetchSuggestions();
+
+    // Cleanup: cancel the request if query changes before it completes
+    return () => abortController.abort();
   }, [debouncedQuery]);
 
   // Click outside handler

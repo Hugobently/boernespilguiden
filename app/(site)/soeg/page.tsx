@@ -5,6 +5,7 @@ import { getTranslations } from 'next-intl/server';
 import { GameCard } from '@/components/games';
 import { SearchBar } from '@/components/filters';
 import prisma from '@/lib/db';
+import { parseAgeGroup } from '@/lib/utils';
 import { SearchTabs, SearchFilters, SearchSuggestions } from './components';
 
 // ============================================================================
@@ -95,7 +96,7 @@ async function searchGames(
     digitalWhere.AND.push({ hasInAppPurchases: false });
   }
   if (filters.ageGroup) {
-    const [minAge, maxAge] = filters.ageGroup.split('-').map(Number);
+    const { minAge, maxAge } = parseAgeGroup(filters.ageGroup);
     digitalWhere.AND.push({
       OR: [
         { minAge: { lte: maxAge }, maxAge: { gte: minAge } },
@@ -146,7 +147,7 @@ async function searchBoardGames(
 
   // Apply filters
   if (filters.ageGroup) {
-    const [minAge, maxAge] = filters.ageGroup.split('-').map(Number);
+    const { minAge, maxAge } = parseAgeGroup(filters.ageGroup);
     boardWhere.AND.push({
       OR: [
         { minAge: { lte: maxAge }, maxAge: { gte: minAge } },
@@ -156,16 +157,20 @@ async function searchBoardGames(
   }
   if (filters.players) {
     const playerCount = parseInt(filters.players, 10);
-    boardWhere.AND.push({
-      minPlayers: { lte: playerCount },
-      maxPlayers: { gte: playerCount },
-    });
+    if (!isNaN(playerCount) && playerCount > 0) {
+      boardWhere.AND.push({
+        minPlayers: { lte: playerCount },
+        maxPlayers: { gte: playerCount },
+      });
+    }
   }
   if (filters.playTime) {
     const maxPlayTime = parseInt(filters.playTime, 10);
-    boardWhere.AND.push({
-      playTimeMinutes: { lte: maxPlayTime },
-    });
+    if (!isNaN(maxPlayTime) && maxPlayTime > 0) {
+      boardWhere.AND.push({
+        playTimeMinutes: { lte: maxPlayTime },
+      });
+    }
   }
 
   // Clean up empty AND array

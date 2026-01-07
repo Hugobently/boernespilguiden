@@ -34,20 +34,26 @@ export async function GET(request: NextRequest) {
       where.ageGroup = ageGroup;
     }
     if (minAge) {
-      where.minAge = { lte: parseInt(minAge) };
+      const parsedMinAge = parseInt(minAge, 10);
+      if (!isNaN(parsedMinAge)) {
+        where.minAge = { lte: parsedMinAge };
+      }
     }
     if (maxAge) {
-      where.maxAge = { gte: parseInt(maxAge) };
+      const parsedMaxAge = parseInt(maxAge, 10);
+      if (!isNaN(parsedMaxAge)) {
+        where.maxAge = { gte: parsedMaxAge };
+      }
     }
 
-    // Boolean filters
-    if (hasAds !== null && hasAds !== undefined) {
+    // Boolean filters (searchParams.get returns null if not present, string if present)
+    if (hasAds !== null) {
       where.hasAds = hasAds === 'true';
     }
-    if (hasInAppPurchases !== null && hasInAppPurchases !== undefined) {
+    if (hasInAppPurchases !== null) {
       where.hasInAppPurchases = hasInAppPurchases === 'true';
     }
-    if (isOfflineCapable !== null && isOfflineCapable !== undefined) {
+    if (isOfflineCapable !== null) {
       where.isOfflineCapable = isOfflineCapable === 'true';
     }
 
@@ -64,15 +70,15 @@ export async function GET(request: NextRequest) {
       where.editorChoice = true;
     }
 
-    // Text search
+    // Text search (case-insensitive for PostgreSQL)
     if (search) {
       where.OR = [
-        { title: { contains: search } },
-        { shortDescription: { contains: search } },
-        { description: { contains: search } },
-        { categories: { contains: search } },
-        { skills: { contains: search } },
-        { themes: { contains: search } },
+        { title: { contains: search, mode: 'insensitive' } },
+        { shortDescription: { contains: search, mode: 'insensitive' } },
+        { description: { contains: search, mode: 'insensitive' } },
+        { categories: { contains: search, mode: 'insensitive' } },
+        { skills: { contains: search, mode: 'insensitive' } },
+        { themes: { contains: search, mode: 'insensitive' } },
       ];
     }
 

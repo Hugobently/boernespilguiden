@@ -13,10 +13,8 @@ export function getAgeLabel(minAge: number, maxAge: number): string {
 
 export function getAgeCategory(age: number): string {
   if (age <= 3) return '0-3';
-  if (age <= 6) return '4-6';
-  if (age <= 9) return '7-9';
-  if (age <= 12) return '10-12';
-  return '13+';
+  if (age <= 6) return '3-6';
+  return '7+';
 }
 
 export function slugify(text: string): string {
@@ -33,10 +31,34 @@ export function formatPlayTime(time: string | null): string {
   return time;
 }
 
+// Age group colors - centralized for consistency across the site
+export const AGE_GROUP_COLORS: Record<string, string> = {
+  '0-3': '#FFD1DC',  // Pink - babies/toddlers
+  '3-6': '#BAFFC9',  // Green - preschool
+  '7+': '#BAE1FF',   // Blue - school age
+};
+
+export function getAgeGroupColor(minAge: number): string {
+  if (minAge <= 3) return AGE_GROUP_COLORS['0-3'];
+  if (minAge <= 6) return AGE_GROUP_COLORS['3-6'];
+  return AGE_GROUP_COLORS['7+'];
+}
+
 export const AGE_CATEGORIES = [
-  { slug: '0-3', label: '0-3 år', emoji: '👶', description: 'De helt små' },
-  { slug: '4-6', label: '4-6 år', emoji: '🧒', description: 'Førskolebørn' },
-  { slug: '7-9', label: '7-9 år', emoji: '🎒', description: 'Indskoling' },
-  { slug: '10-12', label: '10-12 år', emoji: '📚', description: 'Mellemtrin' },
-  { slug: '13+', label: '13+ år', emoji: '🎮', description: 'Teenagere' },
+  { slug: '0-3', label: '0-3 år', emoji: '👶', description: 'Baby og småbørn', color: '#FFD1DC' },
+  { slug: '3-6', label: '3-6 år', emoji: '🧒', description: 'Førskolebørn', color: '#BAFFC9' },
+  { slug: '7+', label: '7+ år', emoji: '🎒', description: 'Skolebørn', color: '#BAE1FF' },
 ] as const;
+
+// Helper to parse age group string like "3-6" or "7+"
+export function parseAgeGroup(ageGroup: string): { minAge: number; maxAge: number } {
+  if (ageGroup.endsWith('+')) {
+    const minAge = parseInt(ageGroup.slice(0, -1), 10);
+    return { minAge, maxAge: 99 };
+  }
+  const parts = ageGroup.split('-');
+  return {
+    minAge: parseInt(parts[0], 10) || 0,
+    maxAge: parseInt(parts[1], 10) || 99,
+  };
+}

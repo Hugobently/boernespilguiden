@@ -61,11 +61,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // HELPER FUNCTIONS
 // ============================================================================
 
-function getAgeGroupColor(minAge: number) {
+function getAgeGroupColorExtended(minAge: number) {
   if (minAge <= 3) return { bg: '#FFD1DC', text: '#8B4563', gradient: 'from-[#FFD1DC] to-[#FFB6C1]' };
   if (minAge <= 6) return { bg: '#BAFFC9', text: '#2D6A4F', gradient: 'from-[#BAFFC9] to-[#95D5A6]' };
-  if (minAge <= 10) return { bg: '#BAE1FF', text: '#1D4E89', gradient: 'from-[#BAE1FF] to-[#8ECAE6]' };
-  return { bg: '#E2C2FF', text: '#5B4670', gradient: 'from-[#E2C2FF] to-[#CDB4DB]' };
+  // 7+ age group
+  return { bg: '#BAE1FF', text: '#1D4E89', gradient: 'from-[#BAE1FF] to-[#8ECAE6]' };
 }
 
 function StarRating({ rating }: { rating: number }) {
@@ -135,7 +135,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
     locale
   );
 
-  const ageColors = getAgeGroupColor(game.minAge);
+  const ageColors = getAgeGroupColorExtended(game.minAge);
 
   // Get complexity info with translations
   const getComplexityInfo = (complexity: number) => {

@@ -287,7 +287,7 @@ function getAgeGroupFromRange(minAge: number, maxAge: number): string | null {
  *
  * Examples:
  * - "læring 5år pige uden reklamer" → { ageGroup: "3-6", targetGender: "piger", categories: ["læring"], hasAds: false }
- * - "matematik spil til 7-årig dreng" → { minAge: 7, maxAge: 7, ageGroup: "7-10", targetGender: "drenge", skills: ["matematik"] }
+ * - "matematik spil til 7-årig dreng" → { minAge: 7, maxAge: 7, ageGroup: "7+", targetGender: "drenge", skills: ["matematik"] }
  * - "gratis puslespil offline" → { priceModel: "free", categories: ["puslespil", "logik"], isOfflineCapable: true }
  */
 export function parseSearchQuery(query: string): ParsedSearchQuery {
