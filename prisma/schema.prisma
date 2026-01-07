@@ -1,13 +1,14 @@
 // Prisma schema for Børnespilguiden
-// SQLite database for development
+// PostgreSQL database for Vercel deployment
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 // ============================================================================
@@ -78,13 +79,13 @@ model Game {
   maxAge            Int
   ageGroup          String   // "0-3", "3-6", "7-10", "11-15"
 
-  // Kategorier og tags (JSON strings for SQLite)
+  // Kategorier og tags (JSON strings)
   categories        String   @default("[]") // ["læring", "eventyr", "puslespil", "kreativ", "action"]
   skills            String   @default("[]") // ["matematik", "læsning", "logik", "motorik", "sprog"]
   themes            String   @default("[]") // ["dyr", "rummet", "prinsesser", "dinosaurer"]
   targetGender      String   @default("alle") // "alle", "drenge", "piger"
 
-  // Platform info (JSON strings for SQLite)
+  // Platform info (JSON strings)
   platforms         String   @default("[]") // ["iOS", "Android", "PC", "Nintendo", "PlayStation"]
   appStoreUrl       String?
   playStoreUrl      String?
@@ -152,7 +153,7 @@ model BoardGame {
   playTimeMinutes  Int
   complexity       Int      // 1-5 (1=meget let, 5=kompleks)
 
-  // Kategorier (JSON strings for SQLite)
+  // Kategorier (JSON strings)
   categories       String   @default("[]") // ["strategi", "samarbejde", "læring", "fest", "kort"]
   skills           String   @default("[]")
   themes           String   @default("[]")
