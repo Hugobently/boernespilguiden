@@ -470,9 +470,9 @@ export function buildPrismaWhereClause(parsed: ParsedSearchQuery): Record<string
   // Text search from remaining terms
   if (parsed.searchTerms.length > 0) {
     const searchConditions = parsed.searchTerms.flatMap(term => [
-      { title: { contains: term } },
-      { shortDescription: { contains: term } },
-      { description: { contains: term } },
+      { title: { contains: term, mode: 'insensitive' as const } },
+      { shortDescription: { contains: term, mode: 'insensitive' as const } },
+      { description: { contains: term, mode: 'insensitive' as const } },
     ]);
     andConditions.push({ OR: searchConditions });
   }
@@ -539,9 +539,9 @@ export function buildBoardGameWhereClause(parsed: ParsedSearchQuery): Record<str
   // Text search
   if (parsed.searchTerms.length > 0) {
     const searchConditions = parsed.searchTerms.flatMap(term => [
-      { title: { contains: term } },
-      { shortDescription: { contains: term } },
-      { description: { contains: term } },
+      { title: { contains: term, mode: 'insensitive' as const } },
+      { shortDescription: { contains: term, mode: 'insensitive' as const } },
+      { description: { contains: term, mode: 'insensitive' as const } },
     ]);
     andConditions.push({ OR: searchConditions });
   }
