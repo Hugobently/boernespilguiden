@@ -340,7 +340,7 @@ export function SearchBar({
               'text-[#4A4A4A] placeholder:text-[#9CA3AF]',
               'focus:outline-none focus:border-[#FFB5A7] focus:shadow-[0_0_0_4px_rgba(255,181,167,0.2)]',
               'transition-all duration-200',
-              variant === 'compact' ? 'pl-9' : variant === 'hero' ? 'pl-14' : 'pl-11',
+              variant === 'compact' ? 'pl-9' : variant === 'hero' ? 'pl-16' : 'pl-11',
               styles.input
             )}
           />
