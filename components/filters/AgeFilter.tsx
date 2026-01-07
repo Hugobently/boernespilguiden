@@ -57,9 +57,9 @@ const ageGroups: AgeGroupConfig[] = [
     description: 'Børnehave-alder',
   },
   {
-    slug: '7-10',
-    label: '7-10 år',
-    shortLabel: 'Børn',
+    slug: '7+',
+    label: '7+ år',
+    shortLabel: 'Større børn',
     emoji: '👦',
     color: {
       bg: '#BAE1FF',
@@ -69,22 +69,7 @@ const ageGroups: AgeGroupConfig[] = [
       border: '#8ECAE6',
       shadow: '#6BB3D9',
     },
-    description: 'Indskoling',
-  },
-  {
-    slug: '11-15',
-    label: '11-15 år',
-    shortLabel: 'Tweens',
-    emoji: '🧑',
-    color: {
-      bg: '#E2C2FF',
-      bgHover: '#D4B0F5',
-      bgSelected: '#CDB4DB',
-      text: '#5B4670',
-      border: '#CDB4DB',
-      shadow: '#B99FCA',
-    },
-    description: 'Tweens og teenagere',
+    description: 'Skolebørn',
   },
 ];
 

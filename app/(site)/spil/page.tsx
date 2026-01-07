@@ -34,8 +34,7 @@ export const metadata: Metadata = {
 const ageGroupRanges: Record<string, { min: number; max: number }> = {
   '0-3': { min: 0, max: 3 },
   '3-6': { min: 3, max: 6 },
-  '7-10': { min: 7, max: 10 },
-  '11-15': { min: 11, max: 15 },
+  '7+': { min: 7, max: 99 },
 };
 
 interface PageProps {

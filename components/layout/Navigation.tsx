@@ -35,27 +35,15 @@ const ageGroups = [
     },
   },
   {
-    slug: '7-10',
-    label: '7-10 år',
-    shortLabel: 'Børn',
+    slug: '7+',
+    label: '7+ år',
+    shortLabel: 'Større børn',
     emoji: '👦',
     color: {
       bg: '#BAE1FF',
       bgHover: '#A5D4F5',
       text: '#1D4E89',
       border: '#8ECAE6',
-    },
-  },
-  {
-    slug: '11-15',
-    label: '11-15 år',
-    shortLabel: 'Tweens',
-    emoji: '🧑',
-    color: {
-      bg: '#E2C2FF',
-      bgHover: '#D4B0F5',
-      text: '#5B4670',
-      border: '#CDB4DB',
     },
   },
 ];

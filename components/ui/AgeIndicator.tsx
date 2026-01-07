@@ -7,7 +7,7 @@ import { HTMLAttributes, forwardRef, useMemo } from 'react';
 // TYPES
 // ============================================================================
 
-type AgeGroup = '0-3' | '3-6' | '7-10' | '11-15';
+type AgeGroup = '0-3' | '3-6' | '7+';
 type IndicatorVariant = 'badge' | 'pill' | 'circle' | 'block' | 'minimal';
 type IndicatorSize = 'sm' | 'md' | 'lg' | 'xl';
 
@@ -70,9 +70,9 @@ const ageGroupConfig: Record<
     },
     character: 'toddler',
   },
-  '7-10': {
-    label: '7-10 år',
-    shortLabel: 'Børn',
+  '7+': {
+    label: '7+ år',
+    shortLabel: 'Større børn',
     emoji: '👦',
     description: 'Udfordrende spil',
     color: {
@@ -83,20 +83,6 @@ const ageGroupConfig: Record<
       gradient: 'from-[#BAE1FF] to-[#E8F4FF]',
     },
     character: 'child',
-  },
-  '11-15': {
-    label: '11-15 år',
-    shortLabel: 'Tweens',
-    emoji: '🧑',
-    description: 'Avancerede spil',
-    color: {
-      bg: '#E2C2FF',
-      bgLight: '#F5EEFF',
-      text: '#5B4670',
-      border: '#CDB4DB',
-      gradient: 'from-[#E2C2FF] to-[#F5EEFF]',
-    },
-    character: 'tween',
   },
 };
 
@@ -462,7 +448,7 @@ export const AgeSelector = forwardRef<HTMLDivElement, AgeSelectorProps>(
     { className, value, onChange, allowClear = true, size = 'md', ...props },
     ref
   ) => {
-    const ageGroups: AgeGroup[] = ['0-3', '3-6', '7-10', '11-15'];
+    const ageGroups: AgeGroup[] = ['0-3', '3-6', '7+'];
 
     return (
       <div
@@ -528,8 +514,7 @@ export const AgeRange = forwardRef<HTMLDivElement, AgeRangeProps>(
       const groups: AgeGroup[] = [];
       if (min <= 3) groups.push('0-3');
       if ((min <= 6 && max >= 3) || (max >= 3 && max <= 6)) groups.push('3-6');
-      if ((min <= 10 && max >= 7) || (max >= 7 && max <= 10)) groups.push('7-10');
-      if (max >= 11) groups.push('11-15');
+      if (max >= 7) groups.push('7+');
       return groups;
     };
 
@@ -543,7 +528,7 @@ export const AgeRange = forwardRef<HTMLDivElement, AgeRangeProps>(
           </span>
         )}
         <div className="flex gap-1">
-          {(['0-3', '3-6', '7-10', '11-15'] as AgeGroup[]).map((age) => {
+          {(['0-3', '3-6', '7+'] as AgeGroup[]).map((age) => {
             const config = ageGroupConfig[age];
             const isInRange = coveredGroups.includes(age);
 

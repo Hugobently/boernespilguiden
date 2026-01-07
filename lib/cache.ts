@@ -206,14 +206,13 @@ export const getCachedBoardGamesByAgeGroup = unstable_cache(
  */
 export const getCachedGameCountsByAge = unstable_cache(
   async () => {
-    const [age0to3, age3to6, age7to10, age11plus] = await Promise.all([
+    const [age0to3, age3to6, age7plus] = await Promise.all([
       prisma.game.count({ where: { minAge: { lte: 3 } } }),
       prisma.game.count({ where: { minAge: { gte: 3, lte: 6 } } }),
-      prisma.game.count({ where: { minAge: { gte: 7, lte: 10 } } }),
-      prisma.game.count({ where: { minAge: { gte: 11 } } }),
+      prisma.game.count({ where: { minAge: { gte: 7 } } }),
     ]);
 
-    return { '0-3': age0to3, '3-6': age3to6, '7-10': age7to10, '11-15': age11plus };
+    return { '0-3': age0to3, '3-6': age3to6, '7+': age7plus };
   },
   ['game-counts-by-age'],
   {
@@ -306,5 +305,5 @@ export async function generateBoardGameStaticParams() {
  * Generate static params for age groups
  */
 export function generateAgeGroupStaticParams() {
-  return ['0-3', '3-6', '7-10', '11-15'].map((age) => ({ age }));
+  return ['0-3', '3-6', '7+'].map((age) => ({ age }));
 }

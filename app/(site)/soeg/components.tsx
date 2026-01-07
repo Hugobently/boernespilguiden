@@ -163,7 +163,7 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
                 Aldersgruppe
               </label>
               <div className="grid grid-cols-2 gap-2">
-                {['0-3', '3-6', '7-10', '11-15'].map((age) => (
+                {['0-3', '3-6', '7+'].map((age) => (
                   <button
                     key={age}
                     onClick={() => updateFilter('alder', filters.ageGroup === age ? null : age)}
@@ -349,11 +349,11 @@ export function SearchSuggestions({ query }: SearchSuggestionsProps) {
             <span className="text-sm font-semibold text-[#2D6A4F]">3-6 år</span>
           </Link>
           <Link
-            href="/spil/kategori/7-10"
+            href="/spil/kategori/7+"
             className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-[#BAE1FF]/30 hover:bg-[#BAE1FF]/50 transition-colors"
           >
             <span className="text-2xl">👦</span>
-            <span className="text-sm font-semibold text-[#1D4E89]">7-10 år</span>
+            <span className="text-sm font-semibold text-[#1D4E89]">7+ år</span>
           </Link>
           <Link
             href="/soeg?reklamefri=true"

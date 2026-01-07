@@ -27,12 +27,10 @@
   "ageGroups": {
     "0-3": "0-3 ans",
     "3-6": "3-6 ans",
-    "7-10": "7-10 ans",
-    "11-15": "11-15 ans",
+    "7+": "7+ ans",
     "0-3-desc": "Bébés & Tout-petits",
     "3-6-desc": "Maternelle",
-    "7-10-desc": "Primaire",
-    "11-15-desc": "Préados"
+    "7+-desc": "Scolaire"
   },
   "home": {
     "heroTitle": "Trouvez les meilleurs jeux pour vos enfants",

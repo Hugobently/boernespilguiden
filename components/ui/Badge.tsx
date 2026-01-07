@@ -192,14 +192,13 @@ Badge.displayName = 'Badge';
 
 // Age badge with emoji
 interface AgeBadgeProps extends Omit<BadgeProps, 'color' | 'children'> {
-  ageGroup: '0-3' | '3-6' | '7-10' | '11-15';
+  ageGroup: '0-3' | '3-6' | '7+';
 }
 
 const ageGroupConfig = {
   '0-3': { label: '0-3 år', emoji: '👶', color: 'coral' as BadgeColor },
   '3-6': { label: '3-6 år', emoji: '🧒', color: 'mint' as BadgeColor },
-  '7-10': { label: '7-10 år', emoji: '👦', color: 'sky' as BadgeColor },
-  '11-15': { label: '11-15 år', emoji: '🧑', color: 'lavender' as BadgeColor },
+  '7+': { label: '7+ år', emoji: '👦', color: 'sky' as BadgeColor },
 };
 
 export const AgeBadge = forwardRef<HTMLSpanElement, AgeBadgeProps>(

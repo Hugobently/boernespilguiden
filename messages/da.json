@@ -27,12 +27,10 @@
   "ageGroups": {
     "0-3": "0-3 år",
     "3-6": "3-6 år",
-    "7-10": "7-10 år",
-    "11-15": "11-15 år",
+    "7+": "7+ år",
     "0-3-desc": "Baby & Småbørn",
     "3-6-desc": "Børnehave",
-    "7-10-desc": "Indskoling",
-    "11-15-desc": "Tweens"
+    "7+-desc": "Skolebørn"
   },
   "home": {
     "heroTitle": "Find de bedste spil til dine børn",

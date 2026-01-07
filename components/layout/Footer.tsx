@@ -11,8 +11,7 @@ import { cn } from '@/lib/utils';
 const ageCategories = [
   { slug: '0-3', labelKey: '0-3', emoji: '👶', color: 'hover:text-[#FFD1DC]' },
   { slug: '3-6', labelKey: '3-6', emoji: '🧒', color: 'hover:text-[#BAFFC9]' },
-  { slug: '7-10', labelKey: '7-10', emoji: '👦', color: 'hover:text-[#BAE1FF]' },
-  { slug: '11-15', labelKey: '11-15', emoji: '🧑', color: 'hover:text-[#E2C2FF]' },
+  { slug: '7+', labelKey: '7+', emoji: '👦', color: 'hover:text-[#BAE1FF]' },
 ];
 
 // ============================================================================

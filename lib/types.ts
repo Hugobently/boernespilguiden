@@ -1,6 +1,6 @@
 // Helper types for JSON array fields in SQLite
 
-export type AgeGroup = '0-3' | '3-6' | '7-10' | '11-15';
+export type AgeGroup = '0-3' | '3-6' | '7+';
 
 export type GameCategory =
   | 'læring'

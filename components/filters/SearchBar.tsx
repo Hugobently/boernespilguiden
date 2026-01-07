@@ -62,8 +62,7 @@ function parseNaturalLanguage(query: string): ParsedQuery {
     { pattern: /(\d+)\s*-?\s*(\d+)?\s*(år|årig|arig)/i, extract: (m: RegExpMatchArray) => `${m[1]}-${m[2] || parseInt(m[1]) + 2}` },
     { pattern: /baby|spædbarn/i, extract: () => '0-3' },
     { pattern: /småbørn|småbarn|børnehave/i, extract: () => '3-6' },
-    { pattern: /skolebørn|indskoling/i, extract: () => '7-10' },
-    { pattern: /teenager|tween|ung/i, extract: () => '11-15' },
+    { pattern: /skolebørn|indskoling|teenager|tween|ung/i, extract: () => '7+' },
   ];
 
   for (const { pattern, extract } of agePatterns) {

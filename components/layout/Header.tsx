@@ -36,7 +36,7 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
   const quickSuggestions: SearchSuggestion[] = useMemo(() => [
     { type: 'age', title: t('ageGroups.0-3'), slug: '0-3', icon: '👶' },
     { type: 'age', title: t('ageGroups.3-6'), slug: '3-6', icon: '🧒' },
-    { type: 'age', title: t('ageGroups.7-10'), slug: '7-10', icon: '👦' },
+    { type: 'age', title: t('ageGroups.7+'), slug: '7+', icon: '👦' },
     { type: 'category', title: t('categories.learning'), slug: 'laering', icon: '📚' },
     { type: 'category', title: t('games.noAds'), slug: 'ingen-reklamer', icon: '🚫' },
   ], [t]);
@@ -388,8 +388,7 @@ function MobileMenu({
               {[
                 { label: '0-3', color: 'bg-[#FFD1DC]', emoji: '👶' },
                 { label: '3-6', color: 'bg-[#BAFFC9]', emoji: '🧒' },
-                { label: '7-10', color: 'bg-[#BAE1FF]', emoji: '👦' },
-                { label: '11-15', color: 'bg-[#E2C2FF]', emoji: '🧑' },
+                { label: '7+', color: 'bg-[#BAE1FF]', emoji: '👦' },
               ].map((age) => (
                 <Link
                   key={age.label}

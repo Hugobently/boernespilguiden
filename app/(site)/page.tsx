@@ -32,21 +32,12 @@ const ageCategoryConfig = [
     },
   },
   {
-    slug: '7-10',
+    slug: '7+',
     emoji: '👦',
     color: {
       bg: 'from-[#BAE1FF] to-[#8ECAE6]',
       text: '#1D4E89',
       shadow: '#6BB3D9',
-    },
-  },
-  {
-    slug: '11-15',
-    emoji: '🧑',
-    color: {
-      bg: 'from-[#E2C2FF] to-[#CDB4DB]',
-      text: '#5B4670',
-      shadow: '#B99FCA',
     },
   },
 ];
@@ -117,7 +108,7 @@ function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
                 }}
               >
                 <span className="text-xl">{cat.emoji}</span>
-                <span>{tAge(cat.slug as '0-3' | '3-6' | '7-10' | '11-15')}</span>
+                <span>{tAge(cat.slug as '0-3' | '3-6' | '7+')}</span>
               </Link>
             ))}
           </div>
@@ -263,7 +254,7 @@ function AgeCategoriesSection({ gameCounts, t, tAge }: AgeCategoriesSectionProps
                   className="text-xl sm:text-2xl font-bold mb-1"
                   style={{ color: cat.color.text }}
                 >
-                  {tAge(cat.slug as '0-3' | '3-6' | '7-10' | '11-15')}
+                  {tAge(cat.slug as '0-3' | '3-6' | '7+')}
                 </h3>
 
                 {/* Description */}
@@ -271,7 +262,7 @@ function AgeCategoriesSection({ gameCounts, t, tAge }: AgeCategoriesSectionProps
                   className="text-sm opacity-80 mb-3"
                   style={{ color: cat.color.text }}
                 >
-                  {tAge(`${cat.slug}-desc` as '0-3-desc' | '3-6-desc' | '7-10-desc' | '11-15-desc')}
+                  {tAge(`${cat.slug}-desc` as '0-3-desc' | '3-6-desc' | '7+-desc')}
                 </p>
 
                 {/* Game count */}

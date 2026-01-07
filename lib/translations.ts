@@ -248,8 +248,7 @@ export async function getHomepageDataWithTranslation(locale: string) {
     gameCounts: {
       '0-3': gameCountByAge[0],
       '3-6': gameCountByAge[1],
-      '7-10': gameCountByAge[2],
-      '11-15': gameCountByAge[3],
+      '7+': gameCountByAge[2],
     },
   };
 }

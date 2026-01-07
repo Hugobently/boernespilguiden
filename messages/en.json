@@ -27,12 +27,10 @@
   "ageGroups": {
     "0-3": "0-3 years",
     "3-6": "3-6 years",
-    "7-10": "7-10 years",
-    "11-15": "11-15 years",
+    "7+": "7+ years",
     "0-3-desc": "Baby & Toddlers",
     "3-6-desc": "Preschool",
-    "7-10-desc": "Primary School",
-    "11-15-desc": "Tweens"
+    "7+-desc": "School Age"
   },
   "home": {
     "heroTitle": "Find the best games for your kids",

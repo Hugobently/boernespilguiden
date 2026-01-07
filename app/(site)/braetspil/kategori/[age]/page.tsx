@@ -14,7 +14,7 @@ import { FilterSidebar, MobileFilters, SortDropdown, Pagination, ActiveFilters }
 
 const GAMES_PER_PAGE = 12;
 
-const validAgeGroups = ['0-3', '3-6', '7-10', '11-15'] as const;
+const validAgeGroups = ['0-3', '3-6', '7+'] as const;
 type AgeGroup = (typeof validAgeGroups)[number];
 
 const ageGroupConfig: Record<
@@ -46,24 +46,14 @@ const ageGroupConfig: Record<
       gradient: 'from-[#BAFFC9] to-[#95D5A6]',
     },
   },
-  '7-10': {
+  '7+': {
     emoji: '👦',
     minAge: 7,
-    maxAge: 10,
+    maxAge: 99,
     color: {
       bg: '#BAE1FF',
       text: '#1D4E89',
       gradient: 'from-[#BAE1FF] to-[#8ECAE6]',
-    },
-  },
-  '11-15': {
-    emoji: '🧑',
-    minAge: 11,
-    maxAge: 15,
-    color: {
-      bg: '#E2C2FF',
-      text: '#5B4670',
-      gradient: 'from-[#E2C2FF] to-[#CDB4DB]',
     },
   },
 };

@@ -67,7 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Age category pages
-  const ageGroups = ['0-3', '3-6', '7-10', '11-15'];
+  const ageGroups = ['0-3', '3-6', '7+'];
   const categoryPages: MetadataRoute.Sitemap = ageGroups.flatMap((age) => [
     {
       url: `${siteUrl}/spil/kategori/${age}`,

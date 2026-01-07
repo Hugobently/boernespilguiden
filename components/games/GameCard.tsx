@@ -134,15 +134,13 @@ const platformIcons: Record<Platform, { icon: string; label: string; color: stri
 const ageGroupColors: Record<string, { bg: string; text: string; border: string }> = {
   '0-3': { bg: '#FFD1DC', text: '#8B4563', border: '#FFB6C1' },
   '3-6': { bg: '#BAFFC9', text: '#2D6A4F', border: '#95D5A6' },
-  '7-10': { bg: '#BAE1FF', text: '#1D4E89', border: '#8ECAE6' },
-  '11-15': { bg: '#E2C2FF', text: '#5B4670', border: '#CDB4DB' },
+  '7+': { bg: '#BAE1FF', text: '#1D4E89', border: '#8ECAE6' },
 };
 
 function getAgeGroupColor(minAge: number) {
   if (minAge <= 3) return ageGroupColors['0-3'];
   if (minAge <= 6) return ageGroupColors['3-6'];
-  if (minAge <= 10) return ageGroupColors['7-10'];
-  return ageGroupColors['11-15'];
+  return ageGroupColors['7+'];
 }
 
 // ============================================================================
@@ -247,15 +245,13 @@ function AgeIndicator({ minAge, maxAge }: { minAge: number; maxAge: number }) {
   const ageEmojis: Record<string, string> = {
     '0-3': '👶',
     '3-6': '🧒',
-    '7-10': '👦',
-    '11-15': '🧑',
+    '7+': '👦',
   };
 
   let ageGroup = '0-3';
   if (minAge <= 3) ageGroup = '0-3';
   else if (minAge <= 6) ageGroup = '3-6';
-  else if (minAge <= 10) ageGroup = '7-10';
-  else ageGroup = '11-15';
+  else ageGroup = '7+';
 
   return (
     <div

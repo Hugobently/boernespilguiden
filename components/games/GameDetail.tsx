@@ -371,15 +371,13 @@ export function GameDetailHero({
   const ageGroupColors: Record<string, { bg: string; text: string }> = {
     '0-3': { bg: '#FFD1DC', text: '#8B4563' },
     '3-6': { bg: '#BAFFC9', text: '#2D6A4F' },
-    '7-10': { bg: '#BAE1FF', text: '#1D4E89' },
-    '11-15': { bg: '#E2C2FF', text: '#5B4670' },
+    '7+': { bg: '#BAE1FF', text: '#1D4E89' },
   };
 
   let ageGroup = '0-3';
   if (minAge <= 3) ageGroup = '0-3';
   else if (minAge <= 6) ageGroup = '3-6';
-  else if (minAge <= 10) ageGroup = '7-10';
-  else ageGroup = '11-15';
+  else ageGroup = '7+';
 
   const ageColors = ageGroupColors[ageGroup];
 

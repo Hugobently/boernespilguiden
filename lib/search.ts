@@ -259,8 +259,7 @@ const negativeFilters: Array<{
 function getAgeGroup(age: number): string {
   if (age <= 3) return '0-3';
   if (age <= 6) return '3-6';
-  if (age <= 10) return '7-10';
-  return '11-15';
+  return '7+';
 }
 
 // Determine age group from age range
