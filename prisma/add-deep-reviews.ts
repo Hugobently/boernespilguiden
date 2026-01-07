@@ -344,10 +344,10 @@ async function addReviews() {
 
   // Final count
   const gamesWithReviews = await prisma.game.count({
-    where: { description: { not: null } },
+    where: { description: { not: '' } },
   });
   const boardGamesWithReviews = await prisma.boardGame.count({
-    where: { description: { not: null } },
+    where: { description: { not: '' } },
   });
 
   console.log(`\n📊 Total: ${gamesWithReviews} digitale spil og ${boardGamesWithReviews} brætspil har nu anmeldelser`);

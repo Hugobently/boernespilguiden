@@ -5,10 +5,11 @@
 
 **Live Site:** https://boernespilguiden.dk
 **Languages:** Danish (primary), English, French, Spanish
+**Target Audience:** Danish parents with children aged 0-10 years
 
 ## Tech Stack
 - **Framework:** Next.js 14.2.35 (App Router)
-- **Database:** SQLite with Prisma ORM 5.22.0
+- **Database:** PostgreSQL with Prisma ORM 5.22.0 (hosted on Vercel/Prisma)
 - **Frontend:** React 18, TypeScript 5
 - **Styling:** TailwindCSS 3.4.1 with custom pastel child-friendly palette
 - **i18n:** next-intl 4.7.0
@@ -38,17 +39,14 @@
   search.ts               # Danish-aware natural language search parser
   translations.ts         # Multi-language content helpers
 
-/data
-  games-seed.ts           # 77 digital games seed data (includes 8 DR Ramasjang apps)
-  boardgames-seed.ts      # 59 board games seed data
-
 /prisma
   schema.prisma           # Database schema
   seed.ts                 # Database seeding script
+  *.ts                    # Various migration and update scripts
 
 /public/images/games
-  /board/                 # Board game images (SVG placeholders + real JPG/PNG)
-  /digital/               # Digital game images (SVG placeholders + real JPG/PNG)
+  /board/                 # Board game images
+  /digital/               # Digital game images
 
 /messages
   da.json, en.json, fr.json, es.json  # UI translations
@@ -57,113 +55,241 @@
 ## Database Schema (Prisma)
 
 ### Game (Digital Games)
-- title, slug, minAge, maxAge, ageGroup
-- categories, skills, themes (JSON arrays)
-- platforms (iOS, Android, PC, Nintendo, PlayStation, Xbox, Web)
-- Parent safety: hasAds, hasInAppPurchases, isOfflineCapable, dataCollection
-- Media: iconUrl, screenshots, videoUrl
-- Links: appStoreUrl, playStoreUrl, websiteUrl
-- rating (1-5), featured, editorChoice
+Required fields for creating a new game:
+- `title` - Game name
+- `slug` - URL-friendly identifier (lowercase, hyphens)
+- `description` - Deep review (600-900 characters, see Review Guidelines)
+- `shortDescription` - For cards (max 150 characters)
+- `minAge`, `maxAge` - Age range (integers)
+- `ageGroup` - One of: "0-3", "3-6", "7+"
+- `categories` - JSON string array: ["læring", "eventyr", "puslespil", "kreativ", "action", "musik"]
+- `platforms` - JSON string array: ["iOS", "Android", "PC", "Nintendo", "PlayStation", "Xbox", "Web"]
+- `price` - Float (0 for free)
+- `priceModel` - One of: "gratis", "engangskøb", "abonnement", "freemium"
+- `rating` - Float 1-5
+
+Optional but recommended:
+- `parentInfo` - Parent safety information (100-150 words)
+- `parentTip` - Practical tip for parents (1-2 sentences)
+- `skills` - JSON array: ["matematik", "læsning", "logik", "motorik", "sprog", "kreativitet"]
+- `themes` - JSON array: ["dyr", "rummet", "prinsesser", "dinosaurer", "natur", "eventyr"]
+- `developerName` - Developer/publisher name
+- `hasAds`, `hasInAppPurchases`, `isOfflineCapable` - Boolean flags
+- `pros`, `cons` - JSON arrays of strings
 
 ### BoardGame
-- title, slug, minAge, maxAge, ageGroup
-- playTimeMinutes, minPlayers, maxPlayers, complexity
-- categories, skills, themes, targetGender
-- imageUrl, affiliateUrl, amazonUrl
-- rating (1-5), featured, editorChoice
+Required fields:
+- `title`, `slug`, `description`, `shortDescription`
+- `minAge`, `maxAge`, `ageGroup`
+- `minPlayers`, `maxPlayers`, `playTimeMinutes`
+- `complexity` - Integer 1-5 (1=very easy, 5=complex)
+- `rating` - Float 1-5
 
 ### Translations
 - GameTranslation & BoardGameTranslation tables
 - Per-locale: title, description, shortDescription, pros, cons, parentTip
 
-## Age Groups
-- `0-3` (baby/toddler) - Pink color
-- `3-6` (preschool) - Green color
-- `7-10` (child) - Blue color
-- `11-15` (tween) - Purple color
+## Age Groups (UPDATED)
+The site now focuses on younger children with 3 age groups:
+- `0-3` (baby/toddler) - Pink color (#FFD1DC)
+- `3-6` (preschool) - Green color (#BAFFC9)
+- `7+` (school age) - Blue color (#BAE1FF)
 
-## Key Features
+**Note:** Previous categories "7-10" and "11-15" have been consolidated into "7+".
+
+## Current Database Status (2026-01-07)
+- **Digital games:** 86 games with deep reviews
+- **Board games:** 64 games with deep reviews
+- **All games have:** Description (600-900 chars), parentInfo, parentTip
+
+---
+
+# Review Guidelines
+
+## Writing Deep Reviews (description field)
+
+### Length & Format
+- **Target:** 600-900 characters (Danish)
+- **Style:** Informative but engaging, written for parents
+- **Tone:** Honest, balanced, helpful
+
+### Content Structure
+1. **Opening** (1-2 sentences): What is this game/app? What's the main experience?
+2. **Features** (2-3 sentences): Key activities, gameplay mechanics, what children can do
+3. **Educational value** (1-2 sentences): What skills does it develop? Learning outcomes?
+4. **Quality assessment** (1-2 sentences): Graphics, sound, user experience
+5. **Closing** (1 sentence): Who is this perfect for?
+
+### Example (Danish):
+```
+Khan Academy Kids er en af de bedste gratis læringsapps på markedet. Udviklet af den
+anerkendte non-profit organisation Khan Academy tilbyder appen tusindvis af aktiviteter
+inden for læsning, matematik, logik og social-emotionel læring. Børnene følger de søde
+dyrekarakterer gennem en struktureret læringssti, men kan også udforske frit. Indholdet
+er forskningsbaseret og opdateres løbende med nye aktiviteter. Interfacet er intuitivt
+og farverigt, og al tale er tydelig og venlig. Helt gratis uden reklamer eller køb -
+finansieret af donationer. En must-have for alle forældre der vil give deres børn et
+forspring, uden at betale en krone.
+```
+
+## Writing Parent Info (parentInfo field)
+
+### Length & Format
+- **Target:** 100-150 words (Danish)
+- **Focus:** Safety, practical concerns, what parents need to know
+
+### Must Include
+- Price model (gratis, abonnement, engangskøb, freemium)
+- Ads/in-app purchase status
+- Internet requirements
+- Age appropriateness
+- Any safety concerns
+- Developer credibility (if notable)
+
+### Example:
+```
+100% gratis app fra den anerkendte Khan Academy - ingen reklamer, ingen køb, ingen
+skjulte omkostninger. Dataindsamling er minimal og transparent. Kan bruges offline
+efter download. Indholdet er udviklet af pædagogiske eksperter og er helt sikkert
+for børn. Perfekt til forældre der vil give kvalitetslæring uden bekymringer.
+```
+
+## Writing Parent Tips (parentTip field)
+
+### Length & Format
+- **Target:** 1-2 sentences
+- **Style:** Praktisk, actionable advice
+
+### Good Tips Include
+- How to maximize learning
+- When/how to use the app
+- How to extend the learning beyond the screen
+- What to watch out for
+
+### Examples:
+```
+Sæt daglige mål (15-20 min) og sid gerne med de første gange for at forstå hvad barnet lærer.
+```
+```
+Brug appen som optakt til en naturtur - lad barnet finde de samme dyr og planter i virkeligheden.
+```
+
+## Rating Guidelines (1-5 scale)
+
+- **5.0:** Exceptionel - Best in class, no significant flaws
+- **4.5:** Fremragende - Excellent with minor nitpicks
+- **4.0:** Meget god - Strong recommendation with some limitations
+- **3.5:** God - Solid choice, some notable issues
+- **3.0:** Okay - Decent but significant room for improvement
+- **2.5:** Middelmådig - Mixed bag, specific use cases only
+- **2.0:** Under middel - Notable problems, better alternatives exist
+- **1.5-1.0:** Anbefales ikke - Significant issues, avoid
+
+## Danish Apps Priority
+The site has a special focus on Danish content:
+
+### DR Apps (Danmarks Radio)
+All DR apps are 100% free, ad-free, and safe:
+- DR Ramasjang LEG, LÆR, KREA
+- DR Minisjang (0-3 years)
+- DR Naturspillet, DR Øen
+- DR Karla, DR Motor Mille
+
+### Danish Cultural Apps
+- Rasmus Klump (classic Danish character)
+- Cirkeline (animated classic)
+- Gummi T (Danish Film Institute)
+- Poikilingo (Danish language learning)
+- ALPA Kids Dansk
+
+### Danish Attraction Apps
+- Tivoli Gardens
+- LEGOLAND Billund Resort
+- Jesperhus
+
+---
+
+# Adding New Games to Database
+
+## Method: Database Script
+Create a new file in `/prisma/` or run inline:
+
+```typescript
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+async function addGame() {
+  const game = await prisma.game.create({
+    data: {
+      slug: 'game-slug',
+      title: 'Game Title',
+      shortDescription: 'Short description for cards (max 150 chars)',
+      description: 'Deep review (600-900 chars)...',
+      ageGroup: '3-6',
+      minAge: 3,
+      maxAge: 6,
+      categories: JSON.stringify(['læring', 'eventyr']),
+      skills: JSON.stringify(['motorik', 'logik']),
+      themes: JSON.stringify(['dyr', 'natur']),
+      platforms: JSON.stringify(['iOS', 'Android']),
+      price: 0,
+      priceModel: 'gratis',
+      rating: 4.0,
+      developerName: 'Developer Name',
+      parentInfo: 'Parent safety info (100-150 words)...',
+      parentTip: 'Practical tip for parents...',
+      hasAds: false,
+      hasInAppPurchases: false,
+      isOfflineCapable: true,
+      pros: JSON.stringify(['Pro 1', 'Pro 2', 'Pro 3']),
+      cons: JSON.stringify(['Con 1']),
+    },
+  });
+  console.log('Created:', game.title);
+  await prisma.$disconnect();
+}
+
+addGame();
+```
+
+Run with:
+```bash
+DATABASE_URL="your-connection-string" npx tsx prisma/your-script.ts
+```
+
+---
+
+# Commands
+```bash
+npm run dev          # Start dev server
+npm run build        # Production build
+npx prisma studio    # Open database GUI
+npx prisma db push   # Push schema changes to database
+npx prisma generate  # Regenerate Prisma client
+```
+
+---
+
+# Design System
+- **Pastel Palette:** Coral (#FFB5A7), Mint (#B8E0D2), Sky (#A2D2FF), Sunflower (#FFE66D), Lavender (#CDB4DB)
+- **Background:** Paper (#FFFCF7), Cream (#FFF9F0)
+- **Text:** Dark (#4A4A4A), Muted (#7A7A7A)
+- Child-friendly rounded components, soft shadows, hover animations
+
+---
+
+# Key Features
 1. **Intelligent Search** - Danish natural language parsing ("5 år", "ingen reklamer", "gratis")
 2. **Parent-Focused Filters** - Ads, in-app purchases, offline capability, pricing
 3. **Multi-Language** - Full 4-language support with fallback to Danish
-4. **Affiliate Links** - App store and Amazon links for monetization
-5. **Analytics** - Page views, game clicks, affiliate click tracking
+4. **Deep Reviews** - Every game has comprehensive parent-focused review
+5. **Danish Focus** - Prioritizes Danish and Nordic content
 
-## Commands
-```bash
-npm run dev          # Start dev server (usually localhost:3000)
-npm run build        # Production build
-npm run db:seed      # Seed database with games
-npm run db:reset     # Reset and reseed database
-npx prisma studio    # Open database GUI
-```
+---
 
-## Image Status (as of 2026-01-06)
-- **Board games:** 67 games, ALL have real JPG/PNG images
-- **Digital games:** 87 games, 86 have real images, 1 (candy-crush) has SVG placeholder only
-- Images stored in `/public/images/games/board/` and `/public/images/games/digital/`
-- Naming convention: `{slug}.{jpg|png|svg}`
-- Images sourced from BoardGameGeek (board games) and various official sources (digital)
-
-## Launch Readiness Checklist (2026-01-06)
-
-### ✅ All Launch Requirements Completed
-- [x] Build compiles successfully (TypeScript, no errors)
-- [x] API routes configured with `dynamic = 'force-dynamic'`
-- [x] Database seeded: 77 digital games, 59 board games
-- [x] All board games have real images (JPG/PNG)
-- [x] Image fallback system tries jpg → png → svg automatically
-- [x] SEO metadata configured (title, description, keywords, OG tags)
-- [x] robots.txt and sitemap.xml working
-- [x] .env and database properly gitignored
-- [x] Homepage, game pages, search all functional
-- [x] **og-image.png** (1200x630px) - created for social media sharing
-- [x] **apple-touch-icon.png** (180x180px) - created for iOS bookmarks
-- [x] **manifest.webmanifest** - created for PWA support
-- [x] **Security headers** via middleware.ts (X-Frame-Options, CSP, HSTS, etc.)
-- [x] **.env.example** - created with production setup guidance
-
-### Public Assets Created
-```
-/public/
-  og-image.png          # Social media sharing (1200x630)
-  apple-touch-icon.png  # iOS bookmark icon (180x180)
-  icon-192.png          # PWA icon small
-  icon-512.png          # PWA icon large
-  icon.svg              # Vector favicon
-  manifest.webmanifest  # PWA manifest
-```
-
-### For Production Deployment
-1. Set up production database (PostgreSQL recommended)
-2. Configure analytics (see .env.example)
-3. Update NEXT_PUBLIC_SITE_URL in .env
-4. Deploy to Vercel/Railway/Render
-
-### Known Limitations
-- candy-crush and DR Ramasjang games only have SVG placeholders
-- Translation tables exist but are empty (Danish-only content in main tables)
-
-## Danish Focus - DR Ramasjang Games
-The site includes 8 free Danish games from DR (Danmarks Radio) public service:
-- **DR Ramasjang LEG** - Play with Ramasjang characters (featured, editor's choice)
-- **DR Ramasjang LÆR** - Learn Danish letters/numbers with Hr. Skæg (featured, editor's choice)
-- **DR Ramasjang KREA** - Creative drawing/art app
-- **DR Øen** - Explore Ramasjang Island
-- **DR Minisjang** - For youngest kids (0-3 years)
-- **DR Naturspillet** - Learn about Danish nature
-- **DR Karla** - Based on TV series
-- **DR Motor Mille** - Car-themed for vehicle lovers
-
-All DR apps are 100% free (funded by license), no ads, no in-app purchases, offline capable.
-
-## Design System
-- **Pastel Palette:** Coral, Mint, Sky, Sunflower, Lavender
-- **Background:** Paper (#FFFCF7), Cream (#FFF9F0)
-- Child-friendly rounded components, soft shadows, hover animations
-
-## Notes for Development
-- Database uses JSON strings for arrays (SQLite limitation)
+# Notes for Development
+- Database uses PostgreSQL on Vercel/Prisma
 - Search parser in `/lib/search.ts` handles Danish number words and phrases
-- GameCard component has compact variant for sidebars
-- Always run `npx prisma generate` after schema changes
+- All games should have description > 500 characters
+- Always include parentInfo and parentTip for new games
+- Run `npx prisma generate` after schema changes

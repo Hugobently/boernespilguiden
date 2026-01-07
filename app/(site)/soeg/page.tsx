@@ -70,14 +70,14 @@ async function searchGames(
     AND: [],
   };
 
-  // Search term matching
+  // Search term matching (case-insensitive for PostgreSQL)
   if (query) {
     digitalWhere.AND.push({
       OR: [
-        { title: { contains: query } },
-        { shortDescription: { contains: query } },
-        { description: { contains: query } },
-        { categories: { contains: query } },
+        { title: { contains: query, mode: 'insensitive' } },
+        { shortDescription: { contains: query, mode: 'insensitive' } },
+        { description: { contains: query, mode: 'insensitive' } },
+        { categories: { contains: query, mode: 'insensitive' } },
       ],
     });
   }
@@ -133,14 +133,14 @@ async function searchBoardGames(
     AND: [],
   };
 
-  // Search term matching
+  // Search term matching (case-insensitive for PostgreSQL)
   if (query) {
     boardWhere.AND.push({
       OR: [
-        { title: { contains: query } },
-        { shortDescription: { contains: query } },
-        { description: { contains: query } },
-        { categories: { contains: query } },
+        { title: { contains: query, mode: 'insensitive' } },
+        { shortDescription: { contains: query, mode: 'insensitive' } },
+        { description: { contains: query, mode: 'insensitive' } },
+        { categories: { contains: query, mode: 'insensitive' } },
       ],
     });
   }
