@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
-import { Footer } from '@/components/layout';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('privacy');
@@ -212,7 +211,6 @@ export default async function PrivacyPolicyPage() {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 }

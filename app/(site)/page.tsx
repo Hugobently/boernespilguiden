@@ -4,7 +4,6 @@ import { getTranslations, getLocale } from 'next-intl/server';
 import { Button } from '@/components/ui';
 import { SearchBar } from '@/components/filters';
 import { GameCard } from '@/components/games';
-import { Footer } from '@/components/layout';
 import { getHomepageDataWithTranslation } from '@/lib/translations';
 import { WebsiteJsonLdScript, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 
@@ -606,8 +605,6 @@ export default async function HomePage() {
       {/* CTA Section */}
       <CTASection t={t} />
 
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }

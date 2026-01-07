@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Footer } from '@/components/layout';
 
 export default function ContactPage() {
   const t = useTranslations('contact');
@@ -174,7 +173,6 @@ export default function ContactPage() {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 }

@@ -5,7 +5,6 @@ import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import prisma from '@/lib/db';
 import { GameCard } from '@/components/games';
-import { Footer } from '@/components/layout';
 import { FilterSidebar, MobileFilters, SortDropdown, Pagination, ActiveFilters } from './components';
 
 // ============================================================================
@@ -434,7 +433,6 @@ export default async function AgeGroupPage({ params, searchParams }: PageProps) 
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 }

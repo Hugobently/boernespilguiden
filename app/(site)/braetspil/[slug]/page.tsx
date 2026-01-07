@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { getAgeLabel } from '@/lib/utils';
 import { parseJsonArray } from '@/lib/types';
-import { Footer } from '@/components/layout';
 import { GameCard } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { getBoardGameWithTranslation, getBoardGamesWithTranslation } from '@/lib/translations';
@@ -566,7 +565,6 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
         )}
       </main>
 
-      <Footer />
     </div>
   );
 }

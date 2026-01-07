@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
-import { Footer } from '@/components/layout';
 import { GameCard } from '@/components/games';
 import { SearchBar } from '@/components/filters';
 import prisma from '@/lib/db';
@@ -588,7 +587,6 @@ export default async function SearchPage({ searchParams }: PageProps) {
         </Suspense>
       </main>
 
-      <Footer />
     </div>
   );
 }
