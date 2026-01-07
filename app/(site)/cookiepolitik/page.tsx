@@ -246,10 +246,10 @@ export default async function CookiePolicyPage() {
                 Har du spørgsmål til vores brug af cookies, er du velkommen til
                 at kontakte os på{' '}
                 <a
-                  href="mailto:kontakt@boernespilguiden.dk"
+                  href="mailto:boernespislguiden@proton.me"
                   className="text-[#FFB5A7] hover:underline"
                 >
-                  kontakt@boernespilguiden.dk
+                  boernespislguiden@proton.me
                 </a>
               </p>
             </section>

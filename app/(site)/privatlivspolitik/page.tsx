@@ -54,7 +54,7 @@ export default async function PrivacyPolicyPage() {
                 som vi modtager om dig. Du kan kontakte os via:
               </p>
               <ul className="list-disc list-inside text-[#7A7A7A] mt-2 space-y-1">
-                <li>Email: kontakt@boernespilguiden.dk</li>
+                <li>Email: boernespislguiden@proton.me</li>
               </ul>
             </section>
 
@@ -146,7 +146,7 @@ export default async function PrivacyPolicyPage() {
                 <li><strong>Ret til indsigelse:</strong> Du kan gøre indsigelse mod vores behandling</li>
               </ul>
               <p className="text-[#7A7A7A] leading-relaxed mt-4">
-                Kontakt os på kontakt@boernespilguiden.dk for at gøre brug af dine rettigheder.
+                Kontakt os på boernespislguiden@proton.me for at gøre brug af dine rettigheder.
               </p>
             </section>
 

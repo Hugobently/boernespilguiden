@@ -55,7 +55,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#4A4A4A]">{t('emailTitle')}</h3>
-                  <p className="text-[#7A7A7A]">kontakt@boernespilguiden.dk</p>
+                  <p className="text-[#7A7A7A]">boernespislguiden@proton.me</p>
                 </div>
               </div>
 
