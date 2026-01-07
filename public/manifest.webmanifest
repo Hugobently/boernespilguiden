@@ -1,0 +1,32 @@
+{
+  "name": "Børnespilguiden",
+  "short_name": "BSG",
+  "description": "Find de bedste spil til dine børn - ærlige anmeldelser af digitale spil og brætspil med fokus på sikkerhed, læring og sjov.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFDF8",
+  "theme_color": "#A2D2FF",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "da",
+  "categories": ["games", "education", "kids"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,662 @@
+'use client';
+
+import Image from 'next/image';
+import { cn, getAgeLabel } from '@/lib/utils';
+import { parseJsonArray, Platform } from '@/lib/types';
+import { useState } from 'react';
+import { CompactGameCard } from './GameCard';
+
+// ============================================================================
+// PLATFORM CONFIG
+// ============================================================================
+
+const platformConfig: Record<Platform, { icon: string; label: string; color: string }> = {
+  iOS: { icon: '🍎', label: 'App Store', color: '#007AFF' },
+  Android: { icon: '🤖', label: 'Google Play', color: '#3DDC84' },
+  PC: { icon: '💻', label: 'PC', color: '#6B7280' },
+  Nintendo: { icon: '🎮', label: 'Nintendo', color: '#E60012' },
+  PlayStation: { icon: '🎯', label: 'PlayStation', color: '#003791' },
+  Xbox: { icon: '🟢', label: 'Xbox', color: '#107C10' },
+  Web: { icon: '🌐', label: 'Spil online', color: '#4F46E5' },
+};
+
+// ============================================================================
+// SCREENSHOT GALLERY
+// ============================================================================
+
+interface ScreenshotGalleryProps {
+  screenshots: string[];
+  title: string;
+}
+
+function ScreenshotGallery({ screenshots, title }: ScreenshotGalleryProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  if (!screenshots || screenshots.length === 0) return null;
+
+  return (
+    <div className="space-y-4">
+      {/* Main image */}
+      <div className="relative aspect-video rounded-3xl overflow-hidden bg-gradient-to-br from-[#A2D2FF]/30 to-[#CDB4DB]/30">
+        <Image
+          src={screenshots[activeIndex]}
+          alt={`${title} screenshot ${activeIndex + 1}`}
+          fill
+          className="object-cover"
+          priority
+        />
+
+        {/* Navigation arrows */}
+        {screenshots.length > 1 && (
+          <>
+            <button
+              onClick={() => setActiveIndex((i) => (i > 0 ? i - 1 : screenshots.length - 1))}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-[#4A4A4A] hover:bg-white transition-colors"
+              aria-label="Forrige billede"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={() => setActiveIndex((i) => (i < screenshots.length - 1 ? i + 1 : 0))}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-[#4A4A4A] hover:bg-white transition-colors"
+              aria-label="Næste billede"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
+
+        {/* Image counter */}
+        <div className="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-black/50 text-white text-sm font-medium">
+          {activeIndex + 1} / {screenshots.length}
+        </div>
+      </div>
+
+      {/* Thumbnails */}
+      {screenshots.length > 1 && (
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {screenshots.map((src, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={cn(
+                'relative flex-shrink-0 w-20 h-14 rounded-xl overflow-hidden transition-all',
+                index === activeIndex
+                  ? 'ring-2 ring-[#FFB5A7] ring-offset-2 scale-105'
+                  : 'opacity-60 hover:opacity-100'
+              )}
+            >
+              <Image src={src} alt={`Thumbnail ${index + 1}`} fill className="object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ============================================================================
+// STAR RATING (Large)
+// ============================================================================
+
+function LargeRating({ rating }: { rating: number }) {
+  const fullStars = Math.floor(rating);
+  const hasHalf = rating - fullStars >= 0.5;
+
+  return (
+    <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1">
+        {[...Array(5)].map((_, i) => (
+          <span
+            key={i}
+            className={cn(
+              'text-2xl transition-colors',
+              i < fullStars
+                ? 'text-[#FFE66D]'
+                : i === fullStars && hasHalf
+                ? 'text-[#FFE66D]/60'
+                : 'text-[#9CA3AF]/40'
+            )}
+          >
+            ★
+          </span>
+        ))}
+      </div>
+      <span className="text-2xl font-bold text-[#4A4A4A]">{rating.toFixed(1)}</span>
+    </div>
+  );
+}
+
+// ============================================================================
+// PROS & CONS LIST
+// ============================================================================
+
+interface ProsConsProps {
+  pros: string[];
+  cons: string[];
+}
+
+export function ProsCons({ pros, cons }: ProsConsProps) {
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      {/* Pros */}
+      <div className="bg-[#D8F3DC]/30 rounded-3xl p-6 border border-[#95D5B2]/30">
+        <h3 className="font-bold text-lg text-[#2D6A4F] mb-4 flex items-center gap-2">
+          <span className="w-8 h-8 rounded-full bg-[#77DD77] flex items-center justify-center text-white">
+            👍
+          </span>
+          <span>Det gode</span>
+        </h3>
+        <ul className="space-y-3">
+          {pros.map((pro, index) => (
+            <li key={index} className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#77DD77] flex items-center justify-center mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span className="text-[#4A4A4A]">{pro}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Cons */}
+      <div className="bg-[#FFD1DC]/30 rounded-3xl p-6 border border-[#FFB6C1]/30">
+        <h3 className="font-bold text-lg text-[#8B4563] mb-4 flex items-center gap-2">
+          <span className="w-8 h-8 rounded-full bg-[#FF9AA2] flex items-center justify-center text-white">
+            👎
+          </span>
+          <span>Det mindre gode</span>
+        </h3>
+        <ul className="space-y-3">
+          {cons.map((con, index) => (
+            <li key={index} className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#FF9AA2] flex items-center justify-center mt-0.5">
+                <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </span>
+              <span className="text-[#4A4A4A]">{con}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
+// PARENT TIP (Highlighted)
+// ============================================================================
+
+interface ParentTipProps {
+  tip: string;
+  title?: string;
+}
+
+export function ParentTip({ tip, title = 'Tip til forældre' }: ParentTipProps) {
+  return (
+    <div className="relative bg-gradient-to-br from-[#FFE66D]/30 via-[#FFF3B0]/30 to-[#FFE66D]/20 rounded-3xl p-6 border-2 border-[#FFE66D]/50 overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#FFE66D]/20 rounded-full blur-xl" />
+      <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#FFD93D]/10 rounded-full blur-2xl" />
+
+      {/* Content */}
+      <div className="relative">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-4xl">💡</span>
+          <h3 className="font-bold text-xl text-[#7D6608]">{title}</h3>
+        </div>
+        <p className="text-[#4A4A4A] text-lg leading-relaxed">{tip}</p>
+      </div>
+
+      {/* Corner decoration */}
+      <div className="absolute top-2 right-2 text-2xl opacity-20">✨</div>
+    </div>
+  );
+}
+
+// ============================================================================
+// PLATFORM LINKS
+// ============================================================================
+
+interface PlatformLinksProps {
+  platforms: Platform[];
+  appStoreUrl?: string | null;
+  playStoreUrl?: string | null;
+  websiteUrl?: string | null;
+}
+
+export function PlatformLinks({
+  platforms,
+  appStoreUrl,
+  playStoreUrl,
+  websiteUrl,
+}: PlatformLinksProps) {
+  const links = [
+    { platform: 'iOS' as Platform, url: appStoreUrl, label: 'App Store' },
+    { platform: 'Android' as Platform, url: playStoreUrl, label: 'Google Play' },
+    { platform: 'Web' as Platform, url: websiteUrl, label: 'Spil online' },
+  ].filter((link) => link.url && platforms.includes(link.platform));
+
+  if (links.length === 0) return null;
+
+  return (
+    <div className="space-y-3">
+      <h3 className="font-bold text-lg text-[#4A4A4A] flex items-center gap-2">
+        <span>📥</span>
+        <span>Hent spillet</span>
+      </h3>
+      <div className="flex flex-wrap gap-3">
+        {links.map((link) => {
+          const config = platformConfig[link.platform];
+          return (
+            <a
+              key={link.platform}
+              href={link.url!}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                'inline-flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold',
+                'bg-[#4A4A4A] text-white',
+                'shadow-[0_4px_0_0_#2D2D2D]',
+                'hover:-translate-y-0.5 hover:shadow-[0_6px_0_0_#2D2D2D]',
+                'active:translate-y-0.5 active:shadow-[0_2px_0_0_#2D2D2D]',
+                'transition-all duration-200'
+              )}
+            >
+              <span className="text-xl">{config.icon}</span>
+              <span>{link.label}</span>
+              <svg className="w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
+// RELATED GAMES
+// ============================================================================
+
+interface RelatedGame {
+  slug: string;
+  title: string;
+  type: 'digital' | 'board';
+  minAge: number;
+  maxAge: number;
+  iconUrl?: string | null;
+  imageUrl?: string | null;
+  rating: number;
+}
+
+interface RelatedGamesProps {
+  games: RelatedGame[];
+  type: 'digital' | 'board';
+  title?: string;
+}
+
+export function RelatedGames({
+  games,
+  type,
+  title = 'Lignende spil',
+}: RelatedGamesProps) {
+  if (games.length === 0) return null;
+
+  return (
+    <div className="space-y-4">
+      <h3 className="font-bold text-lg text-[#4A4A4A] flex items-center gap-2">
+        <span>🎯</span>
+        <span>{title}</span>
+      </h3>
+      <div className="space-y-3">
+        {games.slice(0, 4).map((game) => (
+          <CompactGameCard
+            key={game.slug}
+            slug={game.slug}
+            title={game.title}
+            type={type}
+            minAge={game.minAge}
+            maxAge={game.maxAge}
+            iconUrl={game.iconUrl}
+            imageUrl={game.imageUrl}
+            rating={game.rating}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
+// GAME DETAIL HERO
+// ============================================================================
+
+interface GameDetailHeroProps {
+  title: string;
+  type: 'digital' | 'board';
+  iconUrl?: string | null;
+  imageUrl?: string | null;
+  minAge: number;
+  maxAge: number;
+  rating: number;
+  publisher?: string | null;
+  releaseDate?: string | null;
+  editorChoice?: boolean;
+}
+
+export function GameDetailHero({
+  title,
+  type,
+  iconUrl,
+  imageUrl,
+  minAge,
+  maxAge,
+  rating,
+  publisher,
+  releaseDate,
+  editorChoice,
+}: GameDetailHeroProps) {
+  const typeEmoji = type === 'digital' ? '🎮' : '🎲';
+  const displayImage = type === 'digital' ? iconUrl : imageUrl;
+
+  const ageGroupColors: Record<string, { bg: string; text: string }> = {
+    '0-3': { bg: '#FFD1DC', text: '#8B4563' },
+    '3-6': { bg: '#BAFFC9', text: '#2D6A4F' },
+    '7-10': { bg: '#BAE1FF', text: '#1D4E89' },
+    '11-15': { bg: '#E2C2FF', text: '#5B4670' },
+  };
+
+  let ageGroup = '0-3';
+  if (minAge <= 3) ageGroup = '0-3';
+  else if (minAge <= 6) ageGroup = '3-6';
+  else if (minAge <= 10) ageGroup = '7-10';
+  else ageGroup = '11-15';
+
+  const ageColors = ageGroupColors[ageGroup];
+
+  return (
+    <div className="flex flex-col md:flex-row gap-8 items-start">
+      {/* Icon/Image */}
+      <div className="relative flex-shrink-0">
+        <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-lg bg-gradient-to-br from-[#A2D2FF] via-[#CDB4DB] to-[#FFB5A7]">
+          {displayImage ? (
+            <Image src={displayImage} alt={title} fill className="object-cover" />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-7xl">{typeEmoji}</span>
+            </div>
+          )}
+        </div>
+
+        {/* Editor's choice badge */}
+        {editorChoice && (
+          <div className="absolute -top-3 -right-3 bg-gradient-to-r from-[#FFE66D] to-[#FFD93D] text-[#7D6608] px-3 py-1 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
+            <span>⭐</span>
+            <span>Redaktørens valg</span>
+          </div>
+        )}
+      </div>
+
+      {/* Info */}
+      <div className="flex-1">
+        {/* Type badge */}
+        <div className="flex items-center gap-2 mb-3">
+          <span
+            className={cn(
+              'inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-bold',
+              type === 'digital' ? 'bg-[#BAE1FF] text-[#1D4E89]' : 'bg-[#E2C2FF] text-[#5B4670]'
+            )}
+          >
+            <span>{typeEmoji}</span>
+            <span>{type === 'digital' ? 'Digitalt spil' : 'Brætspil'}</span>
+          </span>
+        </div>
+
+        {/* Title */}
+        <h1 className="text-3xl md:text-4xl font-bold text-[#4A4A4A] mb-4">{title}</h1>
+
+        {/* Meta info */}
+        <div className="flex flex-wrap items-center gap-4 mb-4">
+          {/* Age */}
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-bold"
+            style={{ backgroundColor: ageColors.bg, color: ageColors.text }}
+          >
+            <span>👶</span>
+            <span>{getAgeLabel(minAge, maxAge)}</span>
+          </div>
+
+          {/* Rating */}
+          <LargeRating rating={rating} />
+        </div>
+
+        {/* Publisher & release */}
+        <div className="flex flex-wrap gap-4 text-sm text-[#7A7A7A]">
+          {publisher && (
+            <span className="flex items-center gap-1">
+              <span>🏢</span>
+              <span>{publisher}</span>
+            </span>
+          )}
+          {releaseDate && (
+            <span className="flex items-center gap-1">
+              <span>📅</span>
+              <span>{new Date(releaseDate).toLocaleDateString('da-DK', { year: 'numeric', month: 'long' })}</span>
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
+// GAME DETAIL FULL COMPONENT
+// ============================================================================
+
+export interface GameDetailProps {
+  game: {
+    slug: string;
+    title: string;
+    description: string;
+    shortDescription: string;
+    type: 'digital' | 'board';
+    minAge: number;
+    maxAge: number;
+    iconUrl?: string | null;
+    imageUrl?: string | null;
+    rating: number;
+    publisher?: string | null;
+    developer?: string | null;
+    releaseDate?: string | null;
+    editorChoice?: boolean;
+    // Digital game specific
+    platforms?: string;
+    appStoreUrl?: string | null;
+    playStoreUrl?: string | null;
+    websiteUrl?: string | null;
+    // Review data
+    pros?: string;
+    cons?: string;
+    parentTip?: string | null;
+    screenshots?: string;
+    // Categories
+    categories?: string;
+    skills?: string;
+    themes?: string;
+  };
+  relatedGames?: RelatedGame[];
+}
+
+export function GameDetail({ game, relatedGames = [] }: GameDetailProps) {
+  const parsedPlatforms = game.platforms ? parseJsonArray<Platform>(game.platforms) : [];
+  const parsedPros = game.pros ? parseJsonArray<string>(game.pros) : [];
+  const parsedCons = game.cons ? parseJsonArray<string>(game.cons) : [];
+  const parsedScreenshots = game.screenshots ? parseJsonArray<string>(game.screenshots) : [];
+  const parsedCategories = game.categories ? parseJsonArray<string>(game.categories) : [];
+  const parsedSkills = game.skills ? parseJsonArray<string>(game.skills) : [];
+  const parsedThemes = game.themes ? parseJsonArray<string>(game.themes) : [];
+
+  return (
+    <div className="max-w-6xl mx-auto">
+      {/* Hero Section */}
+      <section className="mb-12">
+        <GameDetailHero
+          title={game.title}
+          type={game.type}
+          iconUrl={game.iconUrl}
+          imageUrl={game.imageUrl}
+          minAge={game.minAge}
+          maxAge={game.maxAge}
+          rating={game.rating}
+          publisher={game.publisher}
+          releaseDate={game.releaseDate}
+          editorChoice={game.editorChoice}
+        />
+      </section>
+
+      {/* Two column layout */}
+      <div className="grid lg:grid-cols-3 gap-8">
+        {/* Main content */}
+        <div className="lg:col-span-2 space-y-10">
+          {/* Screenshots */}
+          {parsedScreenshots.length > 0 && (
+            <section>
+              <h2 className="font-bold text-xl text-[#4A4A4A] mb-4 flex items-center gap-2">
+                <span>📸</span>
+                <span>Screenshots</span>
+              </h2>
+              <ScreenshotGallery screenshots={parsedScreenshots} title={game.title} />
+            </section>
+          )}
+
+          {/* Description */}
+          <section>
+            <h2 className="font-bold text-xl text-[#4A4A4A] mb-4 flex items-center gap-2">
+              <span>📝</span>
+              <span>Om spillet</span>
+            </h2>
+            <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm">
+              <p className="text-[#4A4A4A] leading-relaxed whitespace-pre-line">{game.description}</p>
+            </div>
+          </section>
+
+          {/* Pros & Cons */}
+          {(parsedPros.length > 0 || parsedCons.length > 0) && (
+            <section>
+              <h2 className="font-bold text-xl text-[#4A4A4A] mb-4 flex items-center gap-2">
+                <span>⚖️</span>
+                <span>Fordele og ulemper</span>
+              </h2>
+              <ProsCons
+                pros={parsedPros}
+                cons={parsedCons}
+              />
+            </section>
+          )}
+
+          {/* Parent Tip */}
+          {game.parentTip && (
+            <section>
+              <ParentTip tip={game.parentTip} />
+            </section>
+          )}
+
+          {/* Skills & Learning */}
+          {parsedSkills.length > 0 && (
+            <section>
+              <h2 className="font-bold text-xl text-[#4A4A4A] mb-4 flex items-center gap-2">
+                <span>🧠</span>
+                <span>Læring & Udvikling</span>
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {parsedSkills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#B8E0D2]/30 text-[#2D6A4F] font-medium capitalize"
+                  >
+                    <span>✨</span>
+                    <span>{skill}</span>
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+
+        {/* Sidebar */}
+        <div className="space-y-8">
+          {/* Platform Links */}
+          {game.type === 'digital' && (
+            <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm">
+              <PlatformLinks
+                platforms={parsedPlatforms}
+                appStoreUrl={game.appStoreUrl}
+                playStoreUrl={game.playStoreUrl}
+                websiteUrl={game.websiteUrl}
+              />
+            </div>
+          )}
+
+          {/* Categories */}
+          {parsedCategories.length > 0 && (
+            <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm">
+              <h3 className="font-bold text-lg text-[#4A4A4A] mb-3 flex items-center gap-2">
+                <span>🏷️</span>
+                <span>Kategorier</span>
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {parsedCategories.map((cat) => (
+                  <span
+                    key={cat}
+                    className="px-3 py-1 rounded-full bg-[#A2D2FF]/30 text-[#1D4E89] text-sm font-medium capitalize"
+                  >
+                    {cat}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Themes */}
+          {parsedThemes.length > 0 && (
+            <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm">
+              <h3 className="font-bold text-lg text-[#4A4A4A] mb-3 flex items-center gap-2">
+                <span>🎨</span>
+                <span>Temaer</span>
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {parsedThemes.map((theme) => (
+                  <span
+                    key={theme}
+                    className="px-3 py-1 rounded-full bg-[#CDB4DB]/30 text-[#5B4670] text-sm font-medium capitalize"
+                  >
+                    {theme}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Related Games */}
+          {relatedGames.length > 0 && (
+            <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm">
+              <RelatedGames games={relatedGames} type={game.type} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default GameDetail;

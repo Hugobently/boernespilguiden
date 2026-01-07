@@ -59,10 +59,10 @@ export function FeaturedGame({
           {/* Content side */}
           <div className="p-8 md:p-12 flex flex-col justify-center">
             <div className="flex flex-wrap gap-2 mb-4">
-              <Badge variant={type === 'DIGITAL' ? 'blue' : 'purple'}>
+              <Badge color={type === 'DIGITAL' ? 'sky' : 'lavender'}>
                 {typeEmoji} {typeLabel}
               </Badge>
-              <Badge variant="green">{getAgeLabel(minAge, maxAge)}</Badge>
+              <Badge color="success">{getAgeLabel(minAge, maxAge)}</Badge>
             </div>
 
             <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">

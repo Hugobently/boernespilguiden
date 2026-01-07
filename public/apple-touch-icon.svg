@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A2D2FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#CDB4DB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#98DDCA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background with rounded corners -->
+  <rect width="180" height="180" rx="40" fill="url(#bgGrad)"/>
+
+  <!-- Decorative flowers in corners -->
+  <g transform="translate(30, 30) scale(0.4)">
+    <ellipse cx="0" cy="-15" rx="10" ry="15" fill="#FFB5A7" opacity="0.6"/>
+    <ellipse cx="0" cy="15" rx="10" ry="15" fill="#FFB5A7" opacity="0.6"/>
+    <ellipse cx="-15" cy="0" rx="15" ry="10" fill="#FFB5A7" opacity="0.6"/>
+    <ellipse cx="15" cy="0" rx="15" ry="10" fill="#FFB5A7" opacity="0.6"/>
+    <circle cx="0" cy="0" r="8" fill="#FFE066"/>
+  </g>
+
+  <g transform="translate(150, 150) scale(0.4)">
+    <ellipse cx="0" cy="-15" rx="10" ry="15" fill="#BAFFC9" opacity="0.6"/>
+    <ellipse cx="0" cy="15" rx="10" ry="15" fill="#BAFFC9" opacity="0.6"/>
+    <ellipse cx="-15" cy="0" rx="15" ry="10" fill="#BAFFC9" opacity="0.6"/>
+    <ellipse cx="15" cy="0" rx="15" ry="10" fill="#BAFFC9" opacity="0.6"/>
+    <circle cx="0" cy="0" r="8" fill="#FFE066"/>
+  </g>
+
+  <!-- Game controller and dice combined icon -->
+  <text x="90" y="75" font-family="Apple Color Emoji, Segoe UI Emoji" font-size="40" text-anchor="middle">🎮</text>
+  <text x="90" y="125" font-family="Apple Color Emoji, Segoe UI Emoji" font-size="40" text-anchor="middle">🎲</text>
+
+  <!-- BSG text at bottom -->
+  <text x="90" y="165" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="800" fill="white" text-anchor="middle" opacity="0.9">BSG</text>
+</svg>

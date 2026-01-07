@@ -1,0 +1,223 @@
+// Prisma schema for Børnespilguiden - PostgreSQL Production
+// Use this schema for production deployments
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// SUPPORTED LANGUAGES
+// ============================================================================
+// da = Danish (default), en = English, fr = French, es = Spanish
+
+// ============================================================================
+// GAME TRANSLATIONS
+// ============================================================================
+
+// Translations for digital games
+model GameTranslation {
+  id               String @id @default(cuid())
+  gameId           String
+  locale           String // "da", "en", "fr", "es"
+
+  // Translated content
+  title            String
+  description      String @db.Text
+  shortDescription String
+  pros             Json   @default("[]") // Array of translated pros
+  cons             Json   @default("[]") // Array of translated cons
+  parentTip        String? @db.Text
+
+  // Relations
+  game             Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  @@unique([gameId, locale])
+  @@index([locale])
+}
+
+// Translations for board games
+model BoardGameTranslation {
+  id               String    @id @default(cuid())
+  boardGameId      String
+  locale           String // "da", "en", "fr", "es"
+
+  // Translated content
+  title            String
+  description      String    @db.Text
+  shortDescription String
+  pros             Json      @default("[]") // Array
+  cons             Json      @default("[]") // Array
+  parentTip        String?   @db.Text
+
+  // Relations
+  boardGame        BoardGame @relation(fields: [boardGameId], references: [id], onDelete: Cascade)
+
+  @@unique([boardGameId, locale])
+  @@index([locale])
+}
+
+// ============================================================================
+// DIGITAL GAMES
+// ============================================================================
+
+// Digitale spil
+model Game {
+  id                String   @id @default(cuid())
+  title             String
+  slug              String   @unique
+  description       String   @db.Text // Vores egen review-tekst
+  shortDescription  String   // Til cards (max 150 tegn)
+
+  // Aldersgruppe
+  minAge            Int
+  maxAge            Int
+  ageGroup          String   // "0-3", "3-6", "7-10", "11-15"
+
+  // Kategorier og tags (native PostgreSQL arrays)
+  categories        Json     @default("[]") // ["læring", "eventyr", "puslespil", "kreativ", "action"]
+  skills            Json     @default("[]") // ["matematik", "læsning", "logik", "motorik", "sprog"]
+  themes            Json     @default("[]") // ["dyr", "rummet", "prinsesser", "dinosaurer"]
+  targetGender      String   @default("alle") // "alle", "drenge", "piger"
+
+  // Platform info
+  platforms         Json     @default("[]") // ["iOS", "Android", "PC", "Nintendo", "PlayStation"]
+  appStoreUrl       String?
+  playStoreUrl      String?
+  websiteUrl        String?
+
+  // Forældreinfo (VIGTIGT for din side!)
+  hasAds            Boolean  @default(false)
+  hasInAppPurchases Boolean  @default(false)
+  isOfflineCapable  Boolean  @default(false)
+  requiresInternet  Boolean  @default(false)
+  dataCollection    String?  // "ingen", "minimal", "moderat", "omfattende"
+
+  // Pris
+  price             Float    @default(0)
+  priceModel        String   // "gratis", "engangskøb", "abonnement", "freemium"
+
+  // Vores vurdering
+  rating            Float    // 1-5
+  pros              Json     @default("[]") // Array
+  cons              Json     @default("[]") // Array
+  parentTip         String?  @db.Text // Tip til forældre
+
+  // Media
+  iconUrl           String?
+  screenshots       Json     @default("[]") // Array
+  videoUrl          String?
+
+  // Developer info
+  developerName     String?
+
+  // Affiliate (til senere)
+  affiliateUrl      String?
+  affiliateProvider String?  // "apple", "google", "amazon"
+
+  // Meta
+  featured          Boolean  @default(false)
+  editorChoice      Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Translations relation
+  translations      GameTranslation[]
+
+  // Full-text search index
+  @@index([title])
+  @@index([ageGroup])
+  @@index([rating])
+  @@index([featured])
+}
+
+// ============================================================================
+// BOARD GAMES
+// ============================================================================
+
+// Brætspil
+model BoardGame {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  description      String   @db.Text
+  shortDescription String
+
+  // Aldersgruppe
+  minAge           Int
+  maxAge           Int
+  ageGroup         String
+
+  // Spilinfo
+  minPlayers       Int
+  maxPlayers       Int
+  playTimeMinutes  Int
+  complexity       Int      // 1-5 (1=meget let, 5=kompleks)
+
+  // Kategorier (native PostgreSQL JSON)
+  categories       Json     @default("[]") // ["strategi", "samarbejde", "læring", "fest", "kort"]
+  skills           Json     @default("[]")
+  themes           Json     @default("[]")
+  targetGender     String   @default("alle")
+
+  // Pris og køb
+  price            Float?
+  affiliateUrl     String?
+  amazonUrl        String?
+
+  // Vurdering
+  rating           Float
+  pros             Json     @default("[]") // Array
+  cons             Json     @default("[]") // Array
+  parentTip        String?  @db.Text
+
+  // Media
+  imageUrl         String?
+
+  // Meta
+  featured         Boolean  @default(false)
+  editorChoice     Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Translations relation
+  translations     BoardGameTranslation[]
+
+  // Indexes
+  @@index([title])
+  @@index([ageGroup])
+  @@index([rating])
+  @@index([featured])
+}
+
+// ============================================================================
+// ANALYTICS
+// ============================================================================
+
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  type      String   // "page_view", "game_click", "affiliate_click", "search_query", etc.
+  sessionId String?
+  data      Json     // JSON data
+  timestamp DateTime @default(now())
+
+  @@index([type])
+  @@index([timestamp])
+  @@index([sessionId])
+}
+
+// Popular search queries (aggregated)
+model SearchQuery {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  count     Int      @default(1)
+  lastUsed  DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@index([count])
+  @@index([lastUsed])
+}

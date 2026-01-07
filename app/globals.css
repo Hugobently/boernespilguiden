@@ -2,38 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Google Fonts - Playful display + clean body */
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap');
+/* ==========================================================================
+   BØRNESPILGUIDEN - Soft Pastel Design System
+   A playful, child-friendly aesthetic with rounded forms and gentle colors
+   ========================================================================== */
+
+/* Google Fonts - Nunito for that rounded, friendly feel */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ========================================================================== */
 
 :root {
-  /* Fonts */
-  --font-display: 'Baloo 2', cursive;
-  --font-body: 'Nunito', sans-serif;
+  /* Typography */
+  --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
+  --font-display: 'Nunito', system-ui, -apple-system, sans-serif;
 
-  /* Primary palette */
-  --candy-pink: #FF6B9D;
-  --candy-purple: #9B59B6;
-  --candy-blue: #3498DB;
-  --candy-cyan: #00D9FF;
-  --candy-green: #2ECC71;
-  --candy-yellow: #F1C40F;
-  --candy-orange: #FF8C42;
-  --candy-red: #E74C3C;
+  /* Primary Pastel Palette */
+  --coral: #FFB5A7;
+  --coral-light: #FCD5CE;
+  --coral-dark: #F8A99B;
 
-  /* Backgrounds */
-  --cream: #FFF8E7;
-  --sky: #E8F4FD;
-  --mint: #E8F8F5;
-  --lavender: #F3E8FF;
+  --mint: #B8E0D2;
+  --mint-light: #D8F3DC;
+  --mint-dark: #95D5B2;
 
-  /* Text */
-  --charcoal: #2D3436;
-  --slate: #636E72;
+  --sky: #A2D2FF;
+  --sky-light: #CAF0F8;
+  --sky-dark: #72B4E8;
+
+  --sunflower: #FFE66D;
+  --sunflower-light: #FFF3B0;
+  --sunflower-dark: #FFD93D;
+
+  --lavender: #CDB4DB;
+  --lavender-light: #E2D1F0;
+  --lavender-dark: #B392C9;
+
+  /* Background Colors - Warm & Cozy */
+  --bg-cream: #FFF9F0;
+  --bg-paper: #FFFCF7;
+  --bg-peach: #FFF0E8;
+  --bg-mist: #F5F9FC;
+
+  /* Text Colors */
+  --text-primary: #4A4A4A;
+  --text-secondary: #7A7A7A;
+  --text-muted: #9CA3AF;
+  --text-inverse: #FFFFFF;
+
+  /* Age Group Colors */
+  --age-baby: #FFD1DC;
+  --age-toddler: #BAFFC9;
+  --age-child: #BAE1FF;
+  --age-tween: #E2C2FF;
+
+  /* Semantic Colors */
+  --success: #77DD77;
+  --warning: #FFD97D;
+  --error: #FF9AA2;
+  --info: #A0D2DB;
+
+  /* Legacy candy colors (for backwards compatibility) */
+  --candy-pink: var(--coral);
+  --candy-purple: var(--lavender);
+  --candy-blue: var(--sky);
+  --candy-cyan: var(--sky-light);
+  --candy-green: var(--mint);
+  --candy-yellow: var(--sunflower);
+  --candy-orange: var(--coral-dark);
+
+  /* Legacy background colors */
+  --cream: var(--bg-cream);
+
+  /* Legacy text colors */
+  --charcoal: var(--text-primary);
+  --slate: var(--text-secondary);
 
   /* Computed */
-  --background: var(--cream);
-  --foreground: var(--charcoal);
+  --background: var(--bg-cream);
+  --foreground: var(--text-primary);
+
+  /* Shadows */
+  --shadow-soft: 0 2px 12px -2px rgba(0, 0, 0, 0.06), 0 4px 24px -4px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 4px 16px -4px rgba(0, 0, 0, 0.08), 0 8px 32px -8px rgba(0, 0, 0, 0.06);
+  --shadow-lifted: 0 8px 24px -4px rgba(0, 0, 0, 0.1), 0 16px 48px -8px rgba(0, 0, 0, 0.06);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
 }
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
 
 * {
   box-sizing: border-box;
@@ -41,17 +114,20 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--foreground);
+  background-color: var(--background);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Decorative background pattern */
+/* Subtle decorative background pattern */
 body::before {
   content: '';
   position: fixed;
@@ -60,79 +136,206 @@ body::before {
   right: 0;
   bottom: 0;
   background-image:
-    radial-gradient(circle at 10% 20%, rgba(255, 107, 157, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(52, 152, 219, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(46, 204, 113, 0.05) 0%, transparent 50%);
+    /* Soft pastel blobs */
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(255, 181, 167, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 70%, rgba(162, 210, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 70% at 50% 90%, rgba(184, 224, 210, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(255, 230, 109, 0.08) 0%, transparent 60%);
   pointer-events: none;
   z-index: -1;
 }
 
-/* Typography */
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.2;
+  color: var(--text-primary);
 }
 
-/* Focus styles for accessibility */
+h1 { font-size: 2.5rem; font-weight: 800; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+@media (min-width: 768px) {
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.25rem; }
+  h3 { font-size: 1.75rem; }
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--coral-dark);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--coral);
+}
+
+/* ==========================================================================
+   FOCUS & ACCESSIBILITY
+   ========================================================================== */
+
 :focus-visible {
-  outline: 3px solid var(--candy-cyan);
+  outline: 3px solid var(--sky);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
-/* Selection color */
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   SELECTION & SCROLLBAR
+   ========================================================================== */
+
 ::selection {
-  background: var(--candy-pink);
-  color: white;
+  background: var(--coral-light);
+  color: var(--text-primary);
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - playful and rounded */
 ::-webkit-scrollbar {
   width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: var(--bg-cream);
+  border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--candy-pink), var(--candy-purple));
-  border-radius: 10px;
-  border: 3px solid var(--cream);
+  background: linear-gradient(180deg, var(--coral-light), var(--coral));
+  border-radius: var(--radius-full);
+  border: 3px solid var(--bg-cream);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--candy-purple), var(--candy-blue));
+  background: linear-gradient(180deg, var(--coral), var(--coral-dark));
 }
 
-/* Utility classes */
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--coral-light) var(--bg-cream);
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
 @layer utilities {
+  /* Text utilities */
   .text-balance {
     text-wrap: balance;
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple), var(--candy-blue));
+    background: linear-gradient(135deg, var(--coral), var(--lavender), var(--sky));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
+  .gradient-text-warm {
+    background: linear-gradient(135deg, var(--coral), var(--sunflower));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Background gradients */
+  .bg-gradient-coral {
+    background: linear-gradient(135deg, var(--coral), var(--coral-light));
+  }
+
+  .bg-gradient-mint {
+    background: linear-gradient(135deg, var(--mint), var(--mint-light));
+  }
+
+  .bg-gradient-sky {
+    background: linear-gradient(135deg, var(--sky), var(--sky-light));
+  }
+
+  .bg-gradient-sunflower {
+    background: linear-gradient(135deg, var(--sunflower), var(--sunflower-light));
+  }
+
+  .bg-gradient-lavender {
+    background: linear-gradient(135deg, var(--lavender), var(--lavender-light));
+  }
+
   .bg-gradient-playful {
-    background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+    background: linear-gradient(135deg, var(--coral-light), var(--sky-light), var(--mint-light));
   }
 
   .bg-gradient-cool {
-    background: linear-gradient(135deg, var(--candy-blue), var(--candy-cyan));
+    background: linear-gradient(135deg, var(--sky), var(--sky-light));
   }
 
   .bg-gradient-warm {
-    background: linear-gradient(135deg, var(--candy-orange), var(--candy-yellow));
+    background: linear-gradient(135deg, var(--coral), var(--sunflower));
   }
 
   .bg-gradient-nature {
-    background: linear-gradient(135deg, var(--candy-green), var(--candy-cyan));
+    background: linear-gradient(135deg, var(--mint), var(--sky-light));
+  }
+
+  /* Card hover effect */
+  .card-lift {
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  }
+
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lifted);
+  }
+
+  /* Playful bouncy hover */
+  .bounce-hover {
+    transition: transform var(--transition-bounce);
+  }
+
+  .bounce-hover:hover {
+    transform: scale(1.05);
+  }
+
+  .bounce-hover:active {
+    transform: scale(0.98);
+  }
+
+  /* Soft glow effects */
+  .glow-coral {
+    box-shadow: 0 0 20px rgba(255, 181, 167, 0.4);
+  }
+
+  .glow-mint {
+    box-shadow: 0 0 20px rgba(184, 224, 210, 0.4);
+  }
+
+  .glow-sky {
+    box-shadow: 0 0 20px rgba(162, 210, 255, 0.4);
   }
 
   /* Blob shapes */
@@ -144,19 +347,154 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
 
-  /* Card hover effect */
-  .card-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .card-lift:hover {
-    transform: translateY(-4px);
+  .blob-3 {
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
   }
 }
 
-/* Animation delays for staggered effects */
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.95); opacity: 0; }
+  70% { transform: scale(1.02); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(16px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Animation utility classes */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-pop {
+  animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Stagger animation delays */
 .stagger-1 { animation-delay: 0.1s; }
 .stagger-2 { animation-delay: 0.2s; }
 .stagger-3 { animation-delay: 0.3s; }
 .stagger-4 { animation-delay: 0.4s; }
 .stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* ==========================================================================
+   COMPONENT LAYER STYLES
+   ========================================================================== */
+
+@layer components {
+  /* Container with max-width */
+  .container-playful {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Decorative divider */
+  .divider-wave {
+    width: 100%;
+    height: 24px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 24'%3E%3Cpath fill='%23FFB5A7' fill-opacity='0.3' d='M0 12c100 0 100 12 200 12s100-12 200-12 100 12 200 12 100-12 200-12 100 12 200 12 100-12 200-12v12H0z'/%3E%3C/svg%3E") repeat-x;
+    background-size: 1200px 24px;
+  }
+
+  /* Feature card styling */
+  .feature-card {
+    @apply rounded-3xl p-6 transition-all duration-300;
+    background: var(--bg-paper);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lifted);
+  }
+
+  /* Input styling */
+  .input-playful {
+    @apply w-full px-4 py-3 rounded-xl border-2 transition-all duration-200;
+    background: var(--bg-paper);
+    border-color: transparent;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .input-playful:focus {
+    border-color: var(--coral);
+    box-shadow: 0 0 0 4px rgba(255, 181, 167, 0.2);
+    outline: none;
+  }
+
+  .input-playful::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  body {
+    background: white;
+  }
+
+  body::before {
+    display: none;
+  }
+}

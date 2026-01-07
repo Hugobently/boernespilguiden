@@ -10,40 +10,202 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ============================================================================
+// SUPPORTED LANGUAGES
+// ============================================================================
+// da = Danish (default), en = English, fr = French, es = Spanish
+
+// ============================================================================
+// GAME TRANSLATIONS
+// ============================================================================
+
+// Translations for digital games
+model GameTranslation {
+  id               String @id @default(cuid())
+  gameId           String
+  locale           String // "da", "en", "fr", "es"
+
+  // Translated content
+  title            String
+  description      String
+  shortDescription String
+  pros             String @default("[]") // JSON array of translated pros
+  cons             String @default("[]") // JSON array of translated cons
+  parentTip        String?
+
+  // Relations
+  game             Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  @@unique([gameId, locale])
+  @@index([locale])
+}
+
+// Translations for board games
+model BoardGameTranslation {
+  id               String    @id @default(cuid())
+  boardGameId      String
+  locale           String // "da", "en", "fr", "es"
+
+  // Translated content
+  title            String
+  description      String
+  shortDescription String
+  pros             String    @default("[]") // JSON array
+  cons             String    @default("[]") // JSON array
+  parentTip        String?
+
+  // Relations
+  boardGame        BoardGame @relation(fields: [boardGameId], references: [id], onDelete: Cascade)
+
+  @@unique([boardGameId, locale])
+  @@index([locale])
+}
+
+// ============================================================================
+// DIGITAL GAMES
+// ============================================================================
+
+// Digitale spil
 model Game {
-  id          String   @id @default(cuid())
-  slug        String   @unique
-  title       String
-  description String
-  type        String   // "DIGITAL" or "BOARD"
-  minAge      Int
-  maxAge      Int
-  minPlayers  Int?
-  maxPlayers  Int?
-  playTime    String?
-  imageUrl    String?
-  rating      Float?
-  featured    Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id                String   @id @default(cuid())
+  title             String
+  slug              String   @unique
+  description       String   // Vores egen review-tekst
+  shortDescription  String   // Til cards (max 150 tegn)
 
-  categories GameCategory[]
+  // Aldersgruppe
+  minAge            Int
+  maxAge            Int
+  ageGroup          String   // "0-3", "3-6", "7-10", "11-15"
+
+  // Kategorier og tags (JSON strings for SQLite)
+  categories        String   @default("[]") // ["læring", "eventyr", "puslespil", "kreativ", "action"]
+  skills            String   @default("[]") // ["matematik", "læsning", "logik", "motorik", "sprog"]
+  themes            String   @default("[]") // ["dyr", "rummet", "prinsesser", "dinosaurer"]
+  targetGender      String   @default("alle") // "alle", "drenge", "piger"
+
+  // Platform info (JSON strings for SQLite)
+  platforms         String   @default("[]") // ["iOS", "Android", "PC", "Nintendo", "PlayStation"]
+  appStoreUrl       String?
+  playStoreUrl      String?
+  websiteUrl        String?
+
+  // Forældreinfo (VIGTIGT for din side!)
+  hasAds            Boolean  @default(false)
+  hasInAppPurchases Boolean  @default(false)
+  isOfflineCapable  Boolean  @default(false)
+  requiresInternet  Boolean  @default(false)
+  dataCollection    String?  // "ingen", "minimal", "moderat", "omfattende"
+
+  // Pris
+  price             Float    @default(0)
+  priceModel        String   // "gratis", "engangskøb", "abonnement", "freemium"
+
+  // Vores vurdering
+  rating            Float    // 1-5
+  pros              String   @default("[]") // JSON array
+  cons              String   @default("[]") // JSON array
+  parentTip         String?  // Tip til forældre
+
+  // Media
+  iconUrl           String?
+  screenshots       String   @default("[]") // JSON array
+  videoUrl          String?
+
+  // Developer info
+  developerName     String?
+
+  // Affiliate (til senere)
+  affiliateUrl      String?
+  affiliateProvider String?  // "apple", "google", "amazon"
+
+  // Meta
+  featured          Boolean  @default(false)
+  editorChoice      Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Translations relation
+  translations      GameTranslation[]
 }
 
-model Category {
-  id    String @id @default(cuid())
-  name  String @unique
-  slug  String @unique
-  icon  String?
+// ============================================================================
+// BOARD GAMES
+// ============================================================================
 
-  games GameCategory[]
+// Brætspil
+model BoardGame {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  description      String
+  shortDescription String
+
+  // Aldersgruppe
+  minAge           Int
+  maxAge           Int
+  ageGroup         String
+
+  // Spilinfo
+  minPlayers       Int
+  maxPlayers       Int
+  playTimeMinutes  Int
+  complexity       Int      // 1-5 (1=meget let, 5=kompleks)
+
+  // Kategorier (JSON strings for SQLite)
+  categories       String   @default("[]") // ["strategi", "samarbejde", "læring", "fest", "kort"]
+  skills           String   @default("[]")
+  themes           String   @default("[]")
+  targetGender     String   @default("alle")
+
+  // Pris og køb
+  price            Float?
+  affiliateUrl     String?
+  amazonUrl        String?
+
+  // Vurdering
+  rating           Float
+  pros             String   @default("[]") // JSON array
+  cons             String   @default("[]") // JSON array
+  parentTip        String?
+
+  // Media
+  imageUrl         String?
+
+  // Meta
+  featured         Boolean  @default(false)
+  editorChoice     Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Translations relation
+  translations     BoardGameTranslation[]
 }
 
-model GameCategory {
-  game       Game     @relation(fields: [gameId], references: [id], onDelete: Cascade)
-  gameId     String
-  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  categoryId String
+// ============================================================================
+// ANALYTICS
+// ============================================================================
 
-  @@id([gameId, categoryId])
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  type      String   // "page_view", "game_click", "affiliate_click", "search_query", etc.
+  sessionId String?
+  data      String   // JSON data
+  timestamp DateTime @default(now())
+
+  @@index([type])
+  @@index([timestamp])
+  @@index([sessionId])
+}
+
+// Popular search queries (aggregated)
+model SearchQuery {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  count     Int      @default(1)
+  lastUsed  DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@index([count])
+  @@index([lastUsed])
 }

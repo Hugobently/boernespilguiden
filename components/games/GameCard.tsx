@@ -1,103 +1,550 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card, CardContent, Badge } from '@/components/ui';
+import { useTranslations } from 'next-intl';
 import { cn, getAgeLabel } from '@/lib/utils';
+import { parseJsonArray, Platform, DataCollection } from '@/lib/types';
+import { forwardRef, HTMLAttributes, useState, useCallback } from 'react';
 
-interface GameCardProps {
+// ============================================================================
+// IMAGE FORMAT HELPER - Tries jpg, png, svg in order
+// ============================================================================
+
+const IMAGE_FORMATS = ['jpg', 'png', 'svg'] as const;
+
+function getImagePath(slug: string, type: 'digital' | 'board', format: string): string {
+  return `/images/games/${type}/${slug}.${format}`;
+}
+
+// ============================================================================
+// IMAGE WITH FALLBACK - Shows game title when image fails/missing
+// ============================================================================
+
+function GameImageWithFallback({
+  src,
+  alt,
+  title,
+  type,
+  slug,
+  fill = true,
+  className,
+}: {
+  src: string;
+  alt: string;
+  title: string;
+  type: 'digital' | 'board';
+  slug?: string;
+  fill?: boolean;
+  className?: string;
+}) {
+  const [formatIndex, setFormatIndex] = useState(0);
+  const [hasError, setHasError] = useState(false);
+  const typeEmoji = type === 'digital' ? '🎮' : '🎲';
+
+  // Determine current image source - try different formats on error
+  const currentSrc = src.startsWith('/images/games/') && slug
+    ? getImagePath(slug, type, IMAGE_FORMATS[formatIndex])
+    : src;
+
+  const handleError = useCallback(() => {
+    if (slug && formatIndex < IMAGE_FORMATS.length - 1) {
+      // Try next format
+      setFormatIndex(prev => prev + 1);
+    } else {
+      // All formats failed, show fallback
+      setHasError(true);
+    }
+  }, [slug, formatIndex]);
+
+  if (hasError) {
+    // Show game title as fallback instead of random placeholder
+    return (
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+        <span className="text-4xl mb-2">{typeEmoji}</span>
+        <span className="text-sm font-semibold text-[#4A4A4A]/80 line-clamp-2">
+          {title}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={currentSrc}
+      alt={alt}
+      fill={fill}
+      className={className}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+      onError={handleError}
+    />
+  );
+}
+
+// Compact version for smaller thumbnails
+function CompactGameImageWithFallback({
+  src,
+  alt,
+  type,
+}: {
+  src: string;
+  alt: string;
+  type: 'digital' | 'board';
+}) {
+  const [hasError, setHasError] = useState(false);
+  const typeEmoji = type === 'digital' ? '🎮' : '🎲';
+
+  if (hasError) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-2xl">{typeEmoji}</span>
+      </div>
+    );
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-cover"
+      onError={() => setHasError(true)}
+    />
+  );
+}
+
+// ============================================================================
+// PLATFORM ICONS
+// ============================================================================
+
+const platformIcons: Record<Platform, { icon: string; label: string; color: string }> = {
+  iOS: { icon: '🍎', label: 'iOS', color: '#007AFF' },
+  Android: { icon: '🤖', label: 'Android', color: '#3DDC84' },
+  PC: { icon: '💻', label: 'PC', color: '#6B7280' },
+  Nintendo: { icon: '🎮', label: 'Nintendo', color: '#E60012' },
+  PlayStation: { icon: '🎯', label: 'PlayStation', color: '#003791' },
+  Xbox: { icon: '🟢', label: 'Xbox', color: '#107C10' },
+  Web: { icon: '🌐', label: 'Web', color: '#4F46E5' },
+};
+
+// ============================================================================
+// AGE GROUP COLORS
+// ============================================================================
+
+const ageGroupColors: Record<string, { bg: string; text: string; border: string }> = {
+  '0-3': { bg: '#FFD1DC', text: '#8B4563', border: '#FFB6C1' },
+  '3-6': { bg: '#BAFFC9', text: '#2D6A4F', border: '#95D5A6' },
+  '7-10': { bg: '#BAE1FF', text: '#1D4E89', border: '#8ECAE6' },
+  '11-15': { bg: '#E2C2FF', text: '#5B4670', border: '#CDB4DB' },
+};
+
+function getAgeGroupColor(minAge: number) {
+  if (minAge <= 3) return ageGroupColors['0-3'];
+  if (minAge <= 6) return ageGroupColors['3-6'];
+  if (minAge <= 10) return ageGroupColors['7-10'];
+  return ageGroupColors['11-15'];
+}
+
+// ============================================================================
+// QUICK BADGES
+// ============================================================================
+
+interface QuickBadge {
+  label: string;
+  emoji: string;
+  show: boolean;
+  color: { bg: string; text: string };
+}
+
+function QuickBadges({ badges }: { badges: QuickBadge[] }) {
+  const visibleBadges = badges.filter((b) => b.show);
+  if (visibleBadges.length === 0) return null;
+
+  return (
+    <div className="flex flex-wrap gap-1">
+      {visibleBadges.map((badge) => (
+        <span
+          key={badge.label}
+          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold shadow-sm transition-transform hover:scale-105"
+          style={{ backgroundColor: badge.color.bg, color: badge.color.text }}
+        >
+          <span>{badge.emoji}</span>
+          <span>{badge.label}</span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
+// ============================================================================
+// PLATFORM ICONS DISPLAY
+// ============================================================================
+
+function PlatformIcons({ platforms }: { platforms: Platform[] }) {
+  if (!platforms || platforms.length === 0) return null;
+
+  return (
+    <div className="flex items-center gap-1">
+      {platforms.slice(0, 4).map((platform) => {
+        const info = platformIcons[platform];
+        if (!info) return null;
+        return (
+          <span
+            key={platform}
+            className="text-sm opacity-70 hover:opacity-100 transition-opacity cursor-default"
+            title={info.label}
+          >
+            {info.icon}
+          </span>
+        );
+      })}
+      {platforms.length > 4 && (
+        <span className="text-xs text-[#7A7A7A]">+{platforms.length - 4}</span>
+      )}
+    </div>
+  );
+}
+
+// ============================================================================
+// STAR RATING
+// ============================================================================
+
+function StarRating({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'md' }) {
+  const fullStars = Math.floor(rating);
+  const hasHalf = rating - fullStars >= 0.5;
+  const sizeClass = size === 'sm' ? 'text-sm' : 'text-lg';
+
+  return (
+    <div className={cn('flex items-center gap-0.5', sizeClass)}>
+      {[...Array(5)].map((_, i) => (
+        <span
+          key={i}
+          className={cn(
+            'transition-colors',
+            i < fullStars
+              ? 'text-[#FFE66D]'
+              : i === fullStars && hasHalf
+              ? 'text-[#FFE66D]/60'
+              : 'text-[#9CA3AF]/40'
+          )}
+        >
+          ★
+        </span>
+      ))}
+      <span className="text-xs text-[#7A7A7A] ml-1 font-medium">
+        {rating.toFixed(1)}
+      </span>
+    </div>
+  );
+}
+
+// ============================================================================
+// AGE INDICATOR (Visual)
+// ============================================================================
+
+function AgeIndicator({ minAge, maxAge }: { minAge: number; maxAge: number }) {
+  const colors = getAgeGroupColor(minAge);
+  const ageEmojis: Record<string, string> = {
+    '0-3': '👶',
+    '3-6': '🧒',
+    '7-10': '👦',
+    '11-15': '🧑',
+  };
+
+  let ageGroup = '0-3';
+  if (minAge <= 3) ageGroup = '0-3';
+  else if (minAge <= 6) ageGroup = '3-6';
+  else if (minAge <= 10) ageGroup = '7-10';
+  else ageGroup = '11-15';
+
+  return (
+    <div
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold transition-transform hover:scale-105"
+      style={{
+        backgroundColor: colors.bg,
+        color: colors.text,
+        boxShadow: `0 2px 0 0 ${colors.border}`,
+      }}
+    >
+      <span>{ageEmojis[ageGroup]}</span>
+      <span>{getAgeLabel(minAge, maxAge)}</span>
+    </div>
+  );
+}
+
+// ============================================================================
+// GAME CARD COMPONENT
+// ============================================================================
+
+export interface GameCardProps extends HTMLAttributes<HTMLDivElement> {
   slug: string;
   title: string;
-  description: string;
-  type: string;
+  shortDescription: string;
+  type: 'digital' | 'board';
   minAge: number;
   maxAge: number;
+  iconUrl?: string | null;
   imageUrl?: string | null;
-  rating?: number | null;
+  rating: number;
   featured?: boolean;
+  editorChoice?: boolean;
+  priceModel?: string;
+  hasAds?: boolean;
+  hasInAppPurchases?: boolean;
+  offlinePlay?: boolean;
+  platforms?: string;
+  categories?: string;
+  dataCollection?: DataCollection | string | null;
+}
+
+export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
+  (
+    {
+      slug,
+      title,
+      shortDescription,
+      type,
+      minAge,
+      maxAge,
+      iconUrl,
+      imageUrl,
+      rating,
+      featured,
+      editorChoice,
+      priceModel,
+      hasAds,
+      hasInAppPurchases,
+      offlinePlay,
+      platforms,
+      categories,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    const t = useTranslations('gameCard');
+    const href = type === 'digital' ? `/spil/${slug}` : `/braetspil/${slug}`;
+    const typeEmoji = type === 'digital' ? '🎮' : '🎲';
+    // Fall back to slug-based image path if iconUrl/imageUrl is null
+    const displayImage = type === 'digital'
+      ? (iconUrl || `/images/games/digital/${slug}.jpg`)
+      : (imageUrl || `/images/games/board/${slug}.jpg`);
+    const parsedPlatforms = platforms ? parseJsonArray<Platform>(platforms) : [];
+    const parsedCategories = categories ? parseJsonArray<string>(categories) : [];
+
+    // Quick badges configuration
+    const quickBadges: QuickBadge[] = [
+      {
+        label: t('free'),
+        emoji: '🆓',
+        show: priceModel === 'gratis',
+        color: { bg: '#D8F3DC', text: '#2D6A4F' },
+      },
+      {
+        label: t('adFree'),
+        emoji: '🚫',
+        show: hasAds === false,
+        color: { bg: '#BAE1FF', text: '#1D4E89' },
+      },
+      {
+        label: t('offline'),
+        emoji: '📱',
+        show: offlinePlay === true,
+        color: { bg: '#E2C2FF', text: '#5B4670' },
+      },
+      {
+        label: t('noInApp'),
+        emoji: '💰',
+        show: hasInAppPurchases === false && priceModel !== 'gratis',
+        color: { bg: '#FFF3B0', text: '#7D6608' },
+      },
+    ];
+
+    return (
+      <div ref={ref} className={cn('group', className)} {...props}>
+        <Link href={href} className="block">
+          <article
+            className={cn(
+              'relative h-full bg-[#FFFCF7] rounded-3xl overflow-hidden',
+              'shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06),0_4px_24px_-4px_rgba(0,0,0,0.04)]',
+              'transition-all duration-300 ease-out',
+              'group-hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.1),0_16px_48px_-8px_rgba(0,0,0,0.06)]',
+              'group-hover:-translate-y-1'
+            )}
+          >
+            {/* Featured/Editor's Choice Banner */}
+            {(featured || editorChoice) && (
+              <div className="absolute top-0 left-0 right-0 z-20 bg-gradient-to-r from-[#FFB5A7] via-[#FFE66D] to-[#B8E0D2] py-1.5 px-3">
+                <span className="text-xs font-bold text-[#4A4A4A] flex items-center justify-center gap-1">
+                  <span className="animate-pulse">⭐</span>
+                  {editorChoice ? t('editorChoice') : t('recommended')}
+                  <span className="animate-pulse">⭐</span>
+                </span>
+              </div>
+            )}
+
+            {/* Image Container */}
+            <div
+              className={cn(
+                'relative aspect-[4/3] overflow-hidden',
+                featured || editorChoice ? 'mt-7' : ''
+              )}
+            >
+              {/* Background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#A2D2FF] via-[#CDB4DB] to-[#FFB5A7] opacity-60" />
+
+              {/* Image with fallback to game title */}
+              <GameImageWithFallback
+                src={displayImage}
+                alt={title}
+                title={title}
+                type={type}
+                slug={slug}
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+              />
+
+              {/* Decorative blob */}
+              <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-[#FFB5A7]/30 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] transition-transform duration-500 group-hover:scale-150 group-hover:rotate-45" />
+
+              {/* Type badge */}
+              <div className="absolute top-3 left-3">
+                <span
+                  className={cn(
+                    'inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold',
+                    'bg-white/90 backdrop-blur-sm shadow-sm',
+                    type === 'digital' ? 'text-[#1D4E89]' : 'text-[#5B4670]'
+                  )}
+                >
+                  <span>{typeEmoji}</span>
+                  <span>{type === 'digital' ? t('digital') : t('boardGame')}</span>
+                </span>
+              </div>
+
+              {/* Platform icons (for digital games) */}
+              {type === 'digital' && parsedPlatforms.length > 0 && (
+                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 shadow-sm">
+                  <PlatformIcons platforms={parsedPlatforms} />
+                </div>
+              )}
+            </div>
+
+            {/* Content */}
+            <div className="p-4">
+              {/* Age indicator and rating row */}
+              <div className="flex items-center justify-between mb-3">
+                <AgeIndicator minAge={minAge} maxAge={maxAge} />
+                <StarRating rating={rating} />
+              </div>
+
+              {/* Quick badges */}
+              <div className="mb-3">
+                <QuickBadges badges={quickBadges} />
+              </div>
+
+              {/* Title */}
+              <h3 className="font-bold text-lg text-[#4A4A4A] mb-1.5 line-clamp-1 transition-colors group-hover:text-[#F8A99B]">
+                {title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-sm text-[#7A7A7A] line-clamp-2 mb-3">
+                {shortDescription}
+              </p>
+
+              {/* Categories */}
+              {parsedCategories.length > 0 && (
+                <div className="flex flex-wrap gap-1">
+                  {parsedCategories.slice(0, 2).map((cat) => (
+                    <span
+                      key={cat}
+                      className="text-xs text-[#7A7A7A] bg-[#FFF9F0] px-2 py-0.5 rounded-full capitalize"
+                    >
+                      {cat}
+                    </span>
+                  ))}
+                  {parsedCategories.length > 2 && (
+                    <span className="text-xs text-[#9CA3AF]">
+                      +{parsedCategories.length - 2}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Hover overlay effect */}
+            <div className="absolute inset-0 rounded-3xl border-2 border-transparent transition-colors duration-300 group-hover:border-[#FFB5A7]/30 pointer-events-none" />
+          </article>
+        </Link>
+      </div>
+    );
+  }
+);
+
+GameCard.displayName = 'GameCard';
+
+// ============================================================================
+// COMPACT GAME CARD (For sidebars, related games)
+// ============================================================================
+
+export interface CompactGameCardProps {
+  slug: string;
+  title: string;
+  type: 'digital' | 'board';
+  minAge: number;
+  maxAge: number;
+  iconUrl?: string | null;
+  imageUrl?: string | null;
+  rating: number;
   className?: string;
 }
 
-export function GameCard({
+export function CompactGameCard({
   slug,
   title,
-  description,
   type,
   minAge,
   maxAge,
+  iconUrl,
   imageUrl,
   rating,
-  featured,
   className,
-}: GameCardProps) {
-  const href = type === 'DIGITAL' ? `/spil/${slug}` : `/braetspil/${slug}`;
-  const typeLabel = type === 'DIGITAL' ? 'Digitalt' : 'Brætspil';
-  const typeEmoji = type === 'DIGITAL' ? '🎮' : '🎲';
+}: CompactGameCardProps) {
+  const href = type === 'digital' ? `/spil/${slug}` : `/braetspil/${slug}`;
+  // Fall back to slug-based image path if iconUrl/imageUrl is null
+  const displayImage = type === 'digital'
+    ? (iconUrl || `/images/games/digital/${slug}.jpg`)
+    : (imageUrl || `/images/games/board/${slug}.jpg`);
 
   return (
-    <Link href={href} className={cn('block group', className)}>
-      <Card className="h-full relative overflow-hidden">
-        {featured && (
-          <div className="absolute top-4 right-4 z-10">
-            <span className="bg-gradient-to-r from-candy-yellow to-candy-orange text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse-soft">
-              Anbefalet
-            </span>
-          </div>
-        )}
+    <Link
+      href={href}
+      className={cn(
+        'flex items-center gap-3 p-3 rounded-2xl',
+        'bg-[#FFFCF7] shadow-sm',
+        'transition-all duration-200',
+        'hover:shadow-md hover:-translate-y-0.5',
+        className
+      )}
+    >
+      {/* Thumbnail */}
+      <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-[#A2D2FF] to-[#CDB4DB]">
+        <CompactGameImageWithFallback
+          src={displayImage}
+          alt={title}
+          type={type}
+        />
+      </div>
 
-        {/* Image container */}
-        <div className="relative aspect-[4/3] bg-gradient-to-br from-sky to-lavender overflow-hidden">
-          {imageUrl ? (
-            <Image
-              src={imageUrl}
-              alt={title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-6xl animate-float">{typeEmoji}</span>
-            </div>
-          )}
-
-          {/* Decorative blob */}
-          <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-candy-pink/20 blob-2 transition-transform duration-500 group-hover:scale-125" />
+      {/* Info */}
+      <div className="flex-1 min-w-0">
+        <h4 className="font-semibold text-sm text-[#4A4A4A] truncate">{title}</h4>
+        <div className="flex items-center gap-2 mt-0.5">
+          <span className="text-xs text-[#7A7A7A]">{getAgeLabel(minAge, maxAge)}</span>
+          <StarRating rating={rating} size="sm" />
         </div>
-
-        <CardContent className="relative">
-          {/* Type badge */}
-          <div className="flex items-center gap-2 mb-2">
-            <Badge variant={type === 'DIGITAL' ? 'blue' : 'purple'}>
-              {typeEmoji} {typeLabel}
-            </Badge>
-            <Badge variant="green">{getAgeLabel(minAge, maxAge)}</Badge>
-          </div>
-
-          {/* Title */}
-          <h3 className="font-display text-xl font-bold text-charcoal mb-2 group-hover:text-candy-pink transition-colors line-clamp-1">
-            {title}
-          </h3>
-
-          {/* Description */}
-          <p className="text-slate text-sm line-clamp-2">{description}</p>
-
-          {/* Rating */}
-          {rating && (
-            <div className="mt-3 flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <span
-                  key={i}
-                  className={cn(
-                    'text-lg',
-                    i < Math.round(rating) ? 'text-candy-yellow' : 'text-slate/30'
-                  )}
-                >
-                  ★
-                </span>
-              ))}
-              <span className="text-sm text-slate ml-1">({rating.toFixed(1)})</span>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+      </div>
     </Link>
   );
 }
+
+export default GameCard;

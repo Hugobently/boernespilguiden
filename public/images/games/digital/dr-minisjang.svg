@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F9A8D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EC4899;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="url(#grad)" rx="32"/>
+  <circle cx="128" cy="70" r="45" fill="white" fill-opacity="0.3"/>
+  <text x="128" y="88" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif" font-size="52" text-anchor="middle">🧸</text>
+  <text x="128" y="145" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">DR Minisjang</text>
+  <text x="128" y="175" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#FDF2F8" text-anchor="middle">For de alleryngste</text>
+  <text x="128" y="205" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#FDF2F8" text-anchor="middle">100% gratis fra DR</text>
+</svg>
