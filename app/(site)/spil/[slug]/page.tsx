@@ -8,6 +8,7 @@ import { Footer } from '@/components/layout';
 import { GameCard } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { getGameWithTranslation, getGamesWithTranslation } from '@/lib/translations';
+import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 
 // ============================================================================
 // TYPES
@@ -146,8 +147,20 @@ export default async function GameDetailPage({ params }: PageProps) {
 
   const ageColors = getAgeGroupColor(game.minAge);
 
+  // Breadcrumb data for JSON-LD
+  const breadcrumbItems = [
+    { name: 'Forside', url: '/' },
+    { name: 'Digitale spil', url: '/spil' },
+    { name: `${game.ageGroup} år`, url: `/spil/kategori/${game.ageGroup}` },
+    { name: game.title },
+  ];
+
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
+      {/* Structured Data for SEO */}
+      <GameJsonLd game={game} type="digital" />
+      <JsonLd data={generateBreadcrumbJsonLd(breadcrumbItems)} />
+
       {/* Breadcrumbs */}
       <div className="bg-white/50 border-b border-[#FFB5A7]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

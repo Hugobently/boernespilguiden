@@ -8,6 +8,7 @@ import { Footer } from '@/components/layout';
 import { GameCard } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { getBoardGameWithTranslation, getBoardGamesWithTranslation } from '@/lib/translations';
+import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 
 // ============================================================================
 // TYPES
@@ -157,8 +158,20 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
 
   const complexityInfo = getComplexityInfo(game.complexity);
 
+  // Breadcrumb data for JSON-LD
+  const breadcrumbItems = [
+    { name: 'Forside', url: '/' },
+    { name: 'Brætspil', url: '/braetspil' },
+    { name: `${game.ageGroup} år`, url: `/braetspil/kategori/${game.ageGroup}` },
+    { name: game.title },
+  ];
+
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
+      {/* Structured Data for SEO */}
+      <GameJsonLd game={game} type="board" />
+      <JsonLd data={generateBreadcrumbJsonLd(breadcrumbItems)} />
+
       {/* Breadcrumbs */}
       <div className="bg-white/50 border-b border-[#FFE66D]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

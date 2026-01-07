@@ -6,6 +6,7 @@ import { SearchBar } from '@/components/filters';
 import { GameCard } from '@/components/games';
 import { Footer } from '@/components/layout';
 import { getHomepageDataWithTranslation } from '@/lib/translations';
+import { WebsiteJsonLdScript, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 
 // ============================================================================
 // AGE CATEGORY CARDS CONFIG
@@ -557,8 +558,45 @@ export default async function HomePage() {
   // Get data with translations
   const data = await getHomepageDataWithTranslation(locale);
 
+  // Generate FAQ structured data for SEO
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Hvad er de bedste spil til børn uden reklamer?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Vi anbefaler spil som Khan Academy Kids, Toca Life World, og LEGO-spil. Disse er alle reklamefri og sikre for børn. Se vores komplette liste over reklamefri spil.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Hvilke brætspil er gode til små børn?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Til børn 0-3 år anbefaler vi HABA First Orchard og Roll & Play. Til 3-6 år er Candy Land og Hoot Owl Hoot populære valg.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Er apps til børn sikre?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Det varierer meget. Vi gennemgår alle apps for reklamer, in-app køb og dataindsamling. Se vores anmeldelser for at finde sikre apps til dit barn.',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="relative">
+      {/* Structured Data for SEO */}
+      <WebsiteJsonLdScript />
+      <JsonLd data={faqJsonLd} />
+      <JsonLd data={generateBreadcrumbJsonLd([{ name: 'Forside' }])} />
+
       {/* Hero Section */}
       <HeroSection t={t} tAge={tAge} tCommon={tCommon} />
 
@@ -590,19 +628,32 @@ export default async function HomePage() {
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Børnespilguiden - Find de bedste spil til dine børn',
+  title: 'Børnespilguiden - Find de bedste spil til børn 2025 | Anmeldelser & Guide',
   description:
-    'Ærlige anmeldelser af digitale spil og brætspil til børn. Reklamefri guide med fokus på sikkerhed, læring og sjov. Find det perfekte spil til dit barn.',
+    'Danmarks bedste guide til børnespil! ⭐ Ærlige anmeldelser af 130+ digitale spil og brætspil til børn 0-15 år. ✓ Reklamefri ✓ Sikre ✓ Lærerige. Find det perfekte spil i dag!',
   keywords: [
     'børnespil',
     'spil til børn',
     'brætspil børn',
+    'brætspil til børn',
     'digitale spil børn',
     'apps til børn',
     'læringsspil',
+    'læringsspil til børn',
     'familiespil',
     'reklamefri spil',
+    'reklamefri apps børn',
     'sikre spil til børn',
+    'spil uden reklamer',
+    'børnevenlige spil',
+    'iPad spil til børn',
+    'gratis spil til børn',
+    'spil til 3 årige',
+    'spil til 5 årige',
+    'spil til 7 årige',
+    'spil til 10 årige',
+    'bedste børnespil 2025',
+    'anmeldelser børnespil',
   ],
   openGraph: {
     title: 'Børnespilguiden - Find de bedste spil til dine børn',
