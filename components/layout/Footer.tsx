@@ -128,53 +128,6 @@ function SocialIcons() {
 }
 
 // ============================================================================
-// NEWSLETTER SIGNUP (Optional decorative)
-// ============================================================================
-
-function NewsletterSignup() {
-  const t = useTranslations('footer');
-
-  return (
-    <div className="bg-[#3D3D3D] rounded-2xl p-6">
-      <h4 className="font-bold text-white mb-2 flex items-center gap-2">
-        <span>📬</span>
-        <span>{t('newsletter')}</span>
-      </h4>
-      <p className="text-[#9CA3AF] text-sm mb-4">
-        {t('newsletterDesc')}
-      </p>
-      <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
-        <input
-          type="email"
-          placeholder={t('emailPlaceholder')}
-          className={cn(
-            'flex-1 px-4 py-2.5 rounded-xl',
-            'bg-[#4A4A4A] border border-[#5A5A5A]',
-            'text-white placeholder:text-[#7A7A7A]',
-            'focus:outline-none focus:border-[#FFB5A7]',
-            'transition-colors text-sm'
-          )}
-        />
-        <button
-          type="submit"
-          className={cn(
-            'px-4 py-2.5 rounded-xl',
-            'bg-gradient-to-b from-[#FFB5A7] to-[#F8A99B]',
-            'text-white font-semibold text-sm',
-            'shadow-[0_4px_0_0_#E8958A]',
-            'hover:shadow-[0_2px_0_0_#E8958A] hover:translate-y-0.5',
-            'active:shadow-none active:translate-y-1',
-            'transition-all'
-          )}
-        >
-          {t('subscribe')}
-        </button>
-      </form>
-    </div>
-  );
-}
-
-// ============================================================================
 // FOOTER COMPONENT
 // ============================================================================
 
@@ -236,11 +189,6 @@ export function Footer() {
               { href: '/cookiepolitik', label: t('nav.cookies'), emoji: '🍪' },
             ]}
           />
-        </div>
-
-        {/* Newsletter section */}
-        <div className="mb-12">
-          <NewsletterSignup />
         </div>
 
         {/* Divider */}
