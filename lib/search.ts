@@ -67,21 +67,29 @@ const genderKeywords: Record<string, 'piger' | 'drenge'> = {
 const categoryMappings: Record<string, string[]> = {
   // Learning
   'læring': ['læring', 'uddannelse'],
+  'læringsspil': ['læring', 'uddannelse'],
+  'lærings': ['læring', 'uddannelse'],
   'uddannelse': ['læring', 'uddannelse'],
   'educational': ['læring', 'uddannelse'],
   'lære': ['læring'],
   'undervisning': ['læring', 'uddannelse'],
+  'edutainment': ['læring', 'uddannelse'],
 
   // Creativity
   'kreativ': ['kreativitet'],
+  'kreativt': ['kreativitet'],
   'kreativitet': ['kreativitet'],
+  'kreativspil': ['kreativitet'],
+  'tegnespil': ['kreativitet', 'tegning'],
   'tegning': ['kreativitet', 'tegning'],
   'tegne': ['kreativitet', 'tegning'],
   'male': ['kreativitet', 'tegning'],
+  'malespil': ['kreativitet', 'tegning'],
   'kunst': ['kreativitet'],
 
   // Music
   'musik': ['musik'],
+  'musikspil': ['musik'],
   'sang': ['musik'],
   'synge': ['musik'],
   'instrument': ['musik'],
@@ -90,15 +98,20 @@ const categoryMappings: Record<string, string[]> = {
   'puslespil': ['puslespil', 'logik'],
   'puzzle': ['puslespil', 'logik'],
   'logik': ['logik', 'puslespil'],
+  'logikspil': ['logik', 'puslespil'],
   'tænkning': ['logik'],
+  'hjernegymnastik': ['logik', 'puslespil'],
 
   // Adventure
   'eventyr': ['eventyr', 'adventure'],
+  'eventyrspil': ['eventyr', 'adventure'],
   'adventure': ['eventyr', 'adventure'],
 
   // Action
   'action': ['action'],
+  'actionspil': ['action'],
   'racing': ['action', 'racing'],
+  'racerspil': ['action', 'racing'],
   'løb': ['action', 'racing'],
 
   // Simulation
