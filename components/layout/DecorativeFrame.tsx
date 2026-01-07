@@ -532,8 +532,8 @@ export default function DecorativeFrame() {
         }
       `}</style>
 
-      {/* LEFT SIDE - Dense flower carpet (25% narrower) */}
-      <div className="fixed left-0 top-0 h-full w-24 md:w-36 lg:w-42 pointer-events-none z-40 overflow-hidden">
+      {/* LEFT SIDE - Hidden on mobile, visible on tablet+ */}
+      <div className="hidden md:block fixed left-0 top-0 h-full md:w-36 lg:w-42 pointer-events-none z-40 overflow-hidden">
         {/* Solid color base so no gaps show */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#E8F5E9] via-[#C8E6C9] to-[#A5D6A7]" />
 
@@ -576,8 +576,8 @@ export default function DecorativeFrame() {
         <div className="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-[#FFFDF8] to-transparent pointer-events-none z-20" />
       </div>
 
-      {/* RIGHT SIDE - Dense flower carpet (25% narrower) */}
-      <div className="fixed right-0 top-0 h-full w-24 md:w-36 lg:w-42 pointer-events-none z-40 overflow-hidden">
+      {/* RIGHT SIDE - Hidden on mobile, visible on tablet+ */}
+      <div className="hidden md:block fixed right-0 top-0 h-full md:w-36 lg:w-42 pointer-events-none z-40 overflow-hidden">
         {/* Solid color base so no gaps show */}
         <div className="absolute inset-0 bg-gradient-to-l from-[#E8F5E9] via-[#C8E6C9] to-[#A5D6A7]" />
 
@@ -620,8 +620,8 @@ export default function DecorativeFrame() {
         <div className="absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-[#FFFDF8] to-transparent pointer-events-none z-20" />
       </div>
 
-      {/* TOP decorations */}
-      <div className="fixed top-0 left-24 md:left-36 lg:left-42 right-24 md:right-36 lg:right-42 h-16 pointer-events-none z-30 overflow-hidden">
+      {/* TOP decorations - Hidden on mobile, visible on tablet+ */}
+      <div className="hidden md:block fixed top-0 left-0 md:left-36 lg:left-42 right-0 md:right-36 lg:right-42 h-16 pointer-events-none z-30 overflow-hidden">
         <div className="relative w-full h-full">
           {/* Clouds */}
           <Cloud x="5%" y="-10px" size={60} opacity={0.5} />
