@@ -108,6 +108,9 @@ model Game {
   requiresReading   Boolean  @default(false)
   typicalSessionMinutes Int? // Typisk spilletid pr. session
 
+  // Sprog
+  supportsDanish    Boolean  @default(false) // Om spillet har dansk tekst/tale
+
   // Pris
   price             Float    @default(0)
   priceModel        String   // "gratis", "engangskøb", "abonnement", "freemium"
@@ -168,6 +171,9 @@ model BoardGame {
   skills           String   @default("[]")
   themes           String   @default("[]")
   targetGender     String   @default("alle")
+
+  // Sprog
+  supportsDanish   Boolean  @default(false) // Om spillet har dansk tekst/tale
 
   // Pris og køb
   price            Float?

@@ -20,6 +20,7 @@ interface SearchParams {
   gratis?: string;
   offline?: string;
   ingenKob?: string;
+  dansk?: string;
   spillere?: string;
   spilletid?: string;
   sort?: SortOption;
@@ -62,6 +63,7 @@ async function searchGames(
     free?: boolean;
     offline?: boolean;
     noInAppPurchases?: boolean;
+    supportsDanish?: boolean;
     ageGroup?: string;
   },
   sort: SortOption = 'relevans'
@@ -96,6 +98,9 @@ async function searchGames(
   }
   if (filters.noInAppPurchases) {
     digitalWhere.AND.push({ hasInAppPurchases: false });
+  }
+  if (filters.supportsDanish) {
+    digitalWhere.AND.push({ supportsDanish: true });
   }
   if (filters.ageGroup) {
     const { minAge, maxAge } = parseAgeGroup(filters.ageGroup);
@@ -144,6 +149,7 @@ async function searchBoardGames(
     ageGroup?: string;
     players?: string;
     playTime?: string;
+    supportsDanish?: boolean;
   },
   sort: SortOption = 'relevans'
 ) {
@@ -191,6 +197,9 @@ async function searchBoardGames(
         playTimeMinutes: { lte: maxPlayTime },
       });
     }
+  }
+  if (filters.supportsDanish) {
+    boardWhere.AND.push({ supportsDanish: true });
   }
 
   // Clean up empty AND array
@@ -538,6 +547,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
     free: params.gratis === 'true',
     offline: params.offline === 'true',
     noInAppPurchases: params.ingenKob === 'true',
+    supportsDanish: params.dansk === 'true',
     ageGroup: params.alder,
     players: params.spillere,
     playTime: params.spilletid,

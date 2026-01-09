@@ -66,6 +66,7 @@ interface SearchFiltersProps {
     free?: boolean;
     offline?: boolean;
     noInAppPurchases?: boolean;
+    supportsDanish?: boolean;
     ageGroup?: string;
     players?: string;
     playTime?: string;
@@ -114,6 +115,7 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
     filters.free,
     filters.offline,
     filters.noInAppPurchases,
+    filters.supportsDanish,
     filters.ageGroup,
     filters.players,
     filters.playTime,
@@ -178,6 +180,18 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Language filter */}
+            <div className="border-t border-[#FFB5A7]/10 pt-4">
+              <label className="block text-xs font-semibold text-[#7A7A7A] mb-2">
+                Sprog
+              </label>
+              <FilterToggle
+                label="🇩🇰 Dansk understøttet"
+                checked={filters.supportsDanish || false}
+                onChange={(checked) => updateFilter('dansk', checked ? true : null)}
+              />
             </div>
 
             {/* Digital game filters */}
