@@ -376,6 +376,112 @@ export function SearchSuggestions({ query }: SearchSuggestionsProps) {
 }
 
 // ============================================================================
+// SORT DROPDOWN
+// ============================================================================
+
+export type SortOption = 'relevans' | 'rating' | 'navn' | 'alder';
+
+interface SortDropdownProps {
+  currentSort: SortOption;
+  onSortChange: (sort: SortOption) => void;
+}
+
+export function SortDropdown({ currentSort, onSortChange }: SortDropdownProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const sortOptions: { value: SortOption; label: string; icon: string }[] = [
+    { value: 'relevans', label: 'Relevans', icon: '🎯' },
+    { value: 'rating', label: 'Bedst bedømt', icon: '⭐' },
+    { value: 'navn', label: 'Navn (A-Å)', icon: '🔤' },
+    { value: 'alder', label: 'Yngste først', icon: '👶' },
+  ];
+
+  const handleSortChange = (value: SortOption) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value === 'relevans') {
+      params.delete('sort');
+    } else {
+      params.set('sort', value);
+    }
+    router.push(`/soeg?${params.toString()}`);
+    onSortChange(value);
+  };
+
+  return (
+    <div className="relative">
+      <select
+        value={currentSort}
+        onChange={(e) => handleSortChange(e.target.value as SortOption)}
+        className={cn(
+          'appearance-none px-4 py-2.5 pr-10 rounded-xl text-sm font-semibold',
+          'bg-[#FFFCF7] hover:bg-white shadow-sm cursor-pointer',
+          'text-[#4A4A4A] border-0 focus:ring-2 focus:ring-[#FFB5A7]',
+          'transition-all'
+        )}
+      >
+        {sortOptions.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.icon} {option.label}
+          </option>
+        ))}
+      </select>
+      <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+        <svg className="w-4 h-4 text-[#7A7A7A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+// Standalone sort select for server component usage
+export function SortSelect() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const currentSort = (searchParams.get('sort') || 'relevans') as SortOption;
+
+  const sortOptions: { value: SortOption; label: string }[] = [
+    { value: 'relevans', label: '🎯 Relevans' },
+    { value: 'rating', label: '⭐ Bedst bedømt' },
+    { value: 'navn', label: '🔤 Navn (A-Å)' },
+    { value: 'alder', label: '👶 Yngste først' },
+  ];
+
+  const handleSortChange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value === 'relevans') {
+      params.delete('sort');
+    } else {
+      params.set('sort', value);
+    }
+    router.push(`/soeg?${params.toString()}`);
+  };
+
+  return (
+    <div className="inline-flex items-center gap-2">
+      <span className="text-sm text-[#7A7A7A] hidden sm:inline">Sortér:</span>
+      <select
+        value={currentSort}
+        onChange={(e) => handleSortChange(e.target.value)}
+        className={cn(
+          'appearance-none px-3 py-2 pr-8 rounded-xl text-sm font-medium',
+          'bg-[#FFFCF7] hover:bg-white shadow-sm cursor-pointer',
+          'text-[#4A4A4A] border-0 focus:ring-2 focus:ring-[#FFB5A7]',
+          'transition-all'
+        )}
+      >
+        {sortOptions.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+// ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
 

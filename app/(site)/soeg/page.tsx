@@ -6,7 +6,7 @@ import { GameCard } from '@/components/games';
 import { SearchBar } from '@/components/filters';
 import prisma from '@/lib/db';
 import { parseAgeGroup } from '@/lib/utils';
-import { SearchTabs, SearchFilters, SearchSuggestions } from './components';
+import { SearchTabs, SearchFilters, SearchSuggestions, SortSelect, type SortOption } from './components';
 
 // ============================================================================
 // TYPES
@@ -22,6 +22,7 @@ interface SearchParams {
   ingenKob?: string;
   spillere?: string;
   spilletid?: string;
+  sort?: SortOption;
 }
 
 interface PageProps {
@@ -62,7 +63,8 @@ async function searchGames(
     offline?: boolean;
     noInAppPurchases?: boolean;
     ageGroup?: string;
-  }
+  },
+  sort: SortOption = 'relevans'
 ) {
   // Build where clause for digital games
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -110,9 +112,26 @@ async function searchGames(
     delete digitalWhere.AND;
   }
 
+  // Build orderBy based on sort option
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let orderBy: any[];
+  switch (sort) {
+    case 'rating':
+      orderBy = [{ rating: 'desc' }, { editorChoice: 'desc' }];
+      break;
+    case 'navn':
+      orderBy = [{ title: 'asc' }];
+      break;
+    case 'alder':
+      orderBy = [{ minAge: 'asc' }, { rating: 'desc' }];
+      break;
+    default: // 'relevans'
+      orderBy = [{ editorChoice: 'desc' }, { rating: 'desc' }];
+  }
+
   const digitalGames = await prisma.game.findMany({
     where: Object.keys(digitalWhere).length > 0 ? digitalWhere : undefined,
-    orderBy: [{ editorChoice: 'desc' }, { rating: 'desc' }],
+    orderBy,
     take: 50,
   });
 
@@ -125,7 +144,8 @@ async function searchBoardGames(
     ageGroup?: string;
     players?: string;
     playTime?: string;
-  }
+  },
+  sort: SortOption = 'relevans'
 ) {
   // Build where clause for board games
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -178,9 +198,26 @@ async function searchBoardGames(
     delete boardWhere.AND;
   }
 
+  // Build orderBy based on sort option
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let orderBy: any[];
+  switch (sort) {
+    case 'rating':
+      orderBy = [{ rating: 'desc' }, { editorChoice: 'desc' }];
+      break;
+    case 'navn':
+      orderBy = [{ title: 'asc' }];
+      break;
+    case 'alder':
+      orderBy = [{ minAge: 'asc' }, { rating: 'desc' }];
+      break;
+    default: // 'relevans'
+      orderBy = [{ editorChoice: 'desc' }, { rating: 'desc' }];
+  }
+
   const boardGames = await prisma.boardGame.findMany({
     where: Object.keys(boardWhere).length > 0 ? boardWhere : undefined,
-    orderBy: [{ editorChoice: 'desc' }, { rating: 'desc' }],
+    orderBy,
     take: 50,
   });
 
@@ -212,6 +249,7 @@ async function SearchResults({
   query,
   tab,
   filters,
+  sort,
 }: {
   query: string;
   tab: 'alle' | 'spil' | 'braetspil';
@@ -224,14 +262,15 @@ async function SearchResults({
     players?: string;
     playTime?: string;
   };
+  sort: SortOption;
 }) {
   // Get results based on active tab
   const showDigital = tab === 'alle' || tab === 'spil';
   const showBoard = tab === 'alle' || tab === 'braetspil';
 
   const [digitalGames, boardGames] = await Promise.all([
-    showDigital ? searchGames(query, filters) : Promise.resolve([]),
-    showBoard ? searchBoardGames(query, filters) : Promise.resolve([]),
+    showDigital ? searchGames(query, filters, sort) : Promise.resolve([]),
+    showBoard ? searchBoardGames(query, filters, sort) : Promise.resolve([]),
   ]);
 
   const totalResults = digitalGames.length + boardGames.length;
@@ -493,6 +532,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
 
   const query = params.q || '';
   const tab = (params.tab || 'alle') as 'alle' | 'spil' | 'braetspil';
+  const sort = (params.sort || 'relevans') as SortOption;
   const filters = {
     adFree: params.reklamefri === 'true',
     free: params.gratis === 'true',
@@ -566,15 +606,21 @@ export default async function SearchPage({ searchParams }: PageProps) {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Tabs & Filters */}
+        {/* Tabs, Sort & Filters */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
           <Suspense fallback={<div className="h-12 bg-[#FFFCF7] rounded-2xl animate-pulse w-80" />}>
             <SearchTabs activeTab={tab} query={query} />
           </Suspense>
 
-          <Suspense fallback={<div className="h-12 bg-[#FFFCF7] rounded-2xl animate-pulse w-40" />}>
-            <SearchFilters activeTab={tab} filters={filters} query={query} />
-          </Suspense>
+          <div className="flex items-center gap-3">
+            <Suspense fallback={<div className="h-10 bg-[#FFFCF7] rounded-xl animate-pulse w-32" />}>
+              <SortSelect />
+            </Suspense>
+
+            <Suspense fallback={<div className="h-12 bg-[#FFFCF7] rounded-2xl animate-pulse w-24" />}>
+              <SearchFilters activeTab={tab} filters={filters} query={query} />
+            </Suspense>
+          </div>
         </div>
 
         {/* Results */}
@@ -588,7 +634,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
             </div>
           }
         >
-          <SearchResults query={query} tab={tab} filters={filters} />
+          <SearchResults query={query} tab={tab} filters={filters} sort={sort} />
         </Suspense>
       </main>
 
