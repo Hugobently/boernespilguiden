@@ -616,7 +616,7 @@ export default async function HomePage() {
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Børnespilguiden - Find de bedste spil til børn 2025 | Anmeldelser & Guide',
+  title: 'Børnespilguiden - Find de bedste spil til børn 2026 | Anmeldelser & Guide',
   description:
     'Danmarks bedste guide til børnespil! ⭐ Ærlige anmeldelser af 130+ digitale spil og brætspil til børn 0-15 år. ✓ Reklamefri ✓ Sikre ✓ Lærerige. Find det perfekte spil i dag!',
   keywords: [
@@ -640,7 +640,7 @@ export const metadata: Metadata = {
     'spil til 5 årige',
     'spil til 7 årige',
     'spil til 10 årige',
-    'bedste børnespil 2025',
+    'bedste børnespil 2026',
     'anmeldelser børnespil',
   ],
   openGraph: {
