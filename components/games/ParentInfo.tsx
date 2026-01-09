@@ -675,6 +675,9 @@ interface ParentInfoExpandedProps {
   requiresReading?: boolean;
   isOfflineCapable?: boolean;
 
+  // Sprog
+  supportsDanish?: boolean;
+
   // Klassisk info
   minAge?: number;
   maxAge?: number;
@@ -697,6 +700,7 @@ export function ParentInfoExpanded({
   isCoppaCompliant,
   requiresReading,
   isOfflineCapable,
+  supportsDanish,
   minAge,
   maxAge,
 }: ParentInfoExpandedProps) {
@@ -713,6 +717,7 @@ export function ParentInfoExpanded({
   if (dataCollection === 'ingen') badges.push({ icon: '🛡️', label: 'Ingen datahøstning', positive: true });
   if (isCoppaCompliant === true) badges.push({ icon: '👶', label: 'COPPA-godkendt', positive: true });
   if (requiresReading === false) badges.push({ icon: '🎨', label: 'Ingen læsning krævet', positive: true });
+  if (supportsDanish === true) badges.push({ icon: '🇩🇰', label: 'Dansk understøttet', positive: true });
 
   // Advarsels-badges
   if (hasAds === true) badges.push({ icon: '📢', label: 'Indeholder reklamer', positive: false });
@@ -907,6 +912,50 @@ export function ParentInfoExpanded({
                   {isCoppaCompliant
                     ? 'COPPA-compliant (børnevenlig)'
                     : 'Ikke COPPA-compliant'}
+                </span>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        {/* Sprog og tilgængelighed */}
+        <div className="bg-white/50 rounded-2xl p-4">
+          <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
+            <span>🌍</span>
+            <span>Sprog og tilgængelighed</span>
+          </h3>
+          <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
+            <li className="flex items-start gap-2">
+              <span className={supportsDanish ? 'text-[#77DD77]' : 'text-[#FFA500]'}>
+                {supportsDanish ? '✓' : '!'}
+              </span>
+              <span>
+                {supportsDanish
+                  ? '🇩🇰 Dansk understøttet'
+                  : 'Kun udenlandsk sprog'}
+              </span>
+            </li>
+            {requiresReading !== undefined && (
+              <li className="flex items-start gap-2">
+                <span className={requiresReading ? 'text-[#FFA500]' : 'text-[#77DD77]'}>
+                  {requiresReading ? '!' : '✓'}
+                </span>
+                <span>
+                  {requiresReading
+                    ? 'Kræver læsefærdigheder'
+                    : 'Kan bruges uden læsning'}
+                </span>
+              </li>
+            )}
+            {isOfflineCapable !== undefined && (
+              <li className="flex items-start gap-2">
+                <span className={isOfflineCapable ? 'text-[#77DD77]' : 'text-[#FFA500]'}>
+                  {isOfflineCapable ? '✓' : '!'}
+                </span>
+                <span>
+                  {isOfflineCapable
+                    ? 'Kan bruges offline'
+                    : 'Kræver internetforbindelse'}
                 </span>
               </li>
             )}

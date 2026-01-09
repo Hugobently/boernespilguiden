@@ -357,6 +357,7 @@ export default async function GameDetailPage({ params }: PageProps) {
               isCoppaCompliant={(game as { isCoppaCompliant?: boolean }).isCoppaCompliant}
               requiresReading={(game as { requiresReading?: boolean }).requiresReading}
               isOfflineCapable={game.isOfflineCapable}
+              supportsDanish={game.supportsDanish}
               minAge={game.minAge}
               maxAge={game.maxAge}
             />
