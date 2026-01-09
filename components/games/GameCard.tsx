@@ -144,12 +144,31 @@ function getAgeGroupColor(minAge: number) {
 }
 
 // ============================================================================
+// DANISH FLAG SVG COMPONENT
+// ============================================================================
+
+function DanishFlag({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 16 12"
+      className={className}
+      style={{ width: '1em', height: '0.75em' }}
+      aria-label="Dansk flag"
+    >
+      <rect width="16" height="12" fill="#C8102E" />
+      <rect x="5" y="0" width="2" height="12" fill="#FFFFFF" />
+      <rect x="0" y="5" width="16" height="2" fill="#FFFFFF" />
+    </svg>
+  );
+}
+
+// ============================================================================
 // QUICK BADGES
 // ============================================================================
 
 interface QuickBadge {
   label: string;
-  emoji: string;
+  emoji: string | React.ReactNode;
   show: boolean;
   color: { bg: string; text: string };
 }
@@ -166,7 +185,7 @@ function QuickBadges({ badges }: { badges: QuickBadge[] }) {
           className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold shadow-sm transition-transform hover:scale-105"
           style={{ backgroundColor: badge.color.bg, color: badge.color.text }}
         >
-          <span>{badge.emoji}</span>
+          <span className="flex items-center">{badge.emoji}</span>
           <span>{badge.label}</span>
         </span>
       ))}
@@ -334,7 +353,7 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
     const quickBadges: QuickBadge[] = [
       {
         label: t('danish'),
-        emoji: '🇩🇰',
+        emoji: <DanishFlag />,
         show: supportsDanish === true,
         color: { bg: '#C8102E', text: '#FFFFFF' },
       },

@@ -5,6 +5,25 @@ import { DataCollection, PriceModel } from '@/lib/types';
 import { forwardRef, HTMLAttributes } from 'react';
 
 // ============================================================================
+// DANISH FLAG SVG COMPONENT
+// ============================================================================
+
+function DanishFlag({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 16 12"
+      className={cn('inline-block', className)}
+      style={{ width: '1.2em', height: '0.9em', verticalAlign: 'middle' }}
+      aria-label="Dansk flag"
+    >
+      <rect width="16" height="12" fill="#C8102E" />
+      <rect x="5" y="0" width="2" height="12" fill="#FFFFFF" />
+      <rect x="0" y="5" width="16" height="2" fill="#FFFFFF" />
+    </svg>
+  );
+}
+
+// ============================================================================
 // STATUS INDICATOR CONFIGURATIONS
 // ============================================================================
 
@@ -706,7 +725,7 @@ export function ParentInfoExpanded({
 }: ParentInfoExpandedProps) {
 
   // Feature badges baseret på spil egenskaber
-  const badges: Array<{ icon: string; label: string; positive: boolean }> = [];
+  const badges: Array<{ icon: React.ReactNode; label: string; positive: boolean }> = [];
 
   if (hasAds === false) badges.push({ icon: '🚫', label: 'Ingen reklamer', positive: true });
   if (hasInAppPurchases === false) badges.push({ icon: '✅', label: 'Ingen køb i app', positive: true });
@@ -717,7 +736,7 @@ export function ParentInfoExpanded({
   if (dataCollection === 'ingen') badges.push({ icon: '🛡️', label: 'Ingen datahøstning', positive: true });
   if (isCoppaCompliant === true) badges.push({ icon: '👶', label: 'COPPA-godkendt', positive: true });
   if (requiresReading === false) badges.push({ icon: '🎨', label: 'Ingen læsning krævet', positive: true });
-  if (supportsDanish === true) badges.push({ icon: '🇩🇰', label: 'Dansk understøttet', positive: true });
+  if (supportsDanish === true) badges.push({ icon: <DanishFlag />, label: 'Dansk understøttet', positive: true });
 
   // Advarsels-badges
   if (hasAds === true) badges.push({ icon: '📢', label: 'Indeholder reklamer', positive: false });
@@ -929,9 +948,9 @@ export function ParentInfoExpanded({
               <span className={supportsDanish ? 'text-[#77DD77]' : 'text-[#FFA500]'}>
                 {supportsDanish ? '✓' : '!'}
               </span>
-              <span>
+              <span className="flex items-center gap-1">
                 {supportsDanish
-                  ? '🇩🇰 Dansk understøttet'
+                  ? <><DanishFlag /> Dansk understøttet</>
                   : 'Kun udenlandsk sprog'}
               </span>
             </li>
