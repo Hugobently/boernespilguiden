@@ -90,6 +90,9 @@
     Rating.tsx                  # Star rating display
     AgeIndicator.tsx            # Age badge with color
     Input.tsx                   # Form input
+  /affiliate/
+    AffiliateLink.tsx           # Affiliate link with click tracking
+    index.ts                    # Exports AffiliateLink, AffiliateLinksGroup, buildAffiliateLinks
   /tracking/
     TrackedLink.tsx             # Analytics-tracked links
 
@@ -174,6 +177,9 @@ model Game {
   requiresReading   Boolean  @default(false)
   typicalSessionMinutes Int?
 
+  // Language
+  supportsDanish    Boolean  @default(false) // Danish text/speech support
+
   // Pricing
   price             Float    @default(0)
   priceModel        String   // "gratis", "engangskøb", "abonnement", "freemium"
@@ -230,6 +236,9 @@ model BoardGame {
   themes           String   @default("[]")
   targetGender     String   @default("alle")
 
+  // Language
+  supportsDanish   Boolean  @default(false) // Danish rules/edition available
+
   // Pricing & Purchase
   price            Float?
   affiliateUrl     String?
@@ -274,7 +283,7 @@ model GameTranslation {
 
 ---
 
-## Current Database Status (2026-01-07)
+## Current Database Status (2026-01-09)
 
 | Category | Count |
 |----------|-------|
@@ -529,7 +538,7 @@ Premium, ad-free games with Apple Arcade subscription (79 kr/month):
 ```bash
 # Development
 npm run dev              # Start dev server (localhost:3000)
-npm run build            # Production build (prisma generate + db push + next build)
+npm run build            # Production build (prisma generate + db push + seed + next build)
 npm run lint             # Run ESLint
 
 # Database
@@ -541,6 +550,8 @@ npm run db:seed          # Run seed script
 # Seeding with production DB
 DATABASE_URL="postgres://..." npx tsx prisma/seed.ts
 ```
+
+**Note:** The build script automatically seeds the database on every deploy to Vercel, ensuring all game data stays in sync with seed files.
 
 ---
 
@@ -704,7 +715,7 @@ DATABASE_URL="your-connection-string" npx tsx prisma/add-game.ts
 ## Key Features
 
 1. **Intelligent Danish Search** - Natural language parsing ("5 år", "ingen reklamer")
-2. **Parent-Focused Filters** - Ads, IAP, offline, pricing
+2. **Parent-Focused Filters** - Ads, IAP, offline, pricing, Danish language support
 3. **4-Language Support** - DA, EN, FR, ES with fallback
 4. **Deep Reviews** - Every game has comprehensive review
 5. **Safety First** - Clear parent information
@@ -712,6 +723,8 @@ DATABASE_URL="your-connection-string" npx tsx prisma/add-game.ts
 7. **SEO Optimized** - Dynamic sitemap, meta tags
 8. **Analytics** - Event tracking, popular searches
 9. **GDPR Compliant** - Cookie consent, privacy policy
+10. **Affiliate Ready** - AffiliateLink component with click tracking for future monetization
+11. **Search Sorting** - Sort results by relevance, rating, name, or age
 
 ---
 
@@ -723,4 +736,94 @@ DATABASE_URL="your-connection-string" npx tsx prisma/add-game.ts
 - Always include parentInfo and parentTip
 - Images stored in `/public/images/games/` (.webp preferred)
 - Run `npx prisma generate` after schema changes
-- Build script auto-runs `prisma generate && prisma db push`
+- Build script auto-runs `prisma generate && prisma db push && seed`
+- Database is re-seeded on every deploy to keep data in sync
+
+---
+
+## Search Page Features
+
+The search page (`/soeg`) includes:
+
+### Filters
+- **Age group**: 0-3, 3-6, 7+
+- **Danish language**: Filter games with Danish text/speech
+- **Digital game filters**: Ad-free, free, offline, no in-app purchases
+- **Board game filters**: Player count, play time
+
+### Sorting
+- Relevans (default) - Editor's choice + rating
+- Rating - Highest rated first
+- Navn (A-Å) - Alphabetical
+- Alder - Youngest age first
+
+### URL Parameters
+```
+/soeg?q=læring&tab=spil&alder=3-6&reklamefri=true&dansk=true&sort=rating
+```
+
+---
+
+## Affiliate System
+
+The affiliate system (`/components/affiliate/`) is ready for future monetization:
+
+### Supported Providers
+- `apple` - Apple App Store
+- `google` - Google Play Store
+- `amazon` - Amazon (board games)
+- `coolshop` - Coolshop.dk
+- `proshop` - Proshop.dk
+- `saxo` - Saxo.com
+- `website` - Generic website
+- `other` - Other providers
+
+### Components
+```typescript
+import { AffiliateLink, AffiliateLinksGroup, buildAffiliateLinks } from '@/components/affiliate';
+
+// Single link
+<AffiliateLink
+  href="https://..."
+  provider="apple"
+  gameTitle="Game Name"
+  gameSlug="game-slug"
+  variant="button" // or "text" or "icon"
+/>
+
+// Group of links
+<AffiliateLinksGroup
+  links={buildAffiliateLinks(game)}
+  gameTitle={game.title}
+  gameSlug={game.slug}
+/>
+```
+
+### Click Tracking
+Clicks are tracked via Google Analytics events:
+- Event: `affiliate_click`
+- Parameters: provider, game_slug, game_title
+
+---
+
+## Future Improvements
+
+See `IMPROVEMENTS.md` for a prioritized backlog of features:
+
+### High Priority
+- User ratings & reviews (requires auth)
+- Favorites/wishlist
+- Danish language filter (DONE)
+
+### Medium Priority
+- Game of the week feature
+- Compare games side-by-side
+- Age calculator ("my child is born [date]")
+- Print-friendly version
+- Extended parent guides/articles
+
+### Low Priority
+- Push notifications
+- Dark mode
+- Game quiz
+- Community forum
