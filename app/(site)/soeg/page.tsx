@@ -267,6 +267,7 @@ async function SearchResults({
     free?: boolean;
     offline?: boolean;
     noInAppPurchases?: boolean;
+    supportsDanish?: boolean;
     ageGroup?: string;
     players?: string;
     playTime?: string;
@@ -288,6 +289,7 @@ async function SearchResults({
     filters.free ||
     filters.offline ||
     filters.noInAppPurchases ||
+    filters.supportsDanish ||
     filters.ageGroup ||
     filters.players ||
     filters.playTime;
@@ -339,6 +341,7 @@ async function SearchResults({
                   hasAds={game.hasAds}
                   hasInAppPurchases={game.hasInAppPurchases}
                   offlinePlay={game.isOfflineCapable}
+                  supportsDanish={game.supportsDanish}
                   platforms={game.platforms}
                   categories={game.categories}
                 />
@@ -373,6 +376,7 @@ async function SearchResults({
                     rating={game.rating}
                     featured={game.featured}
                     editorChoice={game.editorChoice}
+                    supportsDanish={game.supportsDanish}
                     categories={game.categories}
                   />
                 </div>
@@ -472,6 +476,7 @@ async function SearchResults({
                   hasAds={game.hasAds}
                   hasInAppPurchases={game.hasInAppPurchases}
                   offlinePlay={game.isOfflineCapable}
+                  supportsDanish={game.supportsDanish}
                   platforms={game.platforms}
                   categories={game.categories}
                 />
@@ -521,6 +526,7 @@ async function SearchResults({
                   rating={game.rating}
                   featured={game.featured}
                   editorChoice={game.editorChoice}
+                  supportsDanish={game.supportsDanish}
                   categories={game.categories}
                 />
               </div>

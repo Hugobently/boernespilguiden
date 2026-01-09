@@ -399,6 +399,7 @@ export default async function AgeGroupPage({ params, searchParams }: PageProps) 
                         hasAds={game.hasAds}
                         hasInAppPurchases={game.hasInAppPurchases}
                         offlinePlay={game.isOfflineCapable}
+                        supportsDanish={game.supportsDanish}
                         platforms={game.platforms}
                         categories={game.categories}
                       />

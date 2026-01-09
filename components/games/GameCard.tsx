@@ -288,6 +288,7 @@ export interface GameCardProps extends HTMLAttributes<HTMLDivElement> {
   hasAds?: boolean;
   hasInAppPurchases?: boolean;
   offlinePlay?: boolean;
+  supportsDanish?: boolean;
   platforms?: string;
   categories?: string;
   dataCollection?: DataCollection | string | null;
@@ -311,6 +312,7 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
       hasAds,
       hasInAppPurchases,
       offlinePlay,
+      supportsDanish,
       platforms,
       categories,
       className,
@@ -330,6 +332,12 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
 
     // Quick badges configuration
     const quickBadges: QuickBadge[] = [
+      {
+        label: t('danish'),
+        emoji: '🇩🇰',
+        show: supportsDanish === true,
+        color: { bg: '#C8102E', text: '#FFFFFF' },
+      },
       {
         label: t('free'),
         emoji: '🆓',

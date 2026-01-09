@@ -542,6 +542,7 @@ export default async function GameDetailPage({ params }: PageProps) {
                     hasAds={relatedGame.hasAds}
                     hasInAppPurchases={relatedGame.hasInAppPurchases}
                     offlinePlay={relatedGame.isOfflineCapable}
+                    supportsDanish={relatedGame.supportsDanish}
                     platforms={relatedGame.platforms}
                     categories={relatedGame.categories}
                   />

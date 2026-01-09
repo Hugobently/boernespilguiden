@@ -544,6 +544,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                     rating={relatedGame.rating}
                     featured={relatedGame.featured}
                     editorChoice={relatedGame.editorChoice}
+                    supportsDanish={relatedGame.supportsDanish}
                     categories={relatedGame.categories}
                   />
                 </div>

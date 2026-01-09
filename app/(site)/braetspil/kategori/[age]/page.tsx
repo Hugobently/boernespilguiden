@@ -400,6 +400,7 @@ export default async function BoardGameAgeGroupPage({ params, searchParams }: Pa
                         rating={game.rating}
                         featured={game.featured}
                         editorChoice={game.editorChoice}
+                        supportsDanish={game.supportsDanish}
                         categories={game.categories}
                       />
                     </div>

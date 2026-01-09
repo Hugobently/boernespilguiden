@@ -173,6 +173,7 @@ function EditorChoiceSection({ games, t }: EditorChoiceSectionProps) {
                 hasAds={game.hasAds}
                 hasInAppPurchases={game.hasInAppPurchases}
                 offlinePlay={game.isOfflineCapable}
+                supportsDanish={game.supportsDanish}
                 platforms={game.platforms}
                 categories={game.categories}
               />
@@ -354,6 +355,7 @@ function AdFreeSection({ games, t }: AdFreeSectionProps) {
                 hasAds={game.hasAds}
                 hasInAppPurchases={game.hasInAppPurchases}
                 offlinePlay={game.isOfflineCapable}
+                supportsDanish={game.supportsDanish}
                 platforms={game.platforms}
                 categories={game.categories}
               />
@@ -438,6 +440,7 @@ function BoardGamesSection({ games, t, tCategories }: BoardGamesSectionProps) {
                   rating={game.rating}
                   featured={game.featured}
                   editorChoice={game.editorChoice}
+                  supportsDanish={game.supportsDanish}
                   categories={game.categories}
                 />
               </div>
