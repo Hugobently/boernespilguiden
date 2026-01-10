@@ -112,6 +112,16 @@ export default async function MediaDetailPage({ params }: PageProps) {
                 {new Date(media.releaseDate).getFullYear()}
               </span>
             )}
+            {media.hasDanishAudio && (
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded">
+                🇩🇰 Dansk tale
+              </span>
+            )}
+            {media.hasDanishSubtitles && !media.hasDanishAudio && (
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded">
+                🇩🇰 Danske undertekster
+              </span>
+            )}
           </div>
 
           {/* Streaming info */}

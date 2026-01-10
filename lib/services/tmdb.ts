@@ -142,6 +142,54 @@ export async function getTVDetails(tmdbId: number): Promise<TMDBSeries> {
   return tmdbFetch<TMDBSeries>(`/tv/${tmdbId}?language=da-DK`);
 }
 
+// Get available translations/languages for a movie
+export async function getMovieLanguages(tmdbId: number): Promise<{
+  hasDanishAudio: boolean;
+  hasDanishSubtitles: boolean;
+  availableLanguages: string[];
+}> {
+  try {
+    const data = await tmdbFetch<{ translations: Array<{ iso_639_1: string; name: string; data: { title: string } }> }>(
+      `/movie/${tmdbId}/translations`
+    );
+
+    const languages = data.translations.map(t => t.iso_639_1);
+    const hasDanish = languages.includes('da');
+
+    return {
+      hasDanishAudio: hasDanish,
+      hasDanishSubtitles: hasDanish,
+      availableLanguages: [...new Set(languages)],
+    };
+  } catch {
+    return { hasDanishAudio: false, hasDanishSubtitles: false, availableLanguages: [] };
+  }
+}
+
+// Get available translations/languages for a TV series
+export async function getTVLanguages(tmdbId: number): Promise<{
+  hasDanishAudio: boolean;
+  hasDanishSubtitles: boolean;
+  availableLanguages: string[];
+}> {
+  try {
+    const data = await tmdbFetch<{ translations: Array<{ iso_639_1: string; name: string; data: { name: string } }> }>(
+      `/tv/${tmdbId}/translations`
+    );
+
+    const languages = data.translations.map(t => t.iso_639_1);
+    const hasDanish = languages.includes('da');
+
+    return {
+      hasDanishAudio: hasDanish,
+      hasDanishSubtitles: hasDanish,
+      availableLanguages: [...new Set(languages)],
+    };
+  } catch {
+    return { hasDanishAudio: false, hasDanishSubtitles: false, availableLanguages: [] };
+  }
+}
+
 // Convert TMDB poster path to full URL
 export function getTMDBImageUrl(
   path: string | null,

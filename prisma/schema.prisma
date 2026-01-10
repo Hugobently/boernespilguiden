@@ -265,6 +265,11 @@ model Media {
   isDanish        Boolean  @default(false)
   isNordic        Boolean  @default(false)
 
+  // Sprog information
+  hasDanishAudio     Boolean? // Har dansk tale
+  hasDanishSubtitles Boolean? // Har danske undertekster
+  availableLanguages String[] @default([]) // Liste af tilgængelige sprog-koder
+
   // Relationer
   streamingInfo   StreamingInfo[]
 

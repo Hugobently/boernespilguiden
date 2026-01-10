@@ -39,9 +39,11 @@ export async function importTMDBMovies(limit = 100): Promise<number> {
 
       if (existing) continue;
 
-      // Get streaming providers
+      // Get streaming providers and language info
       const providers = await tmdb.getMovieProviders(movie.id);
-      await sleep(100);
+      await sleep(50);
+      const languages = await tmdb.getMovieLanguages(movie.id);
+      await sleep(50);
 
       // Create movie
       await prisma.media.create({
@@ -66,6 +68,9 @@ export async function importTMDBMovies(limit = 100): Promise<number> {
             : null,
           ageMin: 3,
           ageMax: 12,
+          hasDanishAudio: languages.hasDanishAudio,
+          hasDanishSubtitles: languages.hasDanishSubtitles,
+          availableLanguages: languages.availableLanguages,
           streamingInfo: {
             create:
               providers?.flatrate?.map((p) => ({
@@ -100,7 +105,9 @@ export async function importTMDBSeries(limit = 100): Promise<number> {
       if (existing) continue;
 
       const providers = await tmdb.getTVProviders(show.id);
-      await sleep(100);
+      await sleep(50);
+      const languages = await tmdb.getTVLanguages(show.id);
+      await sleep(50);
 
       await prisma.media.create({
         data: {
@@ -122,6 +129,9 @@ export async function importTMDBSeries(limit = 100): Promise<number> {
             : null,
           ageMin: 3,
           ageMax: 12,
+          hasDanishAudio: languages.hasDanishAudio,
+          hasDanishSubtitles: languages.hasDanishSubtitles,
+          availableLanguages: languages.availableLanguages,
           streamingInfo: {
             create:
               providers?.flatrate?.map((p) => ({
