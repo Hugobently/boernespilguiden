@@ -2,10 +2,7 @@
 // Run this ONCE to create tables in production database
 
 import { NextResponse } from 'next/server';
-import { exec } from 'child_process';
-import { promisify } from 'util';
-
-const execAsync = promisify(exec);
+import { prisma } from '@/lib/db';
 
 export async function POST(request: Request) {
   // Temporarily disabled auth for testing
@@ -20,26 +17,65 @@ export async function POST(request: Request) {
   try {
     console.log('Starting database initialization...');
 
-    // Run prisma db push to create tables
-    const { stdout, stderr } = await execAsync('npx prisma db push --accept-data-loss');
+    // Create Media table
+    await prisma.$executeRawUnsafe(`
+      CREATE TABLE IF NOT EXISTS "Media" (
+        "id" TEXT NOT NULL PRIMARY KEY,
+        "tmdbId" INTEGER UNIQUE,
+        "drEntityId" TEXT UNIQUE,
+        "type" TEXT NOT NULL,
+        "title" TEXT NOT NULL,
+        "originalTitle" TEXT,
+        "slug" TEXT NOT NULL UNIQUE,
+        "description" TEXT,
+        "review" TEXT,
+        "posterUrl" TEXT,
+        "backdropUrl" TEXT,
+        "releaseDate" TIMESTAMP,
+        "runtime" INTEGER,
+        "ageMin" INTEGER,
+        "ageMax" INTEGER,
+        "genres" TEXT[],
+        "seasons" INTEGER,
+        "source" TEXT NOT NULL,
+        "isDanish" BOOLEAN NOT NULL DEFAULT false,
+        "isNordic" BOOLEAN NOT NULL DEFAULT false,
+        "isActive" BOOLEAN NOT NULL DEFAULT true,
+        "isReviewed" BOOLEAN NOT NULL DEFAULT false,
+        "isFeatured" BOOLEAN NOT NULL DEFAULT false,
+        "createdAt" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "updatedAt" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
 
-    console.log('Database push output:', stdout);
-    if (stderr) console.error('Database push errors:', stderr);
+    // Create StreamingInfo table
+    await prisma.$executeRawUnsafe(`
+      CREATE TABLE IF NOT EXISTS "StreamingInfo" (
+        "id" TEXT NOT NULL PRIMARY KEY,
+        "mediaId" TEXT NOT NULL,
+        "provider" TEXT NOT NULL,
+        "providerId" INTEGER,
+        "available" BOOLEAN NOT NULL DEFAULT true,
+        "url" TEXT,
+        "isFree" BOOLEAN NOT NULL DEFAULT false,
+        "lastChecked" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY ("mediaId") REFERENCES "Media"("id") ON DELETE CASCADE
+      )
+    `);
+
+    console.log('Database tables created successfully');
 
     return NextResponse.json({
       success: true,
-      message: 'Database schema pushed successfully',
-      output: stdout,
+      message: 'Database schema created successfully',
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    const err = error as { message: string; stdout?: string; stderr?: string };
+    const err = error as { message: string };
     console.error('Database initialization failed:', error);
     return NextResponse.json({
       success: false,
       error: err.message,
-      output: err.stdout || '',
-      stderr: err.stderr || '',
       timestamp: new Date().toISOString(),
     }, { status: 500 });
   }
