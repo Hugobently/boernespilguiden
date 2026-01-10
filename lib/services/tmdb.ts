@@ -59,9 +59,12 @@ export async function discoverKidsMovies(maxPages = 5): Promise<TMDBMovie[]> {
   // Exclude Asian origin countries to focus on Western/Danish audience
   const excludeCountries = 'JP|KR|CN|TW|HK|TH|IN'; // Japan, Korea, China, Taiwan, Hong Kong, Thailand, India
 
+  // Exclude adult genres: Romance(10749), Thriller(53), Horror(27), Crime(80)
+  const excludeGenres = '10749,53,27,80';
+
   for (let page = 1; page <= maxPages; page++) {
     const data = await tmdbFetch<TMDBResponse<TMDBMovie>>(
-      `/discover/movie?language=da-DK&watch_region=DK&with_genres=16|10751&certification_country=DK&certification.lte=12&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&sort_by=popularity.desc&page=${page}`
+      `/discover/movie?language=da-DK&watch_region=DK&with_genres=16|10751&without_genres=${excludeGenres}&certification_country=DK&certification.lte=A&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&sort_by=popularity.desc&page=${page}`
     );
 
     results.push(...data.results);
@@ -80,12 +83,12 @@ export async function discoverKidsSeries(maxPages = 5): Promise<TMDBSeries[]> {
   // Exclude Asian origin countries to focus on Western/Danish audience
   const excludeCountries = 'JP|KR|CN|TW|HK|TH|IN';
 
-  // Exclude adult genres: Romance(10749), Drama(18), Crime(80), Thriller(53), Mystery(9648)
-  const excludeGenres = '10749,18,80,53,9648';
+  // Exclude adult genres: Romance(10749), Drama(18), Crime(80), Thriller(53), Mystery(9648), Horror(27)
+  const excludeGenres = '10749,18,80,53,9648,27';
 
   for (let page = 1; page <= maxPages; page++) {
     const data = await tmdbFetch<TMDBResponse<TMDBSeries>>(
-      `/discover/tv?language=da-DK&watch_region=DK&with_genres=16&without_genres=${excludeGenres}&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&vote_count.gte=5&sort_by=popularity.desc&page=${page}`
+      `/discover/tv?language=da-DK&watch_region=DK&with_genres=16|10751|10762&without_genres=${excludeGenres}&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&vote_count.gte=3&sort_by=popularity.desc&page=${page}`
     );
 
     results.push(...data.results);
