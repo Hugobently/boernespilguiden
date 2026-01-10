@@ -192,6 +192,54 @@ export async function getTVLanguages(tmdbId: number): Promise<{
   }
 }
 
+// Get content ratings for a TV series
+export async function getTVContentRatings(tmdbId: number) {
+  try {
+    const data = await tmdbFetch<{ results: Array<{ iso_3166_1: string; rating: string }> }>(
+      `/tv/${tmdbId}/content_ratings`
+    );
+    return data.results;
+  } catch {
+    return [];
+  }
+}
+
+// Convert content rating to age range
+export function ratingToAgeRange(ratings: Array<{ iso_3166_1: string; rating: string }> | null): { min: number; max: number } {
+  if (!ratings || ratings.length === 0) {
+    return { min: 3, max: 10 }; // Default for children's TV
+  }
+
+  // Prioritize Danish/European ratings, then US
+  const dk = ratings.find(r => r.iso_3166_1 === 'DK');
+  const de = ratings.find(r => r.iso_3166_1 === 'DE');
+  const us = ratings.find(r => r.iso_3166_1 === 'US');
+
+  const rating = dk?.rating || de?.rating || us?.rating || '';
+
+  // Mapping based on known rating systems
+  const ratingMap: Record<string, { min: number; max: number }> = {
+    // US TV Ratings
+    'TV-Y': { min: 0, max: 6 },        // All children
+    'TV-Y7': { min: 5, max: 10 },      // Directed to older children
+    'TV-Y7-FV': { min: 6, max: 10 },   // Fantasy violence
+    'TV-G': { min: 4, max: 12 },       // General audience
+    'TV-PG': { min: 7, max: 12 },      // Parental guidance suggested
+
+    // German ratings (FSK)
+    '0': { min: 0, max: 6 },
+    '6': { min: 4, max: 10 },
+    '12': { min: 8, max: 12 },
+
+    // Danish ratings
+    'A': { min: 0, max: 12 },  // Tilladt for alle (allowed for all)
+    '7': { min: 5, max: 10 },
+    '11': { min: 8, max: 12 },
+  };
+
+  return ratingMap[rating] || { min: 3, max: 10 }; // Default fallback
+}
+
 // Convert TMDB poster path to full URL
 export function getTMDBImageUrl(
   path: string | null,

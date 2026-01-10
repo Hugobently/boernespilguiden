@@ -2,6 +2,7 @@
 
 import { prisma } from '@/lib/db';
 import * as tmdb from './tmdb';
+import { isBlacklisted, getBlacklistReason } from '@/lib/constants/blacklist';
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -32,6 +33,12 @@ export async function importTMDBMovies(limit = 100): Promise<number> {
 
   for (const movie of movies.slice(0, limit)) {
     try {
+      // BLACKLIST CHECK - skip adult content
+      if (isBlacklisted(movie.id)) {
+        console.log(`⏭️  Skipping blacklisted: ${movie.title} - ${getBlacklistReason(movie.id)}`);
+        continue;
+      }
+
       // Check if it already exists
       const existing = await prisma.media.findUnique({
         where: { tmdbId: movie.id },
@@ -98,6 +105,12 @@ export async function importTMDBSeries(limit = 100): Promise<number> {
 
   for (const show of series.slice(0, limit)) {
     try {
+      // BLACKLIST CHECK - skip adult content
+      if (isBlacklisted(show.id)) {
+        console.log(`⏭️  Skipping blacklisted: ${show.name} - ${getBlacklistReason(show.id)}`);
+        continue;
+      }
+
       const existing = await prisma.media.findUnique({
         where: { tmdbId: show.id },
       });
@@ -107,6 +120,11 @@ export async function importTMDBSeries(limit = 100): Promise<number> {
       const providers = await tmdb.getTVProviders(show.id);
       await sleep(50);
       const languages = await tmdb.getTVLanguages(show.id);
+      await sleep(50);
+
+      // Get content ratings for accurate age range
+      const ratings = await tmdb.getTVContentRatings(show.id);
+      const { min: ageMin, max: ageMax } = tmdb.ratingToAgeRange(ratings);
       await sleep(50);
 
       await prisma.media.create({
@@ -127,8 +145,8 @@ export async function importTMDBSeries(limit = 100): Promise<number> {
           releaseDate: show.first_air_date
             ? new Date(show.first_air_date)
             : null,
-          ageMin: 3,
-          ageMax: 12,
+          ageMin,  // FROM CONTENT RATINGS
+          ageMax,  // FROM CONTENT RATINGS
           hasDanishAudio: languages.hasDanishAudio,
           hasDanishSubtitles: languages.hasDanishSubtitles,
           availableLanguages: languages.availableLanguages,
