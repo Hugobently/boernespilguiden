@@ -17,6 +17,7 @@ const PROVIDERS: Record<
   tv2: { name: 'TV 2 Play', color: '#E4002B' },
   apple: { name: 'Apple TV+', color: '#000000' },
   prime: { name: 'Prime Video', color: '#00A8E1' },
+  filmstriben: { name: 'Filmstriben', color: '#F39200', free: true },
 };
 
 interface Props {

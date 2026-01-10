@@ -19,6 +19,8 @@ function normalizeProviderName(name: string): string {
     'apple tv plus': 'apple',
     'apple tv+': 'apple',
     'amazon prime video': 'prime',
+    filmstriben: 'filmstriben',
+    'filmstriben.dk': 'filmstriben',
   };
   return mapping[name.toLowerCase()] || name.toLowerCase().replace(/\s+/g, '-');
 }

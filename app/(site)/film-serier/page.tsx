@@ -112,7 +112,7 @@ export default async function FilmSerierPage({
           </a>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <a
             href="/film-serier?streaming=drtv"
             className={`px-4 py-2 rounded-lg ${
@@ -122,6 +122,16 @@ export default async function FilmSerierPage({
             }`}
           >
             DR TV
+          </a>
+          <a
+            href="/film-serier?streaming=filmstriben"
+            className={`px-4 py-2 rounded-lg ${
+              streaming === 'filmstriben'
+                ? 'bg-orange-500 text-white'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            Filmstriben
           </a>
           <a
             href="/film-serier?streaming=netflix"
@@ -142,6 +152,16 @@ export default async function FilmSerierPage({
             }`}
           >
             Disney+
+          </a>
+          <a
+            href="/film-serier?streaming=apple"
+            className={`px-4 py-2 rounded-lg ${
+              streaming === 'apple'
+                ? 'bg-black text-white'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            Apple TV+
           </a>
         </div>
       </div>
