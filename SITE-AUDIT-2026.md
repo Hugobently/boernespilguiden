@@ -97,39 +97,73 @@ if (process.env.NODE_ENV === 'development') {
 
 ---
 
+## ✅ LØSTE ANBEFALINGER
+
+### ✅ 1. Manglende Beskrivelser på 11 TMDB Serier (NU FIXET)
+**Problem**: Disse kunne ikke AI-forbedres fordi TMDB ikke havde beskrivelser
+
+**Løsning implementeret**:
+- ✅ Oprettet [scripts/add-missing-descriptions.js](scripts/add-missing-descriptions.js)
+- ✅ Tilføjet professionelle danske beskrivelser til alle 11 serier
+- ✅ AI-forbedret alle 11 serier med forældreinfo, tips, pros/cons
+- ✅ Øget AI-forbedring fra 91 til 102 items (59% → 69%)
+
+**Serier der er blevet beskrevet og forbedret**:
+1. ✅ Rugrats (TMDB ID: 3022)
+2. ✅ Pingvinerne fra Madagaskar (TMDB ID: 7869)
+3. ✅ Star vs. the Forces of Evil (TMDB ID: 61923)
+4. ✅ Grizzy og lemmingerne (TMDB ID: 74415)
+5. ✅ Totally Spies ! (TMDB ID: 2808)
+6. ✅ OK K.O.! Let's Be Heroes (TMDB ID: 72468)
+7. ✅ Sesame Street (TMDB ID: 502)
+8. ✅ Adventure Time (TMDB ID: 15260)
+9. ✅ New Looney Tunes (TMDB ID: 65763)
+10. ✅ Teen Titans Go! (TMDB ID: 45140)
+11. ✅ The Wacky World of Tex Avery (TMDB ID: 8123)
+
+**Status**: ✅ Komplet - alle serier har nu beskrivelser og AI-forbedringer
+
+### ✅ 2. DR Programmer Fejlagtigt Markeret Som Udenlandsk Tale (NU FIXET)
+**Bruger-rapporteret problem**: "bamselægen og andre dr programer sat til kun udenlandsk tale, hvilket er forkert, den - og alt andet på ramasjang - er på dansk"
+
+**Løsning implementeret**:
+- ✅ Oprettet [scripts/fix-dr-danish-audio.js](scripts/fix-dr-danish-audio.js)
+- ✅ Rettet alle 45 DR programmer til `hasDanishAudio: true`
+- ✅ Skelnet mellem danske produktioner (27) og dubbede programmer (18)
+- ✅ Verificeret at 0 danske programmer er fejlmarkeret
+
+**Status**: ✅ Komplet - alle DR programmer korrekt markeret
+
+---
+
 ## 🟡 HØJ PRIORITET ANBEFALINGER
 
-### 1. Manglende Beskrivelser på 11 TMDB Serier
-**Problem**: Disse kan ikke AI-forbedres fordi TMDB ikke har beskrivelser:
+### 1. Manglende Beskrivelser på 45 DR Serier
+**Problem**: DR_MANUAL serier mangler beskrivelser og kan derfor ikke AI-forbedres:
 
-1. Rugrats (TMDB ID: 3022)
-2. Pingvinerne fra Madagaskar (TMDB ID: 7869)
-3. Star vs. the Forces of Evil (TMDB ID: 61923)
-4. Grizzy og lemmingerne (TMDB ID: 74415)
-5. Totally Spies ! (TMDB ID: 2808)
-6. OK K.O.! Let's Be Heroes (TMDB ID: 72468)
-7. Sesame Street (TMDB ID: 502)
-8. Adventure Time (TMDB ID: 15260)
-9. New Looney Tunes (TMDB ID: 65763)
-10. Teen Titans Go! (TMDB ID: 45140)
-11. The Wacky World of Tex Avery (TMDB ID: 8123)
+**DR Programmer uden beskrivelser** (45 total):
+- Motor Mille og Børnebanden, Sprinter Galore, Den magiske klub
+- Onkel Rejes Sørøvershow, Heksebeth, Klar parat skolestart
+- HundeBanden, Max Pinlig, Oda Omvendt, Bella Boris og Berta
+- Og 35 flere DR serier...
 
 **Konsekvens**:
-- Ingen AI-genereret forældreinfo
-- Ingen pros/cons lister
+- 31% af alle serier mangler AI-genereret forældreinfo
+- Ingen pros/cons lister for disse serier
 - Ingen forældretips
-- Manglende aldersmarkeringer på live siden
 
 **Løsninger**:
-1. **Tilføj manuelle beskrivelser** (anbefales) - skriv korte danske beskrivelser
-2. **Hent fra andre kilder** - Wikipedia, IMDb, andre databaser
-3. **Skjul fra visning** - hvis ikke relevante for målgruppe
+1. **Tilføj manuelle beskrivelser** - skriv korte danske beskrivelser baseret på DR Ramasjang
+2. **Hent fra DR API** - hvis DR har et API med beskrivelser
+3. **Fortsæt uden** - DR serier er stadig synlige, bare uden AI-forbedringer
 
-**Eksempel manuel beskrivelse til Sesame Street**:
+**Eksempel manuel beskrivelse** (samme format som de 11 TMDB serier):
 ```typescript
-// Kan tilføjes manuelt til databasen
-"Sesame Street er et klassisk amerikansk børneprogram der har underholdt og undervist børn siden 1969. Med ikoniske karakterer som Elmo, Big Bird og Cookie Monster lærer børn om tal, bogstaver, farver og sociale færdigheder gennem sjove sange og historier."
+// Motor Mille og Børnebanden
+"Motor Mille og Børnebanden følger den eventyrlystne Motor Mille og hendes venner i Børnebanden på spændende eventyr. Sammen oplever de sjove og lærerige oplevelser der handler om venskab, samarbejde og problemløsning. En farverig dansk børneserie fra DR Ramasjang."
 ```
+
+**Note**: Denne prioritet er lav - DR serier er stadig fuldt funktionelle uden AI-forbedringer.
 
 ### 2. Inline Hex-Farver (585 forekomster)
 **Problem**: Mange komponenter bruger `text-[#4A4A4A]` i stedet for semantiske klasser.
