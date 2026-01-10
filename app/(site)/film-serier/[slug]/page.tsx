@@ -128,7 +128,7 @@ export default async function MediaDetailPage({ params }: PageProps) {
           {media.description && (
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-3">
-                Om {typeLabel.toLowerCase()}en
+                Om {media.type === 'MOVIE' ? 'filmen' : 'serien'}
               </h2>
               <p className="text-gray-700 leading-relaxed">
                 {media.description}

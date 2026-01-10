@@ -432,6 +432,7 @@ export function Header() {
   const navLinks = [
     { href: '/spil', label: t('nav.games'), emoji: '🎮' },
     { href: '/braetspil', label: t('nav.boardGames'), emoji: '🎲' },
+    { href: '/film-serier', label: t('nav.filmSeries'), emoji: '📺' },
     { href: '/om', label: t('nav.about'), emoji: '👋' },
   ];
 
