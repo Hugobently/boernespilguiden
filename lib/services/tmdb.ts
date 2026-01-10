@@ -1,0 +1,132 @@
+// TMDB API Service
+
+const TMDB_API_KEY = process.env.TMDB_API_KEY!;
+const BASE_URL = 'https://api.themoviedb.org/3';
+
+// Helper to wait between requests
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+interface TMDBMovie {
+  id: number;
+  title: string;
+  original_title: string;
+  overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  release_date: string;
+  genre_ids: number[];
+  vote_average: number;
+}
+
+interface TMDBSeries {
+  id: number;
+  name: string;
+  original_name: string;
+  overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  first_air_date: string;
+  genre_ids: number[];
+  vote_average: number;
+}
+
+interface TMDBResponse<T> {
+  page: number;
+  total_pages: number;
+  total_results: number;
+  results: T[];
+}
+
+// Fetch with error handling
+async function tmdbFetch<T>(endpoint: string): Promise<T> {
+  const url = endpoint.includes('?')
+    ? `${BASE_URL}${endpoint}&api_key=${TMDB_API_KEY}`
+    : `${BASE_URL}${endpoint}?api_key=${TMDB_API_KEY}`;
+
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error(`TMDB API error: ${res.status} ${res.statusText}`);
+  }
+
+  return res.json();
+}
+
+// Discover children's movies with pagination
+export async function discoverKidsMovies(maxPages = 5): Promise<TMDBMovie[]> {
+  const results: TMDBMovie[] = [];
+
+  for (let page = 1; page <= maxPages; page++) {
+    const data = await tmdbFetch<TMDBResponse<TMDBMovie>>(
+      `/discover/movie?language=da-DK&watch_region=DK&with_genres=16|10751&certification_country=DK&certification.lte=12&sort_by=popularity.desc&page=${page}`
+    );
+
+    results.push(...data.results);
+
+    if (page >= data.total_pages) break;
+    await sleep(250);
+  }
+
+  return results;
+}
+
+// Discover children's series with pagination
+export async function discoverKidsSeries(maxPages = 5): Promise<TMDBSeries[]> {
+  const results: TMDBSeries[] = [];
+
+  for (let page = 1; page <= maxPages; page++) {
+    const data = await tmdbFetch<TMDBResponse<TMDBSeries>>(
+      `/discover/tv?language=da-DK&with_genres=16|10751&sort_by=popularity.desc&page=${page}`
+    );
+
+    results.push(...data.results);
+
+    if (page >= data.total_pages) break;
+    await sleep(250);
+  }
+
+  return results;
+}
+
+// Discover series from DR Ramasjang network
+export async function discoverDRRamasjangSeries(): Promise<TMDBSeries[]> {
+  const data = await tmdbFetch<TMDBResponse<TMDBSeries>>(
+    `/discover/tv?with_networks=3279&language=da-DK`
+  );
+  return data.results;
+}
+
+// Get streaming providers for a movie
+export async function getMovieProviders(tmdbId: number) {
+  const data = await tmdbFetch<{ results: Record<string, any> }>(
+    `/movie/${tmdbId}/watch/providers`
+  );
+  return data.results?.DK || null;
+}
+
+// Get streaming providers for a TV series
+export async function getTVProviders(tmdbId: number) {
+  const data = await tmdbFetch<{ results: Record<string, any> }>(
+    `/tv/${tmdbId}/watch/providers`
+  );
+  return data.results?.DK || null;
+}
+
+// Get movie details
+export async function getMovieDetails(tmdbId: number) {
+  return tmdbFetch<any>(`/movie/${tmdbId}?language=da-DK`);
+}
+
+// Get TV series details
+export async function getTVDetails(tmdbId: number) {
+  return tmdbFetch<any>(`/tv/${tmdbId}?language=da-DK`);
+}
+
+// Convert TMDB poster path to full URL
+export function getTMDBImageUrl(
+  path: string | null,
+  size = 'w500'
+): string | null {
+  if (!path) return null;
+  return `https://image.tmdb.org/t/p/${size}${path}`;
+}
