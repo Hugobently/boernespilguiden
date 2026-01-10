@@ -62,6 +62,8 @@ export async function importTMDBMovies(limit = 100): Promise<number> {
           releaseDate: movie.release_date
             ? new Date(movie.release_date)
             : null,
+          ageMin: 3,
+          ageMax: 12,
           streamingInfo: {
             create:
               providers?.flatrate?.map((p) => ({
@@ -116,6 +118,8 @@ export async function importTMDBSeries(limit = 100): Promise<number> {
           releaseDate: show.first_air_date
             ? new Date(show.first_air_date)
             : null,
+          ageMin: 3,
+          ageMax: 12,
           streamingInfo: {
             create:
               providers?.flatrate?.map((p) => ({
