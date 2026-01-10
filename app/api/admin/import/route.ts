@@ -11,7 +11,14 @@ import {
 export async function POST(request: Request) {
   // Simple auth check
   const auth = request.headers.get('authorization');
-  if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
+  const expectedAuth = `Bearer ${process.env.ADMIN_SECRET}`;
+
+  // Debug logging (remove after testing)
+  console.log('Auth header received:', auth);
+  console.log('Expected auth:', expectedAuth);
+  console.log('ADMIN_SECRET exists:', !!process.env.ADMIN_SECRET);
+
+  if (auth !== expectedAuth) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
