@@ -100,34 +100,6 @@ function FooterLinkSection({ title, emoji, titleColor, links }: FooterLinkSectio
 }
 
 // ============================================================================
-// SOCIAL ICONS (Playful bouncing)
-// ============================================================================
-
-function SocialIcons() {
-  const icons = [
-    { emoji: '🎮', label: 'Spil' },
-    { emoji: '🎲', label: 'Brætspil' },
-    { emoji: '🎯', label: 'Puslespil' },
-    { emoji: '🧩', label: 'Læring' },
-  ];
-
-  return (
-    <div className="flex items-center gap-3">
-      {icons.map((icon, index) => (
-        <div
-          key={icon.label}
-          className="text-2xl cursor-pointer hover:scale-125 transition-transform"
-          style={{ animationDelay: `${index * 100}ms` }}
-          title={icon.label}
-        >
-          {icon.emoji}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ============================================================================
 // FOOTER COMPONENT
 // ============================================================================
 
@@ -193,15 +165,10 @@ export function Footer() {
 
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Copyright */}
-            <p className="text-[#9CA3AF] text-sm text-center sm:text-left">
-              © {currentYear} Børnespilguiden. {t('footer.copyright')}
-            </p>
-
-            {/* Playful icons */}
-            <SocialIcons />
-          </div>
+          {/* Copyright */}
+          <p className="text-[#9CA3AF] text-sm text-center">
+            © {currentYear} Børnespilguiden. {t('footer.copyright')}
+          </p>
         </div>
 
         {/* Fun decorative elements */}

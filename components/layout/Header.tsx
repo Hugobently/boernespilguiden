@@ -6,6 +6,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { Gamepad2, Dices, Tv, Users } from 'lucide-react';
 
 // ============================================================================
 // TYPES
@@ -312,7 +313,7 @@ function MobileMenu({
 }: {
   isOpen: boolean;
   onClose: () => void;
-  navLinks: Array<{ href: string; label: string; emoji: string }>;
+  navLinks: Array<{ href: string; label: string; icon: React.ComponentType<{ className?: string }> }>;
 }) {
   const t = useTranslations();
 
@@ -372,23 +373,26 @@ function MobileMenu({
           {/* Navigation links */}
           <nav className="flex-1 p-4 overflow-y-auto">
             <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={onClose}
-                    className={cn(
-                      'flex items-center gap-3 px-4 py-3 rounded-2xl',
-                      'font-semibold text-[#4A4A4A]',
-                      'hover:bg-[#FFB5A7]/10 hover:text-[#F8A99B]',
-                      'transition-all duration-200'
-                    )}
-                  >
-                    <span className="text-xl">{link.emoji}</span>
-                    <span>{link.label}</span>
-                  </Link>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={onClose}
+                      className={cn(
+                        'flex items-center gap-3 px-4 py-3 rounded-2xl',
+                        'font-semibold text-[#4A4A4A]',
+                        'hover:bg-[#FFB5A7]/10 hover:text-[#F8A99B]',
+                        'transition-all duration-200'
+                      )}
+                    >
+                      <Icon className="w-5 h-5" />
+                      <span>{link.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -443,10 +447,10 @@ export function Header() {
   const t = useTranslations();
 
   const navLinks = [
-    { href: '/spil', label: t('nav.games'), emoji: '🎮' },
-    { href: '/braetspil', label: t('nav.boardGames'), emoji: '🎲' },
-    { href: '/film-serier', label: t('nav.filmSeries'), emoji: '📺' },
-    { href: '/om', label: t('nav.about'), emoji: '👋' },
+    { href: '/spil', label: t('nav.games'), icon: Gamepad2 },
+    { href: '/braetspil', label: t('nav.boardGames'), icon: Dices },
+    { href: '/film-serier', label: t('nav.filmSeries'), icon: Tv },
+    { href: '/om', label: t('nav.about'), icon: Users },
   ];
 
   return (
@@ -463,21 +467,24 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'flex items-center gap-2 px-4 py-2 rounded-xl',
-                  'font-semibold text-[#4A4A4A]',
-                  'hover:bg-[#FFB5A7]/10 hover:text-[#F8A99B]',
-                  'transition-all duration-200'
-                )}
-              >
-                <span>{link.emoji}</span>
-                <span>{link.label}</span>
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    'flex items-center gap-2 px-4 py-2 rounded-xl',
+                    'font-semibold text-[#4A4A4A]',
+                    'hover:bg-[#FFB5A7]/10 hover:text-[#F8A99B]',
+                    'transition-all duration-200'
+                  )}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span>{link.label}</span>
+                </Link>
+              );
+            })}
 
             {/* Language Switcher - Desktop */}
             <div className="ml-2 pl-2 border-l border-[#FFB5A7]/20">
