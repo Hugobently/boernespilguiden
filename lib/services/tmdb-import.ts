@@ -140,6 +140,73 @@ export async function importTMDBSeries(limit = 100): Promise<number> {
   return imported;
 }
 
+// Import DR Ramasjang series from TMDB (network 3279)
+export async function importDRRamasjangSeries(): Promise<number> {
+  const series = await tmdb.discoverDRRamasjangSeries();
+  let imported = 0;
+
+  for (const show of series) {
+    try {
+      // Check if it already exists (by tmdbId, not drEntityId)
+      const existing = await prisma.media.findUnique({
+        where: { tmdbId: show.id },
+      });
+
+      if (existing) continue;
+
+      // Get streaming providers (DR TV should be included)
+      const providers = await tmdb.getTVProviders(show.id);
+      await sleep(100);
+
+      await prisma.media.create({
+        data: {
+          tmdbId: show.id,
+          title: show.name,
+          originalTitle:
+            show.original_name !== show.name ? show.original_name : null,
+          slug: `serie-dr-${show.id}-${show.name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .slice(0, 50)}`,
+          type: 'SERIES',
+          source: 'DR_TMDB',
+          isDanish: true,
+          description: show.overview || null,
+          posterUrl: tmdb.getTMDBImageUrl(show.poster_path),
+          backdropUrl: tmdb.getTMDBImageUrl(show.backdrop_path, 'w1280'),
+          releaseDate: show.first_air_date
+            ? new Date(show.first_air_date)
+            : null,
+          ageMin: 3,
+          ageMax: 10,
+          streamingInfo: {
+            create: [
+              // Always add DR TV as provider for DR Ramasjang content
+              {
+                provider: 'drtv',
+                available: true,
+                isFree: true,
+              },
+              // Add other providers if available
+              ...(providers?.flatrate?.map((p) => ({
+                provider: normalizeProviderName(p.provider_name),
+                providerId: p.provider_id,
+                available: true,
+              })) || []),
+            ],
+          },
+        },
+      });
+
+      imported++;
+    } catch (error) {
+      console.error(`Failed to import DR series ${show.name}:`, error);
+    }
+  }
+
+  return imported;
+}
+
 // Update streaming status for existing TMDB titles
 export async function refreshTMDBStreamingStatus(limit = 50): Promise<number> {
   const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);

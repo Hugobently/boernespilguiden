@@ -6,6 +6,7 @@ import { importAllDRSeries } from '@/lib/services/dr-import';
 import {
   importTMDBMovies,
   importTMDBSeries,
+  importDRRamasjangSeries,
 } from '@/lib/services/tmdb-import';
 
 export async function POST(request: Request) {
@@ -20,19 +21,23 @@ export async function POST(request: Request) {
 
   const stats = {
     drSeries: 0,
+    drRamasjang: 0,
     tmdbMovies: 0,
     tmdbSeries: 0,
     errors: [] as string[],
   };
 
   try {
-    // 1. Import DR series (fast, local data)
+    // 1. Import DR series (fast, local data - keeping for backwards compatibility)
     stats.drSeries = await importAllDRSeries();
 
-    // 2. Import TMDB movies (slow, API calls)
+    // 2. Import DR Ramasjang from TMDB (with images and descriptions)
+    stats.drRamasjang = await importDRRamasjangSeries();
+
+    // 3. Import TMDB movies (slow, API calls)
     stats.tmdbMovies = await importTMDBMovies(50);
 
-    // 3. Import TMDB series
+    // 4. Import TMDB series
     stats.tmdbSeries = await importTMDBSeries(50);
   } catch (error) {
     stats.errors.push(String(error));
