@@ -155,11 +155,12 @@ export async function getMovieLanguages(tmdbId: number): Promise<{
 
     const languages = data.translations.map(t => t.iso_639_1);
     const hasDanish = languages.includes('da');
+    const uniqueLanguages = Array.from(new Set(languages));
 
     return {
       hasDanishAudio: hasDanish,
       hasDanishSubtitles: hasDanish,
-      availableLanguages: [...new Set(languages)],
+      availableLanguages: uniqueLanguages,
     };
   } catch {
     return { hasDanishAudio: false, hasDanishSubtitles: false, availableLanguages: [] };
@@ -179,11 +180,12 @@ export async function getTVLanguages(tmdbId: number): Promise<{
 
     const languages = data.translations.map(t => t.iso_639_1);
     const hasDanish = languages.includes('da');
+    const uniqueLanguages = Array.from(new Set(languages));
 
     return {
       hasDanishAudio: hasDanish,
       hasDanishSubtitles: hasDanish,
-      availableLanguages: [...new Set(languages)],
+      availableLanguages: uniqueLanguages,
     };
   } catch {
     return { hasDanishAudio: false, hasDanishSubtitles: false, availableLanguages: [] };

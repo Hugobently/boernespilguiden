@@ -4,6 +4,7 @@ import { prisma } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { StreamingBadges } from '@/components/media/StreamingBadges';
+import { MediaParentInfo } from '@/components/media/MediaParentInfo';
 
 interface PageProps {
   params: {
@@ -146,9 +147,28 @@ export default async function MediaDetailPage({ params }: PageProps) {
             </div>
           )}
 
+          {/* Parent Info Section */}
+          <MediaParentInfo
+            mediaType={media.type as 'MOVIE' | 'SERIES'}
+            parentInfo={media.parentInfo}
+            parentTip={media.parentTip}
+            pros={media.pros}
+            cons={media.cons}
+            hasDanishAudio={media.hasDanishAudio ?? undefined}
+            hasDanishSubtitles={media.hasDanishSubtitles ?? undefined}
+            hasViolence={media.hasViolence}
+            hasScaryContent={media.hasScaryContent}
+            hasLanguage={media.hasLanguage}
+            hasEducational={media.hasEducational}
+            minAge={media.ageMin}
+            maxAge={media.ageMax}
+            isFree={media.streamingInfo.some((s) => s.isFree)}
+            streamingProviders={media.streamingInfo.map((s) => s.provider)}
+          />
+
           {/* Review */}
           {media.review && (
-            <div className="bg-blue-50 rounded-lg p-6">
+            <div className="bg-blue-50 rounded-lg p-6 mt-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-3">
                 Vores anmeldelse
               </h2>

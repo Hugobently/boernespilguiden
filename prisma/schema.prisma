@@ -270,6 +270,18 @@ model Media {
   hasDanishSubtitles Boolean? // Har danske undertekster
   availableLanguages String[] @default([]) // Liste af tilgængelige sprog-koder
 
+  // Parent information (similar to games)
+  parentInfo         String?  @db.Text // "Hvad forældre skal vide" - længere tekst
+  parentTip          String?  @db.Text // Tip til forældre
+  pros               String[] @default([]) // Positive punkter om mediet
+  cons               String[] @default([]) // Negative punkter om mediet
+
+  // Content features
+  hasViolence        Boolean  @default(false) // Indeholder vold
+  hasScaryContent    Boolean  @default(false) // Skræmmende elementer
+  hasLanguage        Boolean  @default(false) // Svovlord
+  hasEducational     Boolean  @default(false) // Lærerigt indhold
+
   // Relationer
   streamingInfo   StreamingInfo[]
 
