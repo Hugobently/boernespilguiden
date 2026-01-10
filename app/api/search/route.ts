@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
 
     const query = searchParams.get('q') || '';
-    const type = searchParams.get('type'); // 'digital', 'board', or null for both
+    const type = searchParams.get('type'); // 'digital', 'board', 'media', or null for all
     const limit = parseInt(searchParams.get('limit') || '20');
 
     // Parse the search query using intelligent parser
@@ -49,26 +49,63 @@ export async function GET(request: NextRequest) {
     let digitalGames: any[] = [];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let boardGames: any[] = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let media: any[] = [];
 
-    if (type !== 'board') {
+    // Determine limit distribution
+    const itemsPerType = type ? limit : Math.ceil(limit / 3);
+
+    if (type !== 'board' && type !== 'media') {
       digitalGames = await prisma.game.findMany({
         where: digitalWhere,
         orderBy: [
           { editorChoice: 'desc' },
           { rating: 'desc' },
         ],
-        take: type === 'digital' ? limit : Math.ceil(limit / 2),
+        take: type === 'digital' ? limit : itemsPerType,
       });
     }
 
-    if (type !== 'digital') {
+    if (type !== 'digital' && type !== 'media') {
       boardGames = await prisma.boardGame.findMany({
         where: boardWhere,
         orderBy: [
           { editorChoice: 'desc' },
           { rating: 'desc' },
         ],
-        take: type === 'board' ? limit : Math.ceil(limit / 2),
+        take: type === 'board' ? limit : itemsPerType,
+      });
+    }
+
+    // Search Film & Serier
+    if (type !== 'digital' && type !== 'board') {
+      const mediaWhere: any = {};
+
+      // Simple text search in title and description
+      if (parsed.searchTerms.length > 0) {
+        const searchText = parsed.searchTerms.join(' ');
+        mediaWhere.OR = [
+          { title: { contains: searchText, mode: 'insensitive' } },
+          { description: { contains: searchText, mode: 'insensitive' } },
+        ];
+      }
+
+      media = await prisma.media.findMany({
+        where: mediaWhere,
+        orderBy: [
+          { releaseDate: 'desc' },
+        ],
+        take: type === 'media' ? limit : itemsPerType,
+        select: {
+          id: true,
+          slug: true,
+          title: true,
+          posterUrl: true,
+          type: true,
+          isDanish: true,
+          hasDanishAudio: true,
+          ageRating: true,
+        },
       });
     }
 
@@ -76,6 +113,7 @@ export async function GET(request: NextRequest) {
     const combined = [
       ...digitalGames.map((g) => ({ ...g, gameType: 'digital' as const })),
       ...boardGames.map((g) => ({ ...g, gameType: 'board' as const })),
+      ...media.map((m) => ({ ...m, gameType: 'media' as const })),
     ];
 
     return NextResponse.json({
@@ -83,6 +121,7 @@ export async function GET(request: NextRequest) {
       data: {
         digital: digitalGames,
         board: boardGames,
+        media: media,
         combined,
       },
       query: {
@@ -105,6 +144,7 @@ export async function GET(request: NextRequest) {
       counts: {
         digital: digitalGames.length,
         board: boardGames.length,
+        media: media.length,
         total: combined.length,
       },
     });

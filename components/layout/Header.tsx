@@ -12,7 +12,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 // ============================================================================
 
 interface SearchSuggestion {
-  type: 'game' | 'boardgame' | 'category' | 'age';
+  type: 'game' | 'boardgame' | 'media' | 'category' | 'age';
   title: string;
   slug: string;
   icon: string;
@@ -56,7 +56,7 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
         const results: SearchSuggestion[] = [];
 
         // Add digital games
-        data.data.digital?.slice(0, 3).forEach((game: { title: string; slug: string }) => {
+        data.data.digital?.slice(0, 2).forEach((game: { title: string; slug: string }) => {
           results.push({
             type: 'game',
             title: game.title,
@@ -66,12 +66,22 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
         });
 
         // Add board games
-        data.data.board?.slice(0, 3).forEach((game: { title: string; slug: string }) => {
+        data.data.board?.slice(0, 2).forEach((game: { title: string; slug: string }) => {
           results.push({
             type: 'boardgame',
             title: game.title,
             slug: game.slug,
             icon: '🎲',
+          });
+        });
+
+        // Add Film & Serier
+        data.data.media?.slice(0, 2).forEach((item: { title: string; slug: string }) => {
+          results.push({
+            type: 'media',
+            title: item.title,
+            slug: item.slug,
+            icon: '📺',
           });
         });
 
@@ -131,6 +141,9 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
         break;
       case 'boardgame':
         router.push(`/braetspil/${suggestion.slug}`);
+        break;
+      case 'media':
+        router.push(`/film-serier/${suggestion.slug}`);
         break;
       case 'age':
         router.push(`/spil?alder=${suggestion.slug}`);
