@@ -3,6 +3,9 @@
 import { prisma } from '@/lib/db';
 import { MediaCard } from '@/components/media/MediaCard';
 import { Pagination } from '@/components/Pagination';
+import { ageGroups } from '@/components/filters/AgeFilter';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 interface SearchParams {
   type?: string;
@@ -23,6 +26,21 @@ export default async function FilmSerierPage({
   searchParams: SearchParams;
 }) {
   const { type, streaming, alder, page } = searchParams;
+
+  // Helper to build query string with preserved filters
+  const buildUrl = (newParams: Record<string, string | undefined>) => {
+    const params = new URLSearchParams();
+    const merged = { type, streaming, alder, ...newParams };
+
+    Object.entries(merged).forEach(([key, value]) => {
+      if (value && key !== 'page') {
+        params.set(key, value);
+      }
+    });
+
+    const queryString = params.toString();
+    return queryString ? `/film-serier?${queryString}` : '/film-serier';
+  };
 
   // Pagination
   const currentPage = parseInt(page || '1');
@@ -55,9 +73,19 @@ export default async function FilmSerierPage({
   }
 
   if (alder) {
-    const age = parseInt(alder);
-    where.ageMin = { lte: age };
-    where.ageMax = { gte: age };
+    // Map age group to age ranges (matching game pages)
+    // '0-3' => ages 0-3
+    // '3-6' => ages 3-6
+    // '7+' => ages 7+
+    if (alder === '0-3') {
+      where.ageMin = { lte: 3 };
+      where.ageMax = { gte: 0 };
+    } else if (alder === '3-6') {
+      where.ageMin = { lte: 6 };
+      where.ageMax = { gte: 3 };
+    } else if (alder === '7+') {
+      where.ageMin = { gte: 7 };
+    }
   }
 
   // Get total count for pagination
@@ -93,43 +121,102 @@ export default async function FilmSerierPage({
       </div>
 
       {/* Filters */}
-      <div className="mb-8 flex flex-wrap gap-4">
-        <div className="flex gap-2">
+      <div className="mb-8 space-y-6">
+        {/* Type filters */}
+        <div>
+          <h3 className="text-sm font-semibold text-[#4A4A4A] mb-3">Type</h3>
+          <div className="flex gap-2">
+            <a
+              href={buildUrl({ type: undefined })}
+              className={`px-4 py-2 rounded-lg ${
+                !type
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              Alle
+            </a>
+            <a
+              href={buildUrl({ type: 'film' })}
+              className={`px-4 py-2 rounded-lg ${
+                type === 'film'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              Film
+            </a>
+            <a
+              href={buildUrl({ type: 'serier' })}
+              className={`px-4 py-2 rounded-lg ${
+                type === 'serier'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              Serier
+            </a>
+          </div>
+        </div>
+
+        {/* Age filters */}
+        <div>
+          <h3 className="text-sm font-semibold text-[#4A4A4A] mb-3">Alder</h3>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href={buildUrl({ alder: undefined })}
+              className={cn(
+                'inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200',
+                !alder
+                  ? 'bg-[#FFB5A7] text-white shadow-[0_4px_0_0_#E8958A]'
+                  : 'bg-[#FFFCF7] text-[#4A4A4A] shadow-sm hover:shadow-md border-2 border-[#FFB5A7]/30'
+              )}
+            >
+              <span className="text-xl">✨</span>
+              <span>Alle aldre</span>
+            </Link>
+
+            {ageGroups.map((config) => (
+              <Link
+                key={config.slug}
+                href={buildUrl({ alder: config.slug })}
+                className={cn(
+                  'inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200',
+                  alder === config.slug
+                    ? 'shadow-[0_4px_0_0_var(--shadow-color)]'
+                    : 'shadow-sm hover:shadow-md hover:-translate-y-0.5'
+                )}
+                style={{
+                  backgroundColor: alder === config.slug ? config.color.bgSelected : config.color.bg,
+                  color: config.color.text,
+                  '--shadow-color': config.color.shadow,
+                  borderWidth: '2px',
+                  borderColor: alder === config.slug ? config.color.border : 'transparent',
+                } as React.CSSProperties}
+              >
+                <span className="text-xl">{config.emoji}</span>
+                <span>{config.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Streaming filters */}
+        <div>
+          <h3 className="text-sm font-semibold text-[#4A4A4A] mb-3">Streaming-tjenester</h3>
+          <div className="flex gap-2 flex-wrap">
           <a
-            href="/film-serier"
+            href={buildUrl({ streaming: undefined })}
             className={`px-4 py-2 rounded-lg ${
-              !type
-                ? 'bg-blue-600 text-white'
+              !streaming
+                ? 'bg-gray-800 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
             Alle
           </a>
           <a
-            href="/film-serier?type=film"
-            className={`px-4 py-2 rounded-lg ${
-              type === 'film'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Film
-          </a>
-          <a
-            href="/film-serier?type=serier"
-            className={`px-4 py-2 rounded-lg ${
-              type === 'serier'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Serier
-          </a>
-        </div>
-
-        <div className="flex gap-2 flex-wrap">
-          <a
-            href="/film-serier?streaming=drtv"
+            href={buildUrl({ streaming: 'drtv' })}
             className={`px-4 py-2 rounded-lg ${
               streaming === 'drtv'
                 ? 'bg-red-600 text-white'
@@ -139,7 +226,7 @@ export default async function FilmSerierPage({
             DR TV
           </a>
           <a
-            href="/film-serier?streaming=filmstriben"
+            href={buildUrl({ streaming: 'filmstriben' })}
             className={`px-4 py-2 rounded-lg ${
               streaming === 'filmstriben'
                 ? 'bg-orange-500 text-white'
@@ -149,7 +236,7 @@ export default async function FilmSerierPage({
             Filmstriben
           </a>
           <a
-            href="/film-serier?streaming=netflix"
+            href={buildUrl({ streaming: 'netflix' })}
             className={`px-4 py-2 rounded-lg ${
               streaming === 'netflix'
                 ? 'bg-red-600 text-white'
@@ -159,7 +246,7 @@ export default async function FilmSerierPage({
             Netflix
           </a>
           <a
-            href="/film-serier?streaming=disney"
+            href={buildUrl({ streaming: 'disney' })}
             className={`px-4 py-2 rounded-lg ${
               streaming === 'disney'
                 ? 'bg-blue-600 text-white'
@@ -169,7 +256,7 @@ export default async function FilmSerierPage({
             Disney+
           </a>
           <a
-            href="/film-serier?streaming=apple"
+            href={buildUrl({ streaming: 'apple' })}
             className={`px-4 py-2 rounded-lg ${
               streaming === 'apple'
                 ? 'bg-black text-white'
@@ -178,6 +265,7 @@ export default async function FilmSerierPage({
           >
             Apple TV+
           </a>
+          </div>
         </div>
       </div>
 
