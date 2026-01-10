@@ -57,7 +57,14 @@
     "cantFind": "Kan du ikke finde det rigtige spil?",
     "cantFindDesc": "Brug vores avancerede søgning med filtre for alder, kategori og mere",
     "searchGames": "Søg efter spil",
-    "gamesCount": "{count} spil"
+    "gamesCount": "{count} spil",
+    "filmSerierTitle": "Film & Serier til børn",
+    "filmSerierDesc": "Streaminganbefalinger med forældreguides - find sikre film og serier på Netflix, Disney+ og mere",
+    "filmSerierTeaserTitle": "Film & Serier med forældreguides",
+    "filmSerierTeaserDesc": "Vi har gennemgået 100+ film og serier på streaming-tjenester som Netflix, Disney+ og DR Ramasjang. Få ærlige anmeldelser og forældreguides.",
+    "exploreFilmSerier": "Udforsk Film & Serier",
+    "seeAllFilmSerier": "Se alle film & serier",
+    "seriesCount": "{count} serier"
   },
   "games": {
     "title": "Digitale Spil",

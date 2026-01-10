@@ -4,6 +4,7 @@ import { getTranslations, getLocale } from 'next-intl/server';
 import { Button } from '@/components/ui';
 import { SearchBar } from '@/components/filters';
 import { GameCard } from '@/components/games';
+import { MediaCard } from '@/components/media/MediaCard';
 import { getHomepageDataWithTranslation } from '@/lib/translations';
 import { WebsiteJsonLdScript, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 
@@ -487,6 +488,123 @@ function BoardGamesSection({ games, t, tCategories }: BoardGamesSectionProps) {
 }
 
 // ============================================================================
+// FILM & SERIER SECTION
+// ============================================================================
+
+interface FilmSerierSectionProps {
+  media: Awaited<ReturnType<typeof getHomepageDataWithTranslation>>['featuredMedia'];
+  mediaCount: number;
+  t: Awaited<ReturnType<typeof getTranslations<'home'>>>;
+}
+
+function FilmSerierSection({ media, mediaCount, t }: FilmSerierSectionProps) {
+  return (
+    <section className="py-16 bg-gradient-to-b from-transparent via-[#A2D2FF]/10 to-transparent">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-5xl">📺</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#4A4A4A]">
+                {t('filmSerierTitle')}
+              </h2>
+            </div>
+            <p className="text-[#7A7A7A] text-lg max-w-xl">
+              {t('filmSerierDesc')}
+            </p>
+          </div>
+
+          <Link href="/film-serier">
+            <Button variant="sky" size="lg">
+              {t('exploreFilmSerier')}
+              <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Button>
+          </Link>
+        </div>
+
+        {/* Media display */}
+        {media.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {media.map((item, index) => {
+              // Parse providers from JSON
+              const providers = item.providers as unknown as Array<{provider: string}> || [];
+              const streamingInfo = providers.map((p) => ({ provider: p.provider }));
+
+              return (
+                <div
+                  key={item.id}
+                  className="animate-slide-up opacity-0"
+                  style={{
+                    animationDelay: `${index * 0.1}s`,
+                    animationFillMode: 'forwards',
+                  }}
+                >
+                  <MediaCard
+                    slug={item.slug}
+                    title={item.title}
+                    posterUrl={item.posterUrl}
+                    type={item.type as 'MOVIE' | 'SERIES'}
+                    isDanish={item.isDanish}
+                    streamingInfo={streamingInfo}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          /* Teaser card when no media */
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#A2D2FF] via-[#CDB4DB] to-[#FFB5A7] p-1">
+            <div className="bg-[#FFFCF7] rounded-[1.4rem] p-8 sm:p-12">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                {/* Illustration */}
+                <div className="flex-shrink-0">
+                  <div className="relative w-40 h-40">
+                    <div className="absolute inset-0 bg-[#A2D2FF]/30 rounded-full animate-pulse" />
+                    <div className="absolute inset-4 bg-[#A2D2FF]/50 rounded-full" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-7xl">📺</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="text-center md:text-left">
+                  <h3 className="text-2xl font-bold text-[#4A4A4A] mb-3">
+                    {t('filmSerierTeaserTitle')}
+                  </h3>
+                  <p className="text-[#7A7A7A] mb-6 max-w-lg">
+                    {t('filmSerierTeaserDesc')}
+                  </p>
+                  <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <span className="px-3 py-1 rounded-full bg-[#FFB5A7]/30 text-[#8B4563] text-sm font-medium">📺 Netflix</span>
+                    <span className="px-3 py-1 rounded-full bg-[#A2D2FF]/30 text-[#1D4E89] text-sm font-medium">⭐ Disney+</span>
+                    <span className="px-3 py-1 rounded-full bg-[#BAFFC9]/30 text-[#2D6A4F] text-sm font-medium">🇩🇰 DR</span>
+                    <span className="px-3 py-1 rounded-full bg-[#FFE66D]/30 text-[#7D6608] text-sm font-medium">🎬 HBO Max</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Stats badge */}
+        {mediaCount > 0 && (
+          <div className="text-center mt-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#A2D2FF]/20 text-[#1D4E89] font-medium">
+              <span>✅</span>
+              <span>{t('seriesCount', { count: mediaCount })} anmeldt</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+// ============================================================================
 // CTA SECTION
 // ============================================================================
 
@@ -604,6 +722,9 @@ export default async function HomePage() {
 
       {/* Board Games Teaser Section */}
       <BoardGamesSection games={data.featuredBoardGames} t={t} tCategories={tCategories} />
+
+      {/* Film & Serier Section */}
+      <FilmSerierSection media={data.featuredMedia} mediaCount={data.mediaCount} t={t} />
 
       {/* CTA Section */}
       <CTASection t={t} />

@@ -193,7 +193,7 @@ export async function getBoardGamesWithTranslation(
 // ============================================================================
 
 export async function getHomepageDataWithTranslation(locale: string) {
-  const [editorChoiceGames, adFreeGames, featuredBoardGames, gameCountByAge] =
+  const [editorChoiceGames, adFreeGames, featuredBoardGames, featuredMedia, gameCountByAge, mediaCount] =
     await Promise.all([
       // Editor's Choice - digital games
       prisma.game.findMany({
@@ -232,6 +232,14 @@ export async function getHomepageDataWithTranslation(locale: string) {
           },
         },
       }),
+      // Featured Film & Serier (AI-enhanced items with high quality)
+      prisma.media.findMany({
+        where: {
+          parentInfo: { not: null }, // Only AI-enhanced items
+        },
+        orderBy: { releaseDate: 'desc' },
+        take: 4,
+      }),
       // Count games by age group
       Promise.all([
         prisma.game.count({ where: { minAge: { lte: 3 } } }),
@@ -239,16 +247,20 @@ export async function getHomepageDataWithTranslation(locale: string) {
         prisma.game.count({ where: { minAge: { gte: 7, lte: 10 } } }),
         prisma.game.count({ where: { minAge: { gte: 11 } } }),
       ]),
+      // Count total media items
+      prisma.media.count(),
     ]);
 
   return {
     editorChoiceGames: editorChoiceGames.map((g) => applyGameTranslation(g, locale)),
     adFreeGames: adFreeGames.map((g) => applyGameTranslation(g, locale)),
     featuredBoardGames: featuredBoardGames.map((g) => applyBoardGameTranslation(g, locale)),
+    featuredMedia: featuredMedia,
     gameCounts: {
       '0-3': gameCountByAge[0],
       '3-6': gameCountByAge[1],
       '7+': gameCountByAge[2],
     },
+    mediaCount: mediaCount,
   };
 }
