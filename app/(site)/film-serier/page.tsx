@@ -23,7 +23,13 @@ export default async function FilmSerierPage({
   const { type, streaming, alder } = searchParams;
 
   // Build query filters
-  const where: any = {
+  const where: {
+    isActive: boolean;
+    type?: string;
+    streamingInfo?: { some: { provider: string; available: boolean } };
+    ageMin?: { lte: number };
+    ageMax?: { gte: number };
+  } = {
     isActive: true,
   };
 

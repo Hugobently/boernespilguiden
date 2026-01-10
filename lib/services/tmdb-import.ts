@@ -64,7 +64,7 @@ export async function importTMDBMovies(limit = 100): Promise<number> {
             : null,
           streamingInfo: {
             create:
-              providers?.flatrate?.map((p: any) => ({
+              providers?.flatrate?.map((p) => ({
                 provider: normalizeProviderName(p.provider_name),
                 providerId: p.provider_id,
                 available: true,
@@ -118,7 +118,7 @@ export async function importTMDBSeries(limit = 100): Promise<number> {
             : null,
           streamingInfo: {
             create:
-              providers?.flatrate?.map((p: any) => ({
+              providers?.flatrate?.map((p) => ({
                 provider: normalizeProviderName(p.provider_name),
                 providerId: p.provider_id,
                 available: true,
@@ -170,7 +170,7 @@ export async function refreshTMDBStreamingStatus(limit = 50): Promise<number> {
       // Add new ones
       if (providers?.flatrate?.length > 0) {
         await prisma.streamingInfo.createMany({
-          data: providers.flatrate.map((p: any) => ({
+          data: providers.flatrate.map((p) => ({
             mediaId: media.id,
             provider: normalizeProviderName(p.provider_name),
             providerId: p.provider_id,

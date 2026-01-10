@@ -1,7 +1,7 @@
 // DR Import Service
 
 import { prisma } from '@/lib/db';
-import { DR_CHILDREN_SERIES, type DRSeries } from '@/lib/dr-data';
+import { DR_CHILDREN_SERIES } from '@/lib/dr-data';
 import { getDRImageUrl, getDRSeriesUrl } from '@/lib/dr-images';
 
 export async function importAllDRSeries(): Promise<number> {

@@ -96,30 +96,37 @@ export async function discoverDRRamasjangSeries(): Promise<TMDBSeries[]> {
   return data.results;
 }
 
+interface ProviderInfo {
+  flatrate?: Array<{
+    provider_id: number;
+    provider_name: string;
+  }>;
+}
+
 // Get streaming providers for a movie
-export async function getMovieProviders(tmdbId: number) {
-  const data = await tmdbFetch<{ results: Record<string, any> }>(
+export async function getMovieProviders(tmdbId: number): Promise<ProviderInfo | null> {
+  const data = await tmdbFetch<{ results: Record<string, ProviderInfo> }>(
     `/movie/${tmdbId}/watch/providers`
   );
   return data.results?.DK || null;
 }
 
 // Get streaming providers for a TV series
-export async function getTVProviders(tmdbId: number) {
-  const data = await tmdbFetch<{ results: Record<string, any> }>(
+export async function getTVProviders(tmdbId: number): Promise<ProviderInfo | null> {
+  const data = await tmdbFetch<{ results: Record<string, ProviderInfo> }>(
     `/tv/${tmdbId}/watch/providers`
   );
   return data.results?.DK || null;
 }
 
 // Get movie details
-export async function getMovieDetails(tmdbId: number) {
-  return tmdbFetch<any>(`/movie/${tmdbId}?language=da-DK`);
+export async function getMovieDetails(tmdbId: number): Promise<TMDBMovie> {
+  return tmdbFetch<TMDBMovie>(`/movie/${tmdbId}?language=da-DK`);
 }
 
 // Get TV series details
-export async function getTVDetails(tmdbId: number) {
-  return tmdbFetch<any>(`/tv/${tmdbId}?language=da-DK`);
+export async function getTVDetails(tmdbId: number): Promise<TMDBSeries> {
+  return tmdbFetch<TMDBSeries>(`/tv/${tmdbId}?language=da-DK`);
 }
 
 // Convert TMDB poster path to full URL
