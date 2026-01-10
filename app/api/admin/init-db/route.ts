@@ -29,13 +29,14 @@ export async function POST(request: Request) {
       output: stdout,
       timestamp: new Date().toISOString(),
     });
-  } catch (error: any) {
+  } catch (error) {
+    const err = error as { message: string; stdout?: string; stderr?: string };
     console.error('Database initialization failed:', error);
     return NextResponse.json({
       success: false,
-      error: error.message,
-      output: error.stdout || '',
-      stderr: error.stderr || '',
+      error: err.message,
+      output: err.stdout || '',
+      stderr: err.stderr || '',
       timestamp: new Date().toISOString(),
     }, { status: 500 });
   }
