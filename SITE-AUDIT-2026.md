@@ -49,7 +49,15 @@ Børnespilguiden.dk er i **fremragende stand** med professionel kodekvalitet, go
 - ✅ Korrekt akcentering ("Børnespilguiden", "Brætspil")
 - ✅ Professionel tone og grammatik
 
-### 5. Database & Backend
+### 5. Film & Serier Data Kvalitet
+- ✅ **147 TV-serier** i databasen
+- ✅ **102/147 (69%) AI-forbedret** med forældre-information
+- ✅ **45/45 DR programmer** korrekt markeret med dansk tale
+- ✅ **0 danske programmer** fejlagtigt markeret som udenlandsk tale
+- ✅ **0 programmer uden poster** - alle har billeder
+- ✅ Fordeling: 82 TMDB, 20 DR_TMDB, 45 DR_MANUAL
+
+### 6. Database & Backend
 - ✅ PostgreSQL (Prisma.io) med Prisma Accelerate
 - ✅ Velstruktureret Prisma schema
 - ✅ Gode relationer med cascade deletes
