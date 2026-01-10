@@ -52,13 +52,16 @@ async function tmdbFetch<T>(endpoint: string): Promise<T> {
   return res.json();
 }
 
-// Discover children's movies with pagination
+// Discover children's movies with pagination - Focus on Western/Danish content
 export async function discoverKidsMovies(maxPages = 5): Promise<TMDBMovie[]> {
   const results: TMDBMovie[] = [];
 
+  // Exclude Asian origin countries to focus on Western/Danish audience
+  const excludeCountries = 'JP|KR|CN|TW|HK|TH|IN'; // Japan, Korea, China, Taiwan, Hong Kong, Thailand, India
+
   for (let page = 1; page <= maxPages; page++) {
     const data = await tmdbFetch<TMDBResponse<TMDBMovie>>(
-      `/discover/movie?language=da-DK&watch_region=DK&with_genres=16|10751&certification_country=DK&certification.lte=12&sort_by=popularity.desc&page=${page}`
+      `/discover/movie?language=da-DK&watch_region=DK&with_genres=16|10751&certification_country=DK&certification.lte=12&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&sort_by=popularity.desc&page=${page}`
     );
 
     results.push(...data.results);
@@ -70,13 +73,16 @@ export async function discoverKidsMovies(maxPages = 5): Promise<TMDBMovie[]> {
   return results;
 }
 
-// Discover children's series with pagination
+// Discover children's series with pagination - Focus on Western/Danish content
 export async function discoverKidsSeries(maxPages = 5): Promise<TMDBSeries[]> {
   const results: TMDBSeries[] = [];
 
+  // Exclude Asian origin countries to focus on Western/Danish audience
+  const excludeCountries = 'JP|KR|CN|TW|HK|TH|IN';
+
   for (let page = 1; page <= maxPages; page++) {
     const data = await tmdbFetch<TMDBResponse<TMDBSeries>>(
-      `/discover/tv?language=da-DK&with_genres=16|10751&sort_by=popularity.desc&page=${page}`
+      `/discover/tv?language=da-DK&watch_region=DK&with_genres=16|10751&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&sort_by=popularity.desc&page=${page}`
     );
 
     results.push(...data.results);
