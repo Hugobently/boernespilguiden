@@ -31,7 +31,7 @@ const PROVIDERS: Record<
   // TMDB variants - map to primary or hide duplicates
   'netflix-kids': { name: 'Netflix', color: '#E50914', hide: true }, // Duplicate
   'netflix kids': { name: 'Netflix', color: '#E50914', hide: true },
-  allente: { name: 'Allente', color: '#FF6B00' },
+  allente: { name: 'Allente', color: '#FF6B00', hide: true }, // TV package aggregator, not a streaming service
   'tv2-skyshowtime': { name: 'SkyShowtime', color: '#00B2A9', hide: true }, // Duplicate
   'tv-2 play': { name: 'TV 2 Play', color: '#E4002B' },
 
