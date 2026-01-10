@@ -149,13 +149,13 @@ export default async function MediaDetailPage({ params }: PageProps) {
           )}
 
           {/* Genres */}
-          {media.genres && JSON.parse(media.genres).length > 0 && (
+          {media.genres && media.genres.length > 0 && (
             <div className="mt-6">
               <h2 className="text-sm font-semibold text-gray-700 mb-2">
                 Genrer:
               </h2>
               <div className="flex flex-wrap gap-2">
-                {JSON.parse(media.genres).map((genre: string) => (
+                {media.genres.map((genre: string) => (
                   <span
                     key={genre}
                     className="px-2 py-1 bg-gray-100 text-gray-700 text-sm rounded"

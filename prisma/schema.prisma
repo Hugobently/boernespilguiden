@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -245,8 +245,8 @@ model Media {
   slug            String   @unique
 
   // Indhold
-  description     String?
-  review          String?
+  description     String?  @db.Text
+  review          String?  @db.Text
 
   // Billeder
   posterUrl       String?
@@ -257,7 +257,7 @@ model Media {
   runtime         Int?      // minutter
   ageMin          Int?      // Minimum alder
   ageMax          Int?      // Maximum alder
-  genres          String    @default("[]") // JSON array for SQLite compatibility
+  genres          String[]
   seasons         Int?      // Antal sæsoner (kun serier)
 
   // Klassifikation
