@@ -246,6 +246,17 @@ a:hover {
    ========================================================================== */
 
 @layer utilities {
+  /* Color utilities - use these instead of inline hex colors */
+  .text-primary { color: var(--text-primary); }
+  .text-secondary { color: var(--text-secondary); }
+  .text-muted { color: var(--text-muted); }
+  .text-inverse { color: var(--text-inverse); }
+
+  .bg-cream { background-color: var(--bg-cream); }
+  .bg-paper { background-color: var(--bg-paper); }
+  .bg-peach { background-color: var(--bg-peach); }
+  .bg-mist { background-color: var(--bg-mist); }
+
   /* Text utilities */
   .text-balance {
     text-wrap: balance;

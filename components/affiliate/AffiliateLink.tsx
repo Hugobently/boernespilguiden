@@ -108,8 +108,10 @@ function trackAffiliateClick(
   // Track click for analytics
   // This can be expanded to send to your analytics service
   if (typeof window !== 'undefined') {
-    // Log for debugging (remove in production)
-    console.log('Affiliate click:', { provider, gameSlug, gameTitle, href });
+    // Log for debugging in development only
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Affiliate click:', { provider, gameSlug, gameTitle, href });
+    }
 
     // Google Analytics event (if GA is set up)
     if (typeof window.gtag === 'function') {
