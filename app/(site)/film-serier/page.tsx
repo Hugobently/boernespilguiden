@@ -2,11 +2,13 @@
 
 import { prisma } from '@/lib/db';
 import { MediaCard } from '@/components/media/MediaCard';
+import { Pagination } from '@/components/Pagination';
 
 interface SearchParams {
   type?: string;
   streaming?: string;
   alder?: string;
+  page?: string;
 }
 
 export const metadata = {
@@ -20,7 +22,11 @@ export default async function FilmSerierPage({
 }: {
   searchParams: SearchParams;
 }) {
-  const { type, streaming, alder } = searchParams;
+  const { type, streaming, alder, page } = searchParams;
+
+  // Pagination
+  const currentPage = parseInt(page || '1');
+  const itemsPerPage = 24;
 
   // Build query filters
   const where: {
@@ -54,7 +60,10 @@ export default async function FilmSerierPage({
     where.ageMax = { gte: age };
   }
 
-  // Fetch media
+  // Get total count for pagination
+  const totalItems = await prisma.media.count({ where });
+
+  // Fetch media with pagination
   const media = await prisma.media.findMany({
     where,
     include: {
@@ -63,8 +72,14 @@ export default async function FilmSerierPage({
       },
     },
     orderBy: [{ isFeatured: 'desc' }, { createdAt: 'desc' }],
-    take: 50,
+    skip: (currentPage - 1) * itemsPerPage,
+    take: itemsPerPage,
   });
+
+  // Calculate pagination values
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage + 1;
+  const endIndex = Math.min(currentPage * itemsPerPage, totalItems);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -174,7 +189,7 @@ export default async function FilmSerierPage({
       ) : (
         <>
           <p className="text-sm text-gray-600 mb-4">
-            Viser {media.length} resultater
+            Viser {startIndex}-{endIndex} af {totalItems} resultater
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
             {media.map((item) => (
@@ -191,6 +206,14 @@ export default async function FilmSerierPage({
               />
             ))}
           </div>
+
+          {/* Pagination */}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            totalItems={totalItems}
+            baseUrl="/film-serier"
+          />
         </>
       )}
 
