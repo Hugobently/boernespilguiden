@@ -79,6 +79,7 @@ export async function GET(request: NextRequest) {
 
     // Search Film & Serier
     if (type !== 'digital' && type !== 'board') {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const mediaWhere: any = {};
 
       // Simple text search in title and description
@@ -104,7 +105,6 @@ export async function GET(request: NextRequest) {
           type: true,
           isDanish: true,
           hasDanishAudio: true,
-          ageRating: true,
         },
       });
     }

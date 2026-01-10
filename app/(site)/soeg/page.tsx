@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { GameCard } from '@/components/games';
+import { MediaCard } from '@/components/media/MediaCard';
 import { SearchBar } from '@/components/filters';
 import prisma from '@/lib/db';
 import { parseAgeGroup } from '@/lib/utils';
@@ -14,7 +15,7 @@ import { SearchTabs, SearchFilters, SearchSuggestions, SortSelect, type SortOpti
 
 interface SearchParams {
   q?: string;
-  tab?: 'alle' | 'spil' | 'braetspil';
+  tab?: 'alle' | 'spil' | 'braetspil' | 'film-serier';
   alder?: string;
   reklamefri?: string;
   gratis?: string;
@@ -233,8 +234,96 @@ async function searchBoardGames(
   return boardGames;
 }
 
+async function searchMedia(
+  query: string,
+  filters: {
+    ageGroup?: string;
+    supportsDanish?: boolean;
+  },
+  sort: SortOption = 'relevans'
+) {
+  // Build where clause for media (Film & Serier)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const mediaWhere: any = {
+    AND: [],
+  };
+
+  // Search term matching (case-insensitive for PostgreSQL)
+  if (query) {
+    mediaWhere.AND.push({
+      OR: [
+        { title: { contains: query, mode: 'insensitive' } },
+        { description: { contains: query, mode: 'insensitive' } },
+      ],
+    });
+  }
+
+  // Apply filters
+  if (filters.ageGroup) {
+    const { minAge, maxAge } = parseAgeGroup(filters.ageGroup);
+    mediaWhere.AND.push({
+      ageMin: { lte: maxAge },
+      ageMax: { gte: minAge },
+    });
+  }
+  if (filters.supportsDanish) {
+    mediaWhere.AND.push({
+      OR: [
+        { isDanish: true },
+        { hasDanishAudio: true },
+      ],
+    });
+  }
+
+  // Clean up empty AND array
+  if (mediaWhere.AND.length === 0) {
+    delete mediaWhere.AND;
+  }
+
+  // Build orderBy based on sort option
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let orderBy: any[];
+  switch (sort) {
+    case 'rating':
+      orderBy = [{ ageRating: 'asc' }]; // Lower age rating = better for kids
+      break;
+    case 'navn':
+      orderBy = [{ title: 'asc' }];
+      break;
+    case 'alder':
+      orderBy = [{ ageMin: 'asc' }];
+      break;
+    default: // 'relevans'
+      orderBy = [{ releaseDate: 'desc' }]; // Most recent first
+  }
+
+  const media = await prisma.media.findMany({
+    where: Object.keys(mediaWhere).length > 0 ? mediaWhere : undefined,
+    orderBy,
+    take: 50,
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      posterUrl: true,
+      type: true,
+      ageMin: true,
+      ageMax: true,
+      isDanish: true,
+      streamingInfo: {
+        select: {
+          provider: true,
+          isFree: true,
+        },
+      },
+    },
+  });
+
+  return media;
+}
+
 async function getPopularGames() {
-  const [digitalGames, boardGames] = await Promise.all([
+  const [digitalGames, boardGames, media] = await Promise.all([
     prisma.game.findMany({
       where: { OR: [{ featured: true }, { editorChoice: true }] },
       orderBy: { rating: 'desc' },
@@ -245,9 +334,30 @@ async function getPopularGames() {
       orderBy: { rating: 'desc' },
       take: 4,
     }),
+    prisma.media.findMany({
+      where: { parentInfo: { not: null } },
+      orderBy: { releaseDate: 'desc' },
+      take: 4,
+      select: {
+        id: true,
+        slug: true,
+        title: true,
+        posterUrl: true,
+        type: true,
+        ageMin: true,
+        ageMax: true,
+        isDanish: true,
+        streamingInfo: {
+          select: {
+            provider: true,
+            isFree: true,
+          },
+        },
+      },
+    }),
   ]);
 
-  return { digitalGames, boardGames };
+  return { digitalGames, boardGames, media };
 }
 
 // ============================================================================
@@ -261,7 +371,7 @@ async function SearchResults({
   sort,
 }: {
   query: string;
-  tab: 'alle' | 'spil' | 'braetspil';
+  tab: 'alle' | 'spil' | 'braetspil' | 'film-serier';
   filters: {
     adFree?: boolean;
     free?: boolean;
@@ -277,13 +387,15 @@ async function SearchResults({
   // Get results based on active tab
   const showDigital = tab === 'alle' || tab === 'spil';
   const showBoard = tab === 'alle' || tab === 'braetspil';
+  const showMedia = tab === 'alle' || tab === 'film-serier';
 
-  const [digitalGames, boardGames] = await Promise.all([
+  const [digitalGames, boardGames, media] = await Promise.all([
     showDigital ? searchGames(query, filters, sort) : Promise.resolve([]),
     showBoard ? searchBoardGames(query, filters, sort) : Promise.resolve([]),
+    showMedia ? searchMedia(query, filters, sort) : Promise.resolve([]),
   ]);
 
-  const totalResults = digitalGames.length + boardGames.length;
+  const totalResults = digitalGames.length + boardGames.length + media.length;
   const hasActiveFilters =
     filters.adFree ||
     filters.free ||
@@ -381,6 +493,41 @@ async function SearchResults({
                   />
                 </div>
               ))}
+            </div>
+          </div>
+        )}
+
+        {popular.media.length > 0 && (
+          <div>
+            <h3 className="text-xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-2">
+              <span>📺</span> Populære Film & Serier
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+              {popular.media.map((item, index) => {
+                const streamingInfo = item.streamingInfo || [];
+
+                return (
+                  <div
+                    key={item.slug}
+                    className="animate-slide-up opacity-0"
+                    style={{
+                      animationDelay: `${index * 0.05}s`,
+                      animationFillMode: 'forwards',
+                    }}
+                  >
+                    <MediaCard
+                      slug={item.slug}
+                      title={item.title}
+                      posterUrl={item.posterUrl}
+                      type={item.type as 'MOVIE' | 'SERIES'}
+                      ageMin={item.ageMin}
+                      ageMax={item.ageMax}
+                      isDanish={item.isDanish}
+                      streamingInfo={streamingInfo}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
@@ -534,6 +681,55 @@ async function SearchResults({
           </div>
         </section>
       )}
+
+      {/* Film & Serier Results */}
+      {media.length > 0 && (
+        <section>
+          {tab === 'alle' && (
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-bold text-[#4A4A4A] flex items-center gap-2">
+                <span>📺</span> Film & Serier ({media.length})
+              </h2>
+              {media.length > 8 && (
+                <Link
+                  href={`/soeg?q=${encodeURIComponent(query)}&tab=film-serier`}
+                  className="text-sm text-[#A2D2FF] font-semibold hover:underline"
+                >
+                  Se alle →
+                </Link>
+              )}
+            </div>
+          )}
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            {(tab === 'alle' ? media.slice(0, 8) : media).map((item, index) => {
+              const streamingInfo = item.streamingInfo || [];
+
+              return (
+                <div
+                  key={item.slug}
+                  className="animate-slide-up opacity-0"
+                  style={{
+                    animationDelay: `${index * 0.05}s`,
+                    animationFillMode: 'forwards',
+                  }}
+                >
+                  <MediaCard
+                    slug={item.slug}
+                    title={item.title}
+                    posterUrl={item.posterUrl}
+                    type={item.type as 'MOVIE' | 'SERIES'}
+                    ageMin={item.ageMin}
+                    ageMax={item.ageMax}
+                    isDanish={item.isDanish}
+                    streamingInfo={streamingInfo}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
@@ -546,7 +742,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
   const params = await searchParams;
 
   const query = params.q || '';
-  const tab = (params.tab || 'alle') as 'alle' | 'spil' | 'braetspil';
+  const tab = (params.tab || 'alle') as 'alle' | 'spil' | 'braetspil' | 'film-serier';
   const sort = (params.sort || 'relevans') as SortOption;
   const filters = {
     adFree: params.reklamefri === 'true',

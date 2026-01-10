@@ -239,6 +239,20 @@ export async function getHomepageDataWithTranslation(locale: string) {
         },
         orderBy: { releaseDate: 'desc' },
         take: 4,
+        select: {
+          id: true,
+          slug: true,
+          title: true,
+          posterUrl: true,
+          type: true,
+          isDanish: true,
+          streamingInfo: {
+            select: {
+              provider: true,
+              isFree: true,
+            },
+          },
+        },
       }),
       // Count games by age group
       Promise.all([

@@ -491,8 +491,18 @@ function BoardGamesSection({ games, t, tCategories }: BoardGamesSectionProps) {
 // FILM & SERIER SECTION
 // ============================================================================
 
+interface FeaturedMediaItem {
+  id: string;
+  slug: string;
+  title: string;
+  posterUrl: string | null;
+  type: string;
+  isDanish: boolean;
+  streamingInfo: Array<{ provider: string; isFree?: boolean }>;
+}
+
 interface FilmSerierSectionProps {
-  media: Awaited<ReturnType<typeof getHomepageDataWithTranslation>>['featuredMedia'];
+  media: FeaturedMediaItem[];
   mediaCount: number;
   t: Awaited<ReturnType<typeof getTranslations<'home'>>>;
 }
@@ -529,9 +539,7 @@ function FilmSerierSection({ media, mediaCount, t }: FilmSerierSectionProps) {
         {media.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {media.map((item, index) => {
-              // Parse providers from JSON
-              const providers = item.providers as unknown as Array<{provider: string}> || [];
-              const streamingInfo = providers.map((p) => ({ provider: p.provider }));
+              const streamingInfo = item.streamingInfo || [];
 
               return (
                 <div
@@ -724,7 +732,7 @@ export default async function HomePage() {
       <BoardGamesSection games={data.featuredBoardGames} t={t} tCategories={tCategories} />
 
       {/* Film & Serier Section */}
-      <FilmSerierSection media={data.featuredMedia} mediaCount={data.mediaCount} t={t} />
+      <FilmSerierSection media={data.featuredMedia as unknown as FeaturedMediaItem[]} mediaCount={data.mediaCount} t={t} />
 
       {/* CTA Section */}
       <CTASection t={t} />

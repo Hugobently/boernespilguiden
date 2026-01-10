@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 // ============================================================================
 
 interface SearchTabsProps {
-  activeTab: 'alle' | 'spil' | 'braetspil';
+  activeTab: 'alle' | 'spil' | 'braetspil' | 'film-serier';
   query: string;
 }
 
@@ -22,6 +22,7 @@ export function SearchTabs({ activeTab }: SearchTabsProps) {
     { id: 'alle', label: 'Alle', emoji: '🔍' },
     { id: 'spil', label: 'Digitale spil', emoji: '🎮' },
     { id: 'braetspil', label: 'Brætspil', emoji: '🎲' },
+    { id: 'film-serier', label: 'Film & Serier', emoji: '📺' },
   ] as const;
 
   const handleTabChange = (tabId: string) => {
@@ -60,7 +61,7 @@ export function SearchTabs({ activeTab }: SearchTabsProps) {
 // ============================================================================
 
 interface SearchFiltersProps {
-  activeTab: 'alle' | 'spil' | 'braetspil';
+  activeTab: 'alle' | 'spil' | 'braetspil' | 'film-serier';
   filters: {
     adFree?: boolean;
     free?: boolean;
