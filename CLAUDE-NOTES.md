@@ -6,7 +6,40 @@ This document contains important information learned during development sessions
 
 ## Session Log
 
-### 2026-01-11: Tasks #1-6 from boernespilguiden-fixes-v2.md
+### 2026-01-11 (Session 2): Site Review & DR Media Fix
+Performed thorough site review of boernespilguiden.dk
+
+**CORRECTION: Images are in filesystem, not database!**
+The code uses fallback paths: `/images/games/digital/{slug}.jpg` and `/images/games/board/{slug}.jpg`
+- Database `iconUrl`/`imageUrl` fields are null, but images exist on disk
+- 86 digital game images exist in `/public/images/games/digital/`
+- 70 board game images exist in `/public/images/games/board/`
+- Only ~25 games and ~2 board games are actually missing images
+
+**DR Media Fix:**
+- Created `fix-dr-media.ts` script to search TMDB for DR shows
+- Fixed 27 shows with TMDB posters and descriptions
+- 4 had duplicate tmdbId conflicts (already existed in DB)
+- 14 not found on TMDB (Danish-only content, need manual descriptions)
+- **Before:** 49 media without descriptions → **After:** 24 remaining
+
+**Remaining Issues:**
+- 🟡 **24 media still missing descriptions** (Danish-only content not on TMDB)
+- 🟡 **~25 games missing images** (not 91 - most have filesystem fallback)
+- 🟡 **~2 board games missing images** (not 72 - most have filesystem fallback)
+- 🟡 **Duplicate streaming provider names** in database (apple vs apple-tv, netflix vs netflix-kids)
+
+**What's Working Well:**
+- ✅ All 194 media items have poster images
+- ✅ Most games have images via filesystem fallback
+- ✅ Most board games have images via filesystem fallback
+- ✅ Age filters are combinable on Film & Serier
+- ✅ No adult content visible (ages 11+ filtered)
+- ✅ Navigation with emojis working
+- ✅ Search works across all content types
+- ✅ Allente hidden correctly in UI
+
+### 2026-01-11 (Session 1): Tasks #1-6 from boernespilguiden-fixes-v2.md
 - ✅ Task #1: Reverted navigation to emojis (user prefers emojis over Lucide icons)
 - ✅ Task #2: Hidden Allente from streaming badges (it's a TV aggregator, not a service)
 - ✅ Task #3: Added combinable age filters to Film & Serier page
@@ -53,9 +86,11 @@ ANTHROPIC_API_KEY   # Anthropic API key for AI enhancement
 - **Image field:** `iconUrl` (NOT `imageUrl`)
 - **Screenshots:** `screenshots` (JSON array string)
 - **Platform field:** `platforms` (JSON array string)
+- **IMPORTANT:** Images use filesystem fallback! If `iconUrl` is null, code falls back to `/images/games/digital/{slug}.jpg`
 
 ### BoardGame Model
 - **Image field:** `imageUrl`
+- **IMPORTANT:** Images use filesystem fallback! If `imageUrl` is null, code falls back to `/images/games/board/{slug}.jpg`
 
 ### Media Model (Film & Serier)
 - **Image field:** `posterUrl`
@@ -67,28 +102,40 @@ ANTHROPIC_API_KEY   # Anthropic API key for AI enhancement
 - **Provider field:** `provider` - e.g., `"drtv"`, `"netflix"`, `"apple"`, `"disney"`
 - **Free field:** `isFree` - Boolean
 
-## Database Statistics (as of last session)
+## Database Statistics (Updated 2026-01-11)
 
 ```
 Games: 111 total
-  - With iconUrl: 20
-  - Without iconUrl: 91 (need manual image URLs)
+  - Database iconUrl set: 20
+  - Database iconUrl null: 91 (BUT images exist in filesystem!)
+  - Actual images on disk: 86 jpg files in /public/images/games/digital/
+  - Actually missing images: ~25
 
-Media: 147 total → 196 after Apple TV+ import
-  - All have posterUrl
-  - 45 DR_MANUAL entries lack descriptions
-  - 49 Apple TV+ items added successfully
+Board Games: 72 total
+  - Database imageUrl set: 0
+  - Database imageUrl null: 72 (BUT images exist in filesystem!)
+  - Actual images on disk: 70 jpg files in /public/images/games/board/
+  - Actually missing images: ~2
+
+Media: 194 total
+  - All have posterUrl ✅
+  - Without descriptions: 24 (down from 49 after fix-dr-media.ts)
+  - DR_MANUAL entries: 45 (25 now have descriptions from TMDB)
 
 Streaming Providers in DB:
-  - DR TV (drtv)
-  - Netflix (netflix)
-  - Disney+ (disney)
-  - Apple TV+ (apple) ← newly added
-  - Viaplay (viaplay)
-  - Max/HBO (max, hbo)
-  - SkyShowtime (skyshowtime)
-  - TV 2 Play (tv2)
-  - Filmstriben (filmstriben)
+  - drtv: 65 items
+  - apple: 48 items
+  - disney: 33 items
+  - netflix: 26 items
+  - allente: 24 items (hidden in UI)
+  - skyshowtime: 16 items
+  - tv2-skyshowtime: 16 items
+  - viaplay: 15 items
+  - hbo: 11 items
+  - netflix-kids: 11 items
+  - tv-2: 6 items
+  - prime: 5 items
+  - apple-tv: 1 item (duplicate of apple)
 ```
 
 ## Scripts Available
@@ -131,6 +178,14 @@ Shows database statistics.
 ```bash
 npx tsx scripts/check-stats.ts
 ```
+
+### fix-dr-media.ts
+Searches TMDB for DR_MANUAL shows and updates with proper posters/descriptions.
+```bash
+npx tsx scripts/fix-dr-media.ts --dry-run
+npx tsx scripts/fix-dr-media.ts
+```
+**Note:** Only works for shows that exist on TMDB. Danish-only content needs manual descriptions.
 
 ### Automation Scripts
 ```bash
@@ -217,12 +272,23 @@ git commit -m "message
 Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
 ```
 
-## What Still Needs Work
+## What Still Needs Work (Priority Order)
 
-1. **91 games without icons** - Need to add image URLs to `KNOWN_GAME_IMAGES` mapping
-2. **45 DR shows without descriptions** - Need TMDB lookup and AI enhancement
-3. **More streaming content** - Can fetch from Netflix, Disney+, etc.
-4. **Filmstriben content** - TMDB may not have this data, might need manual import
+### Priority 1 - Content Quality
+1. **24 media without descriptions** - Danish-only content not on TMDB, need manual descriptions
+
+### Priority 2 - Missing Images (Lower Priority - Most Have Fallback)
+2. **~25 games missing images** - Most games (86/111) have images via filesystem fallback
+3. **~2 board games missing images** - Most board games (70/72) have images via filesystem fallback
+
+### Priority 3 - Database Cleanup
+4. **Consolidate duplicate providers** - Clean up apple vs apple-tv, netflix vs netflix-kids
+
+### Priority 4 - Nice to Have
+5. **Add contact email to /om page** - Users can't easily report issues
+6. **Clean up Allente data** - 24 items still in DB (hidden in UI but data exists)
+7. **More streaming content** - Can fetch from Netflix, Disney+, etc.
+8. **Filmstriben content** - TMDB may not have this data, might need manual import
 
 ## Quick Commands for New Sessions
 
