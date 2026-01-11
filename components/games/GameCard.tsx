@@ -11,7 +11,7 @@ import { forwardRef, HTMLAttributes, useState, useCallback } from 'react';
 // IMAGE FORMAT HELPER - Tries jpg, png, svg in order
 // ============================================================================
 
-const IMAGE_FORMATS = ['jpg', 'png', 'svg'] as const;
+const IMAGE_FORMATS = ['jpg', 'webp', 'png', 'svg'] as const;
 
 function getImagePath(slug: string, type: 'digital' | 'board', format: string): string {
   return `/images/games/${type}/${slug}.${format}`;
