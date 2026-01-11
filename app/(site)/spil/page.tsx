@@ -3,7 +3,7 @@ import { getTranslations, getLocale } from 'next-intl/server';
 import { Navigation } from '@/components/layout';
 import { GameGrid } from '@/components/games';
 import { AgeFilter } from '@/components/filters';
-import { StickyFilterBar } from '@/components/ui';
+import { StickyFilterBar, ResultsBar } from '@/components/ui';
 import { FloatingBlobs } from '@/components/brand';
 import { getGamesWithTranslation } from '@/lib/translations';
 
@@ -130,13 +130,29 @@ export default async function DigitalGamesPage({ searchParams }: PageProps) {
           </div>
         </StickyFilterBar>
 
-        {showDanishOnly && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl animate-slide-up">
-            <p className="text-sm text-red-800">
-              <span className="font-medium">🇩🇰 Viser kun spil med dansk tale/tekst.</span> Der er {games.length} spil med dansk sprog.
-            </p>
-          </div>
-        )}
+        {/* Results Bar */}
+        <ResultsBar
+          totalResults={games.length}
+          itemType="spil"
+          activeFilters={[
+            ...(selectedAge ? [{
+              key: 'age',
+              label: selectedAge === '0-3' ? '0-3 år' : selectedAge === '3-6' ? '3-6 år' : '7+ år',
+              emoji: selectedAge === '0-3' ? '👶' : selectedAge === '3-6' ? '🧒' : '👦',
+              color: selectedAge === '0-3' ? 'bg-[#FFD1DC] text-[#8B4563]' : selectedAge === '3-6' ? 'bg-[#BAFFC9] text-[#2D6A4F]' : 'bg-[#BAE1FF] text-[#1D4E89]',
+              removeUrl: showDanishOnly ? '/spil?dansk=true' : '/spil',
+            }] : []),
+            ...(showDanishOnly ? [{
+              key: 'danish',
+              label: 'Dansk sprog',
+              emoji: '🇩🇰',
+              color: 'bg-[#C8102E]/10 text-[#C8102E]',
+              removeUrl: selectedAge ? `/spil?alder=${selectedAge}` : '/spil',
+            }] : []),
+          ]}
+          resetUrl="/spil"
+          className="mb-6"
+        />
 
         <GameGrid games={games} type="digital" />
       </div>
