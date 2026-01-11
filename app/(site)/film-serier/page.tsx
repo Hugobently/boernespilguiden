@@ -206,66 +206,128 @@ export default async function FilmSerierPage({
         <div>
           <h3 className="text-sm font-semibold text-[#4A4A4A] mb-3">Streaming-tjenester</h3>
           <div className="flex gap-2 flex-wrap">
-          <a
-            href={buildUrl({ streaming: undefined })}
-            className={`px-4 py-2 rounded-lg ${
-              !streaming
-                ? 'bg-gray-800 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Alle
-          </a>
-          <a
-            href={buildUrl({ streaming: 'drtv' })}
-            className={`px-4 py-2 rounded-lg ${
-              streaming === 'drtv'
-                ? 'bg-red-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            DR TV
-          </a>
-          <a
-            href={buildUrl({ streaming: 'filmstriben' })}
-            className={`px-4 py-2 rounded-lg ${
-              streaming === 'filmstriben'
-                ? 'bg-orange-500 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Filmstriben
-          </a>
-          <a
-            href={buildUrl({ streaming: 'netflix' })}
-            className={`px-4 py-2 rounded-lg ${
-              streaming === 'netflix'
-                ? 'bg-red-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Netflix
-          </a>
-          <a
-            href={buildUrl({ streaming: 'disney' })}
-            className={`px-4 py-2 rounded-lg ${
-              streaming === 'disney'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Disney+
-          </a>
-          <a
-            href={buildUrl({ streaming: 'apple' })}
-            className={`px-4 py-2 rounded-lg ${
-              streaming === 'apple'
-                ? 'bg-black text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Apple TV+
-          </a>
+            <a
+              href={buildUrl({ streaming: undefined })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                !streaming
+                  ? 'bg-gray-800 text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              Alle
+            </a>
+            {/* Free providers first */}
+            <a
+              href={buildUrl({ streaming: 'drtv' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'drtv'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'drtv' ? { backgroundColor: '#9B1B30' } : undefined}
+            >
+              DR TV <span className="text-xs opacity-75">Gratis</span>
+            </a>
+            <a
+              href={buildUrl({ streaming: 'filmstriben' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'filmstriben'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'filmstriben' ? { backgroundColor: '#F39200' } : undefined}
+            >
+              Filmstriben <span className="text-xs opacity-75">Gratis</span>
+            </a>
+            {/* Paid providers */}
+            <a
+              href={buildUrl({ streaming: 'netflix' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'netflix'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'netflix' ? { backgroundColor: '#E50914' } : undefined}
+            >
+              Netflix
+            </a>
+            <a
+              href={buildUrl({ streaming: 'disney' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'disney'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'disney' ? { backgroundColor: '#113CCF' } : undefined}
+            >
+              Disney+
+            </a>
+            <a
+              href={buildUrl({ streaming: 'hbo' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'hbo'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'hbo' ? { backgroundColor: '#5822B4' } : undefined}
+            >
+              Max
+            </a>
+            <a
+              href={buildUrl({ streaming: 'viaplay' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'viaplay'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'viaplay' ? { backgroundColor: '#FF5500' } : undefined}
+            >
+              Viaplay
+            </a>
+            <a
+              href={buildUrl({ streaming: 'prime' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'prime'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'prime' ? { backgroundColor: '#00A8E1' } : undefined}
+            >
+              Prime Video
+            </a>
+            <a
+              href={buildUrl({ streaming: 'apple' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'apple'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'apple' ? { backgroundColor: '#000000' } : undefined}
+            >
+              Apple TV+
+            </a>
+            <a
+              href={buildUrl({ streaming: 'tv2' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'tv2'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'tv2' ? { backgroundColor: '#E4002B' } : undefined}
+            >
+              TV 2 Play
+            </a>
+            <a
+              href={buildUrl({ streaming: 'skyshowtime' })}
+              className={`px-4 py-2 rounded-lg transition-colors ${
+                streaming === 'skyshowtime'
+                  ? 'text-white'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+              style={streaming === 'skyshowtime' ? { backgroundColor: '#00B2A9' } : undefined}
+            >
+              SkyShowtime
+            </a>
           </div>
         </div>
       </div>
