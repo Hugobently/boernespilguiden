@@ -141,9 +141,14 @@ async function discoverContent(
 ): Promise<(TMDBMovie | TMDBTVShow)[]> {
   const config = PROVIDERS[provider];
 
+  // IMPORTANT: Filter for CHILDREN'S CONTENT ONLY
+  // - Movies: Use certification filter (A = All ages, 7 = 7+, 11 = 11+)
+  // - TV: Use with_genres=10762 (Kids genre) OR filter by rating
+  // - Also include Animation (16) and Family (10751) genres
+
   const endpoint = type === 'movie'
-    ? `/discover/movie?api_key=${TMDB_API_KEY}&language=da-DK&region=${config.region}&watch_region=${config.region}&with_watch_providers=${config.tmdbId}&page=${page}&sort_by=popularity.desc&certification_country=DK&certification.lte=11`
-    : `/discover/tv?api_key=${TMDB_API_KEY}&language=da-DK&watch_region=${config.region}&with_watch_providers=${config.tmdbId}&page=${page}&sort_by=popularity.desc`;
+    ? `/discover/movie?api_key=${TMDB_API_KEY}&language=da-DK&region=${config.region}&watch_region=${config.region}&with_watch_providers=${config.tmdbId}&page=${page}&sort_by=popularity.desc&certification_country=DK&certification.lte=7&with_genres=16|10751`
+    : `/discover/tv?api_key=${TMDB_API_KEY}&language=da-DK&watch_region=${config.region}&with_watch_providers=${config.tmdbId}&page=${page}&sort_by=popularity.desc&with_genres=10762|16|10751`;
 
   try {
     const data = await fetchFromTMDB(endpoint);
