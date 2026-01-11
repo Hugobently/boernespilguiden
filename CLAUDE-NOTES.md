@@ -13,12 +13,16 @@ This document contains important information learned during development sessions
 - ✅ Task #4: All media already have images (147 items with posterUrl)
 - ⚠️ Task #4b: 45 DR shows need descriptions (DR_MANUAL entries without TMDB data)
 - ✅ Task #5: Created fix-game-images.ts script (91 games need icons)
-- ✅ Task #6: Added 49 Apple TV+ items via fetch-streaming-content.ts
+- ✅ Task #6: Added 40 Apple TV+ KIDS items (after fixing adult content issue)
 
 **Key bugs fixed:**
 - `Game.iconUrl` not `imageUrl`
 - `Media` requires `source` field when creating
 - `.env` had SQLite URL, needed PostgreSQL
+- **CRITICAL: fetch-streaming-content.ts was adding adult content!**
+  - Deleted 42 adult/teen items (Severance, Bad Sisters, etc.)
+  - Fixed script to only fetch kids content (ages 0-10)
+  - Added genre filters: Animation (16), Family (10751), Kids (10762)
 
 ## Database Configuration
 
@@ -237,11 +241,20 @@ npx tsx scripts/fix-media-images.ts --dry-run
 
 ## User Preferences (Important!)
 
-1. **Emojis over icons** - User prefers emoji icons (🎮 🎲 📺 👋) for navigation, not Lucide/professional icons
-2. **Don't push secrets to GitHub** - GitHub has push protection that blocks API keys
-3. **Always test with --dry-run first** - User appreciates seeing what will happen before changes
-4. **Commit often** - Push changes after each completed task
-5. **Danish language** - Site is in Danish, use Danish for user-facing text
+1. **TARGET AUDIENCE: KIDS 0-10 YEARS OLD** - This is the main target group! NO content for older kids (11+) or adults should be on the site
+2. **Emojis over icons** - User prefers emoji icons (🎮 🎲 📺 👋) for navigation, not Lucide/professional icons
+3. **Don't push secrets to GitHub** - GitHub has push protection that blocks API keys
+4. **Always test with --dry-run first** - User appreciates seeing what will happen before changes
+5. **Commit often** - Push changes after each completed task
+6. **Danish language** - Site is in Danish, use Danish for user-facing text
+
+### Content Age Restrictions (CRITICAL!)
+- **ONLY fetch content for ages 0-10**
+- Movies: certification.lte=7 (Danish rating system)
+- TV: Filter by Kids (10762), Animation (16), Family (10751) genres
+- **DELETE any content with ageMin >= 11**
+- Examples of WRONG content: Severance, Bad Sisters, Silo, Ted Lasso
+- Examples of CORRECT content: Nuser (Winnie the Pooh), Fragglerne, Peppa Pig
 
 ## Lessons Learned
 
@@ -272,6 +285,22 @@ Not all streaming providers have data in TMDB for Denmark:
 When creating Media via scripts, always include:
 ```typescript
 source: 'TMDB'  // or 'DR_MANUAL' or 'MANUAL'
+```
+
+### CRITICAL: Always Filter for Kids Content!
+This is a CHILDREN'S website for ages 0-10. When fetching content:
+1. **Movies**: Use `certification.lte=7` and genre filters
+2. **TV**: Use `with_genres=10762|16|10751` (Kids, Animation, Family)
+3. **NEVER** add content for ages 11+
+4. If adult content gets added by mistake, DELETE IT IMMEDIATELY:
+```typescript
+// Delete content with ageMin >= 11
+await prisma.streamingInfo.deleteMany({
+  where: { media: { ageMin: { gte: 11 } } }
+});
+await prisma.media.deleteMany({
+  where: { ageMin: { gte: 11 }, source: 'TMDB' }
+});
 ```
 
 ## How to Update This File
