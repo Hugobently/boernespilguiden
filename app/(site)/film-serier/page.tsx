@@ -23,22 +23,23 @@ export const metadata = {
 export default async function FilmSerierPage({
   searchParams,
 }: {
-  searchParams: SearchParams;
+  searchParams: Promise<SearchParams>;
 }) {
-  const { type, streaming, alder, page } = searchParams;
+  const params = await searchParams;
+  const { type, streaming, alder, page } = params;
 
   // Helper to build query string with preserved filters
   const buildUrl = (newParams: Record<string, string | undefined>) => {
-    const params = new URLSearchParams();
+    const urlParams = new URLSearchParams();
     const merged = { type, streaming, alder, ...newParams };
 
     Object.entries(merged).forEach(([key, value]) => {
       if (value && key !== 'page') {
-        params.set(key, value);
+        urlParams.set(key, value);
       }
     });
 
-    const queryString = params.toString();
+    const queryString = urlParams.toString();
     return queryString ? `/film-serier?${queryString}` : '/film-serier';
   };
 
