@@ -3,7 +3,7 @@ import { getTranslations, getLocale } from 'next-intl/server';
 import { Navigation } from '@/components/layout';
 import { GameGrid } from '@/components/games';
 import { AgeFilter } from '@/components/filters';
-import { StickyFilterBar, ResultsBar } from '@/components/ui';
+import { StickyFilterBar } from '@/components/ui';
 import { FloatingBlobs } from '@/components/brand';
 import { getBoardGamesWithTranslation } from '@/lib/translations';
 
@@ -101,24 +101,9 @@ export default async function BoardGamesPage({ searchParams }: PageProps) {
         </div>
 
         {/* Sticky Filter Bar */}
-        <StickyFilterBar className="mb-8">
+        <StickyFilterBar className="mb-8" resultCount={games.length} resultLabel="brætspil">
           <AgeFilter basePath="/braetspil" />
         </StickyFilterBar>
-
-        {/* Results Bar */}
-        <ResultsBar
-          totalResults={games.length}
-          itemType="brætspil"
-          activeFilters={selectedAge ? [{
-            key: 'age',
-            label: selectedAge === '0-3' ? '0-3 år' : selectedAge === '3-6' ? '3-6 år' : '7+ år',
-            emoji: selectedAge === '0-3' ? '👶' : selectedAge === '3-6' ? '🧒' : '👦',
-            color: selectedAge === '0-3' ? 'bg-[#FFD1DC] text-[#8B4563]' : selectedAge === '3-6' ? 'bg-[#BAFFC9] text-[#2D6A4F]' : 'bg-[#BAE1FF] text-[#1D4E89]',
-            removeUrl: '/braetspil',
-          }] : []}
-          resetUrl="/braetspil"
-          className="mb-6"
-        />
 
         <GameGrid games={games} type="board" />
       </div>

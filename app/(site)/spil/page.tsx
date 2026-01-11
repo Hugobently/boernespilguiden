@@ -3,7 +3,7 @@ import { getTranslations, getLocale } from 'next-intl/server';
 import { Navigation } from '@/components/layout';
 import { GameGrid } from '@/components/games';
 import { AgeFilter } from '@/components/filters';
-import { StickyFilterBar, ResultsBar } from '@/components/ui';
+import { StickyFilterBar } from '@/components/ui';
 import { FloatingBlobs } from '@/components/brand';
 import { getGamesWithTranslation } from '@/lib/translations';
 
@@ -110,49 +110,23 @@ export default async function DigitalGamesPage({ searchParams }: PageProps) {
         </div>
 
         {/* Sticky Filter Bar */}
-        <StickyFilterBar className="mb-8">
-          <div className="flex flex-wrap items-center gap-3">
-            <AgeFilter basePath="/spil" />
+        <StickyFilterBar className="mb-8" resultCount={games.length} resultLabel="spil">
+          <AgeFilter basePath="/spil" />
 
-            {/* Danish language filter */}
-            <a
-              href={showDanishOnly ? `/spil${selectedAge ? `?alder=${selectedAge}` : ''}` : `/spil?dansk=true${selectedAge ? `&alder=${selectedAge}` : ''}`}
-              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 min-h-[44px] hover:-translate-y-0.5 active:translate-y-0 ${
-                showDanishOnly
-                  ? 'bg-[#C8102E] text-white shadow-md'
-                  : 'bg-white text-text-secondary border border-gray-200 hover:border-[#C8102E]/30 hover:bg-red-50'
-              }`}
-            >
-              <span>🇩🇰</span>
-              <span>Dansk sprog</span>
-              {showDanishOnly && <span className="ml-1">✓</span>}
-            </a>
-          </div>
+          {/* Danish language filter */}
+          <a
+            href={showDanishOnly ? `/spil${selectedAge ? `?alder=${selectedAge}` : ''}` : `/spil?dansk=true${selectedAge ? `&alder=${selectedAge}` : ''}`}
+            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 min-h-[44px] hover:-translate-y-0.5 active:translate-y-0 ${
+              showDanishOnly
+                ? 'bg-[#C8102E] text-white shadow-md'
+                : 'bg-white text-text-secondary border border-gray-200 hover:border-[#C8102E]/30 hover:bg-red-50'
+            }`}
+          >
+            <span>🇩🇰</span>
+            <span>Dansk sprog</span>
+            {showDanishOnly && <span className="ml-1">✓</span>}
+          </a>
         </StickyFilterBar>
-
-        {/* Results Bar */}
-        <ResultsBar
-          totalResults={games.length}
-          itemType="spil"
-          activeFilters={[
-            ...(selectedAge ? [{
-              key: 'age',
-              label: selectedAge === '0-3' ? '0-3 år' : selectedAge === '3-6' ? '3-6 år' : '7+ år',
-              emoji: selectedAge === '0-3' ? '👶' : selectedAge === '3-6' ? '🧒' : '👦',
-              color: selectedAge === '0-3' ? 'bg-[#FFD1DC] text-[#8B4563]' : selectedAge === '3-6' ? 'bg-[#BAFFC9] text-[#2D6A4F]' : 'bg-[#BAE1FF] text-[#1D4E89]',
-              removeUrl: showDanishOnly ? '/spil?dansk=true' : '/spil',
-            }] : []),
-            ...(showDanishOnly ? [{
-              key: 'danish',
-              label: 'Dansk sprog',
-              emoji: '🇩🇰',
-              color: 'bg-[#C8102E]/10 text-[#C8102E]',
-              removeUrl: selectedAge ? `/spil?alder=${selectedAge}` : '/spil',
-            }] : []),
-          ]}
-          resetUrl="/spil"
-          className="mb-6"
-        />
 
         <GameGrid games={games} type="digital" />
       </div>

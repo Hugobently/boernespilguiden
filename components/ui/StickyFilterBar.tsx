@@ -1,5 +1,6 @@
 // Sticky Filter Bar Component
 // Makes filter section sticky on mobile for better UX
+// Now includes optional result count display
 
 'use client';
 
@@ -9,9 +10,16 @@ import { cn } from '@/lib/utils';
 interface StickyFilterBarProps {
   children: ReactNode;
   className?: string;
+  resultCount?: number;
+  resultLabel?: string;
 }
 
-export function StickyFilterBar({ children, className }: StickyFilterBarProps) {
+export function StickyFilterBar({
+  children,
+  className,
+  resultCount,
+  resultLabel = 'resultater',
+}: StickyFilterBarProps) {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -38,7 +46,16 @@ export function StickyFilterBar({ children, className }: StickyFilterBarProps) {
         className
       )}
     >
-      {children}
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-3">
+          {children}
+        </div>
+        {resultCount !== undefined && (
+          <span className="text-sm text-text-secondary whitespace-nowrap">
+            <span className="font-semibold text-text-primary">{resultCount}</span> {resultLabel}
+          </span>
+        )}
+      </div>
     </div>
   );
 }
