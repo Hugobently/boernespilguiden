@@ -288,6 +288,7 @@ async function main() {
                 ageMax,
                 releaseDate: movie.release_date ? new Date(movie.release_date) : null,
                 isDanish: movie.original_language === 'da',
+                source: 'TMDB',
                 isActive: true,
               },
             });
@@ -396,6 +397,7 @@ async function main() {
                 ageMax,
                 releaseDate: show.first_air_date ? new Date(show.first_air_date) : null,
                 isDanish: show.original_language === 'da',
+                source: 'TMDB',
                 isActive: true,
               },
             });
