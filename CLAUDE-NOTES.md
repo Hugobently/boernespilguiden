@@ -6,6 +6,24 @@ This document contains important information learned during development sessions
 
 ## Session Log
 
+### 2026-01-11 (Session 6 continued): DR Show Images Fix
+Fixed 21 DR shows with broken dr-massive image URLs.
+
+**Problem:** DR's image API changed - URLs without `ImageId` parameter now return 400 errors.
+
+**Solution:**
+- Created `scripts/fix-dr-images.ts` to scrape og:image from DR website
+- Downloaded 21 poster images locally to `/public/images/media/`
+- Updated database to use local paths instead of broken dr-massive URLs
+
+**Shows Fixed:**
+Restaurant Million, Søskende-chok, Kasper og Sofie, Oda Omvendt, Mini-agenterne,
+Hanna og Rally, Elefantvask, Det sidste nye med Onkel Reje, Onkel Reje og Galaksens Helte,
+Det store Ramasjang Mysterie, Mysteriebureauet, Men Kasper da, Sommeren med far,
+Kevin og farfar, Sol snart 6 år, Bobbel og Gælles Mission, Bella Boris og Berta,
+Jagten på regnbuens eliksir, Klar parat skolestart, Heksebeth og den hovedløse magi,
+Motor Mille og Børnebanden
+
 ### 2026-01-11 (Session 6): Bug Fixes, Images & Documentation
 Fixed critical production bugs, added more game images, created backup, and wrote comprehensive documentation.
 
