@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Børnespilguiden
+
+> Danish children's game & media guide for parents
+
+**Live:** [boernespilguiden.dk](https://boernespilguiden.dk)
+
+## What is this?
+
+Børnespilguiden helps Danish parents find age-appropriate games, apps, and streaming content for children aged 0-10. Every item is reviewed with AI-enhanced parent tips, safety information, and age recommendations.
+
+## Content
+
+- **111 Digital Games** - Apps and games with ratings, parent tips, and safety info
+- **72 Board Games** - Physical games with age recommendations
+- **194 Movies & TV Shows** - Streaming content with availability info
+
+## Tech Stack
+
+- **Frontend:** Next.js 14, React 18, TypeScript, Tailwind CSS
+- **Backend:** Next.js API Routes, Prisma ORM, PostgreSQL
+- **AI:** Claude (Anthropic) for content enhancement
+- **Hosting:** Vercel
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your API keys
+
+# Generate Prisma client
+npx prisma generate
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Documentation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **[PROJECT-DOCUMENTATION.md](./PROJECT-DOCUMENTATION.md)** - Complete technical documentation
+- **[CLAUDE-NOTES.md](./CLAUDE-NOTES.md)** - Development session notes
+- **[IMPROVEMENTS.md](./IMPROVEMENTS.md)** - Feature backlog
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# AI enhance games
+npx tsx scripts/enhance-games.ts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Download missing game images
+npx tsx scripts/download-game-images.ts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Import streaming content
+npx tsx scripts/fetch-streaming-content.ts
+```
 
-## Deploy on Vercel
+## Environment Variables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+DATABASE_URL="postgres://..."
+TMDB_API_KEY="your_tmdb_key"
+ANTHROPIC_API_KEY="your_anthropic_key"
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+Private - All rights reserved
+
+## Contact
+
+boernespilguiden@proton.me
