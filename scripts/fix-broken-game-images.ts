@@ -185,14 +185,14 @@ async function main() {
     console.log(`${slug}`);
 
     // Check manual URLs first
-    let imageUrl = MANUAL_URLS[slug];
+    let imageUrl: string | null = MANUAL_URLS[slug] || null;
     if (imageUrl) {
       console.log(`  Using manual URL`);
     } else {
       // Get search term
       const searchTerm = SEARCH_OVERRIDES[slug] || slug.replace(/-/g, ' ');
       console.log(`  Searching: "${searchTerm}"`);
-      imageUrl = await searchITunes(searchTerm) || undefined;
+      imageUrl = await searchITunes(searchTerm);
     }
 
     if (!imageUrl) {
