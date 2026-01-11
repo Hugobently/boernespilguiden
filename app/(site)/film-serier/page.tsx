@@ -3,7 +3,7 @@
 import { prisma } from '@/lib/db';
 import { MediaCard } from '@/components/media/MediaCard';
 import { Pagination } from '@/components/Pagination';
-import { ageGroups } from '@/components/filters/AgeFilter';
+import { ageGroups } from '@/lib/config/age-groups';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
