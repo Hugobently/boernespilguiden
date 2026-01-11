@@ -222,7 +222,12 @@ export default async function FilmSerierPage({
           </div>
 
           {/* Streaming filters - using new component */}
-          <StreamingFilter currentStreaming={streaming} buildUrl={buildUrl} />
+          <StreamingFilter
+            currentStreaming={streaming}
+            currentType={type}
+            currentAge={alder}
+            basePath="/film-serier"
+          />
         </div>
 
         {/* Results */}

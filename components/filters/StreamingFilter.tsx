@@ -32,10 +32,32 @@ const STREAMING_PROVIDERS: StreamingProvider[] = [
 
 interface StreamingFilterProps {
   currentStreaming?: string;
-  buildUrl: (params: Record<string, string | undefined>) => string;
+  currentType?: string;
+  currentAge?: string;
+  basePath?: string;
 }
 
-export function StreamingFilter({ currentStreaming, buildUrl }: StreamingFilterProps) {
+// Build URL with preserved filters
+function buildFilterUrl(
+  basePath: string,
+  params: { streaming?: string; type?: string; alder?: string }
+): string {
+  const urlParams = new URLSearchParams();
+
+  if (params.type) urlParams.set('type', params.type);
+  if (params.streaming) urlParams.set('streaming', params.streaming);
+  if (params.alder) urlParams.set('alder', params.alder);
+
+  const queryString = urlParams.toString();
+  return queryString ? `${basePath}?${queryString}` : basePath;
+}
+
+export function StreamingFilter({
+  currentStreaming,
+  currentType,
+  currentAge,
+  basePath = '/film-serier',
+}: StreamingFilterProps) {
   const [showAll, setShowAll] = useState(false);
 
   const primaryProviders = STREAMING_PROVIDERS.filter((p) => p.priority === 'primary');
@@ -46,6 +68,14 @@ export function StreamingFilter({ currentStreaming, buildUrl }: StreamingFilterP
 
   // Auto-expand if a secondary provider is selected
   const isExpanded = showAll || hasSecondarySelected;
+
+  // Helper to build URL with current filters
+  const getUrl = (streamingId?: string) =>
+    buildFilterUrl(basePath, {
+      type: currentType,
+      streaming: streamingId,
+      alder: currentAge,
+    });
 
   return (
     <div className="space-y-3">
@@ -76,7 +106,7 @@ export function StreamingFilter({ currentStreaming, buildUrl }: StreamingFilterP
       <div className="flex flex-wrap gap-2">
         {/* All button */}
         <Link
-          href={buildUrl({ streaming: undefined })}
+          href={getUrl(undefined)}
           className={cn(
             'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 min-h-[40px] flex items-center',
             !currentStreaming
@@ -93,7 +123,7 @@ export function StreamingFilter({ currentStreaming, buildUrl }: StreamingFilterP
             key={provider.id}
             provider={provider}
             isSelected={currentStreaming === provider.id}
-            href={buildUrl({ streaming: provider.id })}
+            href={getUrl(provider.id)}
           />
         ))}
 
@@ -103,7 +133,7 @@ export function StreamingFilter({ currentStreaming, buildUrl }: StreamingFilterP
             key={provider.id}
             provider={provider}
             isSelected={currentStreaming === provider.id}
-            href={buildUrl({ streaming: provider.id })}
+            href={getUrl(provider.id)}
           />
         ))}
       </div>
