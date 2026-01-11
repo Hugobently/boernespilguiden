@@ -125,13 +125,18 @@ export default async function MediaDetailPage({ params }: PageProps) {
             )}
           </div>
 
-          {/* Streaming info */}
+          {/* Streaming info - Prominent section */}
           {media.streamingInfo.length > 0 && (
-            <div className="mb-6">
-              <h2 className="text-sm font-semibold text-gray-700 mb-2">
-                Se på:
+            <div className="mb-6 bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl p-5 border border-primary-200">
+              <h2 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                <span className="text-2xl">📺</span> Se {media.type === 'MOVIE' ? 'filmen' : 'serien'} her
               </h2>
-              <StreamingBadges providers={media.streamingInfo} />
+              <StreamingBadges providers={media.streamingInfo} size="large" />
+              {media.streamingInfo.some(s => s.isFree) && (
+                <p className="mt-3 text-sm text-green-700 font-medium">
+                  ✨ Gratis at se på udvalgte tjenester
+                </p>
+              )}
             </div>
           )}
 

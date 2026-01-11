@@ -51,8 +51,8 @@ export default async function FilmSerierPage({
     isActive: boolean;
     type?: string;
     streamingInfo?: { some: { provider: string; available: boolean } };
-    ageMin?: { lte: number };
-    ageMax?: { gte: number };
+    ageMin?: { lte?: number; gte?: number };
+    ageMax?: { gte?: number; lte?: number };
   } = {
     isActive: true,
   };

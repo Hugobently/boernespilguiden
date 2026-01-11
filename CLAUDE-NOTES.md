@@ -6,6 +6,45 @@ This document contains important information learned during development sessions
 
 ## Session Log
 
+### 2026-01-11 (Session 5): UI Improvements & Game Images
+Used Puppeteer to visually review the live site and implemented several improvements.
+
+**What was done:**
+1. **Fixed 14 missing game images** - Downloaded icons from iTunes Search API for:
+   - Pepi Wonder World, codeSpark Academy, Gorogoa, Sky: Children of the Light
+   - The Gardens Between, Smart Tales, Draw and Tell HD, Crayola Create and Play
+   - Moka Mera Lingua, Pango Seek and Find, Poikilingo, ALPA Kids Denmark
+   - Toontastic 3D, Chrome Music Lab
+   - ✅ **All 111 games now have images!**
+
+2. **Improved streaming availability on show detail pages**
+   - Made streaming section more prominent with gradient background
+   - Added larger badges with hover effect
+   - Added "Gratis" indicator when shows are free to watch
+
+3. **Added Danish language filter for games**
+   - New 🇩🇰 "Dansk sprog" toggle on /spil page
+   - Filters to show only games with Danish language support (11 games)
+   - Useful for parents who want Danish-language apps for their kids
+
+4. **Added direct contact email to About page**
+   - Added boernespilguiden@proton.me link on /om page
+   - Fixed email typo on /kontakt page (was "boernespislguiden" → "boernespilguiden")
+   - Made email clickable with mailto: link
+
+**Bug fixes:**
+- Fixed TypeScript error in film-serier/page.tsx (age filter type definition)
+- Fixed TypeScript error in fix-game-images.ts (platform vs platforms field)
+
+**Files modified:**
+- `scripts/download-game-images.ts` - Added 14 new game image URLs
+- `components/media/StreamingBadges.tsx` - Added size prop for large badges
+- `app/(site)/film-serier/[slug]/page.tsx` - Improved streaming section
+- `app/(site)/film-serier/page.tsx` - Fixed type definition
+- `app/(site)/spil/page.tsx` - Added Danish language filter
+- `app/(site)/om/page.tsx` - Added direct email link
+- `app/(site)/kontakt/page.tsx` - Fixed email typo
+
 ### 2026-01-11 (Session 4): Danish Descriptions for DR/Ramasjang Shows
 Added Danish descriptions for all 24 remaining DR/Ramasjang shows and ran AI enhancement.
 

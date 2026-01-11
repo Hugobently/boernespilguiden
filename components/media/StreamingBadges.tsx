@@ -49,9 +49,10 @@ function normalizeProvider(provider: string): string {
 interface Props {
   providers: Array<{ provider: string; isFree?: boolean }>;
   maxShow?: number;  // Max number of badges to show
+  size?: 'small' | 'large';  // Badge size
 }
 
-export function StreamingBadges({ providers, maxShow = 5 }: Props) {
+export function StreamingBadges({ providers, maxShow = 5, size = 'small' }: Props) {
   if (!providers.length) return null;
 
   // Deduplicate and filter
@@ -73,8 +74,10 @@ export function StreamingBadges({ providers, maxShow = 5 }: Props) {
   const toShow = filtered.slice(0, maxShow);
   const remaining = filtered.length - maxShow;
 
+  const isLarge = size === 'large';
+
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className={`flex flex-wrap ${isLarge ? 'gap-3' : 'gap-2'}`}>
       {toShow.map(({ provider, isFree }) => {
         const normalized = normalizeProvider(provider);
         const info = PROVIDERS[normalized] || { name: provider, color: '#666' };
@@ -83,12 +86,18 @@ export function StreamingBadges({ providers, maxShow = 5 }: Props) {
         return (
           <span
             key={provider}
-            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium text-white"
+            className={`inline-flex items-center gap-1.5 font-medium text-white shadow-sm transition-transform hover:scale-105 ${
+              isLarge
+                ? 'px-4 py-2.5 rounded-lg text-sm'
+                : 'px-2.5 py-1 rounded-full text-xs'
+            }`}
             style={{ backgroundColor: info.color }}
           >
             {info.name}
             {showFree && (
-              <span className="bg-white/20 px-1 rounded text-[10px]">
+              <span className={`bg-white/25 rounded font-semibold ${
+                isLarge ? 'px-1.5 py-0.5 text-xs' : 'px-1 text-[10px]'
+              }`}>
                 Gratis
               </span>
             )}
@@ -96,7 +105,11 @@ export function StreamingBadges({ providers, maxShow = 5 }: Props) {
         );
       })}
       {remaining > 0 && (
-        <span className="px-2.5 py-1 rounded-full text-xs bg-gray-200 text-gray-600">
+        <span className={`bg-gray-200 text-gray-600 ${
+          isLarge
+            ? 'px-4 py-2.5 rounded-lg text-sm'
+            : 'px-2.5 py-1 rounded-full text-xs'
+        }`}>
           +{remaining}
         </span>
       )}

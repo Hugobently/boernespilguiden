@@ -57,7 +57,7 @@ const boardGameImageUrls: Record<string, string> = {
   'mysterium': 'https://cf.geekdo-images.com/M_fhxsEwUWX0XQOUltKuOg__original/img/6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6Q6=/0x0/filters:format(jpeg)/pic2601683.jpg',
 };
 
-// Digital game image URLs (from various sources)
+// Digital game image URLs (from various sources - iTunes/App Store)
 const digitalGameImageUrls: Record<string, string> = {
   'sago-mini-world': 'https://play-lh.googleusercontent.com/sMNe-2l5YGHS6o_xDBJiP7lXKpmYNVJQMJ4T6qacJHf7MJDXnPh7YM-QKB7SKf0MRxU=w512-h512-rw',
   'lego-duplo-world': 'https://play-lh.googleusercontent.com/PksPnl7P6HLDuG2Wj9W_WnBEJp0P8QOqFqGTtJBOl5XPvYpLWNvL8_kGSbMRKJ0yMQ=w512-h512-rw',
@@ -66,6 +66,23 @@ const digitalGameImageUrls: Record<string, string> = {
   'khan-academy-kids': 'https://play-lh.googleusercontent.com/hQzK_OTnRbVqn2zOeCqWECbnOyE-PnJmN8oAewwA1KFKBB8_RqN8NL7J3EH9DpFvnA=w512-h512-rw',
   'minecraft': 'https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP=w512-h512-rw',
   'duolingo': 'https://play-lh.googleusercontent.com/B9tNkxfKsjvwmRLTq-CKwq0HDjZnJY-CY_SB7x4j3FZ8xPqHw5_N09v_qyh3c_xGBQ=w512-h512-rw',
+
+  // Added 2026-01-11 - Missing game images from iTunes Search API
+  'pepi-wonder-world': 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8b/89/f4/8b89f423-48af-6578-99ca-319f64e87acf/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg',
+  'codespark-academy': 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/25/33/d4/2533d4e1-6d2c-50e7-1c84-a004ab60c820/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg',
+  'gorogoa': 'https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/b4/01/d7/b401d7d4-7fd1-5494-c1f5-5e42bb8da080/AppIcon-0-1x_U007emarketing-0-85-220-0-7.png/512x512bb.jpg',
+  'sky-children-of-the-light': 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/43/f0/df/43f0df8b-59ed-4631-e033-ec965368dc16/AppIcon-1x_U007emarketing-0-5-0-85-220-0.png/512x512bb.jpg',
+  'the-gardens-between': 'https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/de/76/39/de76390c-0c7f-d351-a9b9-7c0de37ea5eb/AppIcon-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+  'smart-tales': 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/5d/0d/075d0d00-0f89-5a22-c5e6-ec8ed217c378/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg',
+  'draw-and-tell-hd': 'https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/89/46/09/89460912-d55a-d002-3f7d-423a33ac29dd/AppIcon-1x_U007emarketing-0-5-0-85-220.png/512x512bb.jpg',
+  'crayola-create-and-play': 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d3/cf/f0/d3cff0d8-0d90-c84f-3b7b-b7e7fb4740f4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg',
+  'moka-mera-lingua': 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/55/16/045516ed-7d2a-8636-f61f-028aebbe85ef/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg',
+  'pango-seek-and-find': 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ce/4c/47/ce4c47cc-29f2-a267-437d-3ceacb7e0083/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg',
+  'poikilingo': 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/86/33/92/86339249-a98c-3ce9-e6ec-1b7f28680b4c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg',
+  // Note: Toontastic 3D is no longer on iOS App Store, Chrome Music Lab is web-only, ALPA Kids is Swedish
+  'toontastic-3d': 'https://play-lh.googleusercontent.com/Ndf93IAjhW83ZMJjHkp6WR1hA0cP4vYp_KL1rqLe3n1H8YGNVUHl6KS8Kz7eLWPVjw=w512-h512-rw',
+  'chrome-music-lab': 'https://www.gstatic.com/images/branding/product/2x/music_lab_96dp.png',
+  'alpa-kids-denmark': 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/77/44/9f774428-1ef6-2557-e7fa-f83bf18d7ed9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg',
 };
 
 const PUBLIC_DIR = path.join(process.cwd(), 'public', 'images', 'games');

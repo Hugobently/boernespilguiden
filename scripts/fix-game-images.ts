@@ -96,7 +96,7 @@ async function main() {
 
     console.log(`${progress} Processing: ${game.title}`);
     console.log(`  Slug: ${game.slug}`);
-    console.log(`  Platform: ${game.platform}`);
+    console.log(`  Platforms: ${game.platforms}`);
 
     // Check if we have a known image URL for this slug
     const knownImageUrl = KNOWN_GAME_IMAGES[game.slug];
@@ -133,7 +133,8 @@ async function main() {
       console.log(`  ⚠️  No known image for this game`);
 
       // Try to search for it
-      if (game.platform === 'ANDROID' || game.platform === 'IOS') {
+      const platforms = game.platforms?.toLowerCase() || '';
+      if (platforms.includes('android') || platforms.includes('ios')) {
         const imageUrl = await searchGooglePlayImage(game.title);
 
         if (imageUrl) {

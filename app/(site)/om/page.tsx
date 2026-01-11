@@ -131,8 +131,17 @@ export default async function AboutPage() {
             <h2 className="text-2xl font-bold text-[#4A4A4A] mb-4">
               {t('contactTitle')}
             </h2>
-            <p className="text-[#7A7A7A] mb-6">
+            <p className="text-[#7A7A7A] mb-4">
               {t('contactText')}
+            </p>
+            <p className="text-[#7A7A7A] mb-6">
+              <span className="mr-2">📧</span>
+              <a
+                href="mailto:boernespilguiden@proton.me"
+                className="text-[#1D4E89] font-medium hover:underline"
+              >
+                boernespilguiden@proton.me
+              </a>
             </p>
             <Link
               href="/kontakt"
