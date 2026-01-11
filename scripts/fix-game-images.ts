@@ -74,9 +74,9 @@ async function main() {
   const gamesWithoutImages = await prisma.game.findMany({
     where: {
       OR: [
-        { imageUrl: null },
-        { imageUrl: '' },
-        { imageUrl: { startsWith: '/images/placeholders/' } },
+        { iconUrl: null },
+        { iconUrl: '' },
+        { iconUrl: { startsWith: '/images/placeholders/' } },
       ],
     },
     orderBy: {
@@ -116,7 +116,7 @@ async function main() {
           // Update database with local path
           await prisma.game.update({
             where: { id: game.id },
-            data: { imageUrl: imagePath },
+            data: { iconUrl: imagePath },
           });
 
           console.log(`  ✅ Downloaded and updated database`);
@@ -145,7 +145,7 @@ async function main() {
           console.log(`     1. Search for "${game.title}" on Google Play / App Store`);
           console.log(`     2. Download the icon image`);
           console.log(`     3. Save to: public/images/games/digital/${game.slug}.jpg`);
-          console.log(`     4. Update database imageUrl to: /images/games/digital/${game.slug}.jpg`);
+          console.log(`     4. Update database iconUrl to: /images/games/digital/${game.slug}.jpg`);
           failed++;
         }
       } else {
