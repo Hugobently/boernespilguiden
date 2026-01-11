@@ -2,6 +2,24 @@
 
 This document contains important information learned during development sessions to help future Claude instances work more efficiently.
 
+> **IMPORTANT RULE FOR CLAUDE:** Always save what you learn to this file or another .md file so you don't forget! Update this document at the end of each session with new learnings.
+
+## Session Log
+
+### 2026-01-11: Tasks #1-6 from boernespilguiden-fixes-v2.md
+- ✅ Task #1: Reverted navigation to emojis (user prefers emojis over Lucide icons)
+- ✅ Task #2: Hidden Allente from streaming badges (it's a TV aggregator, not a service)
+- ✅ Task #3: Added combinable age filters to Film & Serier page
+- ✅ Task #4: All media already have images (147 items with posterUrl)
+- ⚠️ Task #4b: 45 DR shows need descriptions (DR_MANUAL entries without TMDB data)
+- ✅ Task #5: Created fix-game-images.ts script (91 games need icons)
+- ✅ Task #6: Added 49 Apple TV+ items via fetch-streaming-content.ts
+
+**Key bugs fixed:**
+- `Game.iconUrl` not `imageUrl`
+- `Media` requires `source` field when creating
+- `.env` had SQLite URL, needed PostgreSQL
+
 ## Database Configuration
 
 ### Production Database URLs
@@ -215,4 +233,56 @@ npx tsx scripts/fetch-streaming-content.ts netflix 100
 # View what needs images
 npx tsx scripts/fix-game-images.ts --dry-run
 npx tsx scripts/fix-media-images.ts --dry-run
+```
+
+## User Preferences (Important!)
+
+1. **Emojis over icons** - User prefers emoji icons (🎮 🎲 📺 👋) for navigation, not Lucide/professional icons
+2. **Don't push secrets to GitHub** - GitHub has push protection that blocks API keys
+3. **Always test with --dry-run first** - User appreciates seeing what will happen before changes
+4. **Commit often** - Push changes after each completed task
+5. **Danish language** - Site is in Danish, use Danish for user-facing text
+
+## Lessons Learned
+
+### Don't Assume Field Names
+Always check `prisma/schema.prisma` for exact field names:
+- Game uses `iconUrl`, BoardGame uses `imageUrl`
+- Media has required `source` field
+- Different models have different field names for similar concepts
+
+### Database Connection Issues
+If you see "DATABASE_URL must start with postgresql://":
+1. Check `.env` file
+2. It might have `file:./dev.db` (SQLite) which is wrong
+3. Replace with the PostgreSQL URL from `.env.production` or Vercel dashboard
+
+### GitHub Push Protection
+Never include actual API keys or secrets in committed files. Use placeholders like:
+```
+DATABASE_URL="postgres://...@db.prisma.io:5432/postgres"
+```
+
+### TMDB Provider Data
+Not all streaming providers have data in TMDB for Denmark:
+- **Works well:** Apple TV+ (350), Netflix (8), Disney+ (337)
+- **May not work:** Filmstriben (483), TV 2 Play (383)
+
+### Scripts Need source Field
+When creating Media via scripts, always include:
+```typescript
+source: 'TMDB'  // or 'DR_MANUAL' or 'MANUAL'
+```
+
+## How to Update This File
+
+At the end of each session:
+1. Add a new entry to "Session Log" with date and what was done
+2. Add any new bugs/fixes to "Common Issues & Solutions"
+3. Update "Database Statistics" if counts changed
+4. Add any new user preferences discovered
+5. Commit and push this file
+
+```bash
+git add CLAUDE-NOTES.md && git commit -m "docs: Update Claude session notes" && git push
 ```
