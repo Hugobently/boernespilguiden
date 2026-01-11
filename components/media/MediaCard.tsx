@@ -31,7 +31,7 @@ export function MediaCard({
   return (
     <Link
       href={`/film-serier/${slug}`}
-      className="group block bg-[#FFFCF7] rounded-2xl shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06),0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-200 overflow-hidden border border-[#F5E6D3]/50"
+      className="group block bg-white rounded-2xl shadow-card hover:shadow-card-hover hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 overflow-hidden border border-white/50"
     >
       <div className="aspect-[2/3] relative bg-[#F5E6D3]/30">
         {posterUrl ? (
@@ -61,12 +61,12 @@ export function MediaCard({
       </div>
 
       <div className="p-3">
-        <h3 className="font-semibold text-[#4A4A4A] line-clamp-2 mb-1 group-hover:text-[#F8A99B] transition-colors">
+        <h3 className="font-semibold text-text-primary line-clamp-2 mb-1 group-hover:text-primary transition-colors">
           {title}
         </h3>
 
         {ageText && (
-          <p className="text-sm text-[#7A7A7A] mb-2 flex items-center gap-1">
+          <p className="text-sm text-text-secondary mb-2 flex items-center gap-1">
             <span>👶</span> {ageText}
           </p>
         )}

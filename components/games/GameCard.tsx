@@ -388,20 +388,20 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
         <Link href={href} className="block">
           <article
             className={cn(
-              'relative h-full bg-[#FFFCF7] rounded-3xl overflow-hidden',
-              'shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06),0_4px_24px_-4px_rgba(0,0,0,0.04)]',
+              'relative h-full bg-white rounded-3xl overflow-hidden',
+              'shadow-card border border-white/50',
               'transition-all duration-300 ease-out',
-              'group-hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.1),0_16px_48px_-8px_rgba(0,0,0,0.06)]',
-              'group-hover:-translate-y-1'
+              'group-hover:shadow-card-hover',
+              'group-hover:-translate-y-2 group-hover:scale-[1.02]'
             )}
           >
             {/* Featured/Editor's Choice Banner */}
             {(featured || editorChoice) && (
-              <div className="absolute top-0 left-0 right-0 z-20 bg-gradient-to-r from-[#FFB5A7] via-[#FFE66D] to-[#B8E0D2] py-1.5 px-3">
-                <span className="text-xs font-bold text-[#4A4A4A] flex items-center justify-center gap-1">
-                  <span className="animate-pulse">⭐</span>
+              <div className="absolute top-0 left-0 right-0 z-20 bg-gradient-to-r from-primary via-accent to-secondary py-1.5 px-3">
+                <span className="text-xs font-bold text-white flex items-center justify-center gap-1">
+                  <span className="animate-sparkle">⭐</span>
                   {editorChoice ? t('editorChoice') : t('recommended')}
-                  <span className="animate-pulse">⭐</span>
+                  <span className="animate-sparkle" style={{ animationDelay: '0.3s' }}>⭐</span>
                 </span>
               </div>
             )}
@@ -414,7 +414,7 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
               )}
             >
               {/* Background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#A2D2FF] via-[#CDB4DB] to-[#FFB5A7] opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/60 via-lavender/60 to-primary/60" />
 
               {/* Image with fallback to game title */}
               <GameImageWithFallback
@@ -427,7 +427,7 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
               />
 
               {/* Decorative blob */}
-              <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-[#FFB5A7]/30 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] transition-transform duration-500 group-hover:scale-150 group-hover:rotate-45" />
+              <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-primary/20 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] transition-transform duration-500 group-hover:scale-150 group-hover:rotate-45" />
 
               {/* Type badge */}
               <div className="absolute top-3 left-3">
@@ -465,7 +465,7 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
               </div>
 
               {/* Title */}
-              <h3 className="font-bold text-lg text-[#4A4A4A] mb-1.5 line-clamp-1 transition-colors group-hover:text-[#F8A99B]">
+              <h3 className="font-bold text-lg text-text-primary mb-1.5 line-clamp-1 transition-colors group-hover:text-primary">
                 {title}
               </h3>
 
@@ -495,7 +495,7 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
             </div>
 
             {/* Hover overlay effect */}
-            <div className="absolute inset-0 rounded-3xl border-2 border-transparent transition-colors duration-300 group-hover:border-[#FFB5A7]/30 pointer-events-none" />
+            <div className="absolute inset-0 rounded-3xl border-2 border-transparent transition-colors duration-300 group-hover:border-primary/30 pointer-events-none" />
           </article>
         </Link>
       </div>

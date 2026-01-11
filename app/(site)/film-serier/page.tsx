@@ -4,6 +4,8 @@ import { prisma } from '@/lib/db';
 import { MediaCard } from '@/components/media/MediaCard';
 import { Pagination } from '@/components/Pagination';
 import { ageGroups } from '@/lib/config/age-groups';
+import { StreamingFilter } from '@/components/filters';
+import { FloatingBlobs } from '@/components/brand';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
@@ -111,270 +113,168 @@ export default async function FilmSerierPage({
   const endIndex = Math.min(currentPage * itemsPerPage, totalItems);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Film & Serier til Børn
-        </h1>
-        <p className="text-lg text-gray-600">
-          Find de bedste børnefilm og serier på streaming
-        </p>
-      </div>
+    <div className="relative min-h-screen">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-50/50 via-transparent to-transparent pointer-events-none" />
+      <FloatingBlobs className="opacity-30" />
 
-      {/* Filters */}
-      <div className="mb-8 space-y-6">
-        {/* Type filters */}
-        <div>
-          <h3 className="text-sm font-semibold text-[#4A4A4A] mb-3">Type</h3>
-          <div className="flex gap-2">
-            <a
-              href={buildUrl({ type: undefined })}
-              className={`px-4 py-2 rounded-lg ${
-                !type
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              Alle
-            </a>
-            <a
-              href={buildUrl({ type: 'film' })}
-              className={`px-4 py-2 rounded-lg ${
-                type === 'film'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              Film
-            </a>
-            <a
-              href={buildUrl({ type: 'serier' })}
-              className={`px-4 py-2 rounded-lg ${
-                type === 'serier'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              Serier
-            </a>
+      <div className="relative container mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="mb-8 text-center sm:text-left">
+          <div className="flex items-center justify-center sm:justify-start gap-3 mb-4">
+            <span className="text-4xl sm:text-5xl">📺</span>
+            <h1 className="text-3xl sm:text-4xl font-bold text-text-primary">
+              Film & Serier til Børn
+            </h1>
           </div>
-        </div>
-
-        {/* Age filters */}
-        <div>
-          <h3 className="text-sm font-semibold text-[#4A4A4A] mb-3">Alder</h3>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href={buildUrl({ alder: undefined })}
-              className={cn(
-                'inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200',
-                !alder
-                  ? 'bg-[#FFB5A7] text-white shadow-[0_4px_0_0_#E8958A]'
-                  : 'bg-[#FFFCF7] text-[#4A4A4A] shadow-sm hover:shadow-md border-2 border-[#FFB5A7]/30'
-              )}
-            >
-              <span className="text-xl">✨</span>
-              <span>Alle aldre</span>
-            </Link>
-
-            {ageGroups.map((config) => (
-              <Link
-                key={config.slug}
-                href={buildUrl({ alder: config.slug })}
-                className={cn(
-                  'inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200',
-                  alder === config.slug
-                    ? 'shadow-[0_4px_0_0_var(--shadow-color)]'
-                    : 'shadow-sm hover:shadow-md hover:-translate-y-0.5'
-                )}
-                style={{
-                  backgroundColor: alder === config.slug ? config.color.bgSelected : config.color.bg,
-                  color: config.color.text,
-                  '--shadow-color': config.color.shadow,
-                  borderWidth: '2px',
-                  borderColor: alder === config.slug ? config.color.border : 'transparent',
-                } as React.CSSProperties}
-              >
-                <span className="text-xl">{config.emoji}</span>
-                <span>{config.label}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Streaming filters */}
-        <div>
-          <h3 className="text-sm font-semibold text-[#4A4A4A] mb-3">Streaming-tjenester</h3>
-          <div className="flex gap-2 flex-wrap">
-            <a
-              href={buildUrl({ streaming: undefined })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                !streaming
-                  ? 'bg-gray-800 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              Alle
-            </a>
-            {/* Free providers first */}
-            <a
-              href={buildUrl({ streaming: 'drtv' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'drtv'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'drtv' ? { backgroundColor: '#9B1B30' } : undefined}
-            >
-              DR TV <span className="text-xs opacity-75">Gratis</span>
-            </a>
-            <a
-              href={buildUrl({ streaming: 'filmstriben' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'filmstriben'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'filmstriben' ? { backgroundColor: '#F39200' } : undefined}
-            >
-              Filmstriben <span className="text-xs opacity-75">Gratis</span>
-            </a>
-            {/* Paid providers */}
-            <a
-              href={buildUrl({ streaming: 'netflix' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'netflix'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'netflix' ? { backgroundColor: '#E50914' } : undefined}
-            >
-              Netflix
-            </a>
-            <a
-              href={buildUrl({ streaming: 'disney' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'disney'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'disney' ? { backgroundColor: '#113CCF' } : undefined}
-            >
-              Disney+
-            </a>
-            <a
-              href={buildUrl({ streaming: 'hbo' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'hbo'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'hbo' ? { backgroundColor: '#5822B4' } : undefined}
-            >
-              Max
-            </a>
-            <a
-              href={buildUrl({ streaming: 'viaplay' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'viaplay'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'viaplay' ? { backgroundColor: '#FF5500' } : undefined}
-            >
-              Viaplay
-            </a>
-            <a
-              href={buildUrl({ streaming: 'prime' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'prime'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'prime' ? { backgroundColor: '#00A8E1' } : undefined}
-            >
-              Prime Video
-            </a>
-            <a
-              href={buildUrl({ streaming: 'apple' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'apple'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'apple' ? { backgroundColor: '#000000' } : undefined}
-            >
-              Apple TV+
-            </a>
-            <a
-              href={buildUrl({ streaming: 'tv2' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'tv2'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'tv2' ? { backgroundColor: '#E4002B' } : undefined}
-            >
-              TV 2 Play
-            </a>
-            <a
-              href={buildUrl({ streaming: 'skyshowtime' })}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                streaming === 'skyshowtime'
-                  ? 'text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-              style={streaming === 'skyshowtime' ? { backgroundColor: '#00B2A9' } : undefined}
-            >
-              SkyShowtime
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Results */}
-      {media.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-gray-500">Ingen film eller serier fundet</p>
-        </div>
-      ) : (
-        <>
-          <p className="text-sm text-gray-600 mb-4">
-            Viser {startIndex}-{endIndex} af {totalItems} resultater
+          <p className="text-lg text-text-secondary max-w-xl">
+            Find de bedste børnefilm og serier på streaming
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-            {media.map((item) => (
-              <MediaCard
-                key={item.id}
-                slug={item.slug}
-                title={item.title}
-                posterUrl={item.posterUrl}
-                type={item.type as 'MOVIE' | 'SERIES'}
-                ageMin={item.ageMin}
-                ageMax={item.ageMax}
-                isDanish={item.isDanish}
-                streamingInfo={item.streamingInfo}
-              />
-            ))}
+        </div>
+
+        {/* Filters Card */}
+        <div className="mb-8 bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-soft border border-white/50 space-y-5">
+          {/* Type filters */}
+          <div>
+            <h3 className="text-sm font-semibold text-text-primary mb-3">Type</h3>
+            <div className="flex gap-2">
+              <Link
+                href={buildUrl({ type: undefined })}
+                className={cn(
+                  'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 min-h-[40px] flex items-center gap-2',
+                  'hover:-translate-y-0.5 active:translate-y-0',
+                  !type
+                    ? 'bg-secondary text-white shadow-md'
+                    : 'bg-white text-text-secondary hover:bg-gray-50 border border-gray-200'
+                )}
+              >
+                <span>✨</span>
+                <span>Alle</span>
+              </Link>
+              <Link
+                href={buildUrl({ type: 'film' })}
+                className={cn(
+                  'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 min-h-[40px] flex items-center gap-2',
+                  'hover:-translate-y-0.5 active:translate-y-0',
+                  type === 'film'
+                    ? 'bg-primary text-white shadow-md'
+                    : 'bg-white text-text-secondary hover:bg-gray-50 border border-gray-200'
+                )}
+              >
+                <span>🎬</span>
+                <span>Film</span>
+              </Link>
+              <Link
+                href={buildUrl({ type: 'serier' })}
+                className={cn(
+                  'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 min-h-[40px] flex items-center gap-2',
+                  'hover:-translate-y-0.5 active:translate-y-0',
+                  type === 'serier'
+                    ? 'bg-accent text-text-primary shadow-md'
+                    : 'bg-white text-text-secondary hover:bg-gray-50 border border-gray-200'
+                )}
+              >
+                <span>📺</span>
+                <span>Serier</span>
+              </Link>
+            </div>
           </div>
 
-          {/* Pagination */}
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            totalItems={totalItems}
-            baseUrl="/film-serier"
-          />
-        </>
-      )}
+          {/* Age filters */}
+          <div>
+            <h3 className="text-sm font-semibold text-text-primary mb-3">Alder</h3>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                href={buildUrl({ alder: undefined })}
+                className={cn(
+                  'inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 min-h-[40px]',
+                  'hover:-translate-y-0.5 active:translate-y-0',
+                  !alder
+                    ? 'bg-primary text-white shadow-md'
+                    : 'bg-white text-text-secondary hover:bg-gray-50 border border-gray-200'
+                )}
+              >
+                <span className="text-lg">✨</span>
+                <span>Alle aldre</span>
+              </Link>
 
-      {/* Attribution */}
-      <div className="mt-12 pt-8 border-t border-gray-200 text-sm text-gray-500">
-        <p>Streaming-data fra JustWatch og TMDB</p>
-        <p className="mt-1">
-          This product uses the TMDB API but is not endorsed or certified by
-          TMDB.
-        </p>
+              {ageGroups.map((config) => (
+                <Link
+                  key={config.slug}
+                  href={buildUrl({ alder: config.slug })}
+                  className={cn(
+                    'inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 min-h-[40px]',
+                    'hover:-translate-y-0.5 active:translate-y-0',
+                    alder === config.slug
+                      ? 'shadow-md'
+                      : 'hover:shadow-sm border border-gray-200'
+                  )}
+                  style={{
+                    backgroundColor: alder === config.slug ? config.color.bgSelected : 'white',
+                    color: alder === config.slug ? config.color.text : undefined,
+                  }}
+                >
+                  <span className="text-lg">{config.emoji}</span>
+                  <span>{config.label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Streaming filters - using new component */}
+          <StreamingFilter currentStreaming={streaming} buildUrl={buildUrl} />
+        </div>
+
+        {/* Results */}
+        {media.length === 0 ? (
+          <div className="text-center py-16 bg-white/60 rounded-2xl">
+            <span className="text-5xl mb-4 block">🔍</span>
+            <p className="text-text-secondary text-lg">Ingen film eller serier fundet</p>
+            <p className="text-text-muted text-sm mt-2">Prøv at ændre dine filtre</p>
+          </div>
+        ) : (
+          <>
+            <p className="text-sm text-text-secondary mb-4">
+              Viser {startIndex}-{endIndex} af {totalItems} resultater
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+              {media.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="animate-fade-in"
+                  style={{ animationDelay: `${index * 0.03}s` }}
+                >
+                  <MediaCard
+                    slug={item.slug}
+                    title={item.title}
+                    posterUrl={item.posterUrl}
+                    type={item.type as 'MOVIE' | 'SERIES'}
+                    ageMin={item.ageMin}
+                    ageMax={item.ageMax}
+                    isDanish={item.isDanish}
+                    streamingInfo={item.streamingInfo}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              totalItems={totalItems}
+              baseUrl="/film-serier"
+            />
+          </>
+        )}
+
+        {/* Attribution */}
+        <div className="mt-12 pt-8 border-t border-gray-200/50 text-sm text-text-muted text-center">
+          <p>Streaming-data fra JustWatch og TMDB</p>
+          <p className="mt-1 text-xs">
+            This product uses the TMDB API but is not endorsed or certified by TMDB.
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -9,6 +9,41 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // NEW VIBRANT PALETTE - More child-friendly and energetic
+        primary: {
+          DEFAULT: "#FF6B6B",  // Friendly coral-red
+          light: "#FF8E8E",
+          dark: "#E85555",
+          50: "#FFF0F0",
+          100: "#FFE0E0",
+          200: "#FFB8B8",
+          500: "#FF6B6B",
+          600: "#E85555",
+          700: "#D04040",
+        },
+        secondary: {
+          DEFAULT: "#4ECDC4",  // Playful turquoise
+          light: "#7EDDD6",
+          dark: "#3DBDB5",
+          50: "#E8FAF9",
+          100: "#D1F5F3",
+          200: "#A3EBE6",
+          500: "#4ECDC4",
+          600: "#3DBDB5",
+          700: "#2CA9A1",
+        },
+        accent: {
+          DEFAULT: "#FFE66D",  // Sunshine yellow
+          light: "#FFF0A0",
+          dark: "#FFD93D",
+          50: "#FFFCE8",
+          100: "#FFF9D1",
+          200: "#FFF3A3",
+          500: "#FFE66D",
+          600: "#FFD93D",
+          700: "#E6C020",
+        },
+
         // Soft Pastel Palette - Child-friendly and inviting
         coral: {
           DEFAULT: "#FFB5A7",
@@ -41,11 +76,12 @@ const config: Config = {
         paper: "#FFFCF7",
         peach: "#FFF0E8",
         mist: "#F5F9FC",
+        warm: "#FEFCFB",  // Slightly warmer white
 
         // Text colors
         text: {
-          primary: "#4A4A4A",
-          secondary: "#7A7A7A",
+          primary: "#2D3436",  // Softer black (easier on eyes)
+          secondary: "#636E72",
           muted: "#9CA3AF",
         },
 
@@ -104,6 +140,13 @@ const config: Config = {
         "pop": "pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
         "fade-in": "fade-in 0.3s ease-out",
         "shimmer": "shimmer 1.5s infinite",
+        // New playful animations
+        "bounce-in": "bounce-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "jiggle": "jiggle 0.3s ease-in-out",
+        "sparkle": "sparkle 1.5s ease-in-out infinite",
+        "wave": "wave 2.5s ease-in-out infinite",
+        "float-slow": "float 4s ease-in-out infinite",
+        "scale-up": "scale-up 0.2s ease-out",
       },
 
       keyframes: {
@@ -139,6 +182,31 @@ const config: Config = {
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
+        },
+        // New playful keyframes
+        "bounce-in": {
+          "0%": { transform: "scale(0.3)", opacity: "0" },
+          "50%": { transform: "scale(1.05)" },
+          "70%": { transform: "scale(0.9)" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        "jiggle": {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(-5deg)" },
+          "75%": { transform: "rotate(5deg)" },
+        },
+        "sparkle": {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%": { opacity: "0.6", transform: "scale(1.1)" },
+        },
+        "wave": {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(20deg)" },
+          "75%": { transform: "rotate(-20deg)" },
+        },
+        "scale-up": {
+          "0%": { transform: "scale(0.95)" },
+          "100%": { transform: "scale(1)" },
         },
       },
 

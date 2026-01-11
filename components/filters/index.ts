@@ -41,3 +41,6 @@ export {
   parseNaturalLanguage,
 } from './SearchBar';
 export type { SearchBarProps } from './SearchBar';
+
+// Streaming Filter Components
+export { StreamingFilter } from './StreamingFilter';

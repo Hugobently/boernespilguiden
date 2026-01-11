@@ -3,6 +3,8 @@ import { getTranslations, getLocale } from 'next-intl/server';
 import { Navigation } from '@/components/layout';
 import { GameGrid } from '@/components/games';
 import { AgeFilter } from '@/components/filters';
+import { StickyFilterBar } from '@/components/ui';
+import { FloatingBlobs } from '@/components/brand';
 import { getGamesWithTranslation } from '@/lib/translations';
 
 export const metadata: Metadata = {
@@ -79,55 +81,65 @@ export default async function DigitalGamesPage({ searchParams }: PageProps) {
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <Navigation
-        breadcrumbs={[{ label: t('title') }]}
-        className="mb-8"
-      />
+    <div className="relative min-h-screen">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-mint-light/30 via-transparent to-transparent pointer-events-none" />
+      <FloatingBlobs className="opacity-20" />
 
-      <div className="mb-8">
-        <div className="flex items-center gap-4 mb-4">
-          <span className="text-5xl">🎮</span>
-          <div>
-            <h1 className="font-display text-3xl sm:text-4xl font-bold text-charcoal">
-              {t('title')}
-            </h1>
-            <p className="text-slate">
-              {selectedAge
-                ? t('subtitleWithAge', { age: selectedAge })
-                : t('subtitle')}
-            </p>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <Navigation
+          breadcrumbs={[{ label: t('title') }]}
+          className="mb-8"
+        />
+
+        {/* Header */}
+        <div className="mb-8 text-center sm:text-left">
+          <div className="flex items-center justify-center sm:justify-start gap-4 mb-4">
+            <span className="text-4xl sm:text-5xl animate-bounce-slow">🎮</span>
+            <div>
+              <h1 className="font-display text-3xl sm:text-4xl font-bold text-text-primary">
+                {t('title')}
+              </h1>
+              <p className="text-text-secondary">
+                {selectedAge
+                  ? t('subtitleWithAge', { age: selectedAge })
+                  : t('subtitle')}
+              </p>
+            </div>
           </div>
         </div>
+
+        {/* Sticky Filter Bar */}
+        <StickyFilterBar className="mb-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <AgeFilter basePath="/spil" />
+
+            {/* Danish language filter */}
+            <a
+              href={showDanishOnly ? `/spil${selectedAge ? `?alder=${selectedAge}` : ''}` : `/spil?dansk=true${selectedAge ? `&alder=${selectedAge}` : ''}`}
+              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 min-h-[44px] hover:-translate-y-0.5 active:translate-y-0 ${
+                showDanishOnly
+                  ? 'bg-[#C8102E] text-white shadow-md'
+                  : 'bg-white text-text-secondary border border-gray-200 hover:border-[#C8102E]/30 hover:bg-red-50'
+              }`}
+            >
+              <span>🇩🇰</span>
+              <span>Dansk sprog</span>
+              {showDanishOnly && <span className="ml-1">✓</span>}
+            </a>
+          </div>
+        </StickyFilterBar>
+
+        {showDanishOnly && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl animate-slide-up">
+            <p className="text-sm text-red-800">
+              <span className="font-medium">🇩🇰 Viser kun spil med dansk tale/tekst.</span> Der er {games.length} spil med dansk sprog.
+            </p>
+          </div>
+        )}
+
+        <GameGrid games={games} type="digital" />
       </div>
-
-      <div className="flex flex-wrap items-center gap-4 mb-8">
-        <AgeFilter basePath="/spil" />
-
-        {/* Danish language filter */}
-        <a
-          href={showDanishOnly ? `/spil${selectedAge ? `?alder=${selectedAge}` : ''}` : `/spil?dansk=true${selectedAge ? `&alder=${selectedAge}` : ''}`}
-          className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all ${
-            showDanishOnly
-              ? 'bg-red-600 text-white shadow-md'
-              : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-red-300 hover:bg-red-50'
-          }`}
-        >
-          <span>🇩🇰</span>
-          <span>Dansk sprog</span>
-          {showDanishOnly && <span className="ml-1">✓</span>}
-        </a>
-      </div>
-
-      {showDanishOnly && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-sm text-red-800">
-            <span className="font-medium">🇩🇰 Viser kun spil med dansk tale/tekst.</span> Der er {games.length} spil med dansk sprog.
-          </p>
-        </div>
-      )}
-
-      <GameGrid games={games} type="digital" />
     </div>
   );
 }

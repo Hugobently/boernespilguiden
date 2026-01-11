@@ -7,6 +7,7 @@ import { GameCard } from '@/components/games';
 import { MediaCard } from '@/components/media/MediaCard';
 import { getHomepageDataWithTranslation } from '@/lib/translations';
 import { WebsiteJsonLdScript, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { Mascot, FloatingBlobs, Confetti } from '@/components/brand';
 
 // ============================================================================
 // AGE CATEGORY CARDS CONFIG
@@ -54,63 +55,78 @@ interface HeroSectionProps {
 
 function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 sm:pt-12 sm:pb-24">
-      {/* Decorative background blobs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-[#FFB5A7]/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#A2D2FF]/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
-      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-[#B8E0D2]/15 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
+    <section className="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-20 bg-gradient-to-b from-primary-50/50 via-transparent to-transparent">
+      {/* Decorative elements */}
+      <FloatingBlobs />
+      <Confetti />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Floating game icons */}
-          <div className="flex justify-center items-center gap-3 sm:gap-6 mb-8">
-            <span className="text-4xl sm:text-5xl animate-bounce" style={{ animationDelay: '0s', animationDuration: '2s' }}>🎮</span>
-            <span className="text-5xl sm:text-6xl animate-bounce" style={{ animationDelay: '0.2s', animationDuration: '2s' }}>⭐</span>
-            <span className="text-4xl sm:text-5xl animate-bounce" style={{ animationDelay: '0.4s', animationDuration: '2s' }}>🎲</span>
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          {/* Left side - Mascot */}
+          <div className="flex-shrink-0 order-1 lg:order-none">
+            <div className="relative">
+              <Mascot size="xl" variant="wave" className="animate-float" />
+              {/* Decorative sparkles */}
+              <span className="absolute -top-4 right-0 text-3xl animate-sparkle">✨</span>
+              <span className="absolute bottom-4 -left-4 text-2xl animate-sparkle" style={{ animationDelay: '0.5s' }}>⭐</span>
+            </div>
           </div>
 
-          {/* Main headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#4A4A4A] mb-6 leading-tight">
-            {t('heroTitle')}
-          </h1>
+          {/* Right side - Content */}
+          <div className="text-center lg:text-left flex-1 max-w-2xl">
+            {/* Floating game icons - smaller on mobile */}
+            <div className="flex justify-center lg:justify-start items-center gap-2 sm:gap-4 mb-6">
+              <span className="text-3xl sm:text-4xl animate-bounce-slow" style={{ animationDelay: '0s' }}>🎮</span>
+              <span className="text-4xl sm:text-5xl animate-bounce-slow" style={{ animationDelay: '0.2s' }}>⭐</span>
+              <span className="text-3xl sm:text-4xl animate-bounce-slow" style={{ animationDelay: '0.4s' }}>🎲</span>
+              <span className="text-3xl sm:text-4xl animate-bounce-slow hidden sm:inline" style={{ animationDelay: '0.6s' }}>📺</span>
+            </div>
 
-          {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-[#7A7A7A] mb-4 max-w-2xl mx-auto">
-            {t('heroSubtitle')}
-          </p>
-          <p className="text-base text-[#9CA3AF] mb-10 max-w-xl mx-auto">
-            {t('heroDescription')}
-          </p>
+            {/* Main headline with gradient */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+              <span className="text-text-primary">{t('heroTitle').split(' ').slice(0, 2).join(' ')}</span>{' '}
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                {t('heroTitle').split(' ').slice(2).join(' ')}
+              </span>
+            </h1>
 
-          {/* Search bar */}
-          <div className="max-w-2xl mx-auto mb-10">
-            <Suspense fallback={
-              <div className="h-14 bg-[#FFFCF7] rounded-2xl animate-pulse" />
-            }>
-              <SearchBar
-                variant="hero"
-                placeholder={tCommon('searchPlaceholderLong')}
-              />
-            </Suspense>
-          </div>
+            {/* Subheadline */}
+            <p className="text-base sm:text-lg lg:text-xl text-text-secondary mb-3 max-w-xl mx-auto lg:mx-0">
+              {t('heroSubtitle')}
+            </p>
+            <p className="text-sm sm:text-base text-text-muted mb-6 sm:mb-8 max-w-md mx-auto lg:mx-0">
+              {t('heroDescription')}
+            </p>
 
-          {/* Quick age links */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {ageCategoryConfig.map((cat, index) => (
-              <Link
-                key={cat.slug}
-                href={`/spil?alder=${cat.slug}`}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
-                style={{
-                  background: `linear-gradient(135deg, ${cat.color.bg.split(' ')[0].replace('from-[', '').replace(']', '')}, ${cat.color.bg.split(' ')[1].replace('to-[', '').replace(']', '')})`,
-                  color: cat.color.text,
-                  animationDelay: `${index * 0.1}s`,
-                }}
-              >
-                <span className="text-xl">{cat.emoji}</span>
-                <span>{tAge(cat.slug as '0-3' | '3-6' | '7+')}</span>
-              </Link>
-            ))}
+            {/* Search bar */}
+            <div className="max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8">
+              <Suspense fallback={
+                <div className="h-14 bg-white rounded-2xl animate-pulse shadow-soft" />
+              }>
+                <SearchBar
+                  variant="hero"
+                  placeholder={tCommon('searchPlaceholderLong')}
+                />
+              </Suspense>
+            </div>
+
+            {/* Quick age links - improved design */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
+              {ageCategoryConfig.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  href={`/spil?alder=${cat.slug}`}
+                  className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:scale-105 active:scale-95 min-h-[44px]"
+                  style={{
+                    background: `linear-gradient(135deg, ${cat.color.bg.split(' ')[0].replace('from-[', '').replace(']', '')}, ${cat.color.bg.split(' ')[1].replace('to-[', '').replace(']', '')})`,
+                    color: cat.color.text,
+                  }}
+                >
+                  <span className="text-xl sm:text-2xl group-hover:animate-jiggle">{cat.emoji}</span>
+                  <span className="text-sm sm:text-base">{tAge(cat.slug as '0-3' | '3-6' | '7+')}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
