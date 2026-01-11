@@ -6,6 +6,58 @@ This document contains important information learned during development sessions
 
 ## Session Log
 
+### 2026-01-11 (Session 6): Bug Fixes, Images & Documentation
+Fixed critical production bugs, added more game images, created backup, and wrote comprehensive documentation.
+
+**Critical Bugs Fixed:**
+1. **Film-serier page crash** - Page showed "Ups! Noget gik galt" error
+   - **Bug 1:** `searchParams` must be awaited in Next.js 14+ App Router
+   - **Fix:** Changed `searchParams: SearchParams` to `searchParams: Promise<SearchParams>` and added `await`
+   - **Bug 2:** `ageGroups` was imported from `'use client'` module (AgeFilter.tsx) into server component
+   - **Fix:** Created shared config `lib/config/age-groups.ts` without 'use client' directive
+
+2. **Minecraft image not loading** - 86KB webp file existed but wasn't displayed
+   - **Cause:** `IMAGE_FORMATS` array in GameCard.tsx didn't include 'webp'
+   - **Fix:** Added 'webp' to the format fallback chain: `['jpg', 'webp', 'png', 'svg']`
+
+**Game Images Downloaded (18 new):**
+Downloaded from iTunes Search API:
+- Khan Academy Kids, Endless Alphabet, Lingokids, Prodigy Math, Thinkrolls
+- Sago Mini Friends, Peppa Pig Party Time, Mineko Night Market, Candy Crush
+- DR apps: Karla, Minisjang, Motor Mille, Naturspillet, Øen, Ramasjang Krea/Læer/Leg
+- Minecraft, Minecraft Education
+
+**Project Backup Created:**
+- Location: `/home/halfgood/Desktop/boernespilguiden-backup-20260111-165747/`
+- Contents: Git bundle, database export (JSON), .env, images, config files, documentation
+- Compressed archive: 19MB
+
+**Documentation & Code Improvements:**
+- Created `PROJECT-DOCUMENTATION.md` (1042 lines) - Comprehensive technical docs
+- Updated `README.md` with proper project information
+- Created centralized config system:
+  - `lib/config/age-groups.ts` - Shared age group config (server/client safe)
+  - `lib/config/platforms.ts` - Platform icons and colors
+  - `lib/config/theme.ts` - Centralized theme colors
+  - `lib/config/index.ts` - Unified exports
+
+**Files Modified:**
+- `app/(site)/film-serier/page.tsx` - Fixed searchParams and ageGroups import
+- `lib/config/age-groups.ts` - NEW: Shared module for age groups
+- `components/filters/AgeFilter.tsx` - Updated imports
+- `components/games/GameCard.tsx` - Added webp to IMAGE_FORMATS
+- `lib/config/platforms.ts` - NEW: Centralized platform config
+- `lib/config/theme.ts` - NEW: Centralized theme config
+- `lib/config/index.ts` - NEW: Config exports
+- `PROJECT-DOCUMENTATION.md` - NEW: Comprehensive docs
+- `README.md` - Updated with proper info
+- `public/images/games/digital/*.jpg` - 18 new game images
+
+**Key Learnings:**
+- Next.js 14+ App Router: `searchParams` is a Promise and must be awaited
+- Server/Client boundary: Cannot import from 'use client' modules in server components
+- Image fallback: GameCard tries formats in order: jpg → webp → png → svg
+
 ### 2026-01-11 (Session 5): UI Improvements & Game Images
 Used Puppeteer to visually review the live site and implemented several improvements.
 
@@ -285,6 +337,26 @@ npx tsx scripts/fetch-danish-descriptions.ts
 
 ## Common Issues & Solutions
 
+### Next.js 14+ searchParams must be awaited
+**Error:** "Attempted to call from the server but is on the client" or async iteration errors
+**Cause:** In Next.js 14+ App Router, `searchParams` is a Promise
+**Fix:**
+```typescript
+// Before (WRONG)
+export default function Page({ searchParams }: { searchParams: SearchParams }) {
+  const { page } = searchParams;
+
+// After (CORRECT)
+export default async function Page({ searchParams }: { searchParams: Promise<SearchParams> }) {
+  const params = await searchParams;
+  const { page } = params;
+```
+
+### Cannot import 'use client' module in server component
+**Error:** "Attempted to call X() from the server but X is on the client"
+**Cause:** Importing a value from a file with 'use client' directive into a server component
+**Fix:** Create a shared config file without 'use client' for values needed in both contexts
+
 ### "DATABASE_URL must start with postgresql://"
 **Cause:** `.env` has SQLite URL instead of PostgreSQL
 **Fix:** Update `DATABASE_URL` in `.env` to the production PostgreSQL URL above
@@ -331,6 +403,10 @@ npx tsx scripts/fetch-danish-descriptions.ts
 - `.env` - Environment variables (DATABASE_URL, API keys)
 - `.env.production` - Backup of production URLs
 - `prisma/schema.prisma` - Database schema
+- `lib/config/index.ts` - Centralized config exports
+- `lib/config/age-groups.ts` - Age group config (server/client safe)
+- `lib/config/platforms.ts` - Platform icons and colors
+- `lib/config/theme.ts` - Theme colors, gradients, shadows
 
 ### Key Component Files
 - `components/media/StreamingBadges.tsx` - Provider badges with hide logic
