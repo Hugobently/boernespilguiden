@@ -6,6 +6,25 @@ This document contains important information learned during development sessions
 
 ## Session Log
 
+### 2026-01-11 (Session 3): AI Enhancement for All Content
+Ran AI enhancement on all games and media that needed parentInfo.
+
+**AI Enhancement Completed:**
+- Created `lib/services/ai-enhance-game.ts` - AI service for game descriptions
+- Created `scripts/enhance-games.ts` - Script to run game AI enhancement
+- Fixed outdated model name: `claude-3-5-sonnet-20240620` → `claude-sonnet-4-20250514`
+
+**Results:**
+- ✅ **GAMES: 111/111 (100%)** - All games now have parentInfo, parentTip, pros, cons
+- ✅ **MEDIA: 170/194 (88%)** - 170 items now have AI-enhanced parentInfo
+- 🟡 **24 media without descriptions** - Cannot be AI-enhanced (need manual descriptions first)
+
+**What Each Game/Media Now Has:**
+- `parentInfo`: "Hvad forældre skal vide" (100-150 words)
+- `parentTip`: Practical tip for parents (50-75 words)
+- `pros`: 3-5 positive points
+- `cons`: 2-4 things to be aware of
+
 ### 2026-01-11 (Session 2): Site Review & DR Media Fix
 Performed thorough site review of boernespilguiden.dk
 
@@ -24,13 +43,15 @@ The code uses fallback paths: `/images/games/digital/{slug}.jpg` and `/images/ga
 - **Before:** 49 media without descriptions → **After:** 24 remaining
 
 **Remaining Issues:**
-- 🟡 **24 media still missing descriptions** (Danish-only content not on TMDB)
+- 🟡 **24 media still missing descriptions** (Danish-only content not on TMDB, need manual entry)
 - 🟡 **~25 games missing images** (not 91 - most have filesystem fallback)
 - 🟡 **~2 board games missing images** (not 72 - most have filesystem fallback)
 - 🟡 **Duplicate streaming provider names** in database (apple vs apple-tv, netflix vs netflix-kids)
 
 **What's Working Well:**
 - ✅ All 194 media items have poster images
+- ✅ All 111 games have AI-enhanced parentInfo
+- ✅ 170/194 media have AI-enhanced parentInfo
 - ✅ Most games have images via filesystem fallback
 - ✅ Most board games have images via filesystem fallback
 - ✅ Age filters are combinable on Film & Serier
@@ -106,6 +127,7 @@ ANTHROPIC_API_KEY   # Anthropic API key for AI enhancement
 
 ```
 Games: 111 total
+  - With AI parentInfo: 111 (100%) ✅
   - Database iconUrl set: 20
   - Database iconUrl null: 91 (BUT images exist in filesystem!)
   - Actual images on disk: 86 jpg files in /public/images/games/digital/
@@ -119,7 +141,8 @@ Board Games: 72 total
 
 Media: 194 total
   - All have posterUrl ✅
-  - Without descriptions: 24 (down from 49 after fix-dr-media.ts)
+  - With AI parentInfo: 170 (88%) ✅
+  - Without descriptions: 24 (cannot be AI-enhanced)
   - DR_MANUAL entries: 45 (25 now have descriptions from TMDB)
 
 Streaming Providers in DB:
@@ -173,6 +196,13 @@ npx tsx scripts/enhance-media.ts <limit> [--force]
 ```
 **Note:** Only works on items WITH descriptions but WITHOUT parentInfo.
 
+### enhance-games.ts
+Uses AI to enhance game descriptions with parent-focused info.
+```bash
+npx tsx scripts/enhance-games.ts <limit> [--force] [--dry-run]
+```
+**Note:** Adds parentInfo, parentTip, pros, cons to games.
+
 ### check-stats.ts
 Shows database statistics.
 ```bash
@@ -216,6 +246,10 @@ npx tsx scripts/fix-dr-media.ts
 **Cause:** These are DR_MANUAL entries imported without TMDB data
 **Fix:** Need to search TMDB for each title, get tmdbId, then run enhance-media
 
+### Anthropic API 404 error for model
+**Cause:** Outdated model name `claude-3-5-sonnet-20240620`
+**Fix:** Update to `claude-sonnet-4-20250514` in `lib/services/ai-enhance.ts` and `ai-enhance-game.ts`
+
 ## Navigation & UI Notes
 
 ### Navigation Icons
@@ -248,8 +282,14 @@ npx tsx scripts/fix-dr-media.ts
 - `scripts/fix-media-images.ts` - Fix media poster images
 - `scripts/fix-game-images.ts` - Fix game icon images
 - `scripts/fetch-streaming-content.ts` - Fetch from streaming providers
-- `scripts/enhance-media.ts` - AI enhancement for descriptions
+- `scripts/enhance-media.ts` - AI enhancement for media descriptions
+- `scripts/enhance-games.ts` - AI enhancement for game descriptions
+- `scripts/fix-dr-media.ts` - Fix DR shows via TMDB lookup
 - `scripts/check-stats.ts` - Database statistics
+
+### AI Services
+- `lib/services/ai-enhance.ts` - Media AI enhancement (Claude API)
+- `lib/services/ai-enhance-game.ts` - Game AI enhancement (Claude API)
 
 ## TMDB Provider IDs
 
@@ -274,21 +314,23 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
 
 ## What Still Needs Work (Priority Order)
 
-### Priority 1 - Content Quality
-1. **24 media without descriptions** - Danish-only content not on TMDB, need manual descriptions
+### Priority 1 - Content Quality (DONE for AI enhancement!)
+1. ✅ **All 111 games have AI parentInfo** - COMPLETE
+2. ✅ **170/194 media have AI parentInfo** - COMPLETE
+3. 🟡 **24 media without descriptions** - Danish-only content not on TMDB, need manual descriptions (then can AI-enhance)
 
 ### Priority 2 - Missing Images (Lower Priority - Most Have Fallback)
-2. **~25 games missing images** - Most games (86/111) have images via filesystem fallback
-3. **~2 board games missing images** - Most board games (70/72) have images via filesystem fallback
+4. **~25 games missing images** - Most games (86/111) have images via filesystem fallback
+5. **~2 board games missing images** - Most board games (70/72) have images via filesystem fallback
 
 ### Priority 3 - Database Cleanup
-4. **Consolidate duplicate providers** - Clean up apple vs apple-tv, netflix vs netflix-kids
+6. **Consolidate duplicate providers** - Clean up apple vs apple-tv, netflix vs netflix-kids
 
 ### Priority 4 - Nice to Have
-5. **Add contact email to /om page** - Users can't easily report issues
-6. **Clean up Allente data** - 24 items still in DB (hidden in UI but data exists)
-7. **More streaming content** - Can fetch from Netflix, Disney+, etc.
-8. **Filmstriben content** - TMDB may not have this data, might need manual import
+7. **Add contact email to /om page** - Users can't easily report issues
+8. **Clean up Allente data** - 24 items still in DB (hidden in UI but data exists)
+9. **More streaming content** - Can fetch from Netflix, Disney+, etc.
+10. **Filmstriben content** - TMDB may not have this data, might need manual import
 
 ## Quick Commands for New Sessions
 
