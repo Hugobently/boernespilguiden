@@ -11,28 +11,71 @@ const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-// Provider configurations with TMDB watch provider IDs
+// Provider configurations with TMDB watch provider IDs for Denmark
 // https://developer.themoviedb.org/reference/watch-providers-movie-list
+// Verify IDs at: https://api.themoviedb.org/3/watch/providers/tv?language=da-DK&watch_region=DK
 const PROVIDERS = {
-  filmstriben: {
-    name: 'Filmstriben',
-    tmdbId: 483, // Filmstriben's TMDB ID (if available)
+  netflix: {
+    name: 'Netflix',
+    tmdbId: 8,
     region: 'DK',
-    notes: 'Free via Danish libraries',
-    isFree: true,
+    notes: 'Subscription service',
+    isFree: false,
+  },
+  disney: {
+    name: 'Disney+',
+    tmdbId: 337,
+    region: 'DK',
+    notes: 'Subscription service',
+    isFree: false,
+  },
+  hbo: {
+    name: 'Max (HBO)',
+    tmdbId: 1899,  // HBO Max in Denmark
+    region: 'DK',
+    notes: 'Subscription service (formerly HBO Max)',
+    isFree: false,
+  },
+  viaplay: {
+    name: 'Viaplay',
+    tmdbId: 76,
+    region: 'DK',
+    notes: 'Nordic streaming service',
+    isFree: false,
+  },
+  prime: {
+    name: 'Amazon Prime Video',
+    tmdbId: 119, // Amazon Prime Video in DK region
+    region: 'DK',
+    notes: 'Subscription service',
+    isFree: false,
   },
   apple: {
     name: 'Apple TV+',
-    tmdbId: 350, // Apple TV+ TMDB ID
+    tmdbId: 350,
     region: 'DK',
     notes: 'Subscription service',
     isFree: false,
   },
   tv2: {
     name: 'TV 2 Play',
-    tmdbId: 383, // TV 2 Play TMDB ID (approximate)
+    tmdbId: 383, // TV 2 Play DK
     region: 'DK',
     notes: 'Danish streaming service',
+    isFree: false,
+  },
+  filmstriben: {
+    name: 'Filmstriben',
+    tmdbId: 443, // Filmstriben TMDB ID
+    region: 'DK',
+    notes: 'Free via Danish libraries',
+    isFree: true,
+  },
+  skyshowtime: {
+    name: 'SkyShowtime',
+    tmdbId: 1773,
+    region: 'DK',
+    notes: 'Subscription service',
     isFree: false,
   },
 };

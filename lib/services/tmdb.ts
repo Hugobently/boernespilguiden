@@ -3,6 +3,24 @@
 const TMDB_API_KEY = process.env.TMDB_API_KEY!;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+// Danish streaming provider IDs for TMDB
+// Use with with_watch_providers parameter (pipe-separated for OR)
+// Verified via: https://api.themoviedb.org/3/watch/providers/tv?watch_region=DK
+export const DANISH_PROVIDER_IDS = {
+  netflix: 8,
+  disney: 337,
+  hbo: 1899,       // HBO Max in Denmark
+  viaplay: 76,
+  prime: 119,      // Amazon Prime Video in DK
+  apple: 350,      // Apple TV+
+  tv2: 383,        // TV 2
+  filmstriben: 443,
+  skyshowtime: 1773,
+};
+
+// All Danish providers as pipe-separated string for TMDB API
+export const ALL_DK_PROVIDERS = Object.values(DANISH_PROVIDER_IDS).join('|');
+
 // Helper to wait between requests
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -53,7 +71,8 @@ async function tmdbFetch<T>(endpoint: string): Promise<T> {
 }
 
 // Discover children's movies with pagination - Focus on Western/Danish content
-export async function discoverKidsMovies(maxPages = 5): Promise<TMDBMovie[]> {
+// Set useProviders=true to only fetch content available on Danish streaming services
+export async function discoverKidsMovies(maxPages = 5, useProviders = true): Promise<TMDBMovie[]> {
   const results: TMDBMovie[] = [];
 
   // Exclude Asian origin countries to focus on Western/Danish audience
@@ -62,9 +81,12 @@ export async function discoverKidsMovies(maxPages = 5): Promise<TMDBMovie[]> {
   // Exclude adult genres: Romance(10749), Thriller(53), Horror(27), Crime(80)
   const excludeGenres = '10749,53,27,80';
 
+  // Provider filter - only content available on Danish streaming services
+  const providerFilter = useProviders ? `&with_watch_providers=${ALL_DK_PROVIDERS}` : '';
+
   for (let page = 1; page <= maxPages; page++) {
     const data = await tmdbFetch<TMDBResponse<TMDBMovie>>(
-      `/discover/movie?language=da-DK&watch_region=DK&with_genres=16|10751&without_genres=${excludeGenres}&certification_country=DK&certification.lte=A&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&sort_by=popularity.desc&page=${page}`
+      `/discover/movie?language=da-DK&watch_region=DK${providerFilter}&with_genres=16|10751&without_genres=${excludeGenres}&certification_country=DK&certification.lte=A&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&sort_by=popularity.desc&page=${page}`
     );
 
     results.push(...data.results);
@@ -77,7 +99,8 @@ export async function discoverKidsMovies(maxPages = 5): Promise<TMDBMovie[]> {
 }
 
 // Discover children's series with pagination - Focus on Western/Danish content
-export async function discoverKidsSeries(maxPages = 5): Promise<TMDBSeries[]> {
+// Set useProviders=true to only fetch content available on Danish streaming services
+export async function discoverKidsSeries(maxPages = 5, useProviders = true): Promise<TMDBSeries[]> {
   const results: TMDBSeries[] = [];
 
   // Exclude Asian origin countries to focus on Western/Danish audience
@@ -87,9 +110,12 @@ export async function discoverKidsSeries(maxPages = 5): Promise<TMDBSeries[]> {
   // Comedy is excluded because Family+Comedy often includes adult sitcoms like Frasier
   const excludeGenres = '10749,18,80,53,9648,27,35';
 
+  // Provider filter - only content available on Danish streaming services
+  const providerFilter = useProviders ? `&with_watch_providers=${ALL_DK_PROVIDERS}` : '';
+
   for (let page = 1; page <= maxPages; page++) {
     const data = await tmdbFetch<TMDBResponse<TMDBSeries>>(
-      `/discover/tv?language=da-DK&watch_region=DK&with_genres=16|10762&without_genres=${excludeGenres}&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&vote_count.gte=3&sort_by=popularity.desc&page=${page}`
+      `/discover/tv?language=da-DK&watch_region=DK${providerFilter}&with_genres=16|10762&without_genres=${excludeGenres}&without_origin_country=${excludeCountries}&with_original_language=da|en|sv|no|de|fr|es|it&vote_count.gte=3&sort_by=popularity.desc&page=${page}`
     );
 
     results.push(...data.results);

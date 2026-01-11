@@ -6,24 +6,60 @@ import { isBlacklisted, getBlacklistReason } from '@/lib/constants/blacklist';
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-// Provider name normalization
+// Provider name normalization - maps TMDB provider names to our internal keys
 function normalizeProviderName(name: string): string {
   const mapping: Record<string, string> = {
+    // Netflix
     netflix: 'netflix',
+    'netflix kids': 'netflix',
+    'netflix basic with ads': 'netflix',
+
+    // Disney+
     'disney plus': 'disney',
     'disney+': 'disney',
-    viaplay: 'viaplay',
+
+    // HBO Max / Max
     'hbo max': 'hbo',
     max: 'hbo',
+    'hbo': 'hbo',
+
+    // Viaplay
+    viaplay: 'viaplay',
+
+    // SkyShowtime
     skyshowtime: 'skyshowtime',
+
+    // TV 2 Play
     'tv 2 play': 'tv2',
+    'tv2 play': 'tv2',
+    'tv-2 play': 'tv2',
+
+    // Apple TV+
     'apple tv plus': 'apple',
     'apple tv+': 'apple',
+    'apple tv': 'apple',
+
+    // Amazon Prime Video
     'amazon prime video': 'prime',
+    'prime video': 'prime',
+    'amazon video': 'prime',
+
+    // Filmstriben (free via Danish libraries)
     filmstriben: 'filmstriben',
     'filmstriben.dk': 'filmstriben',
+
+    // DR TV (always free)
+    'dr tv': 'drtv',
+    drtv: 'drtv',
   };
   return mapping[name.toLowerCase()] || name.toLowerCase().replace(/\s+/g, '-');
+}
+
+// Free providers (no subscription required)
+const FREE_PROVIDERS = ['drtv', 'filmstriben'];
+
+function isProviderFree(providerKey: string): boolean {
+  return FREE_PROVIDERS.includes(providerKey);
 }
 
 // Import movies from TMDB
@@ -80,11 +116,15 @@ export async function importTMDBMovies(limit = 100): Promise<number> {
           availableLanguages: languages.availableLanguages,
           streamingInfo: {
             create:
-              providers?.flatrate?.map((p) => ({
-                provider: normalizeProviderName(p.provider_name),
-                providerId: p.provider_id,
-                available: true,
-              })) || [],
+              providers?.flatrate?.map((p) => {
+                const providerKey = normalizeProviderName(p.provider_name);
+                return {
+                  provider: providerKey,
+                  providerId: p.provider_id,
+                  available: true,
+                  isFree: isProviderFree(providerKey),
+                };
+              }) || [],
           },
         },
       });
@@ -152,11 +192,15 @@ export async function importTMDBSeries(limit = 100): Promise<number> {
           availableLanguages: languages.availableLanguages,
           streamingInfo: {
             create:
-              providers?.flatrate?.map((p) => ({
-                provider: normalizeProviderName(p.provider_name),
-                providerId: p.provider_id,
-                available: true,
-              })) || [],
+              providers?.flatrate?.map((p) => {
+                const providerKey = normalizeProviderName(p.provider_name);
+                return {
+                  provider: providerKey,
+                  providerId: p.provider_id,
+                  available: true,
+                  isFree: isProviderFree(providerKey),
+                };
+              }) || [],
           },
         },
       });
@@ -271,13 +315,17 @@ export async function refreshTMDBStreamingStatus(limit = 50): Promise<number> {
       // Add new ones
       if (providers?.flatrate && providers.flatrate.length > 0) {
         await prisma.streamingInfo.createMany({
-          data: providers.flatrate.map((p) => ({
-            mediaId: media.id,
-            provider: normalizeProviderName(p.provider_name),
-            providerId: p.provider_id,
-            available: true,
-            lastChecked: new Date(),
-          })),
+          data: providers.flatrate.map((p) => {
+            const providerKey = normalizeProviderName(p.provider_name);
+            return {
+              mediaId: media.id,
+              provider: providerKey,
+              providerId: p.provider_id,
+              available: true,
+              isFree: isProviderFree(providerKey),
+              lastChecked: new Date(),
+            };
+          }),
         });
       }
 
