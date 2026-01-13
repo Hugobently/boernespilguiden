@@ -337,17 +337,17 @@ function MobileMenu({
   if (!mounted || !isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] md:hidden">
+    <div className="fixed top-0 left-0 w-screen h-screen z-[9999] md:hidden">
       {/* Backdrop - covers entire screen */}
       <div
-        className="absolute inset-0 bg-black/50"
+        className="absolute top-0 left-0 w-full h-full bg-black/50"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Menu panel - slides in from right */}
       <div
-        className="absolute top-0 right-0 bottom-0 w-[85vw] max-w-[320px] bg-[#FFF9F0] shadow-[-8px_0_32px_-4px_rgba(0,0,0,0.3)] overflow-hidden animate-slide-in-right"
+        className="absolute top-0 right-0 h-full w-[85vw] max-w-[320px] bg-[#FFF9F0] shadow-[-8px_0_32px_-4px_rgba(0,0,0,0.3)] overflow-hidden animate-slide-in-right"
         role="dialog"
         aria-modal="true"
         aria-label={t('common.menu')}
