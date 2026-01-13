@@ -253,18 +253,18 @@ interface AgeFilterProps {
 
 export function AgeFilter({ basePath, selectedAge, className }: AgeFilterProps) {
   return (
-    <div className={cn('flex flex-wrap gap-3', className)}>
+    <div className={cn('flex gap-2 sm:gap-3', className)}>
       <Link
         href={basePath}
         className={cn(
-          'inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200',
+          'inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-full font-semibold transition-all duration-200 whitespace-nowrap flex-shrink-0 min-h-[44px]',
           !selectedAge
             ? 'bg-[#FFB5A7] text-white shadow-[0_4px_0_0_#E8958A]'
             : 'bg-[#FFFCF7] text-[#4A4A4A] shadow-sm hover:shadow-md border-2 border-[#FFB5A7]/30'
         )}
       >
-        <span className="text-xl">✨</span>
-        <span>Alle aldre</span>
+        <span className="text-lg sm:text-xl">✨</span>
+        <span className="text-sm sm:text-base">Alle aldre</span>
       </Link>
 
       {ageGroups.map((config) => (
@@ -272,7 +272,7 @@ export function AgeFilter({ basePath, selectedAge, className }: AgeFilterProps) 
           key={config.slug}
           href={`${basePath}?alder=${config.slug}`}
           className={cn(
-            'inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all duration-200',
+            'inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-full font-semibold transition-all duration-200 whitespace-nowrap flex-shrink-0 min-h-[44px]',
             selectedAge === config.slug
               ? 'shadow-[0_4px_0_0_var(--shadow-color)]'
               : 'shadow-sm hover:shadow-md hover:-translate-y-0.5'
@@ -285,8 +285,8 @@ export function AgeFilter({ basePath, selectedAge, className }: AgeFilterProps) 
             borderColor: selectedAge === config.slug ? config.color.border : 'transparent',
           } as React.CSSProperties}
         >
-          <span className="text-xl">{config.emoji}</span>
-          <span>{config.label}</span>
+          <span className="text-lg sm:text-xl">{config.emoji}</span>
+          <span className="text-sm sm:text-base">{config.label}</span>
         </Link>
       ))}
     </div>

@@ -102,7 +102,7 @@ export default async function BoardGamesPage({ searchParams }: PageProps) {
 
         {/* Sticky Filter Bar */}
         <StickyFilterBar className="mb-8" resultCount={games.length} resultLabel="brætspil">
-          <AgeFilter basePath="/braetspil" />
+          <AgeFilter basePath="/braetspil" selectedAge={selectedAge} />
         </StickyFilterBar>
 
         <GameGrid games={games} type="board" />

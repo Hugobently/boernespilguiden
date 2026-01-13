@@ -111,19 +111,19 @@ export default async function DigitalGamesPage({ searchParams }: PageProps) {
 
         {/* Sticky Filter Bar */}
         <StickyFilterBar className="mb-8" resultCount={games.length} resultLabel="spil">
-          <AgeFilter basePath="/spil" />
+          <AgeFilter basePath="/spil" selectedAge={selectedAge} />
 
           {/* Danish language filter */}
           <a
             href={showDanishOnly ? `/spil${selectedAge ? `?alder=${selectedAge}` : ''}` : `/spil?dansk=true${selectedAge ? `&alder=${selectedAge}` : ''}`}
-            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 min-h-[44px] hover:-translate-y-0.5 active:translate-y-0 ${
+            className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 min-h-[44px] hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap flex-shrink-0 ${
               showDanishOnly
                 ? 'bg-[#C8102E] text-white shadow-md'
                 : 'bg-white text-text-secondary border border-gray-200 hover:border-[#C8102E]/30 hover:bg-red-50'
             }`}
           >
             <span>🇩🇰</span>
-            <span>Dansk sprog</span>
+            <span>Dansk</span>
             {showDanishOnly && <span className="ml-1">✓</span>}
           </a>
         </StickyFilterBar>

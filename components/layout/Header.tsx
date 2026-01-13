@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
-import { LanguageSwitcher } from './LanguageSwitcher';
 
 // ============================================================================
 // TYPES
@@ -328,26 +328,33 @@ function MobileMenu({
     };
   }, [isOpen]);
 
-  return (
+  // Use portal to render menu outside header's stacking context
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <>
       {/* Backdrop */}
       <div
         className={cn(
-          'fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden',
+          'fixed inset-0 bg-black/30 backdrop-blur-sm z-[9998] md:hidden',
           'transition-opacity duration-300',
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Menu panel */}
       <div
         className={cn(
-          'fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#FFF9F0] z-50 md:hidden',
-          'shadow-[-8px_0_24px_-4px_rgba(0,0,0,0.1)]',
+          'fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#FFF9F0] z-[9999] md:hidden',
+          'shadow-[-8px_0_24px_-4px_rgba(0,0,0,0.15)]',
           'transition-transform duration-300 ease-out',
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('common.menu')}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
@@ -421,16 +428,10 @@ function MobileMenu({
             </div>
           </div>
 
-          {/* Language Switcher in mobile */}
-          <div className="p-4 border-t border-[#FFB5A7]/20">
-            <p className="text-xs font-medium text-[#9CA3AF] uppercase tracking-wide mb-3">
-              {t('language.switchLanguage')}
-            </p>
-            <LanguageSwitcher />
-          </div>
         </div>
       </div>
-    </>
+    </>,
+    document.body
   );
 }
 
@@ -478,11 +479,6 @@ export function Header() {
                 <span>{link.label}</span>
               </Link>
             ))}
-
-            {/* Language Switcher - Desktop */}
-            <div className="ml-2 pl-2 border-l border-[#FFB5A7]/20">
-              <LanguageSwitcher />
-            </div>
           </nav>
 
           {/* Mobile menu button */}

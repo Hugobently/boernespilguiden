@@ -257,6 +257,15 @@ a:hover {
   .bg-peach { background-color: var(--bg-peach); }
   .bg-mist { background-color: var(--bg-mist); }
 
+  /* Scrollbar utilities for mobile horizontal scrolling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+
   /* Text utilities */
   .text-balance {
     text-wrap: balance;

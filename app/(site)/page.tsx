@@ -200,7 +200,7 @@ function EditorChoiceSection({ games, t }: EditorChoiceSectionProps) {
 
         {/* View all link */}
         <div className="text-center mt-10">
-          <Link href="/spil?editor=true">
+          <Link href="/spil">
             <Button variant="outline" size="lg">
               {t('seeAllEditorChoice')}
               <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -382,7 +382,7 @@ function AdFreeSection({ games, t }: AdFreeSectionProps) {
 
         {/* View all link */}
         <div className="text-center mt-10">
-          <Link href="/spil?reklamefri=true">
+          <Link href="/soeg?reklamefri=true">
             <Button variant="mint" size="lg">
               {t('seeAllAdFree')}
               <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
