@@ -335,30 +335,20 @@ function MobileMenu({
   }, [isOpen]);
 
   // Don't render portal on server or before mount
-  if (!mounted) return null;
+  if (!mounted || !isOpen) return null;
 
   return createPortal(
-    <>
+    <div className="fixed inset-0 z-[9999] md:hidden">
       {/* Backdrop - covers entire screen */}
       <div
-        className={cn(
-          'fixed inset-0 bg-black/50 z-[9998] md:hidden',
-          'transition-opacity duration-300',
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        )}
+        className="absolute inset-0 bg-black/50"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Menu panel - slides in from right */}
       <div
-        className={cn(
-          'fixed top-0 right-0 bottom-0 w-[85vw] max-w-[320px] bg-[#FFF9F0] z-[9999] md:hidden',
-          'shadow-[-8px_0_32px_-4px_rgba(0,0,0,0.25)]',
-          'transition-transform duration-300 ease-out',
-          'overflow-hidden',
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        )}
+        className="absolute top-0 right-0 bottom-0 w-[85vw] max-w-[320px] bg-[#FFF9F0] shadow-[-8px_0_32px_-4px_rgba(0,0,0,0.3)] overflow-hidden animate-slide-in-right"
         role="dialog"
         aria-modal="true"
         aria-label={t('common.menu')}
@@ -437,7 +427,7 @@ function MobileMenu({
 
         </div>
       </div>
-    </>,
+    </div>,
     document.body
   );
 }
