@@ -7,7 +7,7 @@ import { GameCard } from '@/components/games';
 import { MediaCard } from '@/components/media/MediaCard';
 import { getHomepageDataWithTranslation } from '@/lib/translations';
 import { WebsiteJsonLdScript, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
-import { Mascot, FloatingBlobs, Confetti } from '@/components/brand';
+import { Mascot, FloatingBlobs } from '@/components/brand';
 
 // ============================================================================
 // AGE CATEGORY CARDS CONFIG
@@ -55,31 +55,34 @@ interface HeroSectionProps {
 
 function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-20 bg-gradient-to-b from-primary-50/50 via-transparent to-transparent">
-      {/* Decorative elements */}
-      <FloatingBlobs />
-      <Confetti />
+    <section className="relative overflow-hidden pt-4 pb-8 sm:pt-8 sm:pb-12 bg-gradient-to-b from-primary-50/50 via-transparent to-transparent">
+      {/* Decorative elements - hidden on mobile for cleaner look */}
+      <div className="hidden sm:block">
+        <FloatingBlobs />
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          {/* Left side - Mascot */}
-          <div className="flex-shrink-0 order-1 lg:order-none">
+        <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6 lg:gap-12">
+          {/* Mascot - smaller and appears after content on mobile */}
+          <div className="flex-shrink-0 order-2 lg:order-none">
             <div className="relative">
-              <Mascot size="xl" variant="wave" className="animate-float" />
-              {/* Decorative sparkles */}
-              <span className="absolute -top-4 right-0 text-3xl animate-sparkle">✨</span>
-              <span className="absolute bottom-4 -left-4 text-2xl animate-sparkle" style={{ animationDelay: '0.5s' }}>⭐</span>
+              {/* Smaller mascot on mobile, larger on desktop */}
+              <Mascot size="lg" variant="wave" className="animate-float sm:hidden" />
+              <Mascot size="xl" variant="wave" className="animate-float hidden sm:block" />
+              {/* Sparkles only on desktop */}
+              <span className="absolute -top-4 right-0 text-3xl animate-sparkle hidden sm:inline">✨</span>
+              <span className="absolute bottom-4 -left-4 text-2xl animate-sparkle hidden sm:inline" style={{ animationDelay: '0.5s' }}>⭐</span>
             </div>
           </div>
 
-          {/* Right side - Content */}
-          <div className="text-center lg:text-left flex-1 max-w-2xl">
-            {/* Floating game icons - smaller on mobile */}
-            <div className="flex justify-center lg:justify-start items-center gap-2 sm:gap-4 mb-6">
-              <span className="text-3xl sm:text-4xl animate-bounce-slow" style={{ animationDelay: '0s' }}>🎮</span>
-              <span className="text-4xl sm:text-5xl animate-bounce-slow" style={{ animationDelay: '0.2s' }}>⭐</span>
-              <span className="text-3xl sm:text-4xl animate-bounce-slow" style={{ animationDelay: '0.4s' }}>🎲</span>
-              <span className="text-3xl sm:text-4xl animate-bounce-slow hidden sm:inline" style={{ animationDelay: '0.6s' }}>📺</span>
+          {/* Content - appears first on mobile (order-1) */}
+          <div className="text-center lg:text-left flex-1 max-w-2xl order-1 lg:order-none">
+            {/* Game icons - static on mobile, animated on desktop */}
+            <div className="flex justify-center lg:justify-start items-center gap-3 mb-4 sm:mb-6">
+              <span className="text-2xl sm:text-4xl sm:animate-bounce-slow">🎮</span>
+              <span className="text-3xl sm:text-5xl sm:animate-bounce-slow" style={{ animationDelay: '0.2s' }}>⭐</span>
+              <span className="text-2xl sm:text-4xl sm:animate-bounce-slow" style={{ animationDelay: '0.4s' }}>🎲</span>
+              <span className="text-2xl sm:text-4xl sm:animate-bounce-slow hidden sm:inline" style={{ animationDelay: '0.6s' }}>📺</span>
             </div>
 
             {/* Main headline with gradient */}
@@ -90,16 +93,16 @@ function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
               </span>
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-base sm:text-lg lg:text-xl text-text-secondary mb-3 max-w-xl mx-auto lg:mx-0">
+            {/* Subheadline - more compact on mobile */}
+            <p className="text-base sm:text-lg lg:text-xl text-text-secondary mb-2 sm:mb-3 max-w-xl mx-auto lg:mx-0">
               {t('heroSubtitle')}
             </p>
-            <p className="text-sm sm:text-base text-text-muted mb-6 sm:mb-8 max-w-md mx-auto lg:mx-0">
+            <p className="text-sm text-text-muted mb-4 sm:mb-6 max-w-md mx-auto lg:mx-0 hidden sm:block">
               {t('heroDescription')}
             </p>
 
             {/* Search bar */}
-            <div className="max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8">
+            <div className="max-w-xl mx-auto lg:mx-0 mb-4 sm:mb-6">
               <Suspense fallback={
                 <div className="h-14 bg-white rounded-2xl animate-pulse shadow-soft" />
               }>
@@ -147,19 +150,19 @@ function EditorChoiceSection({ games, t }: EditorChoiceSectionProps) {
   if (games.length === 0) return null;
 
   return (
-    <section className="py-16 bg-gradient-to-b from-transparent via-[#FFF9F0]/50 to-transparent">
+    <section className="py-8 sm:py-12 bg-gradient-to-b from-transparent via-[#FFF9F0]/50 to-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#FFE66D] to-[#FFD93D] text-[#7D6608] font-bold text-sm mb-4">
+        <div className="text-center mb-6 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#FFE66D] to-[#FFD93D] text-[#7D6608] font-bold text-sm mb-3">
             <span>⭐</span>
             <span>{t('editorChoice')}</span>
             <span>⭐</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#4A4A4A] mb-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A4A4A] mb-2">
             {t('editorChoiceTitle')}
           </h2>
-          <p className="text-[#7A7A7A] text-lg max-w-xl mx-auto">
+          <p className="text-[#7A7A7A] text-base sm:text-lg max-w-xl mx-auto">
             {t('editorChoiceDesc')}
           </p>
         </div>
@@ -215,91 +218,6 @@ function EditorChoiceSection({ games, t }: EditorChoiceSectionProps) {
 }
 
 // ============================================================================
-// AGE CATEGORIES SECTION
-// ============================================================================
-
-interface AgeCategoriesSectionProps {
-  gameCounts: Record<string, number>;
-  t: Awaited<ReturnType<typeof getTranslations<'home'>>>;
-  tAge: Awaited<ReturnType<typeof getTranslations<'ageGroups'>>>;
-}
-
-function AgeCategoriesSection({ gameCounts, t, tAge }: AgeCategoriesSectionProps) {
-  return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#4A4A4A] mb-3">
-            {t('chooseAge')}
-          </h2>
-          <p className="text-[#7A7A7A] text-lg">
-            {t('chooseAgeDesc')}
-          </p>
-        </div>
-
-        {/* Age cards grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {ageCategoryConfig.map((cat, index) => (
-            <Link
-              key={cat.slug}
-              href={`/spil?alder=${cat.slug}`}
-              className="group animate-slide-up opacity-0"
-              style={{
-                animationDelay: `${index * 0.1}s`,
-                animationFillMode: 'forwards',
-              }}
-            >
-              <div
-                className="relative rounded-3xl p-6 sm:p-8 text-center overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-xl"
-                style={{
-                  background: `linear-gradient(135deg, ${cat.color.bg.split(' ')[0].replace('from-[', '').replace(']', '')}, ${cat.color.bg.split(' ')[1].replace('to-[', '').replace(']', '')})`,
-                }}
-              >
-                {/* Decorative circle */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/20 group-hover:scale-150 transition-transform duration-500" />
-
-                {/* Emoji */}
-                <div className="relative mb-4">
-                  <span className="text-6xl sm:text-7xl block transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                    {cat.emoji}
-                  </span>
-                </div>
-
-                {/* Label */}
-                <h3
-                  className="text-xl sm:text-2xl font-bold mb-1"
-                  style={{ color: cat.color.text }}
-                >
-                  {tAge(cat.slug as '0-3' | '3-6' | '7+')}
-                </h3>
-
-                {/* Description */}
-                <p
-                  className="text-sm opacity-80 mb-3"
-                  style={{ color: cat.color.text }}
-                >
-                  {tAge(`${cat.slug}-desc` as '0-3-desc' | '3-6-desc' | '7+-desc')}
-                </p>
-
-                {/* Game count */}
-                <div
-                  className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/40 text-sm font-semibold"
-                  style={{ color: cat.color.text }}
-                >
-                  <span>🎮</span>
-                  <span>{t('gamesCount', { count: gameCounts[cat.slug] || 0 })}</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ============================================================================
 // AD-FREE FAVORITES SECTION
 // ============================================================================
 
@@ -312,28 +230,28 @@ function AdFreeSection({ games, t }: AdFreeSectionProps) {
   if (games.length === 0) return null;
 
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section className="py-8 sm:py-12 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#D8F3DC]/30 via-transparent to-[#BAE1FF]/20" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header with special styling */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#77DD77] text-white font-bold text-sm mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#77DD77] text-white font-bold text-sm mb-3">
               <span>🛡️</span>
               <span>{t('adFree')}</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#4A4A4A] mb-3">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A4A4A] mb-2">
               {t('adFreeTitle')}
             </h2>
-            <p className="text-[#7A7A7A] text-lg max-w-xl">
+            <p className="text-[#7A7A7A] text-base sm:text-lg max-w-xl">
               {t('adFreeDesc')}
             </p>
           </div>
 
-          {/* USP callout */}
-          <div className="bg-[#FFFCF7] rounded-2xl p-5 shadow-md border-2 border-[#77DD77]/30 max-w-sm">
+          {/* USP callout - hidden on mobile to save space */}
+          <div className="hidden sm:block bg-[#FFFCF7] rounded-2xl p-5 shadow-md border-2 border-[#77DD77]/30 max-w-sm">
             <div className="flex items-start gap-3">
               <span className="text-3xl">✨</span>
               <div>
@@ -408,14 +326,14 @@ interface BoardGamesSectionProps {
 
 function BoardGamesSection({ games, t, tCategories }: BoardGamesSectionProps) {
   return (
-    <section className="py-16 bg-gradient-to-b from-transparent via-[#FFE66D]/10 to-transparent">
+    <section className="py-8 sm:py-12 bg-gradient-to-b from-transparent via-[#FFE66D]/10 to-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-5xl">🎲</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#4A4A4A]">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
+              <span className="text-3xl sm:text-5xl">🎲</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A4A4A]">
                 {t('boardGamesTitle')}
               </h2>
             </div>
@@ -525,14 +443,14 @@ interface FilmSerierSectionProps {
 
 function FilmSerierSection({ media, mediaCount, t }: FilmSerierSectionProps) {
   return (
-    <section className="py-16 bg-gradient-to-b from-transparent via-[#A2D2FF]/10 to-transparent">
+    <section className="py-8 sm:py-12 bg-gradient-to-b from-transparent via-[#A2D2FF]/10 to-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-5xl">📺</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#4A4A4A]">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
+              <span className="text-3xl sm:text-5xl">📺</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A4A4A]">
                 {t('filmSerierTitle')}
               </h2>
             </div>
@@ -638,25 +556,23 @@ interface CTASectionProps {
 
 function CTASection({ t }: CTASectionProps) {
   return (
-    <section className="py-16">
+    <section className="py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden">
           {/* Gradient background */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#FFB5A7] via-[#CDB4DB] to-[#A2D2FF]" />
 
           {/* Content */}
-          <div className="relative px-8 py-12 sm:px-12 sm:py-16 text-center">
-            {/* Decorative elements */}
-            <div className="absolute top-4 left-4 text-4xl opacity-20">✨</div>
-            <div className="absolute bottom-4 right-4 text-4xl opacity-20">🎯</div>
-            <div className="absolute top-1/2 left-8 text-3xl opacity-10 -translate-y-1/2">🎮</div>
-            <div className="absolute top-1/2 right-8 text-3xl opacity-10 -translate-y-1/2">🎲</div>
+          <div className="relative px-6 py-8 sm:px-12 sm:py-12 text-center">
+            {/* Decorative elements - simplified */}
+            <div className="absolute top-4 left-4 text-3xl opacity-20 hidden sm:block">✨</div>
+            <div className="absolute bottom-4 right-4 text-3xl opacity-20 hidden sm:block">🎯</div>
 
-            <span className="text-5xl block mb-4">🔍</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            <span className="text-4xl sm:text-5xl block mb-3">🔍</span>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3">
               {t('cantFind')}
             </h2>
-            <p className="text-white/90 mb-8 max-w-xl mx-auto">
+            <p className="text-white/90 mb-6 max-w-xl mx-auto text-sm sm:text-base">
               {t('cantFindDesc')}
             </p>
             <Link href="/soeg">
@@ -738,10 +654,7 @@ export default async function HomePage() {
       {/* Editor's Choice Section */}
       <EditorChoiceSection games={data.editorChoiceGames} t={t} />
 
-      {/* Age Categories Section */}
-      <AgeCategoriesSection gameCounts={data.gameCounts} t={t} tAge={tAge} />
-
-      {/* Ad-Free Favorites Section */}
+      {/* Ad-Free Favorites Section - moved up since age selection is already in hero */}
       <AdFreeSection games={data.adFreeGames} t={t} />
 
       {/* Board Games Teaser Section */}
