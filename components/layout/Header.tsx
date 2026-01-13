@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
-import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 
@@ -334,10 +333,10 @@ function MobileMenu({
     };
   }, [isOpen]);
 
-  // Don't render portal on server or before mount
+  // Don't render on server or when closed
   if (!mounted || !isOpen) return null;
 
-  return createPortal(
+  return (
     <div className="fixed inset-0 z-[9999] md:hidden">
       {/* Backdrop - covers entire screen */}
       <div
@@ -427,8 +426,7 @@ function MobileMenu({
 
         </div>
       </div>
-    </div>,
-    document.body
+    </div>
   );
 }
 
