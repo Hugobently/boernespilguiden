@@ -315,6 +315,12 @@ function MobileMenu({
   navLinks: Array<{ href: string; label: string; emoji: string }>;
 }) {
   const t = useTranslations();
+  const [mounted, setMounted] = useState(false);
+
+  // Handle client-side mounting for portal
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -328,15 +334,15 @@ function MobileMenu({
     };
   }, [isOpen]);
 
-  // Use portal to render menu outside header's stacking context
-  if (typeof document === 'undefined') return null;
+  // Don't render portal on server or before mount
+  if (!mounted) return null;
 
   return createPortal(
     <>
-      {/* Backdrop */}
+      {/* Backdrop - covers entire screen */}
       <div
         className={cn(
-          'fixed inset-0 bg-black/30 backdrop-blur-sm z-[9998] md:hidden',
+          'fixed inset-0 bg-black/50 z-[9998] md:hidden',
           'transition-opacity duration-300',
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
@@ -344,12 +350,13 @@ function MobileMenu({
         aria-hidden="true"
       />
 
-      {/* Menu panel */}
+      {/* Menu panel - slides in from right */}
       <div
         className={cn(
-          'fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#FFF9F0] z-[9999] md:hidden',
-          'shadow-[-8px_0_24px_-4px_rgba(0,0,0,0.15)]',
+          'fixed top-0 right-0 bottom-0 w-[85vw] max-w-[320px] bg-[#FFF9F0] z-[9999] md:hidden',
+          'shadow-[-8px_0_32px_-4px_rgba(0,0,0,0.25)]',
           'transition-transform duration-300 ease-out',
+          'overflow-hidden',
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
         role="dialog"
