@@ -46,14 +46,21 @@ export function StickyFilterBar({
         className
       )}
     >
-      <div className="flex items-center justify-between gap-3">
-        {/* Horizontally scrollable filter container on mobile */}
-        <div className="flex items-center gap-3 overflow-x-auto scrollbar-hide pb-1 -mb-1 flex-1 min-w-0">
-          {children}
-        </div>
-        {resultCount !== undefined && (
-          <span className="text-sm text-text-secondary whitespace-nowrap flex-shrink-0">
+      {/* Result count on top for mobile */}
+      {resultCount !== undefined && (
+        <div className="flex justify-end mb-2 sm:hidden">
+          <span className="text-sm text-text-secondary">
             <span className="font-semibold text-text-primary">{resultCount}</span> {resultLabel}
+          </span>
+        </div>
+      )}
+      {/* Horizontally scrollable filter container */}
+      <div className="flex items-center gap-3 overflow-x-auto scrollbar-hide pb-1">
+        {children}
+        {/* Result count inline on desktop */}
+        {resultCount !== undefined && (
+          <span className="hidden sm:inline-flex text-sm text-text-secondary whitespace-nowrap flex-shrink-0 ml-auto">
+            <span className="font-semibold text-text-primary mr-1">{resultCount}</span> {resultLabel}
           </span>
         )}
       </div>
