@@ -111,18 +111,18 @@ function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
             </div>
 
             {/* Quick age links - improved design */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
+            <div className="flex justify-center lg:justify-start gap-2 sm:gap-3">
               {ageCategoryConfig.map((cat) => (
                 <Link
                   key={cat.slug}
                   href={`/spil?alder=${cat.slug}`}
-                  className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:scale-105 active:scale-95 min-h-[44px]"
+                  className="group inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:scale-105 active:scale-95 min-h-[44px]"
                   style={{
                     background: `linear-gradient(135deg, ${cat.color.bg.split(' ')[0].replace('from-[', '').replace(']', '')}, ${cat.color.bg.split(' ')[1].replace('to-[', '').replace(']', '')})`,
                     color: cat.color.text,
                   }}
                 >
-                  <span className="text-xl sm:text-2xl group-hover:animate-jiggle">{cat.emoji}</span>
+                  <span className="text-lg sm:text-2xl group-hover:animate-jiggle">{cat.emoji}</span>
                   <span className="text-sm sm:text-base">{tAge(cat.slug as '0-3' | '3-6' | '7+')}</span>
                 </Link>
               ))}
