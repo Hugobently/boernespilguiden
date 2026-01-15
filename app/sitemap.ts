@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import prisma from '@/lib/db';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://boernespilguiden.dk';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://xn--brnespilguiden-qqb.dk';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Get all games

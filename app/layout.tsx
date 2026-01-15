@@ -4,7 +4,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { Header, Footer, DecorativeFrame, CookieConsent } from '@/components/layout';
 import './globals.css';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://boernespilguiden.dk';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://xn--brnespilguiden-qqb.dk';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

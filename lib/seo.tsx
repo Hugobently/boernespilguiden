@@ -6,7 +6,7 @@ import { parseJsonArray, Platform } from './types';
 
 export const siteConfig = {
   name: 'Børnespilguiden',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://boernespilguiden.dk',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://xn--brnespilguiden-qqb.dk',
   description:
     'Find de bedste digitale spil og brætspil til børn i alle aldre. Ærlige anmeldelser med fokus på sikkerhed, læring og sjov.',
   author: 'Børnespilguiden',
