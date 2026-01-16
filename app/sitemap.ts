@@ -4,12 +4,16 @@ import prisma from '@/lib/db';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://xn--brnespilguiden-qqb.dk';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Get all games
-  const [digitalGames, boardGames] = await Promise.all([
+  // Get all content
+  const [digitalGames, boardGames, media] = await Promise.all([
     prisma.game.findMany({
       select: { slug: true, updatedAt: true },
     }),
     prisma.boardGame.findMany({
+      select: { slug: true, updatedAt: true },
+    }),
+    prisma.media.findMany({
+      where: { isActive: true },
       select: { slug: true, updatedAt: true },
     }),
   ]);
@@ -30,6 +34,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${siteUrl}/braetspil`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/film-serier`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
@@ -99,5 +109,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...categoryPages, ...digitalGamePages, ...boardGamePages];
+  // Media pages (film & serier)
+  const mediaPages: MetadataRoute.Sitemap = media.map((item) => ({
+    url: `${siteUrl}/film-serier/${item.slug}`,
+    lastModified: item.updatedAt,
+    changeFrequency: 'weekly' as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...categoryPages, ...digitalGamePages, ...boardGamePages, ...mediaPages];
 }
