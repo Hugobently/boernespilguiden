@@ -7,7 +7,7 @@ interface ContactFormData {
   message: string;
 }
 
-const CONTACT_EMAIL = 'boernespilguiden@proton.me';
+const CONTACT_EMAIL = 'boernespislguiden@proton.me';
 
 export async function POST(request: NextRequest) {
   try {
