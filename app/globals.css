@@ -7,17 +7,14 @@
    A playful, child-friendly aesthetic with rounded forms and gentle colors
    ========================================================================== */
 
-/* Google Fonts - Nunito for that rounded, friendly feel */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
-
 /* ==========================================================================
    CSS CUSTOM PROPERTIES (Design Tokens)
    ========================================================================== */
 
 :root {
-  /* Typography */
-  --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
-  --font-display: 'Nunito', system-ui, -apple-system, sans-serif;
+  /* Typography - Using next/font variable for optimal loading */
+  --font-body: var(--font-nunito), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-nunito), system-ui, -apple-system, sans-serif;
 
   /* Primary Pastel Palette */
   --coral: #FFB5A7;

@@ -37,6 +37,7 @@ export function FeaturedGame({
                 src={imageUrl}
                 alt={title}
                 fill
+                priority
                 className="object-cover"
               />
             ) : (

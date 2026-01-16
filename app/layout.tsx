@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from 'next';
+import { Nunito } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { Header, Footer, DecorativeFrame, CookieConsent } from '@/components/layout';
 import './globals.css';
+
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-nunito',
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://xn--brnespilguiden-qqb.dk';
 
@@ -101,7 +109,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={nunito.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
