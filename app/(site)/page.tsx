@@ -17,6 +17,7 @@ const ageCategoryConfig = [
   {
     slug: '0-3',
     emoji: '👶',
+    emojiLabel: 'Baby',
     color: {
       bg: 'from-[#FFD1DC] to-[#FFB6C1]',
       text: '#8B4563',
@@ -26,6 +27,7 @@ const ageCategoryConfig = [
   {
     slug: '3-6',
     emoji: '🧒',
+    emojiLabel: 'Barn',
     color: {
       bg: 'from-[#BAFFC9] to-[#95D5A6]',
       text: '#2D6A4F',
@@ -35,6 +37,7 @@ const ageCategoryConfig = [
   {
     slug: '7+',
     emoji: '👦',
+    emojiLabel: 'Større barn',
     color: {
       bg: 'from-[#BAE1FF] to-[#8ECAE6]',
       text: '#1D4E89',
@@ -70,8 +73,8 @@ function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
               <Mascot size="lg" variant="wave" className="animate-float sm:hidden" />
               <Mascot size="xl" variant="wave" className="animate-float hidden sm:block" />
               {/* Sparkles only on desktop */}
-              <span className="absolute -top-4 right-0 text-3xl animate-sparkle hidden sm:inline">✨</span>
-              <span className="absolute bottom-4 -left-4 text-2xl animate-sparkle hidden sm:inline" style={{ animationDelay: '0.5s' }}>⭐</span>
+              <span className="absolute -top-4 right-0 text-3xl animate-sparkle hidden sm:inline" role="img" aria-label="Glimmer">✨</span>
+              <span className="absolute bottom-4 -left-4 text-2xl animate-sparkle hidden sm:inline" role="img" aria-label="Stjerne" style={{ animationDelay: '0.5s' }}>⭐</span>
             </div>
           </div>
 
@@ -79,10 +82,10 @@ function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
           <div className="text-center lg:text-left flex-1 max-w-2xl order-1 lg:order-none">
             {/* Game icons - static on mobile, animated on desktop */}
             <div className="flex justify-center lg:justify-start items-center gap-3 mb-4 sm:mb-6">
-              <span className="text-2xl sm:text-4xl sm:animate-bounce-slow">🎮</span>
-              <span className="text-3xl sm:text-5xl sm:animate-bounce-slow" style={{ animationDelay: '0.2s' }}>⭐</span>
-              <span className="text-2xl sm:text-4xl sm:animate-bounce-slow" style={{ animationDelay: '0.4s' }}>🎲</span>
-              <span className="text-2xl sm:text-4xl sm:animate-bounce-slow hidden sm:inline" style={{ animationDelay: '0.6s' }}>📺</span>
+              <span className="text-2xl sm:text-4xl sm:animate-bounce-slow" role="img" aria-label="Videospil">🎮</span>
+              <span className="text-3xl sm:text-5xl sm:animate-bounce-slow" role="img" aria-label="Stjerne" style={{ animationDelay: '0.2s' }}>⭐</span>
+              <span className="text-2xl sm:text-4xl sm:animate-bounce-slow" role="img" aria-label="Brætspil" style={{ animationDelay: '0.4s' }}>🎲</span>
+              <span className="text-2xl sm:text-4xl sm:animate-bounce-slow hidden sm:inline" role="img" aria-label="Film og serier" style={{ animationDelay: '0.6s' }}>📺</span>
             </div>
 
             {/* Main headline with gradient */}
@@ -125,7 +128,7 @@ function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
                     color: cat.color.text,
                   }}
                 >
-                  <span className="text-lg sm:text-2xl group-hover:animate-jiggle">{cat.emoji}</span>
+                  <span className="text-lg sm:text-2xl group-hover:animate-jiggle" role="img" aria-label={cat.emojiLabel}>{cat.emoji}</span>
                   <span className="text-sm sm:text-base">{tAge(cat.slug as '0-3' | '3-6' | '7+')}</span>
                 </Link>
               ))}
