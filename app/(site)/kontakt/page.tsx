@@ -11,13 +11,35 @@ export default function ContactPage() {
     subject: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send the form data to a server
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Der opstod en fejl');
+      }
+
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Der opstod en fejl. Prøv igen senere.');
+    }
   };
 
   return (
@@ -84,18 +106,33 @@ export default function ContactPage() {
 
           {/* Contact form */}
           <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
-            {submitted ? (
+            {status === 'success' ? (
               <div className="text-center py-8">
                 <span className="text-6xl mb-4 block">🎉</span>
                 <h3 className="text-xl font-bold text-[#4A4A4A] mb-2">
-                  {t('successMessage').split('!')[0]}!
+                  Tak for din besked!
                 </h3>
                 <p className="text-[#7A7A7A]">
-                  {t('successMessage').split('!')[1] || ''}
+                  Vi vender tilbage hurtigst muligt.
                 </p>
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="mt-6 px-6 py-2 rounded-xl bg-[#BAFFC9] text-[#2D6A4F] font-semibold hover:bg-[#95D5B2] transition-colors"
+                >
+                  Send en ny besked
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {status === 'error' && (
+                  <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700">
+                    <p className="flex items-center gap-2">
+                      <span>⚠️</span>
+                      {errorMessage}
+                    </p>
+                  </div>
+                )}
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-[#4A4A4A] mb-1">
                     {t('nameLabel')}
@@ -108,6 +145,7 @@ export default function ContactPage() {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-[#E0E0E0] focus:border-[#FFB5A7] focus:ring-2 focus:ring-[#FFB5A7]/20 outline-none transition-all"
                     placeholder={t('namePlaceholder')}
+                    disabled={status === 'loading'}
                   />
                 </div>
 
@@ -123,6 +161,7 @@ export default function ContactPage() {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-[#E0E0E0] focus:border-[#FFB5A7] focus:ring-2 focus:ring-[#FFB5A7]/20 outline-none transition-all"
                     placeholder={t('emailPlaceholder')}
+                    disabled={status === 'loading'}
                   />
                 </div>
 
@@ -136,6 +175,7 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-[#E0E0E0] focus:border-[#FFB5A7] focus:ring-2 focus:ring-[#FFB5A7]/20 outline-none transition-all"
+                    disabled={status === 'loading'}
                   >
                     <option value="">{t('subjectPlaceholder')}</option>
                     <option value="forslag">{t('subjectSuggestion')}</option>
@@ -158,14 +198,26 @@ export default function ContactPage() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-[#E0E0E0] focus:border-[#FFB5A7] focus:ring-2 focus:ring-[#FFB5A7]/20 outline-none transition-all resize-none"
                     placeholder={t('messagePlaceholder')}
+                    disabled={status === 'loading'}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-xl bg-[#FFB5A7] text-white font-semibold hover:bg-[#F8A99B] transition-colors shadow-[0_4px_0_0_#E8958A] hover:shadow-[0_2px_0_0_#E8958A] hover:translate-y-0.5 active:shadow-none active:translate-y-1"
+                  disabled={status === 'loading'}
+                  className="w-full py-3 rounded-xl bg-[#FFB5A7] text-white font-semibold hover:bg-[#F8A99B] transition-colors shadow-[0_4px_0_0_#E8958A] hover:shadow-[0_2px_0_0_#E8958A] hover:translate-y-0.5 active:shadow-none active:translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-[0_4px_0_0_#E8958A]"
                 >
-                  {t('submitButton')}
+                  {status === 'loading' ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Sender...
+                    </span>
+                  ) : (
+                    t('submitButton')
+                  )}
                 </button>
               </form>
             )}
