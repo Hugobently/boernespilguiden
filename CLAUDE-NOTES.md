@@ -6,6 +6,34 @@ This document contains important information learned during development sessions
 
 ## Session Log
 
+### 2026-01-18: Site Review & Accessibility Improvements
+Performed comprehensive site review checking SEO, accessibility, security, and performance.
+
+**Accessibility Fixes Made:**
+1. Added `aria-label="Ryd søgefelt"` to clear buttons in:
+   - `components/filters/SearchBar.tsx:486`
+   - `components/layout/Header.tsx:204`
+2. Added skip-to-content link for keyboard/screen reader users:
+   - Added skip link in `Header.tsx` (visually hidden, shown on focus)
+   - Added `id="main-content"` to main element in `layout.tsx`
+   - Added translations in all 4 languages (da/en/fr/es)
+
+**Site Review Findings:**
+- ✅ SEO: Sitemap, robots.txt, meta tags all properly configured
+- ✅ Security: Admin routes protected, security headers in place
+- ✅ TypeScript: No diagnostics/errors
+- ⚠️ Speed Index: 51% in Lighthouse (could be improved)
+- ⚠️ 21 console.log statements in API routes (should be removed for production)
+
+**Files Modified:**
+- `components/filters/SearchBar.tsx` - Added aria-label to clear button
+- `components/layout/Header.tsx` - Added aria-label and skip-to-content link
+- `app/layout.tsx` - Added id="main-content" to main element
+- `messages/da.json` - Added "skipToContent" translation
+- `messages/en.json` - Added "skipToContent" translation
+- `messages/fr.json` - Added "skipToContent" translation
+- `messages/es.json` - Added "skipToContent" translation
+
 ### 2026-01-11 (Session 6 continued): DR Show Images Fix
 Fixed 21 DR shows with broken dr-massive image URLs.
 
@@ -98,9 +126,9 @@ Used Puppeteer to visually review the live site and implemented several improvem
    - Useful for parents who want Danish-language apps for their kids
 
 4. **Added direct contact email to About page**
-   - Added boernespilguiden@proton.me link on /om page
-   - Fixed email typo on /kontakt page (was "boernespislguiden" → "boernespilguiden")
+   - Added email link on /om page
    - Made email clickable with mailto: link
+   - **NOTE:** The email is `boernespislguiden@proton.me` (this is CORRECT - not a typo!)
 
 **Bug fixes:**
 - Fixed TypeScript error in film-serier/page.tsx (age filter type definition)
@@ -508,6 +536,33 @@ npx tsx scripts/fix-media-images.ts --dry-run
 4. **Always test with --dry-run first** - User appreciates seeing what will happen before changes
 5. **Commit often** - Push changes after each completed task
 6. **Danish language** - Site is in Danish, use Danish for user-facing text
+
+## Design Principles
+
+### Mobile-First Design
+The site uses **mobile-first responsive design**:
+- Base styles are for mobile, then scaled up with `sm:`, `md:`, `lg:` breakpoints
+- Hero section shows smaller mascot on mobile, larger on desktop
+- FloatingBlobs and sparkle animations are hidden on mobile for cleaner experience
+- Navigation uses hamburger menu on mobile, full nav on desktop
+- Touch targets are minimum 44px for accessibility
+
+### Child-Friendly UI
+- Playful color palette: coral (#FFB5A7), mint (#77DD77), sky (#A2D2FF), lavender (#CDB4DB), sunflower (#FFE66D)
+- Rounded corners everywhere (rounded-2xl, rounded-3xl)
+- Soft shadows (shadow-card, shadow-soft)
+- Fun animations (bounce, wiggle, float, sparkle)
+- Large emojis for visual appeal
+
+### Accessibility
+- Skip-to-content link for keyboard users
+- Aria-labels on icon-only buttons
+- Focus-visible states on all interactive elements
+- Role="img" with aria-label on decorative emojis
+
+## Contact Information
+
+**Email:** `boernespislguiden@proton.me` (this spelling is intentional and correct!)
 
 ### Content Age Restrictions (CRITICAL!)
 - **ONLY fetch content for ages 0-10**

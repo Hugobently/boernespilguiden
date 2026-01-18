@@ -201,6 +201,7 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
               setQuery('');
               inputRef.current?.focus();
             }}
+            aria-label="Ryd søgefelt"
             className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-[#4A4A4A]/10 transition-colors"
           >
             <svg className="w-4 h-4 text-[#9CA3AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -446,7 +447,15 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-[#FFF9F0]/90 backdrop-blur-lg border-b border-[#FFB5A7]/10">
+    <>
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:font-semibold"
+      >
+        {t('common.skipToContent')}
+      </a>
+      <header className="sticky top-0 z-40 bg-[#FFF9F0]/90 backdrop-blur-lg border-b border-[#FFB5A7]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
           {/* Logo */}
@@ -496,5 +505,6 @@ export function Header() {
         navLinks={navLinks}
       />
     </header>
+    </>
   );
 }

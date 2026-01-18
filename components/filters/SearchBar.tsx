@@ -483,6 +483,7 @@ export function SimpleSearchInput({
         <button
           type="button"
           onClick={() => onChange('')}
+          aria-label="Ryd søgefelt"
           className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#9CA3AF]/20 flex items-center justify-center hover:bg-[#9CA3AF]/30 transition-colors"
         >
           <svg className="w-3 h-3 text-[#7A7A7A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
