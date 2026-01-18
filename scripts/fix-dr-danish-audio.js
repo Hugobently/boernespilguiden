@@ -1,5 +1,5 @@
 // Script til at rette dansk tale markering på DR programmer
-// Alle danske DR produktioner skal have hasDanishAudio: true
+// ALLE DR programmer sendes med dansk tale (enten danske produktioner eller dubbede)
 // Usage: POSTGRES_URL="..." node scripts/fix-dr-danish-audio.js
 
 const { PrismaClient } = require('@prisma/client');
@@ -7,7 +7,7 @@ const { PrismaClient } = require('@prisma/client');
 const POSTGRES_URL = process.env.POSTGRES_URL || process.env.DATABASE_URL;
 
 if (!POSTGRES_URL) {
-  console.error('❌ POSTGRES_URL eller DATABASE_URL ikke sat');
+  console.error('POSTGRES_URL eller DATABASE_URL ikke sat');
   process.exit(1);
 }
 
@@ -15,131 +15,36 @@ const prisma = new PrismaClient({
   datasources: { db: { url: POSTGRES_URL } },
 });
 
-// Programmer der ER på dansk (isDanish: true)
-// Disse skal ALLE have hasDanishAudio: true
-const danishPrograms = [
-  'Motor Mille og Børnebanden',
-  'Sprinter Galore',
-  'Den magiske klub',
-  'Onkel Rejes Sørøvershow',
-  'Heksebeth',
-  'Heksebeth og den hovedløse magi',
-  'Klar, parat, skolestart',
-  'HundeBanden',
-  'Max Pinlig',
-  'Oda Omvendt',
-  'Bella Boris og Berta',
-  'Bobbel og Gælles Mission',
-  'Cirkusliv i savsmuld',
-  'Det Kongelige Spektakel',
-  'Det sidste nye med Onkel Reje',
-  'Det store Ramasjang Mysterie',
-  'Elefantvask',
-  'Far, Mor og Bjørn',
-  'Hugo og Drømmemasken',
-  'Jagten på regnbuens eliksir',
-  'Jagten på regnbuens magi',
-  'Onkel Reje og Galaksens Helte',
-  'Onkel Rejes Heavyband',
-  'Osman og Jeppe',
-  'Paphoved',
-  'Skattejagten',
-  'Bamses Julerejse',
-];
-
-// Udenlandske programmer der er dubbet til dansk
-// Disse skal OGSÅ have hasDanishAudio: true
-const dubbedPrograms = [
-  'Pippi Langstrømpe',      // Svensk, men sendes på dansk
-  'Brandbamsen Bjørnis',    // Norsk, men sendes på dansk
-  'Elsa',                   // Norsk/Svensk, dansk version
-  'Kasper og Sofie',        // Norsk, dansk version
-  'Kevin og farfar',        // Norsk, dansk version
-  'Men Kasper da',          // Norsk, dansk version
-  'Agenterne',              // Kan være dubbet
-  'Mini-agenterne',         // Kan være dubbet
-  'Mysteriebureauet',       // Norsk, dansk version
-  'Restaurant Million',     // Norsk, dansk version
-  'Sol snart 6 år',         // Norsk, dansk version
-  'Sommeren med far',       // Norsk, dansk version
-  'Stop!',                  // Norsk, dansk version
-  'Superhelteskolen',       // Norsk, dansk version
-  'Søskende-chok',          // Norsk, dansk version
-  'Trex',                   // Norsk, dansk version
-  'Vesta-Linnea',           // Svensk/Norsk, dansk version
-  'Hanna og Rally',         // Norsk, dansk version
-];
-
 async function main() {
-  console.log('🎬 Retter dansk tale markering på DR programmer\n');
+  console.log('Retter dansk tale markering på ALLE DR programmer\n');
 
-  let updated = 0;
-  let notFound = 0;
+  // DR er dansk public service - alle programmer sendes med dansk tale
+  // (enten danske produktioner eller dubbede versioner)
 
-  // 1. Opdater alle danske produktioner
-  console.log('📺 Opdaterer danske produktioner...');
-  for (const title of danishPrograms) {
-    try {
-      const result = await prisma.media.updateMany({
-        where: {
-          title: title,
-          source: 'DR_MANUAL',
-        },
-        data: {
-          hasDanishAudio: true,
-          isDanish: true, // Sikr også at isDanish er sat
-        },
-      });
+  // 1. Opdater ALLE DR_MANUAL programmer til at have dansk tale
+  console.log('Opdaterer alle DR_MANUAL programmer...');
 
-      if (result.count > 0) {
-        console.log(`  ✅ ${title}`);
-        updated += result.count;
-      } else {
-        console.log(`  ⏭️  ${title} (ikke fundet)`);
-        notFound++;
-      }
-    } catch (error) {
-      console.error(`  ❌ ${title}: ${error.message}`);
-    }
-  }
+  const result = await prisma.media.updateMany({
+    where: {
+      source: 'DR_MANUAL',
+    },
+    data: {
+      hasDanishAudio: true,
+    },
+  });
 
+  console.log(`  Opdateret: ${result.count} programmer`);
+
+  // 2. Verificer resultat
   console.log('');
-  console.log('🌍 Opdaterer dubbede programmer...');
+  console.log('Verificerer...');
 
-  // 2. Opdater dubbede programmer
-  for (const title of dubbedPrograms) {
-    try {
-      const result = await prisma.media.updateMany({
-        where: {
-          title: title,
-          source: 'DR_MANUAL',
-        },
-        data: {
-          hasDanishAudio: true,
-          // isDanish forbliver false da det ikke er danske produktioner
-        },
-      });
+  const totalDR = await prisma.media.count({
+    where: {
+      source: 'DR_MANUAL',
+    },
+  });
 
-      if (result.count > 0) {
-        console.log(`  ✅ ${title}`);
-        updated += result.count;
-      } else {
-        console.log(`  ⏭️  ${title} (ikke fundet)`);
-        notFound++;
-      }
-    } catch (error) {
-      console.error(`  ❌ ${title}: ${error.message}`);
-    }
-  }
-
-  console.log('');
-  console.log('📊 Resultat:');
-  console.log(`  Opdateret: ${updated} programmer`);
-  console.log(`  Ikke fundet: ${notFound}`);
-
-  // 3. Verificer resultat
-  console.log('');
-  console.log('🔍 Verificerer...');
   const withDanish = await prisma.media.count({
     where: {
       source: 'DR_MANUAL',
@@ -154,8 +59,29 @@ async function main() {
     },
   });
 
-  console.log(`  Med dansk tale: ${withDanish}/45`);
-  console.log(`  Uden/ukendt: ${withoutDanish}/45`);
+  console.log(`  Total DR programmer: ${totalDR}`);
+  console.log(`  Med dansk tale: ${withDanish}`);
+  console.log(`  Uden dansk tale: ${withoutDanish}`);
+
+  if (withoutDanish > 0) {
+    console.log('');
+    console.log('ADVARSEL: Nogle programmer mangler stadig dansk tale markering!');
+
+    const missing = await prisma.media.findMany({
+      where: {
+        source: 'DR_MANUAL',
+        hasDanishAudio: { not: true },
+      },
+      select: { title: true },
+    });
+
+    for (const m of missing) {
+      console.log(`  - ${m.title}`);
+    }
+  } else {
+    console.log('');
+    console.log('Alle DR programmer har nu dansk tale markering!');
+  }
 
   await prisma.$disconnect();
 }

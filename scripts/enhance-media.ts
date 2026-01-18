@@ -78,6 +78,7 @@ async function main() {
         releaseYear,
         isDanish: media.isDanish,
         hasDanishAudio: media.hasDanishAudio || undefined,
+        source: media.source || undefined,
       });
 
       // Update media with enhanced content

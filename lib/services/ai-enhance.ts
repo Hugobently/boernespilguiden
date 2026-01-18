@@ -12,6 +12,7 @@ interface MediaEnhancementInput {
   releaseYear?: number;
   isDanish?: boolean;
   hasDanishAudio?: boolean;
+  source?: string; // e.g. 'DR_MANUAL', 'TMDB', etc.
 }
 
 interface MediaEnhancementOutput {
@@ -42,6 +43,11 @@ export async function enhanceMediaDescription(
   const typeLabel = input.type === 'MOVIE' ? 'film' : 'serie';
   const ageText = input.ageMin && input.ageMax ? `${input.ageMin}-${input.ageMax} år` : 'børn';
 
+  // DR programmer har altid dansk tale (enten danske produktioner eller dubbede versioner)
+  const isDRSource = input.source === 'DR_MANUAL';
+  const hasDanishAudio = input.hasDanishAudio || isDRSource;
+  const isDanish = input.isDanish || isDRSource;
+
   const prompt = `Du er ekspert i børnemedier og skriver til danske forældre på Børnespilguiden.dk.
 
 OPGAVE: Analyser denne ${typeLabel} og skriv indhold til forældreguiden.
@@ -51,8 +57,9 @@ Titel: ${input.title}${input.originalTitle ? ` (${input.originalTitle})` : ''}
 Genres: ${input.genres.join(', ')}
 Aldersgruppe: ${ageText}
 ${input.releaseYear ? `Udgivelsesår: ${input.releaseYear}` : ''}
-${input.isDanish ? 'Dette er dansk produktion' : ''}
-${input.hasDanishAudio ? 'Har dansk tale' : 'Kun udenlandsk tale'}
+${isDRSource ? 'Dette er fra DR (dansk public service)' : ''}
+${isDanish ? 'Dette er dansk produktion' : ''}
+${hasDanishAudio ? 'Har dansk tale' : 'Kun udenlandsk tale (ingen dansk dubbing)'}
 
 TMDB beskrivelse:
 ${input.description}
