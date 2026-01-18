@@ -1,7 +1,5 @@
-'use client';
-
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { cn } from '@/lib/utils';
 
 // ============================================================================
@@ -100,12 +98,12 @@ function FooterLinkSection({ title, emoji, titleColor, links }: FooterLinkSectio
 }
 
 // ============================================================================
-// FOOTER COMPONENT
+// FOOTER COMPONENT (Server Component)
 // ============================================================================
 
-export function Footer() {
+export async function Footer() {
   const currentYear = new Date().getFullYear();
-  const t = useTranslations();
+  const t = await getTranslations();
 
   return (
     <footer className="relative bg-[#4A4A4A] text-white mt-20">

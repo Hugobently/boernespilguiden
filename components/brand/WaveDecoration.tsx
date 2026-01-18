@@ -51,36 +51,42 @@ export function WaveBottom({ className = '', color = '#FFF9F0' }: WaveProps) {
   );
 }
 
-// Floating decorative blobs
+// Floating decorative blobs - optimized for performance
+// Uses GPU acceleration and reduced blur for better Speed Index
 export function FloatingBlobs({ className = '' }: { className?: string }) {
   return (
-    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
-      {/* Primary blob - coral */}
+    <div
+      className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
+      style={{ contain: 'paint' }}
+    >
+      {/* Primary blob - coral - reduced blur for performance */}
       <div
-        className="absolute w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float"
-        style={{ top: '-10%', left: '-5%' }}
+        className="absolute w-72 h-72 bg-primary/15 rounded-full blur-2xl"
+        style={{
+          top: '-10%',
+          left: '-5%',
+          transform: 'translateZ(0)',
+        }}
       />
 
       {/* Secondary blob - turquoise */}
       <div
-        className="absolute w-64 h-64 bg-secondary/20 rounded-full blur-3xl animate-float-slow"
-        style={{ bottom: '10%', right: '-5%', animationDelay: '1s' }}
+        className="absolute w-64 h-64 bg-secondary/15 rounded-full blur-2xl"
+        style={{
+          bottom: '10%',
+          right: '-5%',
+          transform: 'translateZ(0)',
+        }}
       />
 
       {/* Accent blob - yellow */}
       <div
-        className="absolute w-48 h-48 bg-accent/15 rounded-full blur-2xl animate-float"
-        style={{ top: '40%', left: '60%', animationDelay: '2s' }}
-      />
-
-      {/* Small decorative blobs */}
-      <div
-        className="absolute w-24 h-24 bg-lavender/20 rounded-full blur-xl animate-float-slow"
-        style={{ top: '20%', right: '20%', animationDelay: '0.5s' }}
-      />
-      <div
-        className="absolute w-32 h-32 bg-mint/20 rounded-full blur-xl animate-float"
-        style={{ bottom: '30%', left: '10%', animationDelay: '1.5s' }}
+        className="absolute w-48 h-48 bg-accent/10 rounded-full blur-xl"
+        style={{
+          top: '40%',
+          left: '60%',
+          transform: 'translateZ(0)',
+        }}
       />
     </div>
   );
