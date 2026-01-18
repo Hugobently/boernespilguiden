@@ -27,8 +27,6 @@ export async function POST(request: Request) {
     const limit = body.limit || 10; // Process 10 at a time by default
     const forceReprocess = body.force || false; // Re-enhance even if already done
 
-    console.log(`Starting media enhancement (limit: ${limit}, force: ${forceReprocess})`);
-
     // Find media that needs enhancement
     const mediaToEnhance = await prisma.media.findMany({
       where: {
@@ -49,8 +47,6 @@ export async function POST(request: Request) {
       },
     });
 
-    console.log(`Found ${mediaToEnhance.length} media items to enhance`);
-
     const stats: EnhanceStats = {
       total: mediaToEnhance.length,
       enhanced: 0,
@@ -61,8 +57,6 @@ export async function POST(request: Request) {
 
     for (const media of mediaToEnhance) {
       try {
-        console.log(`Enhancing: ${media.title}`);
-
         // Skip if no description
         if (!media.description) {
           stats.skipped++;
@@ -106,7 +100,6 @@ export async function POST(request: Request) {
         });
 
         stats.enhanced++;
-        console.log(`✓ Enhanced: ${media.title}`);
 
         // Rate limiting - wait 2 seconds between requests to avoid hitting API limits
         await sleep(2000);
@@ -123,8 +116,6 @@ export async function POST(request: Request) {
         continue;
       }
     }
-
-    console.log('Enhancement complete:', stats);
 
     return NextResponse.json({
       success: true,

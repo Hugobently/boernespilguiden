@@ -9,20 +9,18 @@ import {
 } from '@/lib/services/tmdb-import';
 
 export async function POST(request: Request) {
-  // Temporarily disabled auth
   const auth = request.headers.get('authorization');
-  console.log('Re-import TMDB started with auth:', auth);
+  if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
 
   try {
     // Delete existing TMDB content
-    console.log('Deleting existing TMDB content...');
     const deleted = await prisma.media.deleteMany({
       where: { source: 'TMDB' },
     });
-    console.log(`Deleted ${deleted.count} TMDB items`);
 
     // Re-import with new filters
-    console.log('Re-importing TMDB content with Danish/Western filters...');
     const movies = await importTMDBMovies(50);
     const series = await importTMDBSeries(50);
 

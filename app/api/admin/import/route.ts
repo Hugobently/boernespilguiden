@@ -10,14 +10,10 @@ import {
 } from '@/lib/services/tmdb-import';
 
 export async function POST(request: Request) {
-  // Temporarily disabled auth for testing
-  // TODO: Re-enable after import succeeds
   const auth = request.headers.get('authorization');
-  console.log('Import started with auth:', auth);
-
-  // if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
-  //   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  // }
+  if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
 
   const stats = {
     drSeries: 0,

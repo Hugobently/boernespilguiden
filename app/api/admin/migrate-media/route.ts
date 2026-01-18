@@ -11,8 +11,6 @@ export async function POST(request: Request) {
   }
 
   try {
-    console.log('Starting Media table migration...');
-
     // Add parent info columns if they don't exist
     const migrations = [
       `ALTER TABLE "Media" ADD COLUMN IF NOT EXISTS "parentInfo" TEXT`,
@@ -28,19 +26,14 @@ export async function POST(request: Request) {
     for (const migration of migrations) {
       try {
         await prisma.$executeRawUnsafe(migration);
-        console.log('✓', migration);
       } catch (error) {
         const err = error as { message: string };
         // Ignore "column already exists" errors
-        if (err.message.includes('already exists')) {
-          console.log('⏭️  Column already exists, skipping');
-        } else {
+        if (!err.message.includes('already exists')) {
           throw error;
         }
       }
     }
-
-    console.log('Migration completed successfully');
 
     return NextResponse.json({
       success: true,

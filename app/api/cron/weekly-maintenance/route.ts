@@ -23,25 +23,14 @@ export async function GET(request: Request) {
 
   try {
     // 1. Run maintenance check
-    console.log('Starting weekly maintenance check...');
     report = await runMaintenanceCheck();
 
     // 2. Try to fix missing game icons (max 10 per week)
     if (report.gamesWithMissingIcons > 0) {
-      console.log(`Found ${report.gamesWithMissingIcons} games without icons, attempting to fix...`);
       iconsFixed = await fixMissingGameIcons(10);
     }
 
-    // 3. Log results
-    console.log('Weekly maintenance complete:', {
-      summary: report.summary,
-      iconsFixed,
-      brokenImages: report.brokenImageUrls.length,
-      staleContent: report.staleContent.length,
-    });
-
   } catch (error) {
-    console.error('Weekly maintenance error:', error);
     return NextResponse.json(
       {
         error: String(error),

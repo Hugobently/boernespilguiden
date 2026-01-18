@@ -89,27 +89,13 @@ Denne email blev sendt fra kontaktformularen på børnespilguiden.dk
         throw new Error('Failed to send email via Resend');
       }
 
-      console.log(`Contact form email sent successfully via Resend to ${CONTACT_EMAIL}`);
       return NextResponse.json({ success: true });
     }
 
-    // Fallback: Log the message (for development or when email isn't configured)
-    console.warn('='.repeat(60));
-    console.warn('EMAIL SERVICE NOT CONFIGURED - Message logged only:');
-    console.warn('='.repeat(60));
-    console.warn(`From: ${name} <${email}>`);
-    console.warn(`Subject: ${emailSubject}`);
-    console.warn(`Message: ${message}`);
-    console.warn('='.repeat(60));
-    console.warn('To enable email sending, set RESEND_API_KEY in your environment variables.');
-    console.warn('Get a free API key at https://resend.com');
-    console.warn('='.repeat(60));
-
-    // Still return success so users know their message was "received"
-    // In production, you should configure proper email sending
+    // Fallback when email isn't configured - still return success
     return NextResponse.json({
       success: true,
-      warning: 'Email service not configured - message logged only'
+      warning: 'Email service not configured'
     });
 
   } catch (error) {

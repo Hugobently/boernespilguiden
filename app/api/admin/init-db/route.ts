@@ -5,17 +5,12 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 
 export async function POST(request: Request) {
-  // Temporarily disabled auth for testing
-  // TODO: Re-enable after successful init
   const auth = request.headers.get('authorization');
-  console.log('Init DB started with auth:', auth);
-
-  // if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
-  //   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  // }
+  if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
 
   try {
-    console.log('Starting database initialization...');
 
     // Create Media table
     await prisma.$executeRawUnsafe(`
@@ -73,8 +68,6 @@ export async function POST(request: Request) {
         FOREIGN KEY ("mediaId") REFERENCES "Media"("id") ON DELETE CASCADE
       )
     `);
-
-    console.log('Database tables created successfully');
 
     return NextResponse.json({
       success: true,
