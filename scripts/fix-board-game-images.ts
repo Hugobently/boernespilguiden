@@ -12,18 +12,18 @@ const BOARD_DIR = path.join(process.cwd(), 'public', 'images', 'games', 'board')
 // BoardGameGeek IDs for the missing games
 const BGG_IDS: Record<string, number> = {
   'dragomino': 300010,
-  'cascadia-junior': 365717,
-  'topp-die-torte': 350527,
-  'foxy': 316552,
-  'splendor-kids': 0, // Need to find
-  'micromacro-kids-crazy-city-park': 368815,
+  'cascadia-junior': 433007,
+  'topp-die-torte': 423232,
+  'foxy': 359318,
+  'splendor-kids': 453472,
+  'micromacro-kids-crazy-city-park': 437261,
   'zombie-kidz-evolution': 256952,
   'zombie-teenz-evolution': 299867,
-  'the-crew-family-adventure': 0, // Need to find
-  'exit-kids-midnight-spooktacular': 0, // Need to find
-  'danmarksspillet': 0, // Danish-only
-  'ziggurat': 0, // Need to find
-  'finspan': 0, // Need to find
+  'the-crew-family-adventure': 406299,
+  'exit-kids-midnight-spooktacular': 406314,
+  'danmarksspillet': 14951,
+  'ziggurat': 415197,
+  'finspan': 436126,
 };
 
 // Alternative image URLs for games not on BGG
