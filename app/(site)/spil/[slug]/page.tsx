@@ -229,8 +229,8 @@ export default async function GameDetailPage({ params }: PageProps) {
               )}
             </div>
 
-            {/* Platform Links */}
-            <div className="space-y-3">
+            {/* Platform Links - Hidden on mobile, shown on desktop */}
+            <div className="hidden lg:block space-y-3">
               {game.appStoreUrl && (
                 <a
                   href={game.appStoreUrl}
@@ -361,6 +361,43 @@ export default async function GameDetailPage({ params }: PageProps) {
               minAge={game.minAge}
               maxAge={game.maxAge}
             />
+
+            {/* Platform Links - Mobile only, shown after description and parent info */}
+            <div className="lg:hidden space-y-3">
+              {game.appStoreUrl && (
+                <a
+                  href={game.appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#000000] text-white font-semibold hover:bg-[#333333] transition-all hover:shadow-lg"
+                >
+                  <span className="text-xl">🍎</span>
+                  <span>{t('downloadAppStore')}</span>
+                </a>
+              )}
+              {game.playStoreUrl && (
+                <a
+                  href={game.playStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#3DDC84] text-white font-semibold hover:bg-[#2BC472] transition-all hover:shadow-lg"
+                >
+                  <span className="text-xl">🤖</span>
+                  <span>{t('downloadPlayStore')}</span>
+                </a>
+              )}
+              {game.websiteUrl && (
+                <a
+                  href={game.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#4F46E5] text-white font-semibold hover:bg-[#4338CA] transition-all hover:shadow-lg"
+                >
+                  <span className="text-xl">🌐</span>
+                  <span>{t('visitWebsite')}</span>
+                </a>
+              )}
+            </div>
 
             {/* Details Grid */}
             <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm border border-[#FFB5A7]/10">

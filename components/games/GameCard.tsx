@@ -487,8 +487,8 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
                     </span>
                   ))}
                   {parsedCategories.length > 2 && (
-                    <span className="text-xs text-[#9CA3AF]">
-                      +{parsedCategories.length - 2}
+                    <span className="text-xs text-[#9CA3AF] italic">
+                      m.fl.
                     </span>
                   )}
                 </div>

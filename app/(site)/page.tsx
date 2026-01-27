@@ -66,15 +66,15 @@ function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6 lg:gap-12">
-          {/* Mascot - smaller and appears after content on mobile */}
-          <div className="flex-shrink-0 order-2 lg:order-none">
+          {/* Mascot - hidden on mobile, shown on tablet and up */}
+          <div className="flex-shrink-0 order-2 lg:order-none hidden sm:block">
             <div className="relative">
-              {/* Smaller mascot on mobile, larger on desktop */}
-              <Mascot size="lg" variant="wave" className="animate-float sm:hidden" />
-              <Mascot size="xl" variant="wave" className="animate-float hidden sm:block" />
+              {/* Only show on tablet and up */}
+              <Mascot size="lg" variant="wave" className="animate-float md:hidden" />
+              <Mascot size="xl" variant="wave" className="animate-float hidden md:block" />
               {/* Sparkles only on desktop */}
-              <span className="absolute -top-4 right-0 text-3xl animate-sparkle hidden sm:inline" role="img" aria-label="Glimmer">✨</span>
-              <span className="absolute bottom-4 -left-4 text-2xl animate-sparkle hidden sm:inline" role="img" aria-label="Stjerne" style={{ animationDelay: '0.5s' }}>⭐</span>
+              <span className="absolute -top-4 right-0 text-3xl animate-sparkle hidden md:inline" role="img" aria-label="Glimmer">✨</span>
+              <span className="absolute bottom-4 -left-4 text-2xl animate-sparkle hidden md:inline" role="img" aria-label="Stjerne" style={{ animationDelay: '0.5s' }}>⭐</span>
             </div>
           </div>
 

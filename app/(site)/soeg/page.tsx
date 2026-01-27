@@ -789,25 +789,25 @@ export default async function SearchPage({ searchParams }: PageProps) {
             <div className="flex flex-wrap justify-center gap-2 mt-6">
               <Link
                 href="/soeg?q=læringsspil"
-                className="px-4 py-2 rounded-full bg-white/30 text-white text-sm font-medium hover:bg-white/50 transition-colors"
+                className="px-4 py-2 rounded-full bg-white/90 text-[#4A4A4A] text-sm font-medium hover:bg-white transition-colors shadow-sm"
               >
                 📚 Læringsspil
               </Link>
               <Link
                 href="/soeg?gratis=true"
-                className="px-4 py-2 rounded-full bg-white/30 text-white text-sm font-medium hover:bg-white/50 transition-colors"
+                className="px-4 py-2 rounded-full bg-white/90 text-[#4A4A4A] text-sm font-medium hover:bg-white transition-colors shadow-sm"
               >
                 🆓 Gratis spil
               </Link>
               <Link
                 href="/soeg?reklamefri=true"
-                className="px-4 py-2 rounded-full bg-white/30 text-white text-sm font-medium hover:bg-white/50 transition-colors"
+                className="px-4 py-2 rounded-full bg-white/90 text-[#4A4A4A] text-sm font-medium hover:bg-white transition-colors shadow-sm"
               >
                 🚫 Reklamefri
               </Link>
               <Link
                 href="/soeg?alder=3-6"
-                className="px-4 py-2 rounded-full bg-white/30 text-white text-sm font-medium hover:bg-white/50 transition-colors"
+                className="px-4 py-2 rounded-full bg-white/90 text-[#4A4A4A] text-sm font-medium hover:bg-white transition-colors shadow-sm"
               >
                 🧒 3-6 år
               </Link>

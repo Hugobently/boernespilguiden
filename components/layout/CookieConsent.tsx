@@ -104,17 +104,17 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
 
       {/* Banner */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-auto">
-        <div className="max-w-4xl mx-auto p-4">
+        <div className="max-w-4xl mx-auto p-3 sm:p-4">
           <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] overflow-hidden">
             {/* Main Content */}
-            <div className="p-6">
-              <div className="flex items-start gap-4">
-                <span className="text-4xl flex-shrink-0">🍪</span>
+            <div className="p-4 sm:p-6">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <span className="text-2xl sm:text-4xl flex-shrink-0">🍪</span>
                 <div className="flex-1">
-                  <h2 className="text-lg font-bold text-[#4A4A4A] mb-2">
+                  <h2 className="text-base sm:text-lg font-bold text-[#4A4A4A] mb-1 sm:mb-2">
                     {t.title}
                   </h2>
-                  <p className="text-[#7A7A7A] text-sm leading-relaxed mb-4">
+                  <p className="text-[#7A7A7A] text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
                     {t.description}{' '}
                     <Link
                       href="/cookiepolitik"
@@ -173,18 +173,18 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
                   )}
 
                   {/* Buttons */}
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
                     {showCustomize ? (
                       <>
                         <button
                           onClick={handleSaveCustom}
-                          className="px-5 py-2.5 bg-[#98DDCA] text-white font-semibold rounded-full hover:bg-[#7FC7B3] transition-colors text-sm"
+                          className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#98DDCA] text-white font-semibold rounded-full hover:bg-[#7FC7B3] transition-colors text-xs sm:text-sm"
                         >
                           {t.save}
                         </button>
                         <button
                           onClick={() => setShowCustomize(false)}
-                          className="px-5 py-2.5 bg-[#F5F5F5] text-[#7A7A7A] font-semibold rounded-full hover:bg-[#E8E8E8] transition-colors text-sm"
+                          className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#F5F5F5] text-[#7A7A7A] font-semibold rounded-full hover:bg-[#E8E8E8] transition-colors text-xs sm:text-sm"
                         >
                           Tilbage
                         </button>
@@ -193,19 +193,19 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
                       <>
                         <button
                           onClick={handleAcceptAll}
-                          className="px-5 py-2.5 bg-[#98DDCA] text-white font-semibold rounded-full hover:bg-[#7FC7B3] transition-colors text-sm"
+                          className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#98DDCA] text-white font-semibold rounded-full hover:bg-[#7FC7B3] transition-colors text-xs sm:text-sm"
                         >
                           {t.acceptAll}
                         </button>
                         <button
                           onClick={handleAcceptNecessary}
-                          className="px-5 py-2.5 bg-[#F5F5F5] text-[#7A7A7A] font-semibold rounded-full hover:bg-[#E8E8E8] transition-colors text-sm"
+                          className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#F5F5F5] text-[#7A7A7A] font-semibold rounded-full hover:bg-[#E8E8E8] transition-colors text-xs sm:text-sm"
                         >
                           {t.acceptNecessary}
                         </button>
                         <button
                           onClick={() => setShowCustomize(true)}
-                          className="px-5 py-2.5 text-[#7A7A7A] font-medium hover:text-[#4A4A4A] transition-colors text-sm underline underline-offset-2"
+                          className="px-4 sm:px-5 py-2 sm:py-2.5 text-[#7A7A7A] font-medium hover:text-[#4A4A4A] transition-colors text-xs sm:text-sm underline underline-offset-2"
                         >
                           {t.customize}
                         </button>
