@@ -51,7 +51,8 @@ export type TargetGender = 'alle' | 'drenge' | 'piger';
 // Helper functions to parse JSON arrays from SQLite
 export function parseJsonArray<T>(json: string): T[] {
   try {
-    return JSON.parse(json) as T[];
+    const parsed = JSON.parse(json);
+    return Array.isArray(parsed) ? parsed : [];
   } catch {
     return [];
   }
