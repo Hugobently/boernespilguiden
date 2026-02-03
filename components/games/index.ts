@@ -1,6 +1,6 @@
 // Game Card Components
-export { GameCard, CompactGameCard } from './GameCard';
-export type { GameCardProps, CompactGameCardProps } from './GameCard';
+export { GameCard } from './GameCard';
+export type { GameCardProps } from './GameCard';
 
 // Game Detail Image (with fallback)
 export { GameDetailImage } from './GameDetailImage';
@@ -14,13 +14,20 @@ export { LazyGameGrid, LazyGameCard, GameCardSkeleton, GameGridSkeleton } from '
 // Game Detail Components
 export {
   GameDetail,
-  GameDetailHero,
-  ProsCons,
-  ParentTip,
-  PlatformLinks,
-  RelatedGames,
 } from './GameDetail';
 export type { GameDetailProps } from './GameDetail';
+
+export {
+  GameDetailHero,
+  ProsCons,
+  PlatformLinks,
+  ScreenshotGallery,
+  LargeRating,
+} from './GameDetailComponents';
+
+// Content Enhancement Components
+export { VideoPlayer } from './VideoPlayer';
+export { ExpandableDescription, EnhancedParentInfo } from './ExpandableDescription';
 
 // Parent Info Components
 export { ParentInfo, SafetyBadge, ParentInfoExpanded } from './ParentInfo';

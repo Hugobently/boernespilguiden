@@ -5,9 +5,10 @@ import {
   GameDetailHero,
   ScreenshotGallery,
   ProsCons,
-  ParentTip,
   PlatformLinks,
 } from './GameDetailComponents';
+import { VideoPlayer } from './VideoPlayer';
+import { ExpandableDescription, EnhancedParentInfo } from './ExpandableDescription';
 
 // ============================================================================
 // TYPES
@@ -38,7 +39,9 @@ export interface GameDetailProps {
     pros?: string | string[];
     cons?: string | string[];
     parentTip?: string | null;
+    parentInfo?: string | null;
     screenshots?: string;
+    videoUrl?: string | null;
     // Categories
     categories?: string;
     skills?: string;
@@ -82,6 +85,17 @@ export function GameDetail({ game }: GameDetailProps) {
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Main content */}
         <div className="lg:col-span-2 space-y-10">
+          {/* Video (if available) */}
+          {game.videoUrl && (
+            <section>
+              <h2 className="font-bold text-xl text-[#4A4A4A] mb-4 flex items-center gap-2">
+                <span>🎬</span>
+                <span>Gameplay video</span>
+              </h2>
+              <VideoPlayer url={game.videoUrl} title={game.title} />
+            </section>
+          )}
+
           {/* Screenshots */}
           {parsedScreenshots.length > 0 && (
             <section>
@@ -100,7 +114,7 @@ export function GameDetail({ game }: GameDetailProps) {
               <span>Om spillet</span>
             </h2>
             <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm">
-              <p className="text-[#4A4A4A] leading-relaxed whitespace-pre-line">{game.description}</p>
+              <ExpandableDescription description={game.description} maxLength={400} />
             </div>
           </section>
 
@@ -115,10 +129,19 @@ export function GameDetail({ game }: GameDetailProps) {
             </section>
           )}
 
-          {/* Parent Tip */}
-          {game.parentTip && (
+          {/* Enhanced Parent Information */}
+          {(game.parentInfo || game.parentTip) && (
             <section>
-              <ParentTip tip={game.parentTip} />
+              <h2 className="font-bold text-xl text-[#4A4A4A] mb-4 flex items-center gap-2">
+                <span>👨‍👩‍👧‍👦</span>
+                <span>Information til forældre</span>
+              </h2>
+              <EnhancedParentInfo
+                parentInfo={game.parentInfo}
+                parentTip={game.parentTip}
+                minAge={game.minAge}
+                maxAge={game.maxAge}
+              />
             </section>
           )}
 
