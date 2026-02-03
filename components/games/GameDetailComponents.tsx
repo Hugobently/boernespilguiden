@@ -7,6 +7,7 @@ import { Platform } from '@/lib/types';
 import { platformConfig } from '@/lib/config/platforms';
 import { ageGroups } from '@/lib/config/age-groups';
 import { useState } from 'react';
+import { VideoPlayer } from './VideoPlayer';
 
 // ============================================================================
 // SCREENSHOT GALLERY
