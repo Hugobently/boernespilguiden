@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { getAgeLabel } from '@/lib/utils';
 import { parseJsonArray, Platform, DataCollection, PriceModel } from '@/lib/types';
-import { GameCard, ParentInfoExpanded } from '@/components/games';
+import { GameCard, ParentInfoExpanded, VideoPlayer, ExpandableDescription } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { getGameWithTranslation, getGamesWithTranslation } from '@/lib/translations';
 import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
@@ -336,8 +336,19 @@ export default async function GameDetailPage({ params }: PageProps) {
 
             {/* Description */}
             <div className="prose prose-lg max-w-none">
-              <p className="text-[#4A4A4A] text-lg leading-relaxed">{game.description}</p>
+              <ExpandableDescription description={game.description} maxLength={400} />
             </div>
+
+            {/* Video (if available) */}
+            {game.videoUrl && (
+              <div>
+                <h2 className="text-lg font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
+                  <span className="text-2xl">🎬</span>
+                  <span>Gameplay video</span>
+                </h2>
+                <VideoPlayer url={game.videoUrl} title={game.title} />
+              </div>
+            )}
 
             {/* Hvad forældre skal vide - Udvidet sektion */}
             <ParentInfoExpanded
@@ -520,17 +531,6 @@ export default async function GameDetailPage({ params }: PageProps) {
                     </ul>
                   </div>
                 )}
-              </div>
-            )}
-
-            {/* Parent Tip */}
-            {game.parentTip && (
-              <div className="bg-[#FFE66D]/20 border-l-4 border-[#FFE66D] rounded-r-2xl p-6">
-                <h3 className="font-bold text-[#7D6608] mb-2 flex items-center gap-2 text-lg">
-                  <span className="text-2xl">💡</span>
-                  {t('parentTip')}
-                </h3>
-                <p className="text-[#4A4A4A]">{game.parentTip}</p>
               </div>
             )}
           </div>
