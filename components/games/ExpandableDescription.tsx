@@ -141,6 +141,7 @@ export function EnhancedParentInfo({
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getAgeGuidance(minAge: number, maxAge: number): string {
   if (minAge <= 3) {
     return 'Dette spil er designet til de mindste børn. Vær opmærksom på, at børn i denne alder har brug for supervision og hjælp til navigation. Korte sessioner anbefales for at undgå skærmtræthed.';

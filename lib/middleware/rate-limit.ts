@@ -21,7 +21,7 @@ const store = new Map<string, RateLimitEntry>();
 // Cleanup old entries every 10 minutes
 setInterval(() => {
   const now = Date.now();
-  for (const [key, entry] of store.entries()) {
+  for (const [key, entry] of Array.from(store.entries())) {
     if (entry.resetTime < now) {
       store.delete(key);
     }
@@ -118,10 +118,12 @@ export function checkRateLimit(
  * });
  * ```
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function withRateLimit<T extends (...args: any[]) => Promise<Response>>(
   config: RateLimitConfig,
   handler: T
 ): T {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (async (...args: any[]) => {
     const request = args[0] as Request;
 

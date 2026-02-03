@@ -120,8 +120,8 @@ export default async function GameDetailPage({ params }: PageProps) {
   const categories = parseJsonArray<string>(game.categories);
   const skills = parseJsonArray<string>(game.skills);
   const platforms = parseJsonArray<Platform>(game.platforms);
-  const pros = parseJsonArray<string>(game.pros);
-  const cons = parseJsonArray<string>(game.cons);
+  const pros = game.pros || [];
+  const cons = game.cons || [];
   const themes = parseJsonArray<string>(game.themes);
 
   // Get related games with translations

@@ -1,5 +1,6 @@
 import prisma from './db';
 import { Game, BoardGame, GameTranslation, BoardGameTranslation } from '@prisma/client';
+import { parseJsonArray } from './types';
 
 // Default locale
 export const DEFAULT_LOCALE = 'da';
@@ -24,8 +25,8 @@ export type TranslatedGame = Omit<Game, 'title' | 'description' | 'shortDescript
   title: string;
   description: string;
   shortDescription: string;
-  pros: string;
-  cons: string;
+  pros: string[];
+  cons: string[];
   parentTip: string | null;
 };
 
@@ -33,8 +34,8 @@ export type TranslatedBoardGame = Omit<BoardGame, 'title' | 'description' | 'sho
   title: string;
   description: string;
   shortDescription: string;
-  pros: string;
-  cons: string;
+  pros: string[];
+  cons: string[];
   parentTip: string | null;
 };
 
@@ -58,8 +59,8 @@ export function applyGameTranslation(
       title: translation.title,
       description: translation.description,
       shortDescription: translation.shortDescription,
-      pros: translation.pros,
-      cons: translation.cons,
+      pros: parseJsonArray<string>(translation.pros),
+      cons: parseJsonArray<string>(translation.cons),
       parentTip: translation.parentTip,
     };
   }
@@ -84,8 +85,8 @@ export function applyBoardGameTranslation(
       title: translation.title,
       description: translation.description,
       shortDescription: translation.shortDescription,
-      pros: translation.pros,
-      cons: translation.cons,
+      pros: parseJsonArray<string>(translation.pros),
+      cons: parseJsonArray<string>(translation.cons),
       parentTip: translation.parentTip,
     };
   }

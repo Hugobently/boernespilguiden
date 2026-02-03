@@ -60,7 +60,7 @@ export function getProviderConfig(
 // Get all visible providers (non-hidden)
 export function getVisibleProviders(): string[] {
   return Object.entries(STREAMING_PROVIDERS)
-    .filter(([_, config]) => !config.hide)
-    .map(([key, config]) => config.name)
+    .filter(([, config]) => !config.hide)
+    .map(([, config]) => config.name)
     .filter((name, index, self) => self.indexOf(name) === index); // Deduplicate
 }
