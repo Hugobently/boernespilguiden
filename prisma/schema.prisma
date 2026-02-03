@@ -64,8 +64,8 @@ model Game {
   price                 Float             @default(0)
   priceModel            String
   rating                Float
-  pros                  String            @default("[]")
-  cons                  String            @default("[]")
+  pros                  String[]          @default([])
+  cons                  String[]          @default([])
   parentTip             String?
   iconUrl               String?
   screenshots           String            @default("[]")
@@ -111,8 +111,8 @@ model BoardGame {
   affiliateUrl     String?
   amazonUrl        String?
   rating           Float
-  pros             String                 @default("[]")
-  cons             String                 @default("[]")
+  pros             String[]               @default([])
+  cons             String[]               @default([])
   parentTip        String?
   imageUrl         String?
   featured         Boolean                @default(false)

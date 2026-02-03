@@ -91,8 +91,8 @@ async function main() {
         data: {
           parentInfo: result.parentInfo,
           parentTip: result.parentTip,
-          pros: JSON.stringify(result.pros),
-          cons: JSON.stringify(result.cons),
+          pros: result.pros, // Now uses native arrays
+          cons: result.cons, // Now uses native arrays
         },
       });
 

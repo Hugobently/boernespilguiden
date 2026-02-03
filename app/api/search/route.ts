@@ -6,10 +6,11 @@ import {
   buildBoardGameWhereClause,
   type ParsedSearchQuery,
 } from '@/lib/search';
+import { withRateLimit, rateLimits } from '@/lib/middleware/rate-limit';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET(request: NextRequest) {
+async function searchHandler(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
 
@@ -156,3 +157,6 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
+// Export rate-limited handler
+export const GET = withRateLimit(rateLimits.search, searchHandler);

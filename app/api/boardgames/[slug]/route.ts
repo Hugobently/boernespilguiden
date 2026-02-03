@@ -22,14 +22,14 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       );
     }
 
-    // Parse JSON fields for response
+    // Parse JSON fields for response (pros/cons are now native arrays)
     const parsedGame = {
       ...game,
       categories: JSON.parse(game.categories || '[]'),
       skills: JSON.parse(game.skills || '[]'),
       themes: JSON.parse(game.themes || '[]'),
-      pros: JSON.parse(game.pros || '[]'),
-      cons: JSON.parse(game.cons || '[]'),
+      pros: game.pros, // Already an array
+      cons: game.cons, // Already an array
     };
 
     // Get related board games (same age group or categories)

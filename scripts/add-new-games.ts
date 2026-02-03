@@ -50,8 +50,8 @@ function transformGameForPrisma(game: typeof allDigitalGames[0]) {
     playStoreUrl: game.playStoreUrl,
     websiteUrl: game.websiteUrl,
     developerName: game.developerName,
-    pros: JSON.stringify(game.pros),
-    cons: JSON.stringify(game.cons),
+    pros: game.pros, // Now uses native arrays
+    cons: game.cons, // Now uses native arrays
     parentTip: game.parentTip,
     featured: game.featured,
     editorChoice: game.editorChoice,
@@ -81,8 +81,8 @@ function transformBoardGameForPrisma(game: typeof allBoardGames[0]) {
     amazonUrl: game.amazonUrl,
     affiliateUrl: game.affiliateUrl,
     rating: game.rating,
-    pros: JSON.stringify(game.pros),
-    cons: JSON.stringify(game.cons),
+    pros: game.pros, // Now uses native arrays
+    cons: game.cons, // Now uses native arrays
     parentTip: game.parentTip,
     featured: game.featured,
     editorChoice: game.editorChoice,
