@@ -161,10 +161,10 @@ async function searchYouTubeThumbnails(gameTitle: string): Promise<string[]> {
     }
 
     // Get unique video IDs
-    const videoIds = [...new Set(
+    const videoIds = Array.from(new Set(
       videoIdMatches
         .map(match => match.match(/"videoId":"([a-zA-Z0-9_-]{11})"/)![1])
-    )].slice(0, 3); // Take top 3 videos
+    )).slice(0, 3); // Take top 3 videos
 
     // Generate thumbnail URLs (maxresdefault for best quality)
     const thumbnails = videoIds.map(videoId =>
@@ -276,7 +276,7 @@ async function fetchFromPlayStore(playStoreUrl: string): Promise<string[]> {
       });
     }
 
-    return [...new Set(screenshots)].slice(0, 5);
+    return Array.from(new Set(screenshots)).slice(0, 5);
   } catch (error) {
     return [];
   }
