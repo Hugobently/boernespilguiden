@@ -227,8 +227,11 @@ export const games0to3: GameSeedData[] = [
     rating: 4.7,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/0_0O6ivS_Kn9LpPyx4zJiM0yGDZVKDEBE9KOOcn7ka9tPTxanAgsuNCG3_DZsX5NFaw=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/0_0O6ivS_Kn9LpPyx4zJiM0yGDZVKDEBE9KOOcn7ka9tPTxanAgsuNCG3_DZsX5NFaw=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/0_0O6ivS_Kn9LpPyx4zJiM0yGDZVKDEBE9KOOcn7ka9tPTxanAgsuNCG3_DZsX5NFaw=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/mx3q127dvYZs37nZX3rEkvlzw48RU_7qsSsI2xihQFd31Gf68TEWTyV2weRrU_p8aA=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/yIME1fpWGTrFZ2wxTTFinK4d9c3aK5iLIU-yXSTUsRg5XAletWoJhJk37oGnvNCV=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/SptAUWDCCCiJNNgtygRNzBDK4Porss_b4tEXBhHjIdqDksYMo08nyALUMq4xdsHIag=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/ZK_RC5XfP7UIdS6QgwnvkaPgJtTMLX2Fxb39E1O1ccm0KUWw1oAd5u4DF_9ZMAD2cbw=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/toca-hair-salon-4/id1447696286",
@@ -263,8 +266,11 @@ export const games0to3: GameSeedData[] = [
     rating: 4.6,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/LfUnZ0XOfIE97EBq9Ih1Pz_hNeV4yZp9vpIm9XY0jUbnkXFfxHwqNIUo13eU1x_vYJU=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/LfUnZ0XOfIE97EBq9Ih1Pz_hNeV4yZp9vpIm9XY0jUbnkXFfxHwqNIUo13eU1x_vYJU=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/LfUnZ0XOfIE97EBq9Ih1Pz_hNeV4yZp9vpIm9XY0jUbnkXFfxHwqNIUo13eU1x_vYJU=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/VvD8GWIoG4S_3CTaO6rRQNmvV-Cia84TiZboeWGUIk1QY0IGrFfiikGwt5Ycalli9Dd7=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/krUzo0aozyWYZS6rKy4vh2a6RkcEe1RYc4Vu7fdBxaQTrdvMIW-JLf0-EMY0SL0Kjg=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/koQ7vLNKe_yeM9TYfWuZHGq5Eclxli4neUT8iqCB4YtKtqEp0uU_mThO96v-GEt9xu0=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/K2FiVuJKEL7WRE2IOw9USE6oXhBMpNGMeham98s0kl7rdJnF91Sc5wD70U3u009ozELB=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/toca-kitchen-2/id946691809",
@@ -431,8 +437,11 @@ export const games0to3: GameSeedData[] = [
     rating: 4.7,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/YpAAbUxam3oP6-GUvoxp8daf7k_gHIIwobVuZ8KVnbJsgw5YqEBKH3zYvsqXJju8t8He4WBjsTQf6SGVgdwh=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/YpAAbUxam3oP6-GUvoxp8daf7k_gHIIwobVuZ8KVnbJsgw5YqEBKH3zYvsqXJju8t8He4WBjsTQf6SGVgdwh=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/YpAAbUxam3oP6-GUvoxp8daf7k_gHIIwobVuZ8KVnbJsgw5YqEBKH3zYvsqXJju8t8He4WBjsTQf6SGVgdwh=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/vQM9ET-wp_ZKD9821A60HPwvHlJzMDAdhV7HinpE6UHct0xyyi-xhOSWHbY5DDkF_UM6sbpaLK5FyiBvdkwThA=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/mLlveP62gOWQ9Ewpp2VuW5_31I0gJW1Avrc8zCFNsyb8eNNRX6PVzHoSmrlJMThC2w4=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/8SigFRnGNnvZS2bPkszeQU_DFV-ygDcQV_YY0M7LwXTtLJM3tKJtwDL8UJsuGd41qra2k_1LGAqjkMkpWjqRDw=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/O22GhgnxucwQ_g966Gck4_6ciWPiFzXCJFqJ7IzirSlTivz5drlCkDzd0O4r2n9RZRLPPe_a4qnYQbPUj1oaxg=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/bluey-lets-play/id1509034599",
@@ -467,8 +476,11 @@ export const games0to3: GameSeedData[] = [
     rating: 4.5,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/5GAY0m8RCWstszXNQ4aGAHCX1Mhq2h2cziHVPnrUBX9CtRGLscGDojf6O316ZAwpgmShJTmv4Bz1qshzoNrq=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/5GAY0m8RCWstszXNQ4aGAHCX1Mhq2h2cziHVPnrUBX9CtRGLscGDojf6O316ZAwpgmShJTmv4Bz1qshzoNrq=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/5GAY0m8RCWstszXNQ4aGAHCX1Mhq2h2cziHVPnrUBX9CtRGLscGDojf6O316ZAwpgmShJTmv4Bz1qshzoNrq=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/ABXyv6adZXuk39Wq5TAlkBLGe_5sQdbXSQsiKrNP0wUm8FvZUzf2EwaaTqQaamNYth0=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/HMZ5FYXTe_IkkW5za_1KfsB6UxGvLoxTSL41R5ER9_Fivsz5guDAe925kSC9hdF0NgQ=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/8W7gOzbMRXr9ZXYNJoeBhlr68H9IP3MV4ES3Di2SbgPsX2RiuM9xa3GoAOOPW-86dGk=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/KL8mPbb2gog9VI8i0Ly3n4U_XUCurc5Gw9WFYaPPLQcSUutx4GNrJND-mYcBMI1azoE=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/paw-patrol-rescue-world/id1551375407",
@@ -536,11 +548,10 @@ export const games0to3: GameSeedData[] = [
     rating: 4.6,
     iconUrl: null,
     screenshotUrls: [
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/cb/2d/c5/cb2dc584-bb6e-080d-22d3-66123ca024c9/pr_source.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/ae/85/81/ae8581f0-26da-ce00-899c-21f7d80c091d/pr_source.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/f5/40/af/f540afcc-ac97-d7c3-bac4-e1ffb2744272/pr_source.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/f7/b8/cc/f7b8cc98-c274-2495-5a52-475235d71f4e/pr_source.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource124/v4/96/ef/ed/96efede2-9275-329a-9864-7aca33df2a3a/212a0ce4-3f92-41b1-9fe9-dedad658364a_IMG_0339.PNG/552x414bb.png"
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/65/77/736577fa-7c97-7147-f640-e9162dc69015/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d0/e2/26/d0e226d2-676e-a3e4-97fd-b9dce3b87d5e/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/15/c2/61/15c261e7-fbe4-e50b-8ccf-ec2722bb5234/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b1/65/4f/b1654f14-1a43-62c6-e568-f38cbac30f0d/pr_source.png/406x228bb.png"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/peekaboo-barn/id300590611",
@@ -575,8 +586,11 @@ export const games0to3: GameSeedData[] = [
     rating: 4.9,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/C0PQwjCrlBaaMVu4qh50nrEu218f3uXONAjzphDcYejB3L82HaIsnyq048cVZ68DKh0m=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/C0PQwjCrlBaaMVu4qh50nrEu218f3uXONAjzphDcYejB3L82HaIsnyq048cVZ68DKh0m=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/C0PQwjCrlBaaMVu4qh50nrEu218f3uXONAjzphDcYejB3L82HaIsnyq048cVZ68DKh0m=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/kOpFuIZAhau0qQRW9V-6xzid0iNz_K_TQxgln3U1VtfsjgwHBlfKVtEHDYN0lD9lOJg=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/wmT-b9crEi_IQqbyhJIWJuakitikiuRf2zTzWui7k00eWgBXccKmJEjcdb1uyfwy-O7_=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/k79ycEM9w1_PxNjTjrziibDYb4aq0W6L0D0EOltUkW_Ch_iMNhqLEtmkhzRL26d9jA=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/mzn46ipVwJwrP8e8CbUB3eWSxBvrApiKe8-wvXrafoXw1KXFe8ZBIEwLutqCL1cXGqCJ=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/moka-mera-lingua/id1581252687",
@@ -611,8 +625,11 @@ export const games0to3: GameSeedData[] = [
     rating: 4.5,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/eOaDdmdFi8VoxtsqrZooh6iqSz78cs9NFwhA1aOqclMvXCYd3NCcnUuCAAVOyo66HU8akqbq7R94ZXaVK-rVPw=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/eOaDdmdFi8VoxtsqrZooh6iqSz78cs9NFwhA1aOqclMvXCYd3NCcnUuCAAVOyo66HU8akqbq7R94ZXaVK-rVPw=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/eOaDdmdFi8VoxtsqrZooh6iqSz78cs9NFwhA1aOqclMvXCYd3NCcnUuCAAVOyo66HU8akqbq7R94ZXaVK-rVPw=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/tx51TPudrD5fyI47S1vxESr9DOTZ8TE9JnNjviXp7XqdVlT5Vy4YGLYzFIo0N-QgurKc=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/-db8hnhkxSJppyQSVeGz6Ol0C8RQLIq5fCHtT8RRb-gVzdgpI39rcB8nmB0jm44F8Q=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/f7pHELQA1ZzhHEIuUqMweFGCoTT9Qu_6BjQu0OypLBkt9LOtP8i8LvZiw6rd3wppLGU=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/DkI8Kq-3kaTSZxIa1_i-Pfy_Bp3b2xlV3M8MHEtbTvp76lVog3jGA582L_LObHxqnkE=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/alpa-kids-denmark/id1544671234",
@@ -720,8 +737,11 @@ export const games3to6: GameSeedData[] = [
     rating: 4.9,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/RtVJJhdVDomiA1202KAciJHccP8HSj7jxVPmfJtSjCns7LFk0EMq9UVKPi-ntKqERFmSkDUtY74ybY-8mwmEiA=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/RtVJJhdVDomiA1202KAciJHccP8HSj7jxVPmfJtSjCns7LFk0EMq9UVKPi-ntKqERFmSkDUtY74ybY-8mwmEiA=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/RtVJJhdVDomiA1202KAciJHccP8HSj7jxVPmfJtSjCns7LFk0EMq9UVKPi-ntKqERFmSkDUtY74ybY-8mwmEiA=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/ElCQFvMOk629izLfxZnnrGjHQ6L15ZXYsWnJiAMBVXrnB8_m1SLk9QviyEwTvdWbZXU=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/70FxMvwYw1HIzi0KsQa0VakwBXceziFF6xLAGAL8B5JzBryTggna5A799KejZjkuYjow=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/RxzLictEc3VK8BgBvmWVkWrJah4POIBf7a3roB2bPjy2QBqzn0Os4NytmVcOPfnCsQ=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/26KxsKvZQopCWnLyVRJr7_d8pB0dESVTfQ79tg81W7qNngVku8nu4wBzZk5mN0dG7ls=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/khan-academy-kids/id1378467217",
@@ -759,8 +779,7 @@ export const games3to6: GameSeedData[] = [
       "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/1e/df/36/1edf3607-3f8f-b639-3874-459e31150028/mzl.wusgzttc.png/406x228bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/c3/73/1e/c3731ea3-5ab2-7156-7ccd-16c14c8453b5/mzl.bsabawqw.png/406x228bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/49/09/d4/4909d46c-a58d-fad0-c598-2116de3c25dc/mzl.ngddpsjo.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/36/d3/42/36d342e7-026b-a7cf-8d3a-ac09a69d8c69/mzl.jicmoapm.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/51/ff/23/51ff2331-403d-c3f8-7bf2-ab043d1482cc/mzl.mvxucdof.png/552x414bb.png"
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/36/d3/42/36d342e7-026b-a7cf-8d3a-ac09a69d8c69/mzl.jicmoapm.png/406x228bb.png"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/endless-alphabet/id591626572",
@@ -867,8 +886,11 @@ export const games3to6: GameSeedData[] = [
     rating: 4.7,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/UHryL-7W2yoA92NAfKpwoPIaW9N1u1hhTCtGkppyafgRfpKSYMS3bnoPmouHk1F0X5sHeoStf3cbD7_yCYBU4w=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/UHryL-7W2yoA92NAfKpwoPIaW9N1u1hhTCtGkppyafgRfpKSYMS3bnoPmouHk1F0X5sHeoStf3cbD7_yCYBU4w=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/UHryL-7W2yoA92NAfKpwoPIaW9N1u1hhTCtGkppyafgRfpKSYMS3bnoPmouHk1F0X5sHeoStf3cbD7_yCYBU4w=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/fDdqlPkAxNkjmoW2kqg_stRa-j9gjPXmOoLU6nDqDdj1tSzQKv90nGZB4PJ0_DFY7ZUYV10ii2ra-FJZBS7ueA=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/KbQRSTxDv-ZVryjWrtx9JMA1r4xebvVO-6ZQ8CHlqItOvK0ZwF8wVFo3sYaqxMGxAV6im5PODpTw99HvmrM6Dw=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/O2g0T6MuJvU1jXYUfa2ITAKUBDWAgFL2gYEnsAlrm1zd7FR6S0N1p4hR7tWMJ8iosA21CSqcRnkOvSUHyZyeCiE=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/Z8xuVWMMKPhsDSBCbd1oP2XIQzPfNy0iMYOMDTW7Fj6UjSCv7nEVPOxH5INRyDSpJBT98kNYeH_vDUTHpVbS1Q=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/toca-life-world/id1208138685",
@@ -1245,8 +1267,7 @@ export const games3to6: GameSeedData[] = [
     rating: 4.5,
     iconUrl: null,
     screenshotUrls: [
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource113/v4/25/c5/86/25c58699-5be1-8f80-a99d-001079330559/6ba8b5b6-2a47-4bfb-ac16-7b85763df009_resized.iphone.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/cb/37/c0/cb37c00b-5372-5892-2b15-ba5857599b99/pr_source.jpg/552x414bb.jpg"
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource113/v4/25/c5/86/25c58699-5be1-8f80-a99d-001079330559/6ba8b5b6-2a47-4bfb-ac16-7b85763df009_resized.iphone.png/406x228bb.png"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/scratchjr/id895485086",
@@ -1434,8 +1455,11 @@ export const games3to6: GameSeedData[] = [
     rating: 4.6,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/vGxpT2hwGVRR_6qxeWlrzu1kbuGd0EYAsZpnPgeNc_7VcMGR3yijjOG-gMubByn3OM0=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/vGxpT2hwGVRR_6qxeWlrzu1kbuGd0EYAsZpnPgeNc_7VcMGR3yijjOG-gMubByn3OM0=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/vGxpT2hwGVRR_6qxeWlrzu1kbuGd0EYAsZpnPgeNc_7VcMGR3yijjOG-gMubByn3OM0=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/AAHkX6IjYL_LihG-i7QFq5XBZ7XIbL1mq2UialPTxr2dl4difzPNV-lvULTQwwh7scs=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/3h7xdT0cgKa9Bw9TVYJ-8iHrfvgUeGbNZMdus-bFrIKSyzlXkbtA8Lc-iJojn6T7j1sX=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/j5CzDu3wBvshIiYTj37uIfdhQQSua7EA8-qvvP_nvXRd_uhL5N2WGzvdOXwyT9hJYchI=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/fzDUwpAregkP92p-bgoqhaKcvbYs1U91JloGuWokfsC4tvtfw8QjdQclW2i5u6swbPM=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/dr-ramasjang-krea/id6444935670",
@@ -1470,8 +1494,11 @@ export const games3to6: GameSeedData[] = [
     rating: 4.5,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/YOgoYOPtAsWsOcMZNgvLFwrzZj7RKEqWPciq02h_wEeyqvlBExPAjipvjBpz_3vVqn3KJIQOj6NMi1yBONQVWg=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/YOgoYOPtAsWsOcMZNgvLFwrzZj7RKEqWPciq02h_wEeyqvlBExPAjipvjBpz_3vVqn3KJIQOj6NMi1yBONQVWg=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/YOgoYOPtAsWsOcMZNgvLFwrzZj7RKEqWPciq02h_wEeyqvlBExPAjipvjBpz_3vVqn3KJIQOj6NMi1yBONQVWg=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/xGG4tnxcBw9XaQ88KjzMVnh79mBQqj-a8a78OwZtt4s88KNP9e_hmWKEZuCTCRQcdQ0=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/_yxRzO2mED0vs2x23ZPjqWYNVnvg88cHzni9hO45alnYTA7drakLMMCexo8OUcTLJB-R=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/20UrbIlEZTVjmPnjCRPPObGwhg4nTTP845Mq8rT-KGxxckrGRAYRghz8UMSt4A6ETTc=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/oWDnoRiedH9YB8pzUf43gl19NCeJWWOcBMWGMYHhXE_TWc2JU33VSHnshlnQmIvy6OE=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/dr-%C3%B8en/id1524587892",
@@ -1539,8 +1566,11 @@ export const games3to6: GameSeedData[] = [
     rating: 4.6,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/RuhPiQQKnrfQk8RXALp31YPvywT7xPWOnAzVHSQsVnzEWTOv3NhCTVlbzFCTOXfA6W4=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/RuhPiQQKnrfQk8RXALp31YPvywT7xPWOnAzVHSQsVnzEWTOv3NhCTVlbzFCTOXfA6W4=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/RuhPiQQKnrfQk8RXALp31YPvywT7xPWOnAzVHSQsVnzEWTOv3NhCTVlbzFCTOXfA6W4=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/N4ZCqrObq13asHg8DGQv3XizXrhI6G9ztshvofkKLgtKYUPsDkhSwuqitjh2O9Oouw=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/HruoNpPn6wLQGDK7kQTqeorN0UWL3lF5ARM-40GghOKeNK4SwCl6skzQP3HeWTJytfU=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/GnWF6nEHaDTIBIvOxU_d0spWU-yoirz77LJapexg0cs1lGzqBF5Xsn7s0Mfg6ALqmtAX=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/NCHpfcvme4HjctA0ObT0UmoZGIdg16TI8ISNVKZS6pxZDR0RD2p-sijiNjUrn1kSa8E=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/dr-naturspillet/id1524587894",
@@ -1917,8 +1947,11 @@ export const games3to6: GameSeedData[] = [
     rating: 4.4,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/R-dJcIvmUhdrwD7tlR4rQ-k8fWYzfXINb2cleVYH3b0y70qcvHCl55UvuhlA_Jc4CGI=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/R-dJcIvmUhdrwD7tlR4rQ-k8fWYzfXINb2cleVYH3b0y70qcvHCl55UvuhlA_Jc4CGI=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/R-dJcIvmUhdrwD7tlR4rQ-k8fWYzfXINb2cleVYH3b0y70qcvHCl55UvuhlA_Jc4CGI=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/F6rX-pmCpN4Byn8NoPchAkFECFJSpLBEy8LeslzBMl8SuBO6LO1Skd_-cZBRsUeV4Q=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/3k83l53mtRnsPIDpV6ERKqqzf_Xz1FGMY_mhwVhngNaKcDqjdSr5RDofx12sGmrt9fw=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/0LHx-bzh7DQI2K9mu0wpz8klGR4oZBFzMtWMW7CU_4VDVw6ibGaee9SIMpJctACd6j8=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/_HE189nyzmOY197v6UBhLDETI3HOmYeLrSHCgHyCu13xtA2owmNfrD_C8X3y_LvYaQ=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/toontastic-3d/id1145104532",
@@ -2215,8 +2248,11 @@ export const games7to10: GameSeedData[] = [
     rating: 4.7,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/k8xHEAXjTsfOe7Le1aV9F6t2_3it9IUoAR6adKfWOTBpfDVqPeUPiw6aZokhEimR4_4=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/k8xHEAXjTsfOe7Le1aV9F6t2_3it9IUoAR6adKfWOTBpfDVqPeUPiw6aZokhEimR4_4=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/k8xHEAXjTsfOe7Le1aV9F6t2_3it9IUoAR6adKfWOTBpfDVqPeUPiw6aZokhEimR4_4=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/Q5k_VLqBJzKntcS8Qz_IrolmsRLVD7ApaNnCmW-FshRIqzoThrCfpGzP88HZwJdVMgM=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/wd41vyUDL4EGWfIwodCBUpLfKbIp32QliVWW24wwMAAiuphBsfhqO-mW9YGRYbODAO87=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/Jnfn16a5QU9eNu9f_xiGr8qd-RNdTT6zWI2y7xC9JIo15gFpZdDxi9lv7RW37IWxZy8=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/RzypWR7GpFCXKWwW1iAD2FOCyWTbhnyQ_kxlAfl_ISnd_rD4f4Gtl8S0qwD9LWENgrFA=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/dragonbox-algebra-12/id634444186",
@@ -2331,9 +2367,7 @@ export const games7to10: GameSeedData[] = [
     screenshotUrls: [
       "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/0d/41/10/0d41105f-9acc-ed68-1bc1-b40df2ac206c/pr_source.png/406x228bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/e2/df/2c/e2df2cad-d235-9d3d-7b00-57f7dd3fbac4/pr_source.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/90/26/95/902695de-b573-7b72-499f-bdf92cd51944/pr_source.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/7a/7e/72/7a7e7222-abb2-7062-5024-1a200bcb4d87/pr_source.png/552x414bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/b1/72/1a/b1721a44-8f12-a017-6c6d-b940bd432909/pr_source.png/552x414bb.png"
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/90/26/95/902695de-b573-7b72-499f-bdf92cd51944/pr_source.png/406x228bb.png"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/lightbot-code-hour/id873943739",
@@ -2368,8 +2402,7 @@ export const games7to10: GameSeedData[] = [
     rating: 4.3,
     iconUrl: null,
     screenshotUrls: [
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource113/v4/25/c5/86/25c58699-5be1-8f80-a99d-001079330559/6ba8b5b6-2a47-4bfb-ac16-7b85763df009_resized.iphone.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/cb/37/c0/cb37c00b-5372-5892-2b15-ba5857599b99/pr_source.jpg/552x414bb.jpg"
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource113/v4/25/c5/86/25c58699-5be1-8f80-a99d-001079330559/6ba8b5b6-2a47-4bfb-ac16-7b85763df009_resized.iphone.png/406x228bb.png"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/scratchjr/id895485086",
@@ -2478,9 +2511,7 @@ export const games7to10: GameSeedData[] = [
     screenshotUrls: [
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d2/7d/b8/d27db8cf-bf5e-f082-6b2f-b49cc68a71ae/10e57183-f8a3-4537-a1af-3831715a1d86_Screen-1__U00282208x1242_U0029.png/406x228bb.png",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e1/15/4f/e1154f07-369d-f848-dcb2-23a350561bd6/a297cdef-af69-49a6-99fb-b08a2db61f52_Screen-2__U00282208x1242_U0029.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/54/25/21/54252174-1ebf-13e3-1c47-3955b2c9b1f0/440ec748-21d9-4868-9609-97a2c2555cae_Screen-3__U00282208x1242_U0029.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/47/8a/43/478a4359-e32b-0b47-4f12-e813ae9f3c0b/975f43c7-d32d-4d43-a9d7-ba6ff80735e4_iPad_Pro_-_00.png/552x414bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/19/8b/73/198b7304-142f-4242-e4bd-96c75dc7cffd/53766b26-c22d-4514-a807-040bacdf80ac_iPad_Pro_-_01.png/552x414bb.png"
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/54/25/21/54252174-1ebf-13e3-1c47-3955b2c9b1f0/440ec748-21d9-4868-9609-97a2c2555cae_Screen-3__U00282208x1242_U0029.png/406x228bb.png"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/geoguessr/id1049876497",
@@ -2632,8 +2663,11 @@ export const games7to10: GameSeedData[] = [
     rating: 4.6,
     iconUrl: null,
     screenshotUrls: [
-      "https://play-lh.googleusercontent.com/srX4P8iSR3lrhsj-t9RDehAN0-dU45T2JH-ahwHd28xINwSpGdNGjYLm-SPmONQX1s0=w600-h300-pc0xffffff-pd",
-      "https://play-lh.googleusercontent.com/srX4P8iSR3lrhsj-t9RDehAN0-dU45T2JH-ahwHd28xINwSpGdNGjYLm-SPmONQX1s0=w480-h960-rw"
+      "https://play-lh.googleusercontent.com/srX4P8iSR3lrhsj-t9RDehAN0-dU45T2JH-ahwHd28xINwSpGdNGjYLm-SPmONQX1s0=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/NqCrIzhBWikmyIe34RWyMWQXkAHStj6DLvEZmxCWTSYMnpLN1lS4eP6WC6Slsp5mpO0=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/jecCTEIZ3FqFUJpd8PFBU2HV8MkBkBKI5w2L2CFdEpAa5XLY2bRHfwdKxMtV2rRQ8IVy=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/KaVB6bJXgC2fQM0Ky0WCDIwX_M7rk8BXy4r-WbusWAM0aooYIziVmY-a8CYHxDelPso=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/3hvmO1QGn_LPPzMe6nJmAOgfphLQjCOrci_cr5CIadet9evIp_5BsfvC5PKB1CG-Wrk6=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/minecraft-education/id1466594262",
@@ -3308,11 +3342,11 @@ export const games11to15: GameSeedData[] = [
     rating: 4.8,
     iconUrl: null,
     screenshotUrls: [
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource124/v4/75/61/69/75616950-9f2d-2632-27d7-aa23242649bf/82d6e26c-b25a-40da-be0c-96cb952e87da_TheRoom_iPad_2020_01.jpg/552x414bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource124/v4/9a/f8/50/9af8506d-d34a-eb95-c562-fbaa931beae2/21226a5b-3c41-46fc-94f4-0048a4e766b1_TheRoom_iPad_2020_02.jpg/552x414bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource114/v4/58/52/ef/5852ef9a-b045-41a3-2692-e6375b8cd44a/ed83acf8-833d-4f65-b26f-c300fe5f375e_TheRoom_iPad_2020_03.jpg/552x414bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource114/v4/8b/e1/0b/8be10b99-4e9a-a879-965a-046e96febebe/fcb0718d-aa8f-47ef-9256-6ebc3bc09aaa_TheRoom_iPad_2020_04.jpg/552x414bb.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource124/v4/e2/70/bf/e270bfc5-d10b-6e13-4978-71a642729749/28034e43-8a3e-4fcd-93b4-e52b647ae1f5_TheRoom_iPad_2020_05.jpg/552x414bb.jpg"
+      "https://play-lh.googleusercontent.com/5nc0gBE_3fxx0nPKjTjF3O-l53tDiNaDGJjCGHqwXvb1Imsno1MDhcpYZYNEgC3vqs0=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/JzSdpq_Db66mHDYl037XS71J6zk2_JSxKG_qsSsAo2J3-XfKOTBKLWFJk8i2sTqMIqOW=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/AjnGSe4eieqbdQye7xAcZ7Jnmz_E6L6An9rFeK4e0aTeKfwVJsF5BakPPVOT99xqow=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/fqE4aDHHOSQp-ztyJbGrMCxUlRK2PE__aFTQF7nf6XrAqwXPzctSDlx4gzbm80OhXLvB=w1920-h1080-rw",
+      "https://play-lh.googleusercontent.com/KRbM9KYWeAhUbojbevaoWkoiC4gsW0OyINo6QiLGzqjsyl9qleDtWg-PrlMR8kNnncQ=w1920-h1080-rw"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/the-room/id552039496",
@@ -3347,11 +3381,11 @@ export const games11to15: GameSeedData[] = [
     rating: 4.7,
     iconUrl: null,
     screenshotUrls: [
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/23/28/59/232859fa-a52f-9194-01e8-e866b5d3c10e/en-GB-iOS-5.5-in-2.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/4c/31/df/4c31df14-42fa-b409-6404-21857cd5450c/en-GB-iOS-5.5-in-3.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/99/0b/79/990b7994-ad64-20f7-a34f-f79d4fda1f35/en-GB-iOS-5.5-in-4.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/3e/12/03/3e12038c-43b8-fbc6-f1b7-3dccb161b8cf/en-GB-iOS-5.5-in-5.png/406x228bb.png",
-      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/4c/d4/9e/4cd49e36-eb43-1e94-2b5d-5e0a86428a08/en-GB-iOS-5.5-in-6.png/406x228bb.png"
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d0/e3/c3/d0e3c3a3-9ad1-7109-73eb-6b7ddcd71d0f/en-US-iOS-5.5-in-1.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cd/03/20/cd03200e-02b6-3d75-4ddd-06220b3748dd/en-US-iOS-5.5-in-2.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7d/7d/50/7d7d5040-7aff-0dbd-6577-a3c97fa705d9/en-US-iOS-5.5-in-3.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/53/3a/11/533a11a3-c214-b613-a1ec-6be26a9a35f0/en-US-iOS-5.5-in-4.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6d/14/e7/6d14e716-8eba-6948-f4b3-3f6113cfdec1/en-US-iOS-5.5-in-5.png/406x228bb.png"
     ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/mini-metro/id837860959",
