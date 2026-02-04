@@ -254,10 +254,11 @@ async function updateGamesSeedFile(media: ApprovedMedia[]): Promise<void> {
   let updateCount = 0;
 
   for (const item of media) {
-    // Find the game in the seed file
-    const gamePattern = new RegExp(
-      `(slug:\\s*["']${item.slug}["'],\\s*\\n[\\s\\S]*?)` +
-      `(screenshotUrls:\\s*\\[)[^\\]]*\\]`,
+    let gameUpdated = false;
+
+    // Pattern to find and replace screenshotUrls
+    const screenshotsPattern = new RegExp(
+      `(slug:\\s*"${item.slug}"[\\s\\S]*?screenshotUrls:\\s*)(\\[[^\\]]*\\])`,
       'g'
     );
 
@@ -265,15 +266,15 @@ async function updateGamesSeedFile(media: ApprovedMedia[]): Promise<void> {
       ? '[\n      ' + item.screenshotUrls.map(url => `"${url}"`).join(',\n      ') + '\n    ]'
       : '[]';
 
-    // Replace screenshots
-    const newContent = content.replace(gamePattern, (match, prefix, screenshotsPrefix) => {
-      return prefix + screenshotsPrefix + screenshotsArray.substring(1); // Remove leading [
+    const beforeScreenshots = content;
+    content = content.replace(screenshotsPattern, (match, prefix, oldArray) => {
+      gameUpdated = true;
+      return prefix + screenshotsArray;
     });
 
-    // Replace video URL
+    // Pattern to find and replace videoUrl
     const videoPattern = new RegExp(
-      `(slug:\\s*["']${item.slug}["'],\\s*\\n[\\s\\S]*?)` +
-      `(videoUrl:\\s*)([^,\\n]+)`,
+      `(slug:\\s*"${item.slug}"[\\s\\S]*?videoUrl:\\s*)(null|"[^"]*")`,
       'g'
     );
 
@@ -281,11 +282,15 @@ async function updateGamesSeedFile(media: ApprovedMedia[]): Promise<void> {
       ? `"${item.videoUrl}"`
       : 'null';
 
-    content = newContent.replace(videoPattern, (match, prefix, videoPrefix) => {
-      return prefix + videoPrefix + videoValue;
+    const beforeVideo = content;
+    content = content.replace(videoPattern, (match, prefix, oldValue) => {
+      if (oldValue !== videoValue) {
+        gameUpdated = true;
+      }
+      return prefix + videoValue;
     });
 
-    if (newContent !== content) {
+    if (gameUpdated) {
       updateCount++;
       console.log(`✓ Updated: ${item.slug}`);
     }

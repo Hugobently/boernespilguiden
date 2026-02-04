@@ -6,6 +6,7 @@ import { getAgeLabel } from '@/lib/utils';
 import { parseJsonArray, Platform, DataCollection, PriceModel } from '@/lib/types';
 import { GameCard, ParentInfoExpanded, VideoPlayer, ExpandableDescription } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
+import { ScreenshotGallery } from '@/components/games/GameDetailComponents';
 import { getGameWithTranslation, getGamesWithTranslation } from '@/lib/translations';
 import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 
@@ -123,6 +124,7 @@ export default async function GameDetailPage({ params }: PageProps) {
   const pros = game.pros || [];
   const cons = game.cons || [];
   const themes = parseJsonArray<string>(game.themes);
+  const screenshots = parseJsonArray<string>(game.screenshots);
 
   // Get related games with translations
   const allGames = await getGamesWithTranslation(
@@ -338,6 +340,17 @@ export default async function GameDetailPage({ params }: PageProps) {
             <div className="prose prose-lg max-w-none">
               <ExpandableDescription description={game.description} maxLength={400} />
             </div>
+
+            {/* Screenshots Gallery */}
+            {screenshots.length > 0 && (
+              <div>
+                <h2 className="text-lg font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
+                  <span className="text-2xl">📸</span>
+                  <span>Screenshots</span>
+                </h2>
+                <ScreenshotGallery screenshots={screenshots} title={game.title} />
+              </div>
+            )}
 
             {/* Video (if available) */}
             {game.videoUrl && (

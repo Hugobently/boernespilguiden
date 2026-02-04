@@ -226,7 +226,10 @@ export const games0to3: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/0_0O6ivS_Kn9LpPyx4zJiM0yGDZVKDEBE9KOOcn7ka9tPTxanAgsuNCG3_DZsX5NFaw=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/0_0O6ivS_Kn9LpPyx4zJiM0yGDZVKDEBE9KOOcn7ka9tPTxanAgsuNCG3_DZsX5NFaw=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/toca-hair-salon-4/id1447696286",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.tocaboca.tocahairsalon4",
@@ -259,7 +262,10 @@ export const games0to3: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/LfUnZ0XOfIE97EBq9Ih1Pz_hNeV4yZp9vpIm9XY0jUbnkXFfxHwqNIUo13eU1x_vYJU=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/LfUnZ0XOfIE97EBq9Ih1Pz_hNeV4yZp9vpIm9XY0jUbnkXFfxHwqNIUo13eU1x_vYJU=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/toca-kitchen-2/id946691809",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.tocaboca.tocakitchen2",
@@ -424,7 +430,10 @@ export const games0to3: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/YpAAbUxam3oP6-GUvoxp8daf7k_gHIIwobVuZ8KVnbJsgw5YqEBKH3zYvsqXJju8t8He4WBjsTQf6SGVgdwh=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/YpAAbUxam3oP6-GUvoxp8daf7k_gHIIwobVuZ8KVnbJsgw5YqEBKH3zYvsqXJju8t8He4WBjsTQf6SGVgdwh=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/bluey-lets-play/id1509034599",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.budgestudios.googleplay.BlueyBLU",
@@ -457,7 +466,10 @@ export const games0to3: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.5,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/5GAY0m8RCWstszXNQ4aGAHCX1Mhq2h2cziHVPnrUBX9CtRGLscGDojf6O316ZAwpgmShJTmv4Bz1qshzoNrq=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/5GAY0m8RCWstszXNQ4aGAHCX1Mhq2h2cziHVPnrUBX9CtRGLscGDojf6O316ZAwpgmShJTmv4Bz1qshzoNrq=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/paw-patrol-rescue-world/id1551375407",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.budgestudios.googleplay.PawPatrolRescueWorld",
@@ -523,7 +535,13 @@ export const games0to3: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/cb/2d/c5/cb2dc584-bb6e-080d-22d3-66123ca024c9/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/ae/85/81/ae8581f0-26da-ce00-899c-21f7d80c091d/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/f5/40/af/f540afcc-ac97-d7c3-bac4-e1ffb2744272/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/f7/b8/cc/f7b8cc98-c274-2495-5a52-475235d71f4e/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource124/v4/96/ef/ed/96efede2-9275-329a-9864-7aca33df2a3a/212a0ce4-3f92-41b1-9fe9-dedad658364a_IMG_0339.PNG/552x414bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/peekaboo-barn/id300590611",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.nightanddayapps.peekaboobarn",
@@ -556,7 +574,10 @@ export const games0to3: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.9,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/C0PQwjCrlBaaMVu4qh50nrEu218f3uXONAjzphDcYejB3L82HaIsnyq048cVZ68DKh0m=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/C0PQwjCrlBaaMVu4qh50nrEu218f3uXONAjzphDcYejB3L82HaIsnyq048cVZ68DKh0m=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/moka-mera-lingua/id1581252687",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.mokamera.mokameralingua",
@@ -589,7 +610,10 @@ export const games0to3: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.5,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/eOaDdmdFi8VoxtsqrZooh6iqSz78cs9NFwhA1aOqclMvXCYd3NCcnUuCAAVOyo66HU8akqbq7R94ZXaVK-rVPw=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/eOaDdmdFi8VoxtsqrZooh6iqSz78cs9NFwhA1aOqclMvXCYd3NCcnUuCAAVOyo66HU8akqbq7R94ZXaVK-rVPw=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/alpa-kids-denmark/id1544671234",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.ALPAKids.Denmark",
@@ -695,7 +719,10 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.9,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/RtVJJhdVDomiA1202KAciJHccP8HSj7jxVPmfJtSjCns7LFk0EMq9UVKPi-ntKqERFmSkDUtY74ybY-8mwmEiA=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/RtVJJhdVDomiA1202KAciJHccP8HSj7jxVPmfJtSjCns7LFk0EMq9UVKPi-ntKqERFmSkDUtY74ybY-8mwmEiA=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/khan-academy-kids/id1378467217",
     playStoreUrl: "https://play.google.com/store/apps/details?id=org.khankids.android",
@@ -728,7 +755,13 @@ export const games3to6: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/1e/df/36/1edf3607-3f8f-b639-3874-459e31150028/mzl.wusgzttc.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/c3/73/1e/c3731ea3-5ab2-7156-7ccd-16c14c8453b5/mzl.bsabawqw.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/49/09/d4/4909d46c-a58d-fad0-c598-2116de3c25dc/mzl.ngddpsjo.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/36/d3/42/36d342e7-026b-a7cf-8d3a-ac09a69d8c69/mzl.jicmoapm.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/51/ff/23/51ff2331-403d-c3f8-7bf2-ab043d1482cc/mzl.mvxucdof.png/552x414bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/endless-alphabet/id591626572",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.originatorkids.EndlessAlphabet",
@@ -761,7 +794,13 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/be/c8/3e/bec83ed1-c7a0-340a-56be-10dc211d2a57/63d22b57-0391-4008-b114-5e2c1a4b4df7_Duolingo_Inc_Duolingo_US_iOS_5.5_Inch_Screenshot_Mockups_220503-1.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/e0/6d/19/e06d19b9-893a-0c27-5905-2c0bfa8852b1/bfded329-6712-4e55-88ec-6bbf7605e63f_Duolingo_Inc_Duolingo_US_iOS_5.5_Inch_Screenshot_Mockups_220503-2.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/30/a0/d6/30a0d6ef-5c82-6824-5c23-0256eddf2432/bd3e02db-78cd-427d-ae3a-4ada6d18e6ce_Duolingo_Inc_Duolingo_US_iOS_5.5_Inch_Screenshot_Mockups_220503-3.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/c3/b0/63/c3b0635f-70ed-113e-e24f-1d848c376a8f/cff23522-8cef-48e8-874d-6587360ab28d_Duolingo_Inc_Duolingo_US_iOS_5.5_Inch_Screenshot_Mockups_220503-4.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/40/19/93/4019933c-54f8-55c5-f1c1-8561d38576de/b93347f1-612f-4c14-9f8f-f8ba8eb2289e_Duolingo_Inc_Duolingo_US_iOS_5.5_Inch_Screenshot_Mockups_220503-5.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/duolingo-abc-learn-to-read/id1440502568",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.duolingo.literacy",
@@ -827,7 +866,10 @@ export const games3to6: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/UHryL-7W2yoA92NAfKpwoPIaW9N1u1hhTCtGkppyafgRfpKSYMS3bnoPmouHk1F0X5sHeoStf3cbD7_yCYBU4w=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/UHryL-7W2yoA92NAfKpwoPIaW9N1u1hhTCtGkppyafgRfpKSYMS3bnoPmouHk1F0X5sHeoStf3cbD7_yCYBU4w=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/toca-life-world/id1208138685",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.tocaboca.tocalifeworld",
@@ -860,7 +902,13 @@ export const games3to6: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4a/e5/43/4ae54382-d768-6733-9830-3579f11e66f0/pr_source.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/e5/6f/e4e56f99-a4d7-66ea-7108-4398cc9d2ebf/pr_source.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/76/cb/87/76cb87db-509e-b5cd-a4eb-947b03f01616/pr_source.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6d/77/b1/6d77b188-6c1e-0d19-b831-06bd6459f8b2/1282fd7b-6e21-44d9-a766-c7c4d134a65d_Factory.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c2/53/d2/c253d29d-ad3e-be7d-5e4a-cb3c16061aa0/55a11000-cc5b-4527-b83b-c3ab547f24de_Creative_Mode_iOS_Trailer_16-9.00_00_10_03.Still002_2.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/lego-builders-journey/id1441636691",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.lego.legobuildersjourney",
@@ -959,7 +1007,13 @@ export const games3to6: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/30/fc/7c/30fc7c85-588f-8d91-c7a2-32ae896ee98a/mzl.oimmtofe.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4f/90/25/4f90251a-b60f-1cc4-c8e1-6aabf65d99af/mzl.vfjwtuit.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1b/e1/b8/1be1b862-9351-f40c-9745-cfd4a14b57f4/mzl.vvyhrkoc.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/bc/81/e1bc817b-6930-6128-0181-fa13f05b6ae6/mzl.qjaxcnaj.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ef/ab/1d/efab1d3e-17d1-ca51-a5aa-4e92a364151b/mzl.neyjfapp.jpg/406x228bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/teach-your-monster-to-read/id828392046",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.teachyourmonster.tmreader",
@@ -1190,7 +1244,10 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.5,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource113/v4/25/c5/86/25c58699-5be1-8f80-a99d-001079330559/6ba8b5b6-2a47-4bfb-ac16-7b85763df009_resized.iphone.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/cb/37/c0/cb37c00b-5372-5892-2b15-ba5857599b99/pr_source.jpg/552x414bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/scratchjr/id895485086",
     playStoreUrl: "https://play.google.com/store/apps/details?id=org.scratchjr.android",
@@ -1223,7 +1280,13 @@ export const games3to6: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f9/18/77/f91877ea-4381-92e6-2f5a-962e93b66466/5260c623-e862-4fbd-8779-f5ed17acaa7a_Mobile_Video_CoverNew.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b6/06/c2/b606c24a-c742-7576-21e8-b92c1d0329a4/9ff58ddb-9cfc-4988-9e0a-3e9d3bdd8192_Mobile_Small_1.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/39/95/cf/3995cf75-2e52-e6f3-4832-fd17a0b5578e/8aec022b-7b68-483b-a988-ebd3195c0e44_Mobile_Small_2.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1e/1c/56/1e1c5600-55cd-45c2-eae6-65a7d5a534c4/3c80ca39-49ed-4078-98f8-d4bbd9724e3e_Mobile_Small_3.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/36/36/47/363647ca-6f20-3772-5bee-1807eb9f801f/f05fa111-fb4b-4a8b-8401-1823989fd384_Mobile_Small_4.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/kodable/id577673067",
     playStoreUrl: null,
@@ -1292,7 +1355,13 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ad/b2/20/adb2201a-8c07-ba54-9358-ab39c2bd07dc/001a668d-7cbc-435b-bf38-13e05b08224a_1242x2208_01.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cc/ce/cc/ccceccd6-5c91-0736-0ce1-a022ea08720a/5c6a9712-8df4-4617-a4d6-a9bb252c0d41_RamaLEG_5_5_1242x2208_02.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/dc/bf/b6/dcbfb671-4958-d1ab-5b9b-e93a66d31a49/59fb026e-bb72-4ffb-87e4-90d9141eab8d_RamaLEG_5_5_1242x2208_03.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/18/fe/0e/18fe0ec8-5410-107e-e071-e51a4c168fce/cb8cfe2b-60e2-4591-8bd6-8312f98f410e_RamaLEG_5_5_1242x2208_04-1.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/cc/9d/71/cc9d71dc-6852-a8e8-fb91-5ff70f1c3f4e/da172411-33b2-49fa-a379-d3764ae5dfa3_RamaLEG_5_5_1242x2208_04.jpg/406x228bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/dr-ramasjang-leg/id6444935650",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.dr.ramasjang.android.leg",
@@ -1325,7 +1394,13 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.8,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/dc/45/56/dc455666-4a80-300a-5ad8-5a426ee4d9bf/2fe6abfe-0df8-4fde-b54d-bb0caa465b51_1242x2208_01.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a6/7a/68/a67a68f2-ad6c-9c78-702b-f12a72028b5f/4cf75b49-288c-4a9e-82f9-4a1bf0ced333_RamaLAER_5_5_1242x2208_02_2.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/45/48/9f/45489ff2-092e-88fd-97df-87e30b8aa4b0/95d97123-f7e1-44f9-b689-c7fc87fe9776_RamaLAER_5_5_1242x2208_03_2.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/73/28/c1/7328c103-1080-23a1-dfb3-ef0486d23ce1/f5c35d90-4858-4df6-9da4-55413a65b199_RamaLAER_5_5_1242x2208_04_2.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3a/b3/d8/3ab3d8c9-4eec-a4b2-4e33-f9a654158fab/8bdf6df7-a7fa-4ea5-83db-70faef39bdfb_RamaLAER_5_5_1242x2208_04-1_2.jpg/406x228bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/dr-ramasjang-l%C3%A6r/id6444935660",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.dr.ramasjang.android.laer",
@@ -1358,7 +1433,10 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/vGxpT2hwGVRR_6qxeWlrzu1kbuGd0EYAsZpnPgeNc_7VcMGR3yijjOG-gMubByn3OM0=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/vGxpT2hwGVRR_6qxeWlrzu1kbuGd0EYAsZpnPgeNc_7VcMGR3yijjOG-gMubByn3OM0=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/dr-ramasjang-krea/id6444935670",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.dr.ramasjang.android.krea",
@@ -1391,7 +1469,10 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.5,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/YOgoYOPtAsWsOcMZNgvLFwrzZj7RKEqWPciq02h_wEeyqvlBExPAjipvjBpz_3vVqn3KJIQOj6NMi1yBONQVWg=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/YOgoYOPtAsWsOcMZNgvLFwrzZj7RKEqWPciq02h_wEeyqvlBExPAjipvjBpz_3vVqn3KJIQOj6NMi1yBONQVWg=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/dr-%C3%B8en/id1524587892",
     playStoreUrl: "https://play.google.com/store/apps/details?id=dk.dr.oespillet",
@@ -1457,7 +1538,10 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/RuhPiQQKnrfQk8RXALp31YPvywT7xPWOnAzVHSQsVnzEWTOv3NhCTVlbzFCTOXfA6W4=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/RuhPiQQKnrfQk8RXALp31YPvywT7xPWOnAzVHSQsVnzEWTOv3NhCTVlbzFCTOXfA6W4=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/dk/app/dr-naturspillet/id1524587894",
     playStoreUrl: "https://play.google.com/store/apps/details?id=dk.dr.naturspillet",
@@ -1754,7 +1838,13 @@ export const games3to6: GameSeedData[] = [
     priceModel: "abonnement",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/08/d5/50/08d550f4-052e-2a8e-e66e-f999f8d42c6c/4c439b6c-2def-42f6-a291-6ecb395f8815_h2o83VG0.jpeg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/29/78/6f/29786f01-4811-4cf0-71b7-57e70e6d13ec/1106291e-752c-49ea-9c4f-e789555f2838_screen_1242x2208_11screens_2021_11_02.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b2/cc/a7/b2cca75b-6e01-6b23-d6ab-69486634ad2d/54edfad3-9a66-4adb-a74b-e3f17a95369b_screen_1242x2208_11screens_2021_11_03.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/28/a0/4f/28a04f29-4105-fa3d-ac30-10b746d83ddf/efa9bf8f-93d1-4149-811d-293dced79b8e_YL5qAbM4.jpeg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/74/60/4a/74604ac2-eac8-390f-a50d-0a2b7c02eaac/0617bef1-df35-422b-a967-6cf3d9001a33_screen_1242x2208_11screens_2021_11_07.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/codespark-academy/id923441570",
     playStoreUrl: "https://play.google.com/store/apps/details?id=org.codespark.thefoos",
@@ -1787,7 +1877,13 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.5,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/bd/64/62/bd6462e9-642c-5cc6-7a61-49295c1dfed6/pr_source.png/552x414bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/99/bc/c7/99bcc777-7e52-ea1b-a3d3-64d44f69bf8a/pr_source.png/552x414bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/14/b8/b5/14b8b53d-ef2d-1e37-ca47-914721363b8d/pr_source.png/552x414bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/5a/fd/e3/5afde3ac-92ec-7401-6f66-7212913de3ac/pr_source.png/552x414bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/27/9e/4a/279e4a9b-b3b7-eb1e-a011-2265e60a6bc9/pr_source.png/552x414bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/draw-and-tell-hd/id504752087",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.duckduckmoose.drawandtellhd",
@@ -1820,7 +1916,10 @@ export const games3to6: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.4,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/R-dJcIvmUhdrwD7tlR4rQ-k8fWYzfXINb2cleVYH3b0y70qcvHCl55UvuhlA_Jc4CGI=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/R-dJcIvmUhdrwD7tlR4rQ-k8fWYzfXINb2cleVYH3b0y70qcvHCl55UvuhlA_Jc4CGI=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/toontastic-3d/id1145104532",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.google.toontastic",
@@ -1959,7 +2058,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.8,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/47/6f/07476fcd-1ecf-18ca-e7f7-364d6c6cd5e1/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/74/a6/ed/74a6ed67-e5e9-a1ae-3233-225b651d6bf0/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/be/4f/92/be4f92ef-8b4b-94e3-cd78-da32db4193b0/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/64/03/ee/6403eee1-4fbf-6b89-d2ec-6fc410182689/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1f/6b/4e/1f6b4ef1-3ebb-526a-b6fb-a0d1301e30df/b66be1fb-63e6-48ee-b33e-201f6e5229b1_TrailsAndTales_Apple_2208x1242_EN.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/minecraft/id479516143",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.mojang.minecraftpe",
@@ -1992,7 +2097,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.9,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/2b/04/cd/2b04cdd4-23fd-ea6d-242f-412bf2133b62/mzl.jlehdvtb.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/3e/0b/28/3e0b28d8-fd8f-0c1e-ee12-ff9475cbcf67/mzl.anpxljma.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/2b/55/52/2b5552ed-8234-50cf-9feb-60a695e9d2dd/mzl.afvgtstf.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/9a/45/d1/9a45d1dc-3d26-b274-fa1f-87f7d46ea33c/mzl.lahsahln.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/4b/4d/ec/4b4decc2-5990-5b78-45ac-21995a72d4e9/mzl.oomtazum.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/monument-valley-2/id1187265767",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.ustwo.monumentvalley2",
@@ -2025,7 +2136,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/1f/ce/60/1fce60a2-559b-1dbf-1713-83d898961f12/mzl.srddlboz.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/24/54/20/245420f0-e85d-472b-fa22-7b18029e0fc4/mzl.pcoafrwm.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/71/5b/a7/715ba78f-2314-c401-b6cf-8603196a6b22/mzl.dgdnpugp.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/8f/1d/42/8f1d42fa-dd0b-7142-949e-08f3d8b0a384/mzl.rtzgkrph.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/85/fd/1f/85fd1f2f-8d99-0a04-fc94-1706a3bb6a79/mzl.prsjrklf.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/human-resource-machine/id1005098334",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.tomorrowcorporation.humanresourcemachine",
@@ -2058,7 +2175,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/d3/f1/39/d3f1392c-b56c-220c-721e-5785109d6b6e/pr_source.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/66/90/4e/66904e98-2fa9-f546-3067-7c9fa2a841aa/pr_source.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/16/5d/47/165d4798-0cb7-d64a-fe3f-2844f5061a4c/pr_source.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/75/7f/40/757f40ea-ef49-55ea-49db-5877897c99ae/pr_source.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/c6/04/bc/c604bceb-baf3-2e00-4f7f-92c598375784/pr_source.jpg/392x696bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/dragonbox-numbers/id1005050125",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.kahoot.dragonboxnumbers",
@@ -2091,7 +2214,10 @@ export const games7to10: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/k8xHEAXjTsfOe7Le1aV9F6t2_3it9IUoAR6adKfWOTBpfDVqPeUPiw6aZokhEimR4_4=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/k8xHEAXjTsfOe7Le1aV9F6t2_3it9IUoAR6adKfWOTBpfDVqPeUPiw6aZokhEimR4_4=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/dragonbox-algebra-12/id634444186",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.kahoot.algebra12",
@@ -2124,7 +2250,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/cf/6f/a4/cf6fa4ba-fac9-8077-ac7a-1526ee6ebc26/pr_source.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/de/39/a7/de39a778-f5f8-8e0f-c357-b9c33816f579/pr_source.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/50/a5/a1/50a5a1b1-985b-84c1-bdbd-f693b48c9c36/pr_source.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/3a/23/a6/3a23a683-dfe9-71c4-b5c0-a0d9e2756a90/pr_source.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/97/87/55/97875510-1165-8912-62cd-561730c90818/pr_source.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/stack-the-states/id381342267",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.dan.stackthestates",
@@ -2157,7 +2289,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.5,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d3/14/e0/d314e07d-ef6e-f4e0-1be0-1d3554d578d7/8ab931a1-9e2b-4177-82f6-3fe561ef25f9_Apple_App_Store_iPhone_8_and_older_1.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/52/a3/b2/52a3b222-6b4f-4d3c-f817-b55b21f9604d/b49ee591-13e5-4e47-949d-9b377b4ae07e_Apple_App_Store_iPhone_8_and_older_2.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/8a/ed/3d/8aed3d5e-9f3c-62bf-bae3-fea0dccfdfdf/03f5d150-886b-4af8-8f42-ac28131f1b73_Apple_App_Store_iPhone_8_and_older__3.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e4/4b/c0/e44bc0c8-9c29-2fe8-e90e-244d25c50f24/b9881ef5-521c-4976-a0b2-f2ce0616ca50_Apple_App_Store_iPhone_8_and_older_4.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/51/51/74/5151749f-cea8-f9de-25af-07293218b944/ece31b00-49ee-4e29-a6cb-c11a5851d443_Apple_App_Store_iPhone_8_and_older_5.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/prodigy-math-game/id950795722",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.prodigygame.prodigy",
@@ -2190,7 +2328,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/0d/41/10/0d41105f-9acc-ed68-1bc1-b40df2ac206c/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/e2/df/2c/e2df2cad-d235-9d3d-7b00-57f7dd3fbac4/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/90/26/95/902695de-b573-7b72-499f-bdf92cd51944/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/7a/7e/72/7a7e7222-abb2-7062-5024-1a200bcb4d87/pr_source.png/552x414bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/b1/72/1a/b1721a44-8f12-a017-6c6d-b940bd432909/pr_source.png/552x414bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/lightbot-code-hour/id873943739",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.lightbot.lightbothoc",
@@ -2223,7 +2367,10 @@ export const games7to10: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.3,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource113/v4/25/c5/86/25c58699-5be1-8f80-a99d-001079330559/6ba8b5b6-2a47-4bfb-ac16-7b85763df009_resized.iphone.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/cb/37/c0/cb37c00b-5372-5892-2b15-ba5857599b99/pr_source.jpg/552x414bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/scratchjr/id895485086",
     playStoreUrl: "https://play.google.com/store/apps/details?id=org.scratchjr.android",
@@ -2256,7 +2403,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.8,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/33/04/20/330420c1-d16f-8fd8-6988-13eba3fc952a/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/df/ab/b3/dfabb35e-f532-f10b-2239-f56c974e7b77/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/dc/52/88/dc52887b-3075-7fd7-4b0a-710451ed3c4c/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/01/41/be/0141bee0-3599-b6df-93e3-6703e335739f/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/2b/35/0a/2b350a9a-a470-6240-9f4d-b5939f7d7bb4/pr_source.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/altos-odyssey/id1182456409",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.noodlecake.altosodyssey",
@@ -2322,7 +2475,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d2/7d/b8/d27db8cf-bf5e-f082-6b2f-b49cc68a71ae/10e57183-f8a3-4537-a1af-3831715a1d86_Screen-1__U00282208x1242_U0029.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e1/15/4f/e1154f07-369d-f848-dcb2-23a350561bd6/a297cdef-af69-49a6-99fb-b08a2db61f52_Screen-2__U00282208x1242_U0029.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/54/25/21/54252174-1ebf-13e3-1c47-3955b2c9b1f0/440ec748-21d9-4868-9609-97a2c2555cae_Screen-3__U00282208x1242_U0029.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/47/8a/43/478a4359-e32b-0b47-4f12-e813ae9f3c0b/975f43c7-d32d-4d43-a9d7-ba6ff80735e4_iPad_Pro_-_00.png/552x414bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/19/8b/73/198b7304-142f-4242-e4bd-96c75dc7cffd/53766b26-c22d-4514-a807-040bacdf80ac_iPad_Pro_-_01.png/552x414bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/geoguessr/id1049876497",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.geoguessr.app",
@@ -2355,7 +2514,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.5,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cd/7b/32/cd7b3246-208f-ff67-2c9c-a750c08eb1ec/c5ec8596-442d-4ac5-a404-a534662534b2_1.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4a/ad/f1/4aadf16c-fbdc-acd3-0387-b01cfefb11bb/ded9896f-937d-4384-af3d-67a8a993831c_2.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/28/6c/d5/286cd5d9-bb64-0f63-b65e-e8ebc847902e/f3799004-30c1-4390-b27c-139021d25584_3.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/fb/de/9d/fbde9d4b-5391-9507-cec3-882c38817b26/e03ae422-fcd8-4ce4-9204-a56c0ad25324_4.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e7/91/7b/e7917b48-4ade-24d4-ebce-640bae9a289a/7c2324ef-2182-4831-89c4-1b4dc3681b9b_5.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/tynker-coding-for-kids/id805869467",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.tynker.Tynker",
@@ -2388,7 +2553,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.5,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/20/d0/8e/20d08e01-07c6-edd9-82b5-f9f8cc0e805f/667598b5-ea48-4246-8672-38b0f2652063_iPhone8Plus-screenshots-1@3x.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/f9/bc/b3/f9bcb334-a1e9-a299-e8f6-6dda3cfacbd2/6fea2c6e-e975-4d7a-87cb-138d4a336510_iPhone8Plus-screenshots-2@3x.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/03/9b/57/039b5784-8fdf-7dae-f015-f4c3672df2ca/43493fa6-9a9c-4eef-80f0-4554c4b5175f_iPhone8Plus-screenshots-3@3x.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/11/fe/06/11fe06a2-700d-64dd-d2f1-9555ca9a1914/4546cb70-6a35-4ebf-b438-a7941552cf56_iPhone8Plus-screenshots-4@3x.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/79/7a/10/797a1046-7107-0bd1-b306-d3193ccd3f2d/35d92d89-a0b1-4ed8-ba0e-1d544aaf03c0_iPhone8Plus-screenshots-5@3x.jpg/392x696bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/hopscotch-programming-for-kids/id617098629",
     playStoreUrl: null,
@@ -2421,7 +2592,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.4,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1c/4c/3e/1c4c3e7e-fced-ca89-b294-96a2b3d3550e/e1d126fa-8809-43fc-9d74-1ac0e5477cb8_Frame_1.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0a/f1/45/0af145b4-3d03-20f7-f04d-332986dba7fc/eb88e366-6810-4d37-963c-37eaaf72bbae_Frame_2.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/dd/30/fa/dd30fa1d-45a9-3835-2bfc-9d220b0647e3/ace0d6cc-577d-44b4-804a-e6a7a3f82e56_Frame_3.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/30/83/7b/30837bc9-55c7-b0a4-84ab-292d24d7b13d/99a8acc6-cc70-4514-94c7-3138dea33250_Frame_4.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a8/20/2a/a8202a6e-a175-752e-9f94-817f138d2934/2bbb739f-c39b-480f-875d-bb759a60d9a8_Frame_5.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/brainpop-jr-movie-of-the-week/id364894352",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.brainpop.brainpopjrmotw",
@@ -2454,7 +2631,10 @@ export const games7to10: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://play-lh.googleusercontent.com/srX4P8iSR3lrhsj-t9RDehAN0-dU45T2JH-ahwHd28xINwSpGdNGjYLm-SPmONQX1s0=w600-h300-pc0xffffff-pd",
+      "https://play-lh.googleusercontent.com/srX4P8iSR3lrhsj-t9RDehAN0-dU45T2JH-ahwHd28xINwSpGdNGjYLm-SPmONQX1s0=w480-h960-rw"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/minecraft-education/id1466594262",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.mojang.minecraftedu",
@@ -2520,7 +2700,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "gratis",
     rating: 4.8,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f0/70/b1/f070b177-0f34-8a2b-8888-a49f1a2e15d6/1_Apple5.5_ReachingOut-clean_2208x1242_2404.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9d/7e/19/9d7e1932-4008-e187-ba1c-d91b8d530d1e/3_Apple5.5-DawnTemple_2208x1242_2404.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/eb/f0/b1/ebf0b158-2430-a726-f386-e27d4efc8eb6/5_Apple5.5_FlyingSunset-clean_2208x1242_2404.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d4/74/dc/d474dcf0-6a73-725e-bd31-b06811d2c77e/6_Apple5.5-KrillAction-cleant_2208x1242_2404.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/85/f0/0f/85f00f25-e969-f797-b75e-645c722d0858/4_Apple5.5_PeaksBonfire_2208x1242_2412.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/sky-children-of-the-light/id1462117269",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.tgc.sky.android",
@@ -2553,7 +2739,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/84/90/60/849060ea-d418-6f05-51e7-f41c57aa59ca/iphone55-portrait-1.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/e5/3b/e5/e53be50e-56ed-df31-2c5c-53d2abf16961/iphone55-portrait-2.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/36/55/64/36556411-5e86-eebd-2da5-d47f0aa2baad/iphone55-portrait-3.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/79/50/4d/79504dc0-2561-36f5-0439-4dbee1ac2ee1/iphone55-portrait-4.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/79/b8/1d/79b81de5-55b6-6b3f-5a82-0b14e1e51c29/iphone55-portrait-5.jpg/392x696bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/the-gardens-between/id1371965583",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.TheBit.TheGardensBetween",
@@ -2586,7 +2778,13 @@ export const games7to10: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.8,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/1b/2d/b0/1b2db0e0-db0f-015e-bd5e-86d03666b571/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/69/f1/39/69f13983-c81a-e981-f77b-ad2d328513a5/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/59/8b/8b/598b8b6c-8d87-978d-71ad-6d7c7080e2d6/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/0b/00/5d/0b005d58-c1da-7aea-6eb4-a61cc70f2778/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/8e/be/95/8ebe953b-e290-17a8-5037-291b6770286a/pr_source.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/gorogoa/id1269225754",
     playStoreUrl: "https://play.google.com/store/apps/details?id=unity.Annapurna.Gorogoa",
@@ -2860,7 +3058,13 @@ export const games11to15: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/b4/51/25/b451255e-dd46-ef30-25a9-c8f26485395c/mzl.msqjzxcc.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/08/f4/a4/08f4a4cb-994f-e0fa-4697-b73dd9e3404c/ce5f5227-871c-4553-9cc2-6a9d3ddfd33a_5.5_Inch_Screenshot.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/6c/75/f5/6c75f5e8-2cda-78a7-b870-d0690db6f575/55d72910-2ec9-419f-bc58-175404fe1821_5.5in-screenshot-dlc.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/82/bb/9d/82bb9d31-a213-cadb-a2fa-85530b3ac919/a1126252-6367-461e-a6d0-bb226cd75e77_CivilizationVI_Screenshot_iOS_5.5_iPhoneNoNotch_AwardWinning.jpg/406x228bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/1a/49/9f/1a499f01-b34b-c25f-d80a-bcdda805150b/803f9618-81ea-4f75-a70f-13d54a96c4ac_CivilizationVI_Screenshot_iOS_5.5_iPhoneNoNotch_AllPlayers.jpg/406x228bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/civilization-vi/id1235863443",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.aspyr.civvi",
@@ -2959,7 +3163,13 @@ export const games11to15: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.9,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/09/63/ce/0963ce76-2716-5972-16ff-5962d26481af/mzl.sdanjtqz.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/92/bb/9a/92bb9a89-44bc-5ac0-44ed-41bc1142c5cf/pr_source.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/96/8f/32/968f32b5-5240-b233-12cf-a5496eb3e832/mzl.bheuglqf.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/59/94/11/5994115d-cf5a-d040-3cf6-4ea841dc8b95/mzl.pdcbsbmy.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/47/03/78/4703784a-936b-3101-ab5a-eb9a5fa262f6/mzl.yzxohxvz.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/stardew-valley/id1406710800",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.chucklefish.stardewvalley",
@@ -3025,7 +3235,13 @@ export const games11to15: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0d/16/35/0d16355e-7b7a-4903-aa0a-ecfefdaa7e08/b715d679-c25d-41c1-8b55-6c00114fa81e_en_iphone5.5_screen_1.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f8/14/cd/f814cd12-cb2b-baeb-2870-404d9186defb/93f4d1c8-4144-44de-8b57-a5a091c838f4_iPhone_5.5_030124_-_ASO_Testing_-_Round_2_-_Concept_1_-_EN_-_3.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9d/52/ff/9d52ff84-2a12-3b34-5a49-fe24e9c1109f/cd048832-2375-4fd9-88e8-3711d102065e_iPhone_5.5_030124_-_ASO_Testing_-_Round_2_-_Concept_1_-_EN_-_4.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/cd/73/4a/cd734a01-48a1-f468-93c9-bbd5de3dbaec/c9c1f806-63ba-4809-bdfd-1b9e144aa854_iPhone_5.5_030124_-_ASO_Testing_-_Round_2_-_Concept_1_-_EN_-_5.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/69/8e/d9/698ed916-b0ab-6eac-85e2-06d82f330593/946decfe-85b3-472c-a577-376e39acf40a_iPhone_5.5_030124_-_ASO_Testing_-_Round_2_-_Concept_1_-_EN_-_6.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/duolingo/id570060128",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.duolingo",
@@ -3091,7 +3307,13 @@ export const games11to15: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.8,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource124/v4/75/61/69/75616950-9f2d-2632-27d7-aa23242649bf/82d6e26c-b25a-40da-be0c-96cb952e87da_TheRoom_iPad_2020_01.jpg/552x414bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource124/v4/9a/f8/50/9af8506d-d34a-eb95-c562-fbaa931beae2/21226a5b-3c41-46fc-94f4-0048a4e766b1_TheRoom_iPad_2020_02.jpg/552x414bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource114/v4/58/52/ef/5852ef9a-b045-41a3-2692-e6375b8cd44a/ed83acf8-833d-4f65-b26f-c300fe5f375e_TheRoom_iPad_2020_03.jpg/552x414bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource114/v4/8b/e1/0b/8be10b99-4e9a-a879-965a-046e96febebe/fcb0718d-aa8f-47ef-9256-6ebc3bc09aaa_TheRoom_iPad_2020_04.jpg/552x414bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource124/v4/e2/70/bf/e270bfc5-d10b-6e13-4978-71a642729749/28034e43-8a3e-4fcd-93b4-e52b647ae1f5_TheRoom_iPad_2020_05.jpg/552x414bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/the-room/id552039496",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.FireproofStudios.TheRoom",
@@ -3124,7 +3346,13 @@ export const games11to15: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.7,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/23/28/59/232859fa-a52f-9194-01e8-e866b5d3c10e/en-GB-iOS-5.5-in-2.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/4c/31/df/4c31df14-42fa-b409-6404-21857cd5450c/en-GB-iOS-5.5-in-3.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/99/0b/79/990b7994-ad64-20f7-a34f-f79d4fda1f35/en-GB-iOS-5.5-in-4.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/3e/12/03/3e12038c-43b8-fbc6-f1b7-3dccb161b8cf/en-GB-iOS-5.5-in-5.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/4c/d4/9e/4cd49e36-eb43-1e94-2b5d-5e0a86428a08/en-GB-iOS-5.5-in-6.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/mini-metro/id837860959",
     playStoreUrl: "https://play.google.com/store/apps/details?id=nz.co.codepoint.minimetro",
@@ -3157,7 +3385,13 @@ export const games11to15: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.8,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/b8/02/81/b802814b-58b2-c1e7-0645-f73fd1df030f/fc0cb9bf-d2b4-4021-bdb2-21ac7bab267d_1_5.5__0001_English.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/af/ad/22/afad2282-bf0d-7abc-00df-4c3157ba2c86/fa32fd7c-0978-4521-8cc3-5ce3bab72370_2_Towers_5.5.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/8f/e7/ed/8fe7ed84-c1f9-e8c2-aa8f-efa313c46b95/697fa2f2-1c1f-43c2-988f-064b931f78c1_3_5.5__0000_English.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/74/a5/54/74a5542f-cda4-0615-3937-a4eca799849b/5cd531c5-cc70-45f0-b550-e2bb03102202_4_Odyssey_5.5.png/406x228bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/e1/c7/7b/e1c77b98-4609-0b96-8ce0-8baea4742ed1/8bb635bb-aa93-4ed7-befb-d69626e46b8a_5_5.5__0000_English.png/406x228bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/bloons-td-6/id1118115766",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.ninjakiwi.bloonstd6",
@@ -3322,7 +3556,13 @@ export const games11to15: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.6,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fd/29/75/fd2975b0-32d9-a8a9-1889-8b6077484f81/0_APP_IPHONE_55_0.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/af/15/f1/af15f17c-5171-6775-8549-c7038bf36e54/1_APP_IPHONE_55_1.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9c/04/7a/9c047ad6-be2f-e97d-1052-74aa0caaa21a/2_APP_IPHONE_55_2.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/28/76/99/287699f6-14b8-64ef-4cf7-a12f71cbcd09/3_APP_IPHONE_55_3.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/fd/75/4c/fd754c41-eca7-d04f-75d1-7873dffee80f/4_APP_IPHONE_55_4.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/kahoot-play-create-quizzes/id1131203560",
     playStoreUrl: "https://play.google.com/store/apps/details?id=no.mobitroll.kahoot.android",
@@ -3421,7 +3661,13 @@ export const games11to15: GameSeedData[] = [
     priceModel: "engangskøb",
     rating: 4.8,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/9e/4d/ac/9e4dac5a-d571-69bd-d415-87fdd38570aa/mzl.zkioqotw.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/ac/9a/75/ac9a75c6-b309-6e99-d187-aeaaba016c5e/pr_source.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/49/3a/6e/493a6e47-3537-6478-9fd5-0c6b7cb40db5/pr_source.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/f2/48/39/f248396e-16b7-0a3c-ade1-b5e548e9e64d/mzl.jwaeozwt.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/14/c5/65/14c565c4-561f-2edd-0d2b-46eac02b471b/mzl.uclbdcao.jpg/392x696bb.jpg"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/thinkrolls/id917176209",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.avokiddo.thinkrolls",
@@ -3454,7 +3700,13 @@ export const games11to15: GameSeedData[] = [
     priceModel: "freemium",
     rating: 4.5,
     iconUrl: null,
-    screenshotUrls: [],
+    screenshotUrls: [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/64/fb/a3/64fba3dd-ac61-2205-b1de-a11ff08c06d5/mzl.xqwutbow.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/5d/7b/7a/5d7b7a32-0ff9-8900-c9d9-ba11f1e33c43/mzl.mumyqkmo.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/61/dc/c9/61dcc917-695d-d904-6bfe-526179286093/mzl.xcqaazov.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/2b/36/b6/2b36b6dd-d681-4a11-49d6-066b9a8c8634/mzl.ekxqmjrm.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/98/73/ad/9873add2-86df-6af6-f838-15329f52e4b8/mzl.elmhniga.png/392x696bb.png"
+    ],
     videoUrl: null,
     appStoreUrl: "https://apps.apple.com/app/wheres-my-water/id449735650",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.disney.WMW",
