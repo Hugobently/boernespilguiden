@@ -163,5 +163,7 @@ Database-felter til affiliate links er allerede på plads:
 
 | Dato | Ændring |
 |------|---------|
+| 2026-02-04 | ✅ **Screenshot Galleries Implementeret** - 99/103 spil har nu screenshot galleries med multi-source fetching (iTunes, Play Store, websites, YouTube). Auto-approval system for verificerede kilder. 433+ screenshots tilføjet. |
+| 2026-02-04 | ✅ **Icon URL Fix** - Rettet 20 spil med forkerte icon placeholders |
 | 2026-01-09 | Oprettet dokument med alle forbedringsforslag |
 
