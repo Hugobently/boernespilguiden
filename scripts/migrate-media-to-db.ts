@@ -28,8 +28,8 @@ interface MigrationResult {
 
 async function migrateGameMedia(game: GameSeedData): Promise<MigrationResult> {
   try {
-    const hasScreenshots = game.screenshotUrls && game.screenshotUrls.length > 0;
-    const hasVideo = game.videoUrl && game.videoUrl.trim() !== '';
+    const hasScreenshots = !!(game.screenshotUrls && game.screenshotUrls.length > 0);
+    const hasVideo = !!(game.videoUrl && game.videoUrl.trim() !== '');
 
     // Check if game exists
     const existingGame = await prisma.game.findUnique({
@@ -171,19 +171,17 @@ async function verifyMigration(): Promise<void> {
 
   const gamesWithScreenshots = await prisma.game.count({
     where: {
-      screenshots: {
-        not: null,
-        not: '[]',
-        not: ''
-      }
+      AND: [
+        { screenshots: { not: { equals: '[]' } } },
+        { screenshots: { not: { equals: '' } } }
+      ]
     }
   });
 
   const gamesWithVideos = await prisma.game.count({
     where: {
       videoUrl: {
-        not: null,
-        not: ''
+        not: { equals: null }
       }
     }
   });
