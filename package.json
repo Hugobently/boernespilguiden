@@ -18,6 +18,9 @@
     "db:seed": "npx tsx prisma/seed.ts",
     "db:reset": "prisma migrate reset",
     "enhance:media": "npx tsx scripts/enhance-media.ts",
+    "fetch:media": "npx tsx scripts/fetch-game-media.ts",
+    "update:media": "npx tsx scripts/update-game-media.ts",
+    "migrate:media": "npx tsx scripts/migrate-media-to-db.ts",
     "postinstall": "prisma generate"
   },
   "prisma": {
