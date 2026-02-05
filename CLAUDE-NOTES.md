@@ -32,7 +32,7 @@ Working notes for Claude instances. Update at the end of each session with new l
 
 ### 2026-01-11 (Session 3-4): AI Enhancement & Danish Descriptions
 - Ran AI enhancement on all games and media needing parentInfo
-- Fixed model name: `claude-3-5-sonnet-20240620` -> `claude-sonnet-4-5-20250929`
+- Fixed model name: `claude-3-5-sonnet-20240620` -> `claude-sonnet-4-20250514`
 - Added Danish descriptions for 24 DR/Ramasjang shows not found on TMDB
 - Result: 124 digital games + 73 board games = 197 total games, 194 media -- all at 100% parentInfo
 
@@ -103,7 +103,7 @@ Create a shared config file without `'use client'` for values needed in both con
 - **StreamingInfo**: `provider` (e.g. `"drtv"`, `"netflix"`, `"apple"`), `isFree` (boolean)
 
 ### Anthropic API 404 error for model
-Update to `claude-sonnet-4-5-20250929` in `lib/services/ai-enhance.ts` and `ai-enhance-game.ts`.
+Update to `claude-sonnet-4-20250514` in `lib/services/ai-enhance.ts` and `ai-enhance-game.ts`.
 
 ### TMDB fetch returns 0 results
 Not all providers have Denmark data. Works well: Apple TV+ (350), Netflix (8), Disney+ (337). May not work: Filmstriben (483), TV 2 Play (383).
