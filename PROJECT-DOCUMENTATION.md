@@ -37,8 +37,8 @@ Børnespilguiden (Danish for "Children's Game Guide") is a comprehensive Danish 
 
 ### Core Features
 
-- **Digital Games:** 111 reviewed apps and games with age ratings, parent tips, and safety info
-- **Board Games:** 72+ physical board games with age recommendations
+- **Digital Games:** 124 reviewed apps and games with age ratings, parent tips, and safety info
+- **Board Games:** 73 physical board games with age recommendations
 - **Film & Serier:** 194 movies and TV shows with streaming availability
 - **Search:** Cross-content search with filters
 - **Age Filters:** Filter content by age groups (0-3, 3-6, 7+)
@@ -142,8 +142,8 @@ boernespilguiden/
 │   │   ├── LanguageSwitcher.tsx
 │   │   └── CookieConsent.tsx
 │   ├── games/                        # Game components
-│   │   ├── GameCard.tsx (574 lines)  # Game card with badges
-│   │   ├── GameDetail.tsx (660 lines)# Full game view
+│   │   ├── GameCard.tsx (233 lines)  # Game card with badges
+│   │   ├── GameDetail.tsx (202 lines)# Full game view
 │   │   ├── GameGrid.tsx              # Grid layout
 │   │   ├── LazyGameGrid.tsx          # Virtualized grid
 │   │   └── ParentInfo.tsx            # Parent information section
@@ -187,8 +187,8 @@ boernespilguiden/
 ├── public/
 │   ├── images/
 │   │   ├── games/
-│   │   │   ├── digital/              # 119 game icons
-│   │   │   └── board/                # 70 board game images
+│   │   │   ├── digital/              # 227 game icons
+│   │   │   └── board/                # 140 board game images
 │   │   └── media/                    # Media posters (if local)
 │   └── fonts/
 │
@@ -202,7 +202,9 @@ boernespilguiden/
 │
 ├── messages/                         # i18n translations
 │   ├── da.json                       # Danish
-│   └── en.json                       # English
+│   ├── en.json                       # English
+│   ├── fr.json                       # French
+│   └── es.json                       # Spanish
 │
 └── [config files]
     ├── package.json
@@ -386,8 +388,8 @@ Game-specific display components.
 
 | Component | Lines | Purpose |
 |-----------|-------|---------|
-| `GameCard` | 574 | Card display with badges, rating, platforms |
-| `GameDetail` | 660 | Full game page view |
+| `GameCard` | 233 | Card display with badges, rating, platforms |
+| `GameDetail` | 202 | Full game page view |
 | `GameGrid` | ~100 | Grid layout for game cards |
 | `ParentInfo` | ~150 | Parent tips and safety info |
 
@@ -611,39 +613,28 @@ vercel --prod
 
 ## 11. Known Issues & Technical Debt
 
-### High Priority
+### Resolved (kept for reference)
 
-1. **Large Component Files**
-   - `GameCard.tsx`: 574 lines - should split into sub-components
-   - `Header.tsx`: 510 lines - extract SearchInput, MobileMenu
-   - `GameDetail.tsx`: 660 lines - extract sections
+1. ~~**Large Component Files**~~ — **DONE**: GameCard 574→233, GameDetail 660→202. Extracted `GameCardImage`, `GameCardBadges`, `GameDetailComponents`, `HeaderSearchInput`.
 
-2. **Duplicate Configuration**
-   - Platform icons defined in 3 places
-   - Age group colors defined in 4 places
-   - Should centralize in `lib/config/`
+2. ~~**Duplicate Configuration**~~ — **DONE**: Centralized in `lib/config/` (age-groups.ts, streaming.ts, platforms.ts, theme.ts).
 
-3. **JSON String vs Array Inconsistency**
+3. ~~**No Rate Limiting**~~ — **DONE**: IP-based rate limiting on search endpoint (`lib/middleware/rate-limit.ts`).
+
+### Remaining
+
+4. **JSON String vs Array Inconsistency**
    - `Game.pros/cons` uses JSON string `"[]"`
    - `Media.pros/cons` uses native `String[]`
    - Should normalize schema
 
-### Medium Priority
-
-4. **No API Input Validation**
+5. **No API Input Validation**
    - Query parameters not validated
    - Should add Zod schema validation
 
-5. **No Rate Limiting**
-   - API endpoints have no rate limit
-   - Could be abused for scraping
-
-6. **Missing Tests**
-   - No unit tests
-   - No integration tests
-   - No E2E tests
-
-### Low Priority
+6. **Missing Unit Tests**
+   - No unit tests for utility functions
+   - E2E tests exist (Playwright, 29 tests)
 
 7. **Search Optimization**
    - Every keystroke triggers API call
@@ -676,11 +667,11 @@ vercel --prod
 
 ### Technical Improvements
 - [ ] Add unit tests (Jest)
-- [ ] Add E2E tests (Playwright)
+- [x] Add E2E tests (Playwright) — 29 tests
 - [ ] Implement ISR for game pages
-- [ ] Add rate limiting
-- [ ] Split large components
-- [ ] Centralize configuration
+- [x] Add rate limiting — search endpoint
+- [x] Split large components — GameCard, GameDetail, Header
+- [x] Centralize configuration — lib/config/
 
 ---
 
