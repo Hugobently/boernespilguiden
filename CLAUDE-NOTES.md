@@ -144,10 +144,10 @@ GameCard tries filesystem paths if DB field is null. Order: jpg, webp, png, svg.
 ## Git Co-Author Line
 
 ```
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 ```
 
-## Current Stats (as of 2026-01-18)
+## Current Stats (as of 2026-02-05)
 
 - Games: 124 digital + 73 board = 197 total (all with parentInfo)
 - Media: 194 total (all with posterUrl, description, parentInfo)
