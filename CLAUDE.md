@@ -70,9 +70,9 @@ Full schema is in `prisma/schema.prisma`. Key models: `Game`, `BoardGame`, `Game
 
 | Category | Count |
 |----------|-------|
-| **Digital Games** | 123 |
-| **Board Games** | 72 |
-| **Total** | 195 |
+| **Digital Games** | 124 |
+| **Board Games** | 73 |
+| **Total** | 197 |
 
 ### Digital Games by Age Group
 - 0-3 ar: 19 games

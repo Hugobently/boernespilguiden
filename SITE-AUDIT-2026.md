@@ -55,7 +55,7 @@ Børnespilguiden.dk er i **fremragende stand** med professionel kodekvalitet, go
 - ✅ **45/45 DR programmer** korrekt markeret med dansk tale
 - ✅ **0 danske programmer** fejlagtigt markeret som udenlandsk tale
 - ✅ **0 programmer uden poster** - alle har billeder
-- ✅ **97 digitale spil** + **59 brætspil** = 156 spil total
+- ✅ **124 digitale spil** + **73 brætspil** = 197 spil total
 
 ### 6. Database & Backend
 - ✅ PostgreSQL (Prisma.io) med Prisma Accelerate

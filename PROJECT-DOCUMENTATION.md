@@ -489,8 +489,8 @@ NEXT_PUBLIC_SITE_URL="https://boernespilguiden.dk"
 
 | Content Type | Total | AI Enhanced | With Images |
 |--------------|-------|-------------|-------------|
-| Digital Games | 97 | 97 (100%) | 97 (100%) |
-| Board Games | 59 | N/A | ~57 (97%) |
+| Digital Games | 124 | 124 (100%) | 124 (100%) |
+| Board Games | 73 | N/A | ~70 (96%) |
 | Movies & TV | 194 | 194 (100%) | 194 (100%) |
 
 ### Streaming Providers

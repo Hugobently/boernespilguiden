@@ -1,12 +1,12 @@
 # Game Media Implementation Guide
 
-> **Note (2026-02-05):** All 97 games now have screenshots (100% coverage). The one-time scripts and CSV workflow referenced below have been completed. For current scripts, see [README.md](./README.md).
+> **Note (2026-02-05):** All 124 games now have screenshots (100% coverage). The one-time scripts and CSV workflow referenced below have been completed. For current scripts, see [README.md](./README.md).
 
 This guide documents the process used to add screenshots and videos to all online games.
 
 ## Final Status
 
-- ✅ **97/97 games have screenshots (100%)**
+- ✅ **124/124 games have screenshots (100%)**
 - ✅ All media migrated to database
 - ✅ Seed files updated with media data
 

@@ -10,8 +10,8 @@ Børnespilguiden helps Danish parents find age-appropriate games, apps, and stre
 
 ## Content
 
-- **97 Digital Games** - Apps and games with ratings, parent tips, and safety info
-- **59 Board Games** - Physical games with age recommendations
+- **124 Digital Games** - Apps and games with ratings, parent tips, and safety info
+- **73 Board Games** - Physical games with age recommendations
 - **194 Movies & TV Shows** - Streaming content with availability info
 
 ## Tech Stack

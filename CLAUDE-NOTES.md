@@ -34,7 +34,7 @@ Working notes for Claude instances. Update at the end of each session with new l
 - Ran AI enhancement on all games and media needing parentInfo
 - Fixed model name: `claude-3-5-sonnet-20240620` -> `claude-sonnet-4-5-20250929`
 - Added Danish descriptions for 24 DR/Ramasjang shows not found on TMDB
-- Result: 97 digital games + 59 board games = 156 total games, 194 media -- all at 100% parentInfo
+- Result: 124 digital games + 73 board games = 197 total games, 194 media -- all at 100% parentInfo
 
 ### 2026-01-11 (Session 1-2): Initial Fixes & DR Media
 - Reverted nav to emojis (user preference), hidden Allente from streaming badges
@@ -149,7 +149,7 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 
 ## Current Stats (as of 2026-01-18)
 
-- Games: 97 digital + 59 board = 156 total (all with parentInfo)
+- Games: 124 digital + 73 board = 197 total (all with parentInfo)
 - Media: 194 total (all with posterUrl, description, parentInfo)
 
 ## Contact Information

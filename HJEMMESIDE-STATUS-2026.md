@@ -643,7 +643,7 @@ kodekvalitet og brugeroplevelse.
 - 96/100 samlet kvalitetsscore
 - 0 kritiske fejl i produktion
 - 194/194 (100%) AI-forbedret content - komplet daekning opnaaet
-- 97 digitale spil og 59 braetspil anmeldt
+- 124 digitale spil og 73 braetspil anmeldt
 - Screenshots galleri med 100% daekning
 - Robust database struktur med Prisma ORM
 - God internationalisering (4 sprog, 380+ strings)
@@ -656,7 +656,7 @@ kodekvalitet og brugeroplevelse.
 - Alle 6 oprindelige bugfixes implementeret og verificeret
 - DR audio flags rettet (kritisk bruger-rapporteret fejl)
 - AI-enhancement opnaaet 100% daekning (194/194 medier)
-- Screenshots tilfojet til alle 97 digitale spil
+- Screenshots tilfojet til alle 124 digitale spil
 - E2E tests med Playwright (29 tests bestaaet)
 - Rate limiting implementeret paa admin endpoints
 - Datakvalitet verificeret med 0 issues
