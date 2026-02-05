@@ -15,7 +15,7 @@ Next.js 14 App Router | PostgreSQL | Vercel | TMDB + Anthropic AI
 | Key | Formaal | Kilde |
 |-----|---------|-------|
 | `TMDB_API_KEY` | Film/seriedata | [themoviedb.org/settings/api](https://www.themoviedb.org/settings/api) (gratis) |
-| `ANTHROPIC_API_KEY` | AI foraeldreguide (Claude 3 Haiku) | [console.anthropic.com](https://console.anthropic.com) |
+| `ANTHROPIC_API_KEY` | AI foraeldreguide (Claude Sonnet 4) | [console.anthropic.com](https://console.anthropic.com) |
 | `ADMIN_SECRET` | Admin API-endpoints | Selvvalgt lang random string |
 | `CRON_SECRET` | Vercel cron jobs | Selvvalgt lang random string |
 
@@ -123,7 +123,7 @@ dagligt via cron: DR status, TMDB streaming (max 30), AI-reviews (max 3/dag).
 
 ## 7. AI Enhancement
 
-Anthropic Claude 3 Haiku genererer dansk foraeldreguide per film/serie:
+Anthropic Claude Sonnet 4 genererer dansk foraeldreguide per film/serie:
 beskrivelse, foraeldreinfo, tips, fordele/ulemper og content flags.
 
 ### Via Admin API (produktion)
@@ -144,8 +144,6 @@ curl https://boernespilguiden.dk/api/admin/enhance-media \
 
 ```bash
 npm run enhance:media                         # AI-enhance media
-node scripts/check-enhancement-status.js      # Check status
-node scripts/add-missing-descriptions.js      # Tilfoej beskrivelser (krav for AI)
 ```
 
 Built-in 2s delay mellem requests. Koer i batches af 10-35.
