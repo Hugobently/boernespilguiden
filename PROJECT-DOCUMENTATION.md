@@ -1,6 +1,6 @@
 # Børnespilguiden - Complete Project Documentation
 
-> **Last Updated:** 2026-01-11
+> **Last Updated:** 2026-02-05
 > **Version:** 1.0.0
 > **Status:** Production (Live at boernespilguiden.dk)
 
@@ -20,8 +20,7 @@
 10. [Deployment](#10-deployment)
 11. [Known Issues & Technical Debt](#11-known-issues--technical-debt)
 12. [Future Improvements](#12-future-improvements)
-13. [Session History](#13-session-history)
-14. [Quick Reference](#14-quick-reference)
+13. [Quick Reference](#13-quick-reference)
 
 ---
 
@@ -194,10 +193,12 @@ boernespilguiden/
 │   └── fonts/
 │
 ├── scripts/                          # Maintenance scripts
-│   ├── download-game-images.ts       # Download app icons
-│   ├── enhance-games.ts              # Run AI enhancement
-│   ├── fix-dr-media.ts               # Fix DR content
-│   └── fetch-streaming-content.ts    # Fetch streaming data
+│   ├── check-stats.ts                # Database statistics
+│   ├── enhance-media.ts              # AI enhancement for media
+│   ├── fetch-game-media.ts           # Fetch game media
+│   ├── fetch-game-media-enhanced.ts  # Enhanced media fetching
+│   ├── update-game-media.ts          # Update game media in DB
+│   └── migrate-media-to-db.ts        # Migrate media to DB
 │
 ├── messages/                         # i18n translations
 │   ├── da.json                       # Danish
@@ -484,12 +485,12 @@ NEXT_PUBLIC_SITE_URL="https://boernespilguiden.dk"
 
 ## 8. Content Statistics
 
-### Current Content (as of 2026-01-11)
+### Current Content (as of 2026-02-05)
 
 | Content Type | Total | AI Enhanced | With Images |
 |--------------|-------|-------------|-------------|
-| Digital Games | 111 | 111 (100%) | 111 (100%) |
-| Board Games | 72 | N/A | ~70 (97%) |
+| Digital Games | 97 | 97 (100%) | 97 (100%) |
+| Board Games | 59 | N/A | ~57 (97%) |
 | Movies & TV | 194 | 194 (100%) | 194 (100%) |
 
 ### Streaming Providers
@@ -534,24 +535,24 @@ npm run dev
 
 ### Common Tasks
 
-#### Run AI Enhancement on Games
+#### Check Database Stats
 ```bash
-npx tsx scripts/enhance-games.ts
+npx tsx scripts/check-stats.ts
 ```
 
-#### Download Missing Game Images
+#### Run AI Enhancement on Media
 ```bash
-npx tsx scripts/download-game-images.ts
+npx tsx scripts/enhance-media.ts <limit> [--force]
 ```
 
-#### Import TMDB Content
+#### Fetch Game Media
 ```bash
-npx tsx scripts/fetch-streaming-content.ts
+npx tsx scripts/fetch-game-media-enhanced.ts
 ```
 
-#### Fix DR Media
+#### Update Game Media in Database
 ```bash
-npx tsx scripts/fix-dr-media.ts
+npx tsx scripts/update-game-media.ts
 ```
 
 ### Code Style
@@ -683,39 +684,7 @@ vercel --prod
 
 ---
 
-## 13. Session History
-
-### Session 5 (2026-01-11): UI Improvements & Game Images
-- Fixed 14+ missing game images using iTunes Search API
-- Added Danish language filter for games
-- Improved streaming availability display
-- Fixed email typo on contact page
-- Fixed TypeScript errors in film-serier page
-
-### Session 4 (2026-01-11): Danish Descriptions for DR Shows
-- Added Danish descriptions for 24 DR/Ramasjang shows
-- Ran AI enhancement on all media
-- **Result:** 194/194 media now have AI-enhanced content
-
-### Session 3 (2026-01-11): AI Enhancement
-- Created AI enhancement service for games
-- Fixed outdated Claude model name
-- **Result:** 111/111 games now have parentInfo, pros, cons
-
-### Session 2 (2026-01-11): Site Review & DR Media Fix
-- Discovered images use filesystem fallback
-- Fixed DR shows with TMDB data
-- Cleaned up adult content that was accidentally imported
-
-### Session 1 (2026-01-11): Initial Fixes
-- Reverted to emoji navigation
-- Hidden Allente from streaming badges
-- Added combinable age filters to Film & Serier
-- Fixed critical bug: adult content was being imported
-
----
-
-## 14. Quick Reference
+## 13. Quick Reference
 
 ### File Locations
 
@@ -743,8 +712,9 @@ npx prisma db push       # Push schema changes
 npx prisma generate      # Regenerate client
 
 # Scripts
-npx tsx scripts/enhance-games.ts          # AI enhance games
-npx tsx scripts/download-game-images.ts   # Download images
+npx tsx scripts/check-stats.ts              # Database stats
+npx tsx scripts/enhance-media.ts            # AI enhance media
+npx tsx scripts/fetch-game-media-enhanced.ts # Fetch game media
 ```
 
 ### Contact
@@ -754,4 +724,4 @@ npx tsx scripts/download-game-images.ts   # Download images
 
 ---
 
-*This documentation was generated on 2026-01-11 by Claude. For updates, edit this file or run the documentation generator script.*
+*Last updated: 2026-02-05. For updates, edit this file directly.*

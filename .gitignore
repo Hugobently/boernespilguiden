@@ -46,3 +46,11 @@ next-env.d.ts
 # backups
 /backups
 lighthouse-report.json
+
+# documents
+*.docx
+
+# scripts output (generated files)
+scripts/output/*.csv
+scripts/output/*.html
+scripts/output/.~lock.*

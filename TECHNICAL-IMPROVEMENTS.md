@@ -1,8 +1,9 @@
 # Technical Debt Improvements
 
-> **Date:** 2026-02-03
+> **Date:** 2026-02-03 (updated 2026-02-05)
 > **Status:** In Progress
 > **Goal:** Improve code quality, maintainability, and performance without adding complexity
+> **Note:** Some one-time migration scripts referenced below have been removed from the repository after successful execution.
 
 ---
 

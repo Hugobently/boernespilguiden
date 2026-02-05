@@ -1,13 +1,12 @@
 # AI Enhancement - Setup Guide
 
-This guide will help you complete the AI enhancement for the remaining 60 media items.
+> **Note (2026-02-05):** AI enhancement is 100% complete. All 194 media items and all 97 digital games are fully enhanced. This guide is kept for historical reference. The one-time scripts referenced below have been removed from the repository. For current scripts, see [scripts/README.md](./scripts/README.md).
 
-## Current Status
+## Status
 
-- **Total Media**: 147 items
-- **Enhanced**: 87 items (59%)
-- **Remaining**: 60 items
-- **Failed (need retry)**: 4 items from previous batch
+- **Media**: 194/194 items enhanced (100%)
+- **Digital Games**: 97/97 items enhanced (100%)
+- **Board Games**: 59 total (no AI enhancement needed)
 
 ## Prerequisites
 

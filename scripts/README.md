@@ -1,84 +1,54 @@
 # Scripts Directory
 
-Collection of utility scripts for Børnespilguiden management.
+Utility scripts for Børnespilguiden database management and content enhancement.
 
-## AI Enhancement Scripts
+## Active Scripts
 
-### Quick Start (Recommended)
-
-To enhance the remaining ~60 media items in 2 batches:
-
+### `check-stats.ts`
+Show database statistics and content status.
 ```bash
-# 1. Get POSTGRES_URL from Vercel dashboard
-# 2. Run both batches automatically:
-export POSTGRES_URL='postgresql://...' && ./scripts/run-enhancement-batches.sh
+npx tsx scripts/check-stats.ts
 ```
 
-### Individual Scripts
-
-#### `enhance-remaining.sh` ⭐
-Single batch enhancement with helpful error messages.
-
+### `enhance-media.ts`
+AI-enhance media (film/serier) descriptions with parent-focused content.
 ```bash
-# Enhance 35 items (default)
-export POSTGRES_URL='postgresql://...' && ./scripts/enhance-remaining.sh
+npx tsx scripts/enhance-media.ts <limit> [--force]
+```
+Generates: parentInfo, parentTip, pros, cons for each media item.
 
-# Custom batch size
-export POSTGRES_URL='postgresql://...' && ./scripts/enhance-remaining.sh 50
+### `fetch-game-media.ts`
+Fetch game media (icons, screenshots) from external sources.
+```bash
+npx tsx scripts/fetch-game-media.ts
 ```
 
-#### `run-enhancement-batches.sh`
-Runs 2 batches of 35 items each automatically (total: 70 items).
-
+### `fetch-game-media-enhanced.ts`
+Enhanced version with better source coverage and retry logic.
 ```bash
-export POSTGRES_URL='postgresql://...' && ./scripts/run-enhancement-batches.sh
+npx tsx scripts/fetch-game-media-enhanced.ts
 ```
 
-#### `test-enhancement.js`
-Core enhancement script (Node.js).
-
+### `update-game-media.ts`
+Update game media URLs in the database after fetching.
 ```bash
-export POSTGRES_URL='postgresql://...'
-export ANTHROPIC_API_KEY='sk-ant-...'
-node scripts/test-enhancement.js 35
+npx tsx scripts/update-game-media.ts
 ```
 
-#### `check-enhancement-status.js`
-Check how many items are enhanced vs. remaining.
-
+### `migrate-media-to-db.ts`
+Migrate media file references into the database.
 ```bash
-export POSTGRES_URL='postgresql://...'
-node scripts/check-enhancement-status.js
+npx tsx scripts/migrate-media-to-db.ts
 ```
 
-## Database Scripts
+## Environment Variables
 
-#### `delete-adult-content.js`
-Deletes adult content from the database (already run).
+Scripts that connect to the database need:
+```bash
+DATABASE_URL="postgresql://..."    # From Vercel dashboard or .env
+ANTHROPIC_API_KEY="sk-ant-..."     # For AI enhancement scripts
+```
 
-#### `update-age-ratings-standalone.js`
-Updates age ratings for TV series based on TMDB content ratings (already run).
+## Output Directory
 
-#### `migrate-production.js`
-Adds missing database columns for AI enhancement features.
-
-#### `add-all-missing-columns.js`
-Ensures all 11 required columns exist for parent info, pros, cons, etc.
-
-## How to Get POSTGRES_URL
-
-1. Go to [Vercel Dashboard](https://vercel.com/halfgoods-projects/boernespilguiden/settings/environment-variables)
-2. Find `POSTGRES_URL`
-3. Click "Show" and copy the value
-4. Use in commands: `export POSTGRES_URL='postgresql://...'`
-
-## Enhancement Details
-
-- **Model**: Claude 3 Haiku
-- **Rate Limit**: 2 seconds between requests
-- **Time per item**: ~2-3 seconds
-- **Batch of 35**: ~70 minutes
-- **Language**: Danish
-- **Content**: Parent-focused descriptions, tips, pros/cons
-
-See [../ENHANCEMENT-GUIDE.md](../ENHANCEMENT-GUIDE.md) for full documentation.
+Script output files (CSVs, reports) go to `scripts/output/`. This directory is gitignored except for `.gitkeep`.

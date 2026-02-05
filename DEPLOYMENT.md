@@ -1,162 +1,217 @@
-# Deployment Guide - Film & Serier with AI Enhancement
+# Deployment Guide - Boernespilguiden.dk
 
-## 🚀 Opdater Produktion
+Next.js 14 App Router | PostgreSQL | Vercel | TMDB + Anthropic AI
 
-Følg disse trin for at deploye de nye parent info og AI enhancement features:
+---
 
-### 1. Kør Database Migration
+## 1. Prerequisites
 
-De nye kolonner skal tilføjes til din produktionsdatabase:
+- **Node.js** >= 18.x (anbefalet 20.x LTS), **npm** >= 9.x
+- **PostgreSQL** database (Vercel Postgres eller Prisma-hosted)
+- **Git** med adgang til repository
+
+### API Keys
+
+| Key | Formaal | Kilde |
+|-----|---------|-------|
+| `TMDB_API_KEY` | Film/seriedata | [themoviedb.org/settings/api](https://www.themoviedb.org/settings/api) (gratis) |
+| `ANTHROPIC_API_KEY` | AI foraeldreguide (Claude 3 Haiku) | [console.anthropic.com](https://console.anthropic.com) |
+| `ADMIN_SECRET` | Admin API-endpoints | Selvvalgt lang random string |
+| `CRON_SECRET` | Vercel cron jobs | Selvvalgt lang random string |
+
+---
+
+## 2. Environment Setup
 
 ```bash
-curl -X POST \
-  -H "Authorization: Bearer film-serier-admin-secret-2026" \
-  https://boernespilguiden.vercel.app/api/admin/migrate-media
+cp .env.example .env
 ```
 
-**Forventet output:**
-```json
-{
-  "success": true,
-  "message": "Media table migrated successfully",
-  "timestamp": "2026-01-10T..."
-}
+### Paakraevede variabler
+
+```env
+DATABASE_URL="postgresql://user:pass@host:5432/dbname"
+NEXT_PUBLIC_SITE_URL="https://boernespilguiden.dk"
+TMDB_API_KEY="din_tmdb_api_key"
+ANTHROPIC_API_KEY="sk-ant-api03-..."
+ADMIN_SECRET="lang_random_string"
+CRON_SECRET="anden_random_string"
 ```
 
-Denne kommando er **sikker at køre flere gange** - den tilføjer kun kolonner der ikke allerede eksisterer.
+Valgfrie: `NEXT_PUBLIC_GA_ID`, `RESEND_API_KEY`, `AMAZON_ASSOCIATE_TAG` (se `.env.example`)
 
-### 2. Tilføj Environment Variable i Vercel
+---
 
-Gå til Vercel dashboard → dit projekt → Settings → Environment Variables
+## 3. Lokal Udvikling
 
-Tilføj:
-```
-ANTHROPIC_API_KEY=sk-ant-...din-nøgle-her...
-```
-
-**Note:** Brug den API nøgle du allerede har i din lokale .env fil.
-
-**VIGTIGT:** Husk at redeploy efter du har tilføjet environment variablen:
-- Gå til "Deployments" tab
-- Klik på "..." på latest deployment
-- Vælg "Redeploy"
-
-### 3. Test Parent Info Display
-
-Besøg en film/serie side, fx:
-```
-https://boernespilguiden.vercel.app/film-serier/[slug]
-```
-
-Du burde se ParentInfo komponenten, men den vil være tom fordi vi ikke har kørt AI enhancement endnu.
-
-### 4. Kør AI Enhancement (valgfrit antal)
-
-**Start med 5 for at teste:**
 ```bash
-curl -X POST \
-  -H "Authorization: Bearer film-serier-admin-secret-2026" \
+npm install                   # Installer dependencies (+ prisma generate via postinstall)
+npx prisma db push            # Push schema til database
+npm run db:seed               # Seed med testdata
+npm run dev                   # Start dev server paa localhost:3000
+```
+
+Andre: `npm run build`, `npm run lint`, `npm run test`, `npm run test:e2e`, `npx prisma studio`
+
+---
+
+## 4. Vercel Deployment
+
+**Auto-deploy**: Hvert push til `main` trigger et nyt build via Vercel Git integration.
+
+**Build-script**: `prisma generate && next build`
+
+### Environment Variables i Vercel
+
+Sæt under **Project > Settings > Environment Variables**:
+
+| Variable | Environment |
+|----------|-------------|
+| `DATABASE_URL` | Production + Preview (auto ved Vercel Postgres) |
+| `NEXT_PUBLIC_SITE_URL` | Production |
+| `TMDB_API_KEY` | Production + Preview |
+| `ANTHROPIC_API_KEY` | Production |
+| `ADMIN_SECRET` | Production |
+| `CRON_SECRET` | Production |
+
+### Cron Jobs (vercel.json)
+
+| Endpoint | Schedule | Beskrivelse |
+|----------|----------|-------------|
+| `/api/cron/daily-update` | Dagligt kl. 06 UTC | DR/TMDB streaming + AI reviews |
+| `/api/cron/weekly-maintenance` | Soendage kl. 07 UTC | Link-check, ikon-fix |
+
+---
+
+## 5. Database
+
+**Prisma ORM** v5.22 med PostgreSQL. Schema i `prisma/schema.prisma`.
+
+**Modeller**: `Game`, `BoardGame`, `Media`, `StreamingInfo`, `GameTranslation`,
+`BoardGameTranslation`, `AnalyticsEvent`, `SearchQuery`
+
+| Kommando | Beskrivelse |
+|----------|-------------|
+| `npx prisma db push` | Sync schema uden migration |
+| `npx prisma migrate dev` | Opret migration |
+| `npm run db:seed` | Seed (`prisma/seed.ts`) |
+| `npm run db:reset` | Slet alt + seed igen |
+| `npx prisma studio` | Database GUI |
+
+---
+
+## 6. Film & Serier
+
+### TMDB Integration
+
+Film/seriedata hentes fra TMDB API. Initial import via admin-endpoint:
+
+```bash
+curl -X POST https://boernespilguiden.dk/api/admin/import \
+  -H "Authorization: Bearer $ADMIN_SECRET"
+```
+
+Importerer DR serier, DR Ramasjang (via TMDB), top TMDB film og serier.
+
+### DR Data & Streaming
+
+DR-programmer (Ramasjang m.fl.) importeres som `DR_MANUAL`/`DR_TMDB`, alle med `hasDanishAudio: true`.
+Streaming-udbydere (Netflix, Disney+, HBO Max) gemmes i `StreamingInfo` og opdateres
+dagligt via cron: DR status, TMDB streaming (max 30), AI-reviews (max 3/dag).
+
+---
+
+## 7. AI Enhancement
+
+Anthropic Claude 3 Haiku genererer dansk foraeldreguide per film/serie:
+beskrivelse, foraeldreinfo, tips, fordele/ulemper og content flags.
+
+### Via Admin API (produktion)
+
+```bash
+# Enhance op til 10 items
+curl -X POST https://boernespilguiden.dk/api/admin/enhance-media \
+  -H "Authorization: Bearer $ADMIN_SECRET" \
   -H "Content-Type: application/json" \
-  -d '{"limit": 5, "force": false}' \
-  https://boernespilguiden.vercel.app/api/admin/enhance-media
+  -d '{"limit": 10, "force": false}'
+
+# Check status
+curl https://boernespilguiden.dk/api/admin/enhance-media \
+  -H "Authorization: Bearer $ADMIN_SECRET"
 ```
 
-**Tjek status:**
-```bash
-curl -H "Authorization: Bearer film-serier-admin-secret-2026" \
-  https://boernespilguiden.vercel.app/api/admin/enhance-media
-```
-
-**Forventet output:**
-```json
-{
-  "total": 200,
-  "withParentInfo": 5,
-  "withPros": 5,
-  "needsEnhancement": 195,
-  "percentComplete": 2
-}
-```
-
-### 5. Kør Fuld Enhancement
-
-Når du er tilfreds med de første 5, kør resten:
+### Via lokale scripts
 
 ```bash
-# 50 ad gangen
-curl -X POST \
-  -H "Authorization: Bearer film-serier-admin-secret-2026" \
-  -H "Content-Type: application/json" \
-  -d '{"limit": 50, "force": false}' \
-  https://boernespilguiden.vercel.app/api/admin/enhance-media
+npm run enhance:media                         # AI-enhance media
+node scripts/check-enhancement-status.js      # Check status
+node scripts/add-missing-descriptions.js      # Tilfoej beskrivelser (krav for AI)
 ```
 
-**Gentag** indtil alle er enhanced (tjek med GET endpoint).
+Built-in 2s delay mellem requests. Koer i batches af 10-35.
 
-## 💰 Omkostninger
+---
 
-- ~$0.01 per film/serie
-- 200 medier ≈ $2.00
-- Dette er en **engangsomkostning** per medie
-- Nye medier kan enhances løbende
+## 8. Verifikation efter Deploy
 
-## 🔍 Tjek At Alt Virker
+### Sider
 
-1. **Database kolonner:**
-   ```bash
-   curl -X POST \
-     -H "Authorization: Bearer film-serier-admin-secret-2026" \
-     https://boernespilguiden.vercel.app/api/admin/migrate-media
-   ```
-   Skulle returnere success.
+- [ ] Forside (`/`) - featured spil vises
+- [ ] Film & Serier (`/film-serier`) - pagination, filtrering, soegning
+- [ ] Film detalje (`/film-serier/[slug]`) - streaming badges, foraeldreinfo
+- [ ] Braetspil (`/braetspil`) - kategorier, affiliate links
+- [ ] Om os (`/om-os`) og Privatlivspolitik (`/privatlivspolitik`)
 
-2. **Environment variables:**
-   Vercel dashboard → Settings → Environment Variables
-   - ✅ TMDB_API_KEY
-   - ✅ ADMIN_SECRET
-   - ✅ CRON_SECRET
-   - ✅ ANTHROPIC_API_KEY (NY!)
-   - ✅ DATABASE_URL
+### API Endpoints
 
-3. **ParentInfo component:**
-   Besøg en film side - komponenten skal være synlig (kan være tom)
+- [ ] `GET /api/games` - returnerer spildata
+- [ ] `GET /api/boardgames` - returnerer braetspil
+- [ ] `GET /api/search?q=test` - soegning
+- [ ] `POST /api/admin/enhance-media` - 401 uden ADMIN_SECRET
 
-4. **AI Enhancement:**
-   Kør 1 test enhancement og tjek resultatet på siden
+### Generelt
 
-## 🐛 Troubleshooting
+- [ ] Ingen konsolferror, billeder loader, responsivt paa mobil
+- [ ] Dansk som default sprog, database-forbindelse OK
 
-**"Unauthorized" fejl:**
-- Tjek at Authorization header matcher ADMIN_SECRET
+---
 
-**"ANTHROPIC_API_KEY not configured":**
-- Tilføj environment variable i Vercel
-- Redeploy efter tilføjelse
+## 9. Fejlsoegning / Troubleshooting
 
-**"Column already exists" i migration:**
-- Dette er forventet hvis du kører migration igen
-- Migration er idempotent (sikker at køre flere gange)
+### 401 Unauthorized paa admin/cron endpoints
+Tjek at `ADMIN_SECRET`/`CRON_SECRET` er sat korrekt i Vercel og matcher
+`Authorization: Bearer <secret>` headeren.
 
-**Enhancement timeout:**
-- Reducer batch size til 10-20
-- API'et har 2 sekunders delay mellem requests for at undgå rate limits
+### Missing API key
+Tilfoej `TMDB_API_KEY` / `ANTHROPIC_API_KEY` i Vercel Environment Variables og redeploy.
+Lokalt: tilfoej til `.env`.
 
-## 📋 Deployment Checklist
+### Anthropic Rate Limiting (429)
+Reducer `limit` i enhance-media kald. Vent et par minutter og proev igen.
 
-- [ ] Kør database migration
-- [ ] Tilføj ANTHROPIC_API_KEY i Vercel
-- [ ] Redeploy Vercel app
-- [ ] Test ParentInfo component vises
-- [ ] Enhance 5 test medier
-- [ ] Gennemgå kvalitet
-- [ ] Enhance alle medier (batch af 50)
-- [ ] Verificer completion med GET endpoint
+### Vercel Function Timeout
+- `daily-update`: `maxDuration = 60` (60 sek)
+- `weekly-maintenance`: `maxDuration = 120` (120 sek)
+- Reducer antal items pr. koersel. Vercel Pro giver laengere timeouts.
 
-## 🎉 Færdig!
+### Prisma / Database Connection Error
+Tjek `DATABASE_URL` i `.env` / Vercel. Koer `npx prisma db push` for at synkronisere.
+Tjek database-status i Vercel/Prisma dashboard.
 
-Når alle steps er gennemført har du:
-- ✅ ParentInfo bokse på alle film/serie sider
-- ✅ AI-genererede beskrivelser på dansk
-- ✅ Pros/cons og parent tips
-- ✅ Content warnings (vold, skræmmende, osv.)
-- ✅ Automatisk system klar til nye medier
+### Build fejler med Prisma
+Build-scriptet koerer `prisma generate` automatisk. Proev manuelt:
+```bash
+npx prisma generate && npm run build
+```
+
+### Manglende data efter deploy
+```bash
+npm run db:seed   # Seed manuelt
+# Eller import via admin endpoint:
+curl -X POST https://boernespilguiden.dk/api/admin/import \
+  -H "Authorization: Bearer $ADMIN_SECRET"
+```
+
+---
+
+*Sidst opdateret: Februar 2026*

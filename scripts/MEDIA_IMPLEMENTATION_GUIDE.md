@@ -1,15 +1,14 @@
 # Game Media Implementation Guide
 
-This guide walks through the process of adding screenshots and videos to all online games.
+> **Note (2026-02-05):** All 97 games now have screenshots (100% coverage). The one-time scripts and CSV workflow referenced below have been completed. For current scripts, see [README.md](./README.md).
 
-## Overview
+This guide documents the process used to add screenshots and videos to all online games.
 
-**Current Status:**
-- ✅ Backup created: `data/games-seed.backup.ts`
-- ✅ Media fetcher script created and run
-- ✅ Initial CSV generated: `scripts/output/media-suggestions.csv`
-- 🟡 **50 games have screenshots (49%)** - ready for review
-- ⚠️  **YouTube API not configured** - videos need to be added manually
+## Final Status
+
+- ✅ **97/97 games have screenshots (100%)**
+- ✅ All media migrated to database
+- ✅ Seed files updated with media data
 
 ## Step-by-Step Process
 

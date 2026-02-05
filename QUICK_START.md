@@ -1,5 +1,7 @@
 # Quick Start: Add Media to Games
 
+> **Note (2026-02-05):** Media has been added to all 97 games (100% coverage). The one-time scripts and CSV files referenced below have been removed. For current scripts, see [scripts/README.md](./scripts/README.md).
+
 ## 🎯 What You Need to Do
 
 1. **Review screenshots** in the CSV file

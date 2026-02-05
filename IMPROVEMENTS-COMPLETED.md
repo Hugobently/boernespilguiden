@@ -1,5 +1,7 @@
 # Børnespilguiden - Film & Serier Improvements Complete
 
+> **Note (2026-02-05):** This is a historical record of completed improvements. One-time scripts referenced below have been removed from the repository after successful execution. For current scripts, see [scripts/README.md](./scripts/README.md).
+
 ## Overview
 All critical bugfixes for the Film & Serier section have been implemented and deployed. The section now properly handles content filtering, age ratings, pagination, and provider displays.
 

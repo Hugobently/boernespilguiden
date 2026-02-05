@@ -10,8 +10,8 @@ Børnespilguiden helps Danish parents find age-appropriate games, apps, and stre
 
 ## Content
 
-- **111 Digital Games** - Apps and games with ratings, parent tips, and safety info
-- **72 Board Games** - Physical games with age recommendations
+- **97 Digital Games** - Apps and games with ratings, parent tips, and safety info
+- **59 Board Games** - Physical games with age recommendations
 - **194 Movies & TV Shows** - Streaming content with availability info
 
 ## Tech Stack
@@ -43,21 +43,24 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 ## Documentation
 
 - **[PROJECT-DOCUMENTATION.md](./PROJECT-DOCUMENTATION.md)** - Complete technical documentation
+- **[CLAUDE.md](./CLAUDE.md)** - Project context for Claude AI
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deployment guide
 - **[CLAUDE-NOTES.md](./CLAUDE-NOTES.md)** - Development session notes
-- **[IMPROVEMENTS.md](./IMPROVEMENTS.md)** - Feature backlog
 
 ## Scripts
 
 ```bash
-# AI enhance games
-npx tsx scripts/enhance-games.ts
+# Check database stats
+npx tsx scripts/check-stats.ts
 
-# Download missing game images
-npx tsx scripts/download-game-images.ts
+# AI enhance media
+npx tsx scripts/enhance-media.ts <limit>
 
-# Import streaming content
-npx tsx scripts/fetch-streaming-content.ts
+# Fetch game media
+npx tsx scripts/fetch-game-media-enhanced.ts
 ```
+
+See [scripts/README.md](./scripts/README.md) for full documentation.
 
 ## Environment Variables
 
