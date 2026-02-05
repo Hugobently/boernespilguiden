@@ -42,10 +42,10 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## Documentation
 
-- **[PROJECT-DOCUMENTATION.md](./PROJECT-DOCUMENTATION.md)** - Complete technical documentation
-- **[CLAUDE.md](./CLAUDE.md)** - Project context for Claude AI
-- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deployment guide
-- **[CLAUDE-NOTES.md](./CLAUDE-NOTES.md)** - Development session notes
+- **[CLAUDE.md](./CLAUDE.md)** - Complete project context (tech stack, schema, commands, guidelines)
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deployment & ops guide
+- **[CLAUDE-NOTES.md](./CLAUDE-NOTES.md)** - Session notes & user preferences
+- **[scripts/README.md](./scripts/README.md)** - Script documentation
 
 ## Scripts
 

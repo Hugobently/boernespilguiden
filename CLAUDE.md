@@ -366,6 +366,43 @@ Click tracking via Google Analytics: event `affiliate_click` with parameters `pr
 
 ---
 
+## Rate Limiting
+
+IP-based rate limiting in `lib/middleware/rate-limit.ts`:
+
+| Endpoint | Limit |
+|----------|-------|
+| Search | 100/min |
+| API | 1000/hour |
+| Admin | 50/min |
+
+Usage: `export const GET = withRateLimit(rateLimits.search, handler);`
+
+---
+
+## Translations (i18n)
+
+Helper functions in `/lib/translations.ts`:
+- `getGameWithTranslation(slug, locale)` / `getGamesWithTranslation(locale)`
+- `getBoardGameWithTranslation(slug, locale)` / `getBoardGamesWithTranslation(locale)`
+- `getHomepageDataWithTranslation(locale)`
+
+Fallback: automatically falls back to Danish if translation doesn't exist.
+
+To add a new language: update `SUPPORTED_LOCALES`, create `messages/{locale}.json`, add to `data/seed-translations.ts`.
+
+---
+
+## Extracted Sub-Components
+
+GameCard/GameDetail were refactored into smaller components:
+- `GameCardImage.tsx`, `GameCardBadges.tsx` (from GameCard)
+- `GameDetailComponents.tsx` (from GameDetail)
+- `HeaderSearchInput.tsx` (from Header)
+- `VideoPlayer.tsx`, `ScreenshotGallery.tsx`, `ExpandableDescription.tsx`, `EnhancedParentInfo.tsx`
+
+---
+
 ## Development Notes
 
 - Database uses PostgreSQL on Vercel
@@ -376,4 +413,6 @@ Click tracking via Google Analytics: event `affiliate_click` with parameters `pr
 - Run `npx prisma generate` after schema changes
 - Build script auto-runs `prisma generate && prisma db push && seed`
 - Database is re-seeded on every deploy to keep data in sync
-- See `PROJECT-DOCUMENTATION.md` for full documentation including component architecture, deployment guide, session history, and known issues
+- E2E tests: 29 Playwright tests in `e2e/` folder
+- Known tech debt: ~49 TypeScript `any` types, ~1800 inline hex colors (utility classes exist but not applied everywhere)
+- See `DEPLOYMENT.md` for deploy guide, `CLAUDE-NOTES.md` for session history
