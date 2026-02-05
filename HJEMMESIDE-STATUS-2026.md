@@ -37,8 +37,8 @@ og braetspil med AI-genererede foraeldreguides, aldersfiltrering og streaming-in
 |--------|--------|
 | Medier i databasen | 194 (film, serier, programmer) |
 | AI-forbedrede | 194/194 (100%) |
-| Digitale spil | 97 anmeldt |
-| Braetspil | 59 med affiliate links |
+| Digitale spil | 124 anmeldt |
+| Braetspil | 73 med affiliate links |
 | DR programmer | 45 med dansk tale |
 | Sprog understoettet | 4 (Dansk, Engelsk, Fransk, Spansk) |
 | Kvalitetsscore | 96/100 |
@@ -47,8 +47,8 @@ og braetspil med AI-genererede foraeldreguides, aldersfiltrering og streaming-in
 ### Hovedfunktioner
 - Film & Serier browser med streaming info og foraeldreguides
 - Braetspil anbefalinger med affiliate links (Saxo, Amazon)
-- AI-genereret foraeldrevejledning (Claude 3 Haiku) - 100% daekning
-- Aldersbaseret filtrering og soegning (0-3, 4-6, 7-11, 12+)
+- AI-genereret foraeldrevejledning (Claude Sonnet 4) - 100% daekning
+- Aldersbaseret filtrering og soegning (0-3, 3-6, 7+)
 - Internationalisering (i18n) med next-intl (4 sprog)
 - Responsivt design med Tailwind CSS og custom pastel-tema
 - Screenshots galleri for alle spil (100% daekning)
@@ -80,7 +80,7 @@ og braetspil med AI-genererede foraeldreguides, aldersfiltrering og streaming-in
 - **Build**: Static + Server-side rendering (auto-deploy fra main branch)
 
 ### AI & APIs
-- **AI Model**: Claude 3 Haiku (Anthropic) - til foraeldreguide-generering
+- **AI Model**: Claude Sonnet 4 (Anthropic) - til foraeldreguide-generering
 - **Movie Data**: TMDB (The Movie Database) - metadata, posters, ratings
 - **Streaming**: JustWatch - provider-data (Netflix, Disney+, HBO osv.)
 - **Content Ratings**: TMDB + manuelle overrides for dansk system
@@ -142,7 +142,7 @@ Databasen indeholder to hovedmodeller:
 - Kilder: TMDB, DR_TMDB, DR_MANUAL
 
 **Braetspil:**
-- Total: 59 items
+- Total: 73 items
 - Alle med danske beskrivelser
 - Alle med billeder
 - Affiliate links til Saxo og Amazon
@@ -246,7 +246,7 @@ Eksempler paa dubbede: Pippi Langstroempe (svensk), Brandbamsen Bjoernis (norsk)
 
 ### Oversigt
 
-Braetspilsektionen indeholder 59 haandplukkede anbefalinger med affiliate links
+Braetspilsektionen indeholder 73 haandplukkede anbefalinger med affiliate links
 til Saxo og Amazon. Alle spil har danske beskrivelser, billeder og metadata.
 
 ### Features
@@ -275,7 +275,7 @@ Affiliate links til Saxo og Amazon er implementeret med:
 |--------|--------|
 | Total items | 194 |
 | AI-forbedret | 194/194 (100%) |
-| Enhancement model | Claude 3 Haiku |
+| Enhancement model | Claude Sonnet 4 |
 | Gennemsnitlig tid per item | ~15 sekunder |
 
 ### Hvad Genereres
@@ -316,7 +316,7 @@ POST til `/api/admin/enhance-media` med Authorization Bearer header.
 Koerer i Vercels environment med direkte database-adgang.
 
 **Metode 2: Lokale scripts**
-Koer `node scripts/test-enhancement.js [limit]` med POSTGRES_URL og ANTHROPIC_API_KEY
+Koer `npx tsx scripts/enhance-media.ts [limit]` med DATABASE_URL og ANTHROPIC_API_KEY
 sat som environment variables. Nemmere at debugge og med fuld kontrol over processen.
 
 ### Enhancement Timeline
@@ -547,9 +547,14 @@ opgaver. Se `scripts/README.md` for aktive scripts og dokumentation.
 
 | Script | Formaal |
 |--------|---------|
-| test-enhancement.js | Hoved AI-enhancement script. Finder items uden parentInfo, kalder Claude 3 Haiku, parser output, gemmer til database. Koeres med `node scripts/test-enhancement.js [limit]`. |
-| check-enhancement-status.js | Viser status paa AI-enhancements: total, enhanced, not enhanced, breakdown by source. |
-| data-quality-check.js | Comprehensive datakvalitetsverifikation: dansk tale status, beskrivelse-daekning, AI-status, kilde-fordeling, potentielle issues. |
+| check-stats.ts | Database statistik: antal spil, braetspil, medier, enhancement status |
+| enhance-media.ts | AI-enhancement af medier med Claude Sonnet 4 |
+| fetch-game-media.ts | Hent screenshots og ikoner fra app stores |
+| fetch-game-media-enhanced.ts | Udvidet media-hentning med bedre fejlhaandtering |
+| update-game-media.ts | Opdater game media i databasen fra CSV |
+| migrate-media-to-db.ts | Migrer media-data til database |
+
+Se `scripts/README.md` for komplet dokumentation.
 
 ### Historiske scripts (koert og afsluttet)
 
@@ -605,9 +610,8 @@ opgaver. Se `scripts/README.md` for aktive scripts og dokumentation.
    Ingen analytics implementeret endnu. Ville give indsigt i brugeradfaerd,
    populaert indhold og affiliate click tracking. Vigtig for forretningsbeslutninger.
 
-2. **Rate Limiting paa API Endpoints**
-   Status: Implementeret (lib/middleware/rate-limit.ts).
-   Beskytter admin endpoints mod misbrug.
+2. ~~**Rate Limiting paa API Endpoints**~~ — **Implementeret** (lib/middleware/rate-limit.ts).
+   Beskytter search og admin endpoints mod misbrug.
 
 ### Medium Prioritet
 
@@ -666,7 +670,7 @@ kodekvalitet og brugeroplevelse.
 - Google Analytics 4 ikke implementeret endnu
 - Ca. 1800 inline hex colors kunne refaktoreres (utility classes tilfojet)
 - Sentry error tracking ikke implementeret
-- Skip-to-content link mangler for accessibility
+- ~~Skip-to-content link~~ tilfojet (januar 2026)
 - 49 TypeScript `any` types bør erstattes
 
 ### Overall Vurdering
