@@ -62,7 +62,7 @@ Full schema is in `prisma/schema.prisma`. Key models: `Game`, `BoardGame`, `Game
 - `Game.platforms`, `pros`, `cons`, `categories`, `skills`, `themes` are JSON strings (`"[]"`), not native arrays
 - `BoardGame.imageUrl` uses filesystem fallback to `/images/games/board/{slug}.jpg`
 - `Game.screenshots` is a JSON string array of screenshot URLs
-- See `PROJECT-DOCUMENTATION.md` for full schema details and ER diagram
+- See `prisma/schema.prisma` for full schema definition
 
 ---
 
@@ -177,7 +177,7 @@ Age:        baby(0-3) #FFD1DC, child(3-6) #BAFFC9, tween(7+) #BAE1FF
 | `POST /api/analytics` | Event tracking |
 | `POST /api/set-locale` | Language switching |
 
-See `PROJECT-DOCUMENTATION.md` for full parameter documentation and admin endpoints.
+Admin endpoints: `POST /api/admin/enhance-media`, `/api/admin/import`, `/api/admin/init-db`, `/api/admin/reimport-tmdb` (all require `Authorization: Bearer ADMIN_SECRET`).
 
 ---
 
