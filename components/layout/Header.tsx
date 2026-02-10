@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
+import { useFocusTrap } from '@/lib/hooks';
 
 // ============================================================================
 // TYPES
@@ -316,23 +317,21 @@ function MobileMenu({
 }) {
   const t = useTranslations();
   const [mounted, setMounted] = useState(false);
+  const focusTrapRef = useFocusTrap<HTMLDivElement>(isOpen);
 
   // Handle client-side mounting for portal
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Prevent body scroll when menu is open
+  // Handle Escape key to close menu
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) onClose();
     };
-  }, [isOpen]);
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen, onClose]);
 
   // Don't render on server or when closed
   if (!mounted || !isOpen) return null;
@@ -348,6 +347,7 @@ function MobileMenu({
 
       {/* Menu panel - slides in from right */}
       <div
+        ref={focusTrapRef}
         className="absolute top-0 right-0 h-full w-[85vw] max-w-[320px] bg-[#FFF9F0] shadow-[-8px_0_32px_-4px_rgba(0,0,0,0.3)] overflow-hidden animate-slide-in-right"
         role="dialog"
         aria-modal="true"

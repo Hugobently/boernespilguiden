@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useFocusTrap } from '@/lib/hooks';
 
 type ConsentLevel = 'necessary' | 'analytics' | 'all';
 
@@ -45,6 +46,7 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
   const [showCustomize, setShowCustomize] = useState(false);
   const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
   const [preferencesEnabled, setPreferencesEnabled] = useState(false);
+  const focusTrapRef = useFocusTrap<HTMLDivElement>(showBanner);
 
   useEffect(() => {
     // Check if consent has already been given
@@ -105,7 +107,13 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
       {/* Banner */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-auto">
         <div className="max-w-4xl mx-auto p-3 sm:p-4">
-          <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] overflow-hidden">
+          <div
+            ref={focusTrapRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={t.title}
+            className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] overflow-hidden"
+          >
             {/* Main Content */}
             <div className="p-4 sm:p-6">
               <div className="flex items-start gap-3 sm:gap-4">
