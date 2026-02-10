@@ -194,7 +194,7 @@ export async function getBoardGamesWithTranslation(
 // ============================================================================
 
 export async function getHomepageDataWithTranslation(locale: string) {
-  const [editorChoiceGames, adFreeGames, featuredBoardGames, featuredMedia, gameCountByAge, mediaCount] =
+  const [editorChoiceGames, adFreeGames, featuredBoardGames, featuredMedia, allGameAges, mediaCount] =
     await Promise.all([
       // Editor's Choice - digital games (prioritize Danish + younger kids)
       prisma.game.findMany({
@@ -259,27 +259,25 @@ export async function getHomepageDataWithTranslation(locale: string) {
           },
         },
       }),
-      // Count games by age group
-      Promise.all([
-        prisma.game.count({ where: { minAge: { lte: 3 } } }),
-        prisma.game.count({ where: { minAge: { gte: 3, lte: 6 } } }),
-        prisma.game.count({ where: { minAge: { gte: 7, lte: 10 } } }),
-        prisma.game.count({ where: { minAge: { gte: 11 } } }),
-      ]),
+      // Get all game ages in one query, count in JS (1 query instead of 4)
+      prisma.game.findMany({ select: { minAge: true } }),
       // Count total media items
       prisma.media.count(),
     ]);
+
+  // Count games by age group in JS (from single query result)
+  const gameCounts = {
+    '0-3': allGameAges.filter((g) => g.minAge <= 3).length,
+    '3-6': allGameAges.filter((g) => g.minAge >= 3 && g.minAge <= 6).length,
+    '7+': allGameAges.filter((g) => g.minAge >= 7).length,
+  };
 
   return {
     editorChoiceGames: editorChoiceGames.map((g) => applyGameTranslation(g, locale)),
     adFreeGames: adFreeGames.map((g) => applyGameTranslation(g, locale)),
     featuredBoardGames: featuredBoardGames.map((g) => applyBoardGameTranslation(g, locale)),
     featuredMedia: featuredMedia,
-    gameCounts: {
-      '0-3': gameCountByAge[0],
-      '3-6': gameCountByAge[1],
-      '7+': gameCountByAge[2],
-    },
+    gameCounts,
     mediaCount: mediaCount,
   };
 }
