@@ -8,8 +8,6 @@ import {
 } from '@/lib/search';
 import { withRateLimit, rateLimits } from '@/lib/middleware/rate-limit';
 
-export const dynamic = 'force-dynamic';
-
 async function searchHandler(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
