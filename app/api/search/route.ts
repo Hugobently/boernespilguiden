@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Prisma, Game, BoardGame } from '@prisma/client';
 import prisma from '@/lib/db';
 import {
   parseSearchQuery,
@@ -44,12 +45,9 @@ async function searchHandler(request: NextRequest) {
     const boardWhere = buildBoardGameWhereClause(parsed);
 
     // Execute searches based on type
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let digitalGames: any[] = [];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let boardGames: any[] = [];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let media: any[] = [];
+    let digitalGames: Game[] = [];
+    let boardGames: BoardGame[] = [];
+    let media: { id: string; slug: string; title: string; posterUrl: string | null; type: string; isDanish: boolean; hasDanishAudio: boolean | null }[] = [];
 
     // Determine limit distribution
     const itemsPerType = type ? limit : Math.ceil(limit / 3);
@@ -78,8 +76,7 @@ async function searchHandler(request: NextRequest) {
 
     // Search Film & Serier
     if (type !== 'digital' && type !== 'board') {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const mediaWhere: any = {};
+      const mediaWhere: Prisma.MediaWhereInput = {};
 
       // Simple text search in title and description
       if (parsed.searchTerms.length > 0) {

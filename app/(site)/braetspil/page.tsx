@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Prisma } from '@prisma/client';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { Navigation } from '@/components/layout';
 import { GameGrid } from '@/components/games';
@@ -50,8 +51,7 @@ export default async function BoardGamesPage({ searchParams }: PageProps) {
   const t = await getTranslations('boardGames');
 
   // Build where clause based on age filter
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let where: any = {};
+  let where: Prisma.BoardGameWhereInput = {};
 
   if (selectedAge && ageGroupRanges[selectedAge]) {
     const range = ageGroupRanges[selectedAge];

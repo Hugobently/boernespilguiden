@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { Prisma } from "@prisma/client";
 import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import prisma from '@/lib/db';
@@ -88,8 +89,7 @@ async function getGamesForAgeGroup(
   const config = ageGroupConfig[ageGroup];
 
   // Build where clause
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const where: any = {
+  const where: { AND: Array<Record<string, unknown>>; [key: string]: unknown } = {
     AND: [
       {
         OR: [
@@ -123,8 +123,7 @@ async function getGamesForAgeGroup(
   }
 
   // Build orderBy based on sort
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let orderBy: any[] = [];
+  let orderBy: Prisma.GameOrderByWithRelationInput[] = [];
   switch (sort) {
     case 'newest':
       orderBy = [{ createdAt: 'desc' }];

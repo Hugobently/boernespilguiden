@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import Link from 'next/link';
+import { Prisma } from '@prisma/client';
 import { getTranslations } from 'next-intl/server';
 import { GameCard } from '@/components/games';
 import { MediaCard } from '@/components/media/MediaCard';
@@ -69,15 +70,12 @@ async function searchGames(
   },
   sort: SortOption = 'relevans'
 ) {
-  // Build where clause for digital games
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const digitalWhere: any = {
-    AND: [],
-  };
+  // Build conditions array
+  const conditions: Prisma.GameWhereInput[] = [];
 
   // Search term matching (case-insensitive for PostgreSQL)
   if (query) {
-    digitalWhere.AND.push({
+    conditions.push({
       OR: [
         { title: { contains: query, mode: 'insensitive' } },
         { shortDescription: { contains: query, mode: 'insensitive' } },
@@ -89,23 +87,23 @@ async function searchGames(
 
   // Apply filters
   if (filters.adFree) {
-    digitalWhere.AND.push({ hasAds: false });
+    conditions.push({ hasAds: false });
   }
   if (filters.free) {
-    digitalWhere.AND.push({ priceModel: 'gratis' });
+    conditions.push({ priceModel: 'gratis' });
   }
   if (filters.offline) {
-    digitalWhere.AND.push({ isOfflineCapable: true });
+    conditions.push({ isOfflineCapable: true });
   }
   if (filters.noInAppPurchases) {
-    digitalWhere.AND.push({ hasInAppPurchases: false });
+    conditions.push({ hasInAppPurchases: false });
   }
   if (filters.supportsDanish) {
-    digitalWhere.AND.push({ supportsDanish: true });
+    conditions.push({ supportsDanish: true });
   }
   if (filters.ageGroup) {
     const { minAge, maxAge } = parseAgeGroup(filters.ageGroup);
-    digitalWhere.AND.push({
+    conditions.push({
       OR: [
         { minAge: { lte: maxAge }, maxAge: { gte: minAge } },
         { ageGroup: filters.ageGroup },
@@ -113,14 +111,11 @@ async function searchGames(
     });
   }
 
-  // Clean up empty AND array
-  if (digitalWhere.AND.length === 0) {
-    delete digitalWhere.AND;
-  }
+  // Build where clause from conditions
+  const digitalWhere: Prisma.GameWhereInput = conditions.length > 0 ? { AND: conditions } : {};
 
   // Build orderBy based on sort option
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let orderBy: any[];
+  let orderBy: Prisma.GameOrderByWithRelationInput[];
   switch (sort) {
     case 'rating':
       orderBy = [{ rating: 'desc' }, { editorChoice: 'desc' }];
@@ -136,7 +131,7 @@ async function searchGames(
   }
 
   const digitalGames = await prisma.game.findMany({
-    where: Object.keys(digitalWhere).length > 0 ? digitalWhere : undefined,
+    where: digitalWhere,
     orderBy,
     take: 50,
   });
@@ -154,15 +149,12 @@ async function searchBoardGames(
   },
   sort: SortOption = 'relevans'
 ) {
-  // Build where clause for board games
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const boardWhere: any = {
-    AND: [],
-  };
+  // Build conditions array
+  const boardConditions: Prisma.BoardGameWhereInput[] = [];
 
   // Search term matching (case-insensitive for PostgreSQL)
   if (query) {
-    boardWhere.AND.push({
+    boardConditions.push({
       OR: [
         { title: { contains: query, mode: 'insensitive' } },
         { shortDescription: { contains: query, mode: 'insensitive' } },
@@ -175,7 +167,7 @@ async function searchBoardGames(
   // Apply filters
   if (filters.ageGroup) {
     const { minAge, maxAge } = parseAgeGroup(filters.ageGroup);
-    boardWhere.AND.push({
+    boardConditions.push({
       OR: [
         { minAge: { lte: maxAge }, maxAge: { gte: minAge } },
         { ageGroup: filters.ageGroup },
@@ -185,7 +177,7 @@ async function searchBoardGames(
   if (filters.players) {
     const playerCount = parseInt(filters.players, 10);
     if (!isNaN(playerCount) && playerCount > 0) {
-      boardWhere.AND.push({
+      boardConditions.push({
         minPlayers: { lte: playerCount },
         maxPlayers: { gte: playerCount },
       });
@@ -194,23 +186,20 @@ async function searchBoardGames(
   if (filters.playTime) {
     const maxPlayTime = parseInt(filters.playTime, 10);
     if (!isNaN(maxPlayTime) && maxPlayTime > 0) {
-      boardWhere.AND.push({
+      boardConditions.push({
         playTimeMinutes: { lte: maxPlayTime },
       });
     }
   }
   if (filters.supportsDanish) {
-    boardWhere.AND.push({ supportsDanish: true });
+    boardConditions.push({ supportsDanish: true });
   }
 
-  // Clean up empty AND array
-  if (boardWhere.AND.length === 0) {
-    delete boardWhere.AND;
-  }
+  // Build where clause from conditions
+  const boardWhere: Prisma.BoardGameWhereInput = boardConditions.length > 0 ? { AND: boardConditions } : {};
 
   // Build orderBy based on sort option
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let orderBy: any[];
+  let orderBy: Prisma.BoardGameOrderByWithRelationInput[];
   switch (sort) {
     case 'rating':
       orderBy = [{ rating: 'desc' }, { editorChoice: 'desc' }];
@@ -226,7 +215,7 @@ async function searchBoardGames(
   }
 
   const boardGames = await prisma.boardGame.findMany({
-    where: Object.keys(boardWhere).length > 0 ? boardWhere : undefined,
+    where: boardWhere,
     orderBy,
     take: 50,
   });
@@ -242,15 +231,12 @@ async function searchMedia(
   },
   sort: SortOption = 'relevans'
 ) {
-  // Build where clause for media (Film & Serier)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const mediaWhere: any = {
-    AND: [],
-  };
+  // Build conditions array
+  const mediaConditions: Prisma.MediaWhereInput[] = [];
 
   // Search term matching (case-insensitive for PostgreSQL)
   if (query) {
-    mediaWhere.AND.push({
+    mediaConditions.push({
       OR: [
         { title: { contains: query, mode: 'insensitive' } },
         { description: { contains: query, mode: 'insensitive' } },
@@ -261,13 +247,13 @@ async function searchMedia(
   // Apply filters
   if (filters.ageGroup) {
     const { minAge, maxAge } = parseAgeGroup(filters.ageGroup);
-    mediaWhere.AND.push({
+    mediaConditions.push({
       ageMin: { lte: maxAge },
       ageMax: { gte: minAge },
     });
   }
   if (filters.supportsDanish) {
-    mediaWhere.AND.push({
+    mediaConditions.push({
       OR: [
         { isDanish: true },
         { hasDanishAudio: true },
@@ -275,17 +261,14 @@ async function searchMedia(
     });
   }
 
-  // Clean up empty AND array
-  if (mediaWhere.AND.length === 0) {
-    delete mediaWhere.AND;
-  }
+  // Build where clause from conditions
+  const mediaWhere: Prisma.MediaWhereInput = mediaConditions.length > 0 ? { AND: mediaConditions } : {};
 
   // Build orderBy based on sort option
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let orderBy: any[];
+  let orderBy: Prisma.MediaOrderByWithRelationInput[];
   switch (sort) {
     case 'rating':
-      orderBy = [{ ageRating: 'asc' }]; // Lower age rating = better for kids
+      orderBy = [{ ageMin: 'asc' }]; // Lower age = better for kids
       break;
     case 'navn':
       orderBy = [{ title: 'asc' }];
@@ -298,7 +281,7 @@ async function searchMedia(
   }
 
   const media = await prisma.media.findMany({
-    where: Object.keys(mediaWhere).length > 0 ? mediaWhere : undefined,
+    where: mediaWhere,
     orderBy,
     take: 50,
     select: {
