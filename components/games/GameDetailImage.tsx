@@ -30,6 +30,7 @@ export function GameDetailImage({ src, alt, title, type }: GameDetailImageProps)
       src={src}
       alt={alt}
       fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
       className="object-cover"
       priority
       onError={() => setHasError(true)}
