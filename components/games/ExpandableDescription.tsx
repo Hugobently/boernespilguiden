@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 
 interface ExpandableDescriptionProps {
@@ -13,6 +14,7 @@ export function ExpandableDescription({
   maxLength = 300
 }: ExpandableDescriptionProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const t = useTranslations('gameDetail');
 
   // Check if description needs expansion
   const needsExpansion = description.length > maxLength;
@@ -36,7 +38,7 @@ export function ExpandableDescription({
             'transition-colors duration-200'
           )}
         >
-          <span>{isExpanded ? 'Vis mindre' : 'Læs mere'}</span>
+          <span>{isExpanded ? t('showLess') : t('readMore')}</span>
           <svg
             className={cn(
               'w-4 h-4 transition-transform duration-200',
@@ -79,6 +81,8 @@ export function EnhancedParentInfo({
   minAge,
   maxAge
 }: EnhancedParentInfoProps) {
+  const t = useTranslations('gameDetail');
+
   if (!parentInfo && !parentTip) return null;
 
   const sections: ParentInfoSection[] = [];
@@ -86,7 +90,7 @@ export function EnhancedParentInfo({
   // Main parent info
   if (parentInfo) {
     sections.push({
-      title: 'Hvad forældre skal vide',
+      title: t('parentInfo'),
       icon: '👨‍👩‍👧',
       content: parentInfo,
       bgColor: 'bg-[#BAE1FF]/20',
@@ -98,7 +102,7 @@ export function EnhancedParentInfo({
   const ageGuidance = getAgeGuidance(minAge, maxAge);
   if (ageGuidance) {
     sections.push({
-      title: 'Aldersvejledning',
+      title: t('ageGuidance'),
       icon: '📅',
       content: ageGuidance,
       bgColor: 'bg-[#FFE66D]/20',
@@ -109,7 +113,7 @@ export function EnhancedParentInfo({
   // Parent tip
   if (parentTip) {
     sections.push({
-      title: 'Tip til forældre',
+      title: t('parentTip'),
       icon: '💡',
       content: parentTip,
       bgColor: 'bg-[#BAFFC9]/20',

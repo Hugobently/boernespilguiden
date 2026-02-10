@@ -1,0 +1,18 @@
+# Børnespilguiden robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://boernespilguiden.dk/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /api/admin/
+
+# Allow search engines to crawl all public pages
+Allow: /spil/
+Allow: /braetspil/
+Allow: /film-serier/
+Allow: /soeg/
+Allow: /om/
+Allow: /kontakt/

@@ -256,6 +256,18 @@
     "boardGame": "Board game",
     "danish": "Danish"
   },
+  "gameDetail": {
+    "readMore": "Read more",
+    "showLess": "Show less",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "parentInfo": "What parents need to know",
+    "ageGuidance": "Age guidance",
+    "parentTip": "Tip for parents",
+    "theGood": "The good",
+    "theBad": "The not so good",
+    "downloadGame": "Download game"
+  },
   "about": {
     "metaTitle": "About Us - Children's Game Guide",
     "metaDescription": "Learn more about the Children's Game Guide. We help parents find the best games for their children with a focus on quality, safety and learning.",

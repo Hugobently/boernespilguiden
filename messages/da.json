@@ -292,6 +292,18 @@
     "digital": "Digitalt",
     "boardGame": "Brætspil"
   },
+  "gameDetail": {
+    "readMore": "Læs mere",
+    "showLess": "Vis mindre",
+    "previousImage": "Forrige billede",
+    "nextImage": "Næste billede",
+    "parentInfo": "Hvad forældre skal vide",
+    "ageGuidance": "Aldersvejledning",
+    "parentTip": "Tip til forældre",
+    "theGood": "Det gode",
+    "theBad": "Det mindre gode",
+    "downloadGame": "Hent spillet"
+  },
   "about": {
     "metaTitle": "Om Børnespilguiden - Hvem er vi?",
     "metaDescription": "Lær mere om Børnespilguiden. Vi hjælper danske forældre med at finde de bedste spil til deres børn med fokus på kvalitet, sikkerhed og læring.",

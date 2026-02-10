@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { cn, getAgeLabel } from '@/lib/utils';
 import { Platform } from '@/lib/types';
 import { platformConfig } from '@/lib/config/platforms';
@@ -18,6 +19,7 @@ interface ScreenshotGalleryProps {
 
 export function ScreenshotGallery({ screenshots, title }: ScreenshotGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const t = useTranslations('gameDetail');
 
   if (!screenshots || screenshots.length === 0) return null;
 
@@ -39,7 +41,7 @@ export function ScreenshotGallery({ screenshots, title }: ScreenshotGalleryProps
             <button
               onClick={() => setActiveIndex((i) => (i > 0 ? i - 1 : screenshots.length - 1))}
               className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-[#4A4A4A] hover:bg-white transition-colors active:scale-95"
-              aria-label="Forrige billede"
+              aria-label={t('previousImage')}
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -48,7 +50,7 @@ export function ScreenshotGallery({ screenshots, title }: ScreenshotGalleryProps
             <button
               onClick={() => setActiveIndex((i) => (i < screenshots.length - 1 ? i + 1 : 0))}
               className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-[#4A4A4A] hover:bg-white transition-colors active:scale-95"
-              aria-label="Næste billede"
+              aria-label={t('nextImage')}
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

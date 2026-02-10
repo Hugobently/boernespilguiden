@@ -256,6 +256,18 @@
     "boardGame": "Juego de mesa",
     "danish": "Danés"
   },
+  "gameDetail": {
+    "readMore": "Leer más",
+    "showLess": "Ver menos",
+    "previousImage": "Imagen anterior",
+    "nextImage": "Imagen siguiente",
+    "parentInfo": "Lo que los padres deben saber",
+    "ageGuidance": "Guía de edad",
+    "parentTip": "Consejo para padres",
+    "theGood": "Lo bueno",
+    "theBad": "Lo mejorable",
+    "downloadGame": "Descargar juego"
+  },
   "about": {
     "metaTitle": "Sobre nosotros - Guía de juegos para niños",
     "metaDescription": "Conoce más sobre la Guía de juegos para niños. Ayudamos a los padres a encontrar los mejores juegos para sus hijos con enfoque en calidad, seguridad y aprendizaje.",

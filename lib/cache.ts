@@ -63,35 +63,41 @@ export const getCachedBoardGames = unstable_cache(
 
 /**
  * Get a single digital game by slug
+ * Note: Cache key includes slug for granular caching
  */
-export const getCachedGameBySlug = unstable_cache(
-  async (slug: string) => {
-    return prisma.game.findUnique({
-      where: { slug },
-    });
-  },
-  ['game-by-slug'],
-  {
-    revalidate: CacheDurations.LONG,
-    tags: [CacheTags.ALL_GAMES],
-  }
-);
+export function getCachedGameBySlug(slug: string) {
+  return unstable_cache(
+    async () => {
+      return prisma.game.findUnique({
+        where: { slug },
+      });
+    },
+    [`game-by-slug-${slug}`],
+    {
+      revalidate: CacheDurations.LONG,
+      tags: [CacheTags.GAME(slug), CacheTags.ALL_GAMES],
+    }
+  )();
+}
 
 /**
  * Get a single board game by slug
+ * Note: Cache key includes slug for granular caching
  */
-export const getCachedBoardGameBySlug = unstable_cache(
-  async (slug: string) => {
-    return prisma.boardGame.findUnique({
-      where: { slug },
-    });
-  },
-  ['board-game-by-slug'],
-  {
-    revalidate: CacheDurations.LONG,
-    tags: [CacheTags.ALL_BOARD_GAMES],
-  }
-);
+export function getCachedBoardGameBySlug(slug: string) {
+  return unstable_cache(
+    async () => {
+      return prisma.boardGame.findUnique({
+        where: { slug },
+      });
+    },
+    [`board-game-by-slug-${slug}`],
+    {
+      revalidate: CacheDurations.LONG,
+      tags: [CacheTags.BOARD_GAME(slug), CacheTags.ALL_BOARD_GAMES],
+    }
+  )();
+}
 
 /**
  * Get featured/editor's choice games

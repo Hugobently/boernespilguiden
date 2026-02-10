@@ -256,6 +256,18 @@
     "boardGame": "Jeu de société",
     "danish": "Danois"
   },
+  "gameDetail": {
+    "readMore": "Lire plus",
+    "showLess": "Voir moins",
+    "previousImage": "Image précédente",
+    "nextImage": "Image suivante",
+    "parentInfo": "Ce que les parents doivent savoir",
+    "ageGuidance": "Conseils d'âge",
+    "parentTip": "Conseil aux parents",
+    "theGood": "Les points positifs",
+    "theBad": "Les points négatifs",
+    "downloadGame": "Télécharger le jeu"
+  },
   "about": {
     "metaTitle": "À propos - Guide des jeux pour enfants",
     "metaDescription": "En savoir plus sur le Guide des jeux pour enfants. Nous aidons les parents à trouver les meilleurs jeux pour leurs enfants avec un accent sur la qualité, la sécurité et l'apprentissage.",
