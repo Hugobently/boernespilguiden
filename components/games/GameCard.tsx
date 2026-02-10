@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { parseJsonArray, Platform, DataCollection } from '@/lib/types';
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, memo, useMemo, HTMLAttributes } from 'react';
 import { GameImageWithFallback } from './GameCardImage';
 import {
   QuickBadges,
@@ -41,7 +41,7 @@ export interface GameCardProps extends HTMLAttributes<HTMLDivElement> {
   dataCollection?: DataCollection | string | null;
 }
 
-export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
+const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
   (
     {
       slug,
@@ -76,11 +76,18 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
       ? (iconUrl || `/images/games/digital/${slug}.jpg`)
       : (imageUrl || `/images/games/board/${slug}.jpg`);
 
-    const parsedPlatforms = platforms ? parseJsonArray<Platform>(platforms) : [];
-    const parsedCategories = categories ? parseJsonArray<string>(categories) : [];
+    // Memoize parsed arrays to avoid re-parsing on every render
+    const parsedPlatforms = useMemo(
+      () => (platforms ? parseJsonArray<Platform>(platforms) : []),
+      [platforms]
+    );
+    const parsedCategories = useMemo(
+      () => (categories ? parseJsonArray<string>(categories) : []),
+      [categories]
+    );
 
-    // Quick badges configuration
-    const quickBadges: QuickBadge[] = [
+    // Memoize quick badges configuration
+    const quickBadges: QuickBadge[] = useMemo(() => [
       {
         label: t('danish'),
         emoji: <DanishFlag />,
@@ -111,7 +118,7 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
         show: hasInAppPurchases === false && priceModel !== 'gratis',
         color: { bg: '#FFF3B0', text: '#7D6608' },
       },
-    ];
+    ], [t, supportsDanish, priceModel, hasAds, offlinePlay, hasInAppPurchases]);
 
     return (
       <div ref={ref} className={cn('group', className)} {...props}>
@@ -230,4 +237,7 @@ export const GameCard = forwardRef<HTMLDivElement, GameCardProps>(
   }
 );
 
-GameCard.displayName = 'GameCard';
+GameCardInner.displayName = 'GameCard';
+
+// Memoize the component to prevent unnecessary re-renders
+export const GameCard = memo(GameCardInner);

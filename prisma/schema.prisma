@@ -88,6 +88,13 @@ model Game {
   typicalSessionMinutes Int?
   supportsDanish        Boolean           @default(false)
   translations          GameTranslation[]
+
+  @@index([ageGroup])
+  @@index([featured])
+  @@index([editorChoice])
+  @@index([rating])
+  @@index([supportsDanish])
+  @@index([minAge])
 }
 
 model BoardGame {
@@ -121,6 +128,11 @@ model BoardGame {
   updatedAt        DateTime               @updatedAt
   supportsDanish   Boolean                @default(false)
   translations     BoardGameTranslation[]
+
+  @@index([ageGroup])
+  @@index([featured])
+  @@index([editorChoice])
+  @@index([rating])
 }
 
 model AnalyticsEvent {
