@@ -196,10 +196,14 @@ export async function getBoardGamesWithTranslation(
 export async function getHomepageDataWithTranslation(locale: string) {
   const [editorChoiceGames, adFreeGames, featuredBoardGames, featuredMedia, gameCountByAge, mediaCount] =
     await Promise.all([
-      // Editor's Choice - digital games
+      // Editor's Choice - digital games (prioritize Danish + younger kids)
       prisma.game.findMany({
         where: { editorChoice: true },
-        orderBy: { rating: 'desc' },
+        orderBy: [
+          { supportsDanish: 'desc' },
+          { minAge: 'asc' },
+          { rating: 'desc' },
+        ],
         take: 6,
         include: {
           translations: {
