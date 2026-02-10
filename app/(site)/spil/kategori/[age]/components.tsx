@@ -608,7 +608,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
           'flex items-center justify-center w-10 h-10 rounded-xl transition-all',
           currentPage > 1
             ? 'bg-[#FFFCF7] text-[#4A4A4A] hover:bg-[#FFB5A7]/20 hover:shadow-sm'
-            : 'bg-[#F5F5F5] text-[#9CA3AF] cursor-not-allowed'
+            : 'bg-[#F5F5F5] text-[#6B7280] cursor-not-allowed'
         )}
         aria-disabled={currentPage <= 1}
       >
@@ -648,7 +648,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
           'flex items-center justify-center w-10 h-10 rounded-xl transition-all',
           currentPage < totalPages
             ? 'bg-[#FFFCF7] text-[#4A4A4A] hover:bg-[#FFB5A7]/20 hover:shadow-sm'
-            : 'bg-[#F5F5F5] text-[#9CA3AF] cursor-not-allowed'
+            : 'bg-[#F5F5F5] text-[#6B7280] cursor-not-allowed'
         )}
         aria-disabled={currentPage >= totalPages}
       >

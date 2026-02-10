@@ -330,7 +330,7 @@ export const Rating = forwardRef<HTMLDivElement, RatingProps>(
         {showValue && (
           <span className={cn('font-semibold text-[#4A4A4A] ml-1', config.textSize)}>
             {value.toFixed(1)}
-            {showMax && <span className="text-[#9CA3AF]">/{max}</span>}
+            {showMax && <span className="text-[#6B7280]">/{max}</span>}
           </span>
         )}
       </div>
@@ -376,7 +376,7 @@ export const CompactRating = forwardRef<HTMLDivElement, CompactRatingProps>(
           {value.toFixed(1)}
         </span>
         {label && (
-          <span className={cn('text-[#9CA3AF]', config.textSize)}>{label}</span>
+          <span className={cn('text-[#6B7280]', config.textSize)}>{label}</span>
         )}
       </div>
     );

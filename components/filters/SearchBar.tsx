@@ -311,7 +311,7 @@ export function SearchBar({
       <form onSubmit={handleSearch}>
         <div className="relative">
           {/* Search icon */}
-          <div className={cn('absolute top-1/2 -translate-y-1/2 text-[#9CA3AF] pointer-events-none', styles.icon)}>
+          <div className={cn('absolute top-1/2 -translate-y-1/2 text-[#6B7280] pointer-events-none', styles.icon)}>
             {isLoading ? (
               <div className="w-full h-full border-2 border-[#FFB5A7] border-t-transparent rounded-full animate-spin" />
             ) : (
@@ -337,7 +337,7 @@ export function SearchBar({
             className={cn(
               'w-full rounded-2xl pr-12',
               'bg-[#FFFCF7] border-2 border-transparent',
-              'text-[#4A4A4A] placeholder:text-[#9CA3AF]',
+              'text-[#4A4A4A] placeholder:text-[#6B7280]',
               'focus:outline-none focus:border-[#FFB5A7] focus:shadow-[0_0_0_4px_rgba(255,181,167,0.2)]',
               'transition-all duration-200',
               variant === 'compact' ? 'pl-9' : variant === 'hero' ? 'pl-16' : 'pl-11',
@@ -371,7 +371,7 @@ export function SearchBar({
           {/* Suggestions from search */}
           {suggestions.length > 0 && (
             <div className="p-2">
-              <p className="text-xs font-semibold text-[#9CA3AF] px-3 py-1">Spil</p>
+              <p className="text-xs font-semibold text-[#6B7280] px-3 py-1">Spil</p>
               {suggestions.map((suggestion, index) => (
                 <button
                   key={`${suggestion.type}-${suggestion.slug || suggestion.label}`}
@@ -393,7 +393,7 @@ export function SearchBar({
           {/* Popular searches */}
           {query.length < 2 && showPopularSearches && (
             <div className="p-2 border-t border-[#FFB5A7]/10">
-              <p className="text-xs font-semibold text-[#9CA3AF] px-3 py-1">Populære søgninger</p>
+              <p className="text-xs font-semibold text-[#6B7280] px-3 py-1">Populære søgninger</p>
               {popularSearches.map((search, index) => (
                 <button
                   key={search.label}
@@ -434,7 +434,7 @@ export function SearchBar({
 
       {/* Natural language hint */}
       {query.length > 0 && isFocused && (
-        <div className="absolute -bottom-6 left-0 text-xs text-[#9CA3AF]">
+        <div className="absolute -bottom-6 left-0 text-xs text-[#6B7280]">
           Prøv: &quot;gratis læringsspil til 5-årige&quot;
         </div>
       )}
@@ -461,7 +461,7 @@ export function SimpleSearchInput({
 }: SimpleSearchInputProps) {
   return (
     <div className={cn('relative', className)}>
-      <div className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]">
+      <div className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
@@ -474,7 +474,7 @@ export function SimpleSearchInput({
         className={cn(
           'w-full pl-10 pr-4 py-2.5 rounded-xl',
           'bg-[#FFFCF7] border-2 border-transparent',
-          'text-[#4A4A4A] text-sm placeholder:text-[#9CA3AF]',
+          'text-[#4A4A4A] text-sm placeholder:text-[#6B7280]',
           'focus:outline-none focus:border-[#FFB5A7]',
           'transition-colors'
         )}
@@ -484,7 +484,7 @@ export function SimpleSearchInput({
           type="button"
           onClick={() => onChange('')}
           aria-label="Ryd søgefelt"
-          className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#9CA3AF]/20 flex items-center justify-center hover:bg-[#9CA3AF]/30 transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[#6B7280]/20 flex items-center justify-center hover:bg-[#6B7280]/30 transition-colors"
         >
           <svg className="w-3 h-3 text-[#7A7A7A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

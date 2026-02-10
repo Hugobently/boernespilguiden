@@ -172,7 +172,7 @@ export function HeaderSearchInput({
       <div className="relative">
         {/* Search icon */}
         <svg
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9CA3AF]"
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6B7280]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -197,7 +197,7 @@ export function HeaderSearchInput({
           className={cn(
             'w-full pl-12 pr-4 py-3 rounded-2xl',
             'bg-[#FFFCF7] border-2 border-transparent',
-            'text-[#4A4A4A] placeholder:text-[#9CA3AF]',
+            'text-[#4A4A4A] placeholder:text-[#6B7280]',
             'shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]',
             'transition-all duration-200',
             'focus:outline-none focus:border-[#FFB5A7] focus:shadow-[0_0_0_4px_rgba(255,181,167,0.2)]'
@@ -215,7 +215,7 @@ export function HeaderSearchInput({
             aria-label="Ryd søgefelt"
             className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-[#4A4A4A]/10 transition-colors"
           >
-            <svg className="w-4 h-4 text-[#9CA3AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-4 h-4 text-[#6B7280]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -227,7 +227,7 @@ export function HeaderSearchInput({
         <div className="absolute top-full left-0 right-0 mt-2 bg-[#FFFCF7] rounded-2xl shadow-[0_8px_24px_-4px_rgba(0,0,0,0.1)] border border-[#FFB5A7]/20 overflow-hidden z-50">
           <div className="p-2">
             {!query && (
-              <p className="px-3 py-2 text-xs font-medium text-[#9CA3AF] uppercase tracking-wide">
+              <p className="px-3 py-2 text-xs font-medium text-[#6B7280] uppercase tracking-wide">
                 {t('search.quickSearch')}
               </p>
             )}
@@ -246,7 +246,7 @@ export function HeaderSearchInput({
               >
                 <span className="text-lg">{suggestion.icon}</span>
                 <span className="font-medium">{suggestion.title}</span>
-                <span className="ml-auto text-xs text-[#9CA3AF]">
+                <span className="ml-auto text-xs text-[#6B7280]">
                   {suggestion.type === 'game' && t('search.gamesCategory')}
                   {suggestion.type === 'boardgame' && t('search.boardGamesCategory')}
                   {suggestion.type === 'age' && t('search.ageCategory')}
@@ -278,7 +278,7 @@ export function HeaderSearchInput({
                 <span className="font-medium text-[#4A4A4A]">
                   {t('search.searchFor')} &quot;{query}&quot;
                 </span>
-                <span className="ml-auto text-xs text-[#9CA3AF]">Enter ↵</span>
+                <span className="ml-auto text-xs text-[#6B7280]">Enter ↵</span>
               </button>
             </div>
           )}

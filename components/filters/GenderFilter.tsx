@@ -221,7 +221,7 @@ export const GenderFilter = forwardRef<HTMLDivElement, GenderFilterProps>(
           <label className="block text-sm font-semibold text-[#4A4A4A] flex items-center gap-2">
             <span>👫</span>
             <span>{label}</span>
-            <span className="text-xs font-normal text-[#9CA3AF]">(valgfrit)</span>
+            <span className="text-xs font-normal text-[#6B7280]">(valgfrit)</span>
           </label>
         )}
 

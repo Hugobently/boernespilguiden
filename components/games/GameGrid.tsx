@@ -94,7 +94,7 @@ function EmptyState({
 
       {/* Suggestions */}
       <div className="max-w-sm mx-auto">
-        <p className="text-sm text-[#9CA3AF] mb-3">Prøv i stedet:</p>
+        <p className="text-sm text-[#6B7280] mb-3">Prøv i stedet:</p>
         <div className="flex flex-wrap justify-center gap-2">
           {suggestions.map((suggestion) => (
             <span
@@ -316,7 +316,7 @@ export function GameCount({ count, type, filtered = false }: GameCountProps) {
       <span>{emoji}</span>
       <span className="text-sm font-medium text-[#4A4A4A]">
         {count} {label}
-        {filtered && <span className="text-[#9CA3AF]"> (filtreret)</span>}
+        {filtered && <span className="text-[#6B7280]"> (filtreret)</span>}
       </span>
     </div>
   );

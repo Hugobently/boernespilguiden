@@ -146,7 +146,7 @@ type TargetGender = 'alle' | 'drenge' | 'piger';
 ```
 Primary:    coral #FFB5A7, mint #B8E0D2, sky #A2D2FF, sunflower #FFE66D, lavender #CDB4DB
 Background: paper #FFFCF7, cream #FFF9F0, peach #FFF0E8, mist #F5F9FC
-Text:       primary #4A4A4A, secondary #7A7A7A, muted #9CA3AF
+Text:       primary #4A4A4A, secondary #7A7A7A, muted #6B7280
 Age:        baby(0-3) #FFD1DC, child(3-6) #BAFFC9, tween(7+) #BAE1FF
 ```
 

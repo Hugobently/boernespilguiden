@@ -108,7 +108,7 @@ export function LargeRating({ rating }: { rating: number }) {
                 ? 'text-[#FFE66D]'
                 : i === fullStars && hasHalf
                 ? 'text-[#FFE66D]/60'
-                : 'text-[#9CA3AF]/40'
+                : 'text-[#6B7280]/40'
             )}
           >
             ★

@@ -16,7 +16,7 @@ export const THEME = {
     // Neutrals
     charcoal: '#4A4A4A',     // Main text color
     slate: '#7A7A7A',        // Secondary text
-    muted: '#9CA3AF',        // Muted text
+    muted: '#6B7280',        // WCAG AA compliant
 
     // Backgrounds
     cream: '#FFFDF8',        // Page background

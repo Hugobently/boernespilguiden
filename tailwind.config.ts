@@ -82,7 +82,7 @@ const config: Config = {
         text: {
           primary: "#2D3436",  // Softer black (easier on eyes)
           secondary: "#636E72",
-          muted: "#9CA3AF",
+          muted: "#6B7280",
         },
 
         // Age group colors

@@ -46,7 +46,7 @@ function FooterLogo() {
         <span className="font-bold text-xl text-white block">
           Børnespilguiden
         </span>
-        <span className="text-sm text-[#9CA3AF]">
+        <span className="text-sm text-[#6B7280]">
           De bedste spil til børn
         </span>
       </div>
@@ -83,7 +83,7 @@ function FooterLinkSection({ title, emoji, titleColor, links }: FooterLinkSectio
             <Link
               href={link.href}
               className={cn(
-                'text-[#9CA3AF] hover:text-white transition-colors text-sm flex items-center gap-2',
+                'text-[#6B7280] hover:text-white transition-colors text-sm flex items-center gap-2',
                 link.hoverColor
               )}
             >
@@ -116,7 +116,7 @@ export async function Footer() {
           {/* Brand & description */}
           <div className="lg:col-span-1">
             <FooterLogo />
-            <p className="text-[#9CA3AF] text-sm mt-4 leading-relaxed">
+            <p className="text-[#6B7280] text-sm mt-4 leading-relaxed">
               {t('home.heroDescription')}
             </p>
           </div>
@@ -164,7 +164,7 @@ export async function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">
           {/* Copyright */}
-          <p className="text-[#9CA3AF] text-sm text-center">
+          <p className="text-[#6B7280] text-sm text-center">
             © {currentYear} Børnespilguiden. {t('footer.copyright')}
           </p>
         </div>

@@ -81,7 +81,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
       >
         <Link
           href="/"
-          className="text-[#9CA3AF] hover:text-[#FFB5A7] transition-colors flex items-center gap-1"
+          className="text-[#6B7280] hover:text-[#FFB5A7] transition-colors flex items-center gap-1"
         >
           <span>🏠</span>
           <span className="sr-only">Forside</span>
@@ -90,7 +90,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
         {breadcrumbItems.map((item, index) => (
           <div key={index} className="flex items-center gap-2">
             <svg
-              className="w-4 h-4 text-[#9CA3AF]/50"
+              className="w-4 h-4 text-[#6B7280]/50"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -105,7 +105,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
             {item.href ? (
               <Link
                 href={item.href}
-                className="text-[#9CA3AF] hover:text-[#FFB5A7] transition-colors flex items-center gap-1"
+                className="text-[#6B7280] hover:text-[#FFB5A7] transition-colors flex items-center gap-1"
               >
                 {item.emoji && <span>{item.emoji}</span>}
                 <span>{item.label}</span>

@@ -53,7 +53,7 @@ export const colors = {
   text: {
     primary: '#4A4A4A',    // Soft charcoal - easier on young eyes
     secondary: '#7A7A7A',  // Muted gray
-    muted: '#9CA3AF',      // Very muted
+    muted: '#6B7280',      // WCAG AA compliant muted
     inverse: '#FFFFFF',    // White text on dark backgrounds
   },
 
