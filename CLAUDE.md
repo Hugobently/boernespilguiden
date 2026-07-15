@@ -296,7 +296,7 @@ DATABASE_URL="your-connection-string" npx tsx prisma/seed.ts
 # Development
 npm run dev              # Start dev server (localhost:3000)
 npm run build            # Local production build (prisma generate + next build)
-npm run vercel-build     # Vercel deploy build (generate + db push + seed + next build)
+npm run vercel-build     # Vercel deploy build (generate + DB-sync script + next build)
 npm run lint             # Run ESLint
 
 # Database

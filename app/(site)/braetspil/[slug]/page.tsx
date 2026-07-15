@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { getAgeLabel } from '@/lib/utils';
 import { parseJsonArray } from '@/lib/types';
-import { GameCard } from '@/components/games';
+import { GameCard, BoardGameParentInfo } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { getBoardGameWithTranslation, getBoardGamesWithTranslation } from '@/lib/translations';
 import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
@@ -277,28 +277,6 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               )}
             </div>
 
-            {/* Quick Stats - Mobile */}
-            <div className="lg:hidden grid grid-cols-2 gap-3">
-              <div
-                className="rounded-2xl p-4 text-center"
-                style={{ backgroundColor: ageColors.bg }}
-              >
-                <span className="text-2xl block mb-1">👶</span>
-                <span className="text-xs opacity-70" style={{ color: ageColors.text }}>
-                  {tGames('ageGroup')}
-                </span>
-                <span className="block font-bold text-lg" style={{ color: ageColors.text }}>
-                  {game.minAge}+ {tCommon('years')}
-                </span>
-              </div>
-              <div className="rounded-2xl p-4 text-center bg-[#FFE66D]/30">
-                <span className="text-2xl block mb-1">⭐</span>
-                <span className="text-xs text-[#7D6608] opacity-70">{tGames('rating')}</span>
-                <span className="block font-bold text-lg text-[#7D6608]">
-                  {game.rating.toFixed(1)}/5
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Right Column - Content */}
@@ -331,14 +309,12 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                 {game.title}
               </h1>
 
-              {/* Rating - Desktop */}
-              <div className="hidden lg:block">
-                <StarRating rating={game.rating} />
-              </div>
+              {/* Rating */}
+              <StarRating rating={game.rating} />
             </div>
 
             {/* Quick Stats Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4">
               <div className="bg-[#BAE1FF]/30 rounded-2xl p-4 text-center">
                 <span className="text-3xl block mb-2">👥</span>
                 <span className="text-xs text-[#1D4E89] opacity-70">{t('players')}</span>
@@ -365,18 +341,6 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                   {complexityInfo.label}
                 </span>
               </div>
-              <div
-                className="rounded-2xl p-4 text-center"
-                style={{ backgroundColor: ageColors.bg + '50' }}
-              >
-                <span className="text-3xl block mb-2">👶</span>
-                <span className="text-xs opacity-70" style={{ color: ageColors.text }}>
-                  {tGames('ageGroup')}
-                </span>
-                <span className="block font-bold text-lg" style={{ color: ageColors.text }}>
-                  {game.minAge}+ {tCommon('years')}
-                </span>
-              </div>
             </div>
 
             {/* Description */}
@@ -384,7 +348,22 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               <p className="text-[#4A4A4A] text-lg leading-relaxed">{game.description}</p>
             </div>
 
-            {/* Details Grid */}
+            {/* Hvad forældre skal vide */}
+            <BoardGameParentInfo
+              minAge={game.minAge}
+              maxAge={game.maxAge}
+              complexity={game.complexity}
+              playTimeMinutes={game.playTimeMinutes}
+              minPlayers={game.minPlayers}
+              maxPlayers={game.maxPlayers}
+              supportsDanish={game.supportsDanish}
+              isCooperative={categories.includes('samarbejde')}
+              parentTip={game.parentTip}
+            />
+
+            {/* Details Grid - spillere/tid/sværhedsgrad vises allerede i
+                quick stats og forældre-panelet */}
+            {(game.price || skills.length > 0 || themes.length > 0) && (
             <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm border border-[#FFE66D]/10">
               <h2 className="text-lg font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
                 <span className="text-2xl">📋</span>
@@ -392,42 +371,12 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               </h2>
 
               <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <dt className="text-sm text-[#7A7A7A] mb-1">{tGames('ageGroup')}</dt>
-                  <dd className="font-semibold text-[#4A4A4A]">
-                    {getAgeLabel(game.minAge, game.maxAge)}
-                  </dd>
-                </div>
-
                 {game.price && (
-                  <div>
+                  <div className="col-span-2">
                     <dt className="text-sm text-[#7A7A7A] mb-1">{tGames('price')}</dt>
                     <dd className="font-semibold text-[#4A4A4A]">{game.price} kr</dd>
                   </div>
                 )}
-
-                <div>
-                  <dt className="text-sm text-[#7A7A7A] mb-1">{t('players')}</dt>
-                  <dd className="font-semibold text-[#4A4A4A]">
-                    {t('playerCount', { min: game.minPlayers, max: game.maxPlayers })}
-                  </dd>
-                </div>
-
-                <div>
-                  <dt className="text-sm text-[#7A7A7A] mb-1">{t('playTime')}</dt>
-                  <dd className="font-semibold text-[#4A4A4A]">
-                    {t('playTimeMinutes', { time: game.playTimeMinutes })}
-                  </dd>
-                </div>
-
-                <div>
-                  <dt className="text-sm text-[#7A7A7A] mb-1">{t('complexity')}</dt>
-                  <dd className="font-semibold text-[#4A4A4A] flex items-center gap-2">
-                    <span>{complexityInfo.emoji}</span>
-                    <span>{complexityInfo.label}</span>
-                    <span className="text-sm text-[#7A7A7A]">({game.complexity}/5)</span>
-                  </dd>
-                </div>
 
                 {skills.length > 0 && (
                   <div className="col-span-2">
@@ -462,6 +411,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                 )}
               </div>
             </div>
+            )}
 
             {/* Pros & Cons */}
             {(pros.length > 0 || cons.length > 0) && (
@@ -502,16 +452,6 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               </div>
             )}
 
-            {/* Parent Tip */}
-            {game.parentTip && (
-              <div className="bg-[#FFE66D]/20 border-l-4 border-[#FFE66D] rounded-r-2xl p-6">
-                <h3 className="font-bold text-[#7D6608] mb-2 flex items-center gap-2 text-lg">
-                  <span className="text-2xl">💡</span>
-                  {tGames('parentTip')}
-                </h3>
-                <p className="text-[#4A4A4A]">{game.parentTip}</p>
-              </div>
-            )}
           </div>
         </div>
 

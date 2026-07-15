@@ -164,6 +164,45 @@ export default async function GameDetailPage({ params }: PageProps) {
 
   const ageColors = getAgeGroupColorExtended(game.minAge);
 
+  // Download-links renderes to steder (desktop-kolonne + mobil-sektion)
+  const platformLinks = (game.appStoreUrl || game.playStoreUrl || game.websiteUrl) && (
+    <>
+      {game.appStoreUrl && (
+        <a
+          href={game.appStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#000000] text-white font-semibold hover:bg-[#333333] transition-all hover:shadow-lg"
+        >
+          <span className="text-xl">🍎</span>
+          <span>{t('downloadAppStore')}</span>
+        </a>
+      )}
+      {game.playStoreUrl && (
+        <a
+          href={game.playStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#3DDC84] text-white font-semibold hover:bg-[#2BC472] transition-all hover:shadow-lg"
+        >
+          <span className="text-xl">🤖</span>
+          <span>{t('downloadPlayStore')}</span>
+        </a>
+      )}
+      {game.websiteUrl && (
+        <a
+          href={game.websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#4F46E5] text-white font-semibold hover:bg-[#4338CA] transition-all hover:shadow-lg"
+        >
+          <span className="text-xl">🌐</span>
+          <span>{t('visitWebsite')}</span>
+        </a>
+      )}
+    </>
+  );
+
   // Breadcrumb data for JSON-LD
   const breadcrumbItems = [
     { name: 'Forside', url: '/' },
@@ -251,67 +290,8 @@ export default async function GameDetailPage({ params }: PageProps) {
             </div>
 
             {/* Platform Links - Hidden on mobile, shown on desktop */}
-            <div className="hidden lg:block space-y-3">
-              {game.appStoreUrl && (
-                <a
-                  href={game.appStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#000000] text-white font-semibold hover:bg-[#333333] transition-all hover:shadow-lg"
-                >
-                  <span className="text-xl">🍎</span>
-                  <span>{t('downloadAppStore')}</span>
-                </a>
-              )}
-              {game.playStoreUrl && (
-                <a
-                  href={game.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#3DDC84] text-white font-semibold hover:bg-[#2BC472] transition-all hover:shadow-lg"
-                >
-                  <span className="text-xl">🤖</span>
-                  <span>{t('downloadPlayStore')}</span>
-                </a>
-              )}
-              {game.websiteUrl && (
-                <a
-                  href={game.websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#4F46E5] text-white font-semibold hover:bg-[#4338CA] transition-all hover:shadow-lg"
-                >
-                  <span className="text-xl">🌐</span>
-                  <span>{t('visitWebsite')}</span>
-                </a>
-              )}
-            </div>
+            {platformLinks && <div className="hidden lg:block space-y-3">{platformLinks}</div>}
 
-            {/* Quick Stats Mobile */}
-            <div className="lg:hidden grid grid-cols-2 gap-3">
-              <div
-                className="rounded-2xl p-4 text-center"
-                style={{ backgroundColor: ageColors.bg }}
-              >
-                <span className="text-2xl block mb-1">👶</span>
-                <span className="text-xs opacity-70" style={{ color: ageColors.text }}>
-                  {t('ageGroup')}
-                </span>
-                <span
-                  className="block font-bold text-lg"
-                  style={{ color: ageColors.text }}
-                >
-                  {getAgeLabel(game.minAge, game.maxAge)}
-                </span>
-              </div>
-              <div className="rounded-2xl p-4 text-center bg-[#FFE66D]/30">
-                <span className="text-2xl block mb-1">⭐</span>
-                <span className="text-xs text-[#7D6608] opacity-70">{t('rating')}</span>
-                <span className="block font-bold text-lg text-[#7D6608]">
-                  {game.rating.toFixed(1)}/5
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Right Column - Content */}
@@ -349,10 +329,8 @@ export default async function GameDetailPage({ params }: PageProps) {
                 <p className="text-[#7A7A7A] mb-4">{t('by')} {game.developerName}</p>
               )}
 
-              {/* Rating - Desktop */}
-              <div className="hidden lg:block">
-                <StarRating rating={game.rating} />
-              </div>
+              {/* Rating */}
+              <StarRating rating={game.rating} />
             </div>
 
             {/* Description */}
@@ -406,43 +384,11 @@ export default async function GameDetailPage({ params }: PageProps) {
             />
 
             {/* Platform Links - Mobile only, shown after description and parent info */}
-            <div className="lg:hidden space-y-3">
-              {game.appStoreUrl && (
-                <a
-                  href={game.appStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#000000] text-white font-semibold hover:bg-[#333333] transition-all hover:shadow-lg"
-                >
-                  <span className="text-xl">🍎</span>
-                  <span>{t('downloadAppStore')}</span>
-                </a>
-              )}
-              {game.playStoreUrl && (
-                <a
-                  href={game.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#3DDC84] text-white font-semibold hover:bg-[#2BC472] transition-all hover:shadow-lg"
-                >
-                  <span className="text-xl">🤖</span>
-                  <span>{t('downloadPlayStore')}</span>
-                </a>
-              )}
-              {game.websiteUrl && (
-                <a
-                  href={game.websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#4F46E5] text-white font-semibold hover:bg-[#4338CA] transition-all hover:shadow-lg"
-                >
-                  <span className="text-xl">🌐</span>
-                  <span>{t('visitWebsite')}</span>
-                </a>
-              )}
-            </div>
+            {platformLinks && <div className="lg:hidden space-y-3">{platformLinks}</div>}
 
-            {/* Details Grid */}
+            {/* Details Grid - alder og pris vises allerede i badges, mobil-stats
+                og forældre-panelet, så her kun platforme, færdigheder og temaer */}
+            {(platforms.length > 0 || skills.length > 0 || themes.length > 0) && (
             <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm border border-[#FFB5A7]/10">
               <h2 className="text-lg font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
                 <span className="text-2xl">📋</span>
@@ -450,29 +396,6 @@ export default async function GameDetailPage({ params }: PageProps) {
               </h2>
 
               <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <dt className="text-sm text-[#7A7A7A] mb-1">{t('ageGroup')}</dt>
-                  <dd className="font-semibold text-[#4A4A4A]">
-                    {getAgeLabel(game.minAge, game.maxAge)}
-                  </dd>
-                </div>
-
-                <div>
-                  <dt className="text-sm text-[#7A7A7A] mb-1">{t('price')}</dt>
-                  <dd className="font-semibold text-[#4A4A4A]">
-                    {game.price === 0 ? (
-                      <span className="text-[#2D6A4F]">{tCommon('free')}</span>
-                    ) : (
-                      `${game.price} kr`
-                    )}
-                    {game.priceModel && game.priceModel !== 'gratis' && game.priceModel !== 'engangskøb' && (
-                      <span className="text-sm text-[#7A7A7A] ml-1 capitalize">
-                        ({game.priceModel})
-                      </span>
-                    )}
-                  </dd>
-                </div>
-
                 {platforms.length > 0 && (
                   <div className="col-span-2">
                     <dt className="text-sm text-[#7A7A7A] mb-2">{t('platforms')}</dt>
@@ -526,6 +449,7 @@ export default async function GameDetailPage({ params }: PageProps) {
                 )}
               </div>
             </div>
+            )}
 
             {/* Pros & Cons */}
             {(pros.length > 0 || cons.length > 0) && (

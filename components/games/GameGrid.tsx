@@ -123,7 +123,7 @@ interface LoadingGridProps {
   columns?: 2 | 3 | 4;
 }
 
-export function LoadingGrid({ count = 8, columns = 4 }: LoadingGridProps) {
+function LoadingGrid({ count = 8, columns = 4 }: LoadingGridProps) {
   const columnClasses = {
     2: 'grid-cols-1 sm:grid-cols-2',
     3: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
@@ -226,100 +226,5 @@ export const GameGrid = forwardRef<HTMLDivElement, GameGridProps>(
 );
 
 GameGrid.displayName = 'GameGrid';
-
-// ============================================================================
-// FEATURED GAMES SECTION (Horizontal scroll)
-// ============================================================================
-
-interface FeaturedGamesRowProps extends HTMLAttributes<HTMLDivElement> {
-  games: GameData[];
-  type: 'digital' | 'board';
-  title?: string;
-  showViewAll?: boolean;
-  viewAllHref?: string;
-}
-
-export function FeaturedGamesRow({
-  games,
-  type,
-  title = 'Anbefalede spil',
-  showViewAll = true,
-  viewAllHref,
-  className,
-  ...props
-}: FeaturedGamesRowProps) {
-  if (games.length === 0) return null;
-
-  const defaultHref = type === 'digital' ? '/spil' : '/braetspil';
-
-  return (
-    <section className={cn('relative', className)} {...props}>
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="font-bold text-2xl text-[#4A4A4A] flex items-center gap-2">
-          <span>⭐</span>
-          <span>{title}</span>
-        </h2>
-        {showViewAll && (
-          <a
-            href={viewAllHref || defaultHref}
-            className="inline-flex items-center gap-1 text-sm font-semibold text-[#F8A99B] hover:text-[#FFB5A7] transition-colors"
-          >
-            <span>Se alle</span>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        )}
-      </div>
-
-      {/* Horizontal scrolling container */}
-      <div className="relative -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-          {games.map((game, index) => (
-            <div
-              key={game.slug}
-              className="flex-shrink-0 w-72 snap-start"
-              style={{
-                animationDelay: `${index * 0.1}s`,
-              }}
-            >
-              <GameCard {...game} type={type} />
-            </div>
-          ))}
-        </div>
-
-        {/* Gradient fade on edges */}
-        <div className="absolute top-0 bottom-4 left-0 w-8 bg-gradient-to-r from-[#FFF9F0] to-transparent pointer-events-none sm:hidden" />
-        <div className="absolute top-0 bottom-4 right-0 w-8 bg-gradient-to-l from-[#FFF9F0] to-transparent pointer-events-none sm:hidden" />
-      </div>
-    </section>
-  );
-}
-
-// ============================================================================
-// GAME COUNT INDICATOR
-// ============================================================================
-
-interface GameCountProps {
-  count: number;
-  type: 'digital' | 'board';
-  filtered?: boolean;
-}
-
-export function GameCount({ count, type, filtered = false }: GameCountProps) {
-  const emoji = type === 'digital' ? '🎮' : '🎲';
-  const label = count === 1 ? 'spil' : 'spil';
-
-  return (
-    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFFCF7] shadow-sm border border-[#FFB5A7]/10">
-      <span>{emoji}</span>
-      <span className="text-sm font-medium text-[#4A4A4A]">
-        {count} {label}
-        {filtered && <span className="text-[#6B7280]"> (filtreret)</span>}
-      </span>
-    </div>
-  );
-}
 
 export default GameGrid;

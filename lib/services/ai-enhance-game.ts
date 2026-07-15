@@ -80,12 +80,13 @@ SKRIV FØLGENDE (på dansk, til danske forældre):
 - Hvad er vigtigt for forældre at vide om spillet?
 - Hvordan kan barnet lære af spillet?
 - Er der noget at være opmærksom på?
-- Hvordan kan forældre støtte barnet?
+- VIGTIGT: Afslut IKKE med et råd eller en opfordring - råd hører til i "Tip til forældre". De to tekster vises lige under hinanden og må ikke gentage hinanden.
 
 2. TIP TIL FORÆLDRE (50-75 ord):
 - Et konkret, praktisk råd
 - Hvordan får man mest ud af spillet?
 - Forslag til samspil eller opfølgning
+- Rådet skal være NYT og må ikke stå i "Hvad forældre skal vide"-teksten
 
 3. FORDELE (3-5 punkter):
 - Positive aspekter ved spillet
