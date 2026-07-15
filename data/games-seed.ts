@@ -43,7 +43,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Sago Mini World",
     slug: "sago-mini-world",
-    description: "Sago Mini World samler over 40 prisvindende Sago Mini-spil i én app. Her kan de små udforske forskellige verdener - fra et hyggeligt hjem til en travl by - og møde søde karakterer undervejs. Aktiviteterne opmuntrer til kreativ leg og nysgerrighed, og der er hverken frustration eller konkurrence. En tryg app hvor børnene selv kan styre tempoet.",
+    description: "Med et enkelt abonnement får man adgang til over 40 prisvindende småbørnsspil samlet i én app – det er idéen bag Sago Mini World. Barnet vælger selv mellem små verdener som et hyggeligt hjem og en travl by, og undervejs møder man appens søde dyrekarakterer. Der er ingen point, intet tidspres og intet, man kan gøre forkert; alt handler om at trykke, trække og opdage, hvilket træner både finmotorik, kreativitet og lidt problemløsning. Grafikken er farvestrålende og enkel, lydene er venlige, og navigationen er så simpel, at de mindste kan finde rundt uden hjælp. Indholdet kan downloades til offline brug – godt til bilturen. Abonnementet kan dog blive dyrt i længden, men til gengæld er der hverken reklamer eller købsknapper. Et trygt valg til de 0-5-årige.",
     shortDescription: "Samling af 40+ prisvindende spil for de mindste",
     minAge: 0,
     maxAge: 5,
@@ -76,7 +76,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "LEGO DUPLO World",
     slug: "lego-duplo-world",
-    description: "LEGO DUPLO World lader de mindste bygge og lege med digitale DUPLO-klodser. Spillet indeholder interaktive eventyr med tog, dyr og bygninger, og børn kan udforske i deres eget tempo. Alt er designet til små fingre med store, farverige knapper og ingen tekst, så selv de mindste kan navigere selv.",
+    description: "Klodser, tog og dyr fylder skærmen i LEGO DUPLO World, hvor de mindste bygger og leger med digitale DUPLO-klodser. Barnet stabler tårne, bygger togbaner og sætter små eventyr i gang med køretøjer og dyr – alt sammen i eget tempo og uden tekst, så selv en 1-2-årig kan navigere på egen hånd. Undervejs trænes finmotorik, kreativitet og rumlig forståelse, når klodserne skal passe sammen, og tingene skal placeres rigtigt. Appen er flot lavet med store, farverige knapper, blød lyd og den velkendte DUPLO-æstetik, og den virker offline og uden reklamer. Det gratis indhold er dog ret begrænset, så regn med in-app køb, hvis barnet bliver rigtig glad for den – prøv gratis-delen først. Et godt bud til småbørn, der i forvejen elsker de rigtige klodser derhjemme.",
     shortDescription: "Digitale DUPLO-klodser for de mindste",
     minAge: 1,
     maxAge: 5,
@@ -109,7 +109,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Peek-a-Zoo",
     slug: "peek-a-zoo",
-    description: "Peek-a-Zoo er et simpelt og sødt spil hvor børn lærer om dyr og følelser. Gennem interaktive animationer lærer børn at genkende forskellige dyr og forstå følelser som glad, trist og overrasket. Spillet er designet af udviklingsspecialister og er helt uden distraktion.",
+    description: "Bag Peek-a-Zoo gemmer sig en lille, rolig app, hvor de allermindste lærer dyr og følelser at kende. Barnet trykker på skærmen og finder frem til, hvilket dyr der vinker, sover eller ser overrasket ud – en slags digital borte-tit-leg, der stille og roligt udvider ordforrådet med både dyrenavne og følelsesord som glad og trist. Netop koblingen mellem sprog, genkendelse og social forståelse gør appen mere lærerig, end den umiddelbart ser ud. Den er udviklet af folk med forstand på børns udvikling, og designet er enkelt og helt uden distraktioner, reklamer eller købsknapper. Indholdet er til gengæld ret begrænset, og appen findes kun til iOS. Som allerførste app til en baby eller etårig er den dog svær at slå – man køber den én gang for få kroner, og så er man tryg.",
     shortDescription: "Lær om dyr og følelser gennem leg",
     minAge: 0,
     maxAge: 3,
@@ -142,7 +142,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "PBS Kids Games",
     slug: "pbs-kids-games",
-    description: "PBS Kids Games samler hundredvis af gratis læringsspil baseret på populære PBS-serier som Curious George, Daniel Tiger og Wild Kratts. Spillet opdateres løbende med nyt indhold og er udviklet i samarbejde med pædagoger for at sikre alderssvarende udfordringer.",
+    description: "Hundredvis af gratis læringsspil samlet ét sted – det er, hvad PBS Kids Games tilbyder, alt sammen bygget over populære serier som Curious George, Daniel Tiger og Wild Kratts. Barnet vælger en figur og hopper direkte ind i små spil om tal, bogstaver, natur og problemløsning, og indholdet er udviklet sammen med pædagoger, så sværhedsgraden passer til alderen. Der kommer løbende nye spil til, og fordi appen er støttet af public service, er der hverken reklamer, køb eller andre kommercielle fristelser. Produktionen er gedigen med genkendelige figurer og pæn grafik, dog kræver appen internetforbindelse, og alt foregår på engelsk. For familier, der kan leve med det, er det en af de mest generøse gratis-apps til de 2-7-årige overhovedet.",
     shortDescription: "Gratis læringsspil fra PBS-universet",
     minAge: 2,
     maxAge: 7,
@@ -175,7 +175,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Fisher-Price: Laugh & Learn",
     slug: "fisher-price-laugh-learn",
-    description: "Fisher-Price Laugh & Learn er designet til babyer og småbørn med farverige animationer, musik og simple interaktioner. Spillet lærer bogstaver, tal, farver og former gennem sang og leg. Alt er designet til at være sikkert for selv de mindste fingre.",
+    description: "Sang, farver og store knapper er kernen i Fisher-Price: Laugh & Learn, en app bygget til babyer og de mindste tumlinger. Barnet trykker, hvor det vil, og bliver belønnet med musik, glade animationer og små overraskelser, mens bogstaver, tal, farver og former præsenteres gennem sange og enkel leg. Der er intet, der kan gøres forkert, så selv helt små fingre kan være med, og undervejs trænes både sprog, motorik og genkendelse. Kvaliteten er, som man kender det fra Fisher-Price-legetøjet: farvestrålende, venlig og gennemtænkt, og appen virker offline og uden reklamer. Ekstra indhold koster dog via in-app køb, og børn over tre år vil hurtigt finde den for simpel. Bedst i korte doser til de 0-3-årige – gerne med en voksen ved siden af.",
     shortDescription: "Læring gennem sang og leg for babyer",
     minAge: 0,
     maxAge: 3,
@@ -208,7 +208,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Toca Hair Salon 4",
     slug: "toca-hair-salon-4",
-    description: "I Toca Hair Salon 4 kan børn lege frisør med kreative værktøjer som sakse, krøllejern, farver og meget mere. Spillet opmuntrer til kreativitet og fantasi uden regler eller mål - bare ren kreativ leg. Karaktererne reagerer sjovt på de forskellige frisurer.",
+    description: "Frisørsaksen får frit spil i Toca Hair Salon 4, hvor børn klipper, farver, krøller og styler løs på en flok skæve karakterer. Der er ingen opgaver eller point – barnet vælger selv værktøjerne, og figurerne reagerer med sjove miner, uanset hvor vildt resultatet bliver. Netop friheden gør spillet til ren kreativ leg, som samtidig træner finmotorik og fantasi, når frisurerne skal formes, og farverne skal vælges. Toca Boca leverer som altid lækker, humoristisk grafik og finurlige lyde, og appen er købt og betalt én gang uden reklamer eller ekstra køb – og den virker offline. Legen kan dog godt blive lidt gentagende med tiden, når alle karakterer og værktøjer er prøvet af. Til de 2-8-årige, der elsker at eksperimentere, er det en tryg klassiker.",
     shortDescription: "Kreativ frisørleg uden begrænsninger",
     minAge: 2,
     maxAge: 8,
@@ -247,7 +247,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Toca Kitchen 2",
     slug: "toca-kitchen-2",
-    description: "Toca Kitchen 2 lader børn eksperimentere med madlavning på sjove og skøre måder. Hak, bag, kog eller bland ingredienser - og se gæsternes reaktioner når de smager på maden. Der er ingen regler, så børn kan lave de skøreste kreationer de kan forestille sig.",
+    description: "Køkkenet står åbent i Toca Kitchen 2, og her må børn lave mad præcis så skørt, som de har lyst til. Ingredienserne kan hakkes, koges, steges og blendes i alle mulige kombinationer, og det sjoveste er gæsternes ærlige reaktioner, når de smager på resultatet – sure miner og overraskede blikke hører med til legen. Der er ingen opskrifter og ingen regler, så spillet handler om eksperimentering og kreativitet, samtidig med at små fingre trænes, når der skal hakkes og hældes. Grafikken er charmerende og humoristisk i klassisk Toca Boca-stil, og der er hverken reklamer eller in-app køb – man betaler én gang, og appen virker offline. Antallet af ingredienser er dog begrænset, så legen kan flade lidt ud med tiden. Sjovt for nysgerrige børn fra omkring to år og op.",
     shortDescription: "Skør og kreativ madlavning for børn",
     minAge: 2,
     maxAge: 8,
@@ -286,7 +286,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Toca Life: Town",
     slug: "toca-life-town",
-    description: "Toca Life: Town er en digital dukkeby hvor børn kan skabe deres egne historier. Udforsk lejligheder, en restaurant, en politistation og mere. Flyt karakterer rundt, interager med genstande, og lav dine egne eventyr. Spillet opmuntrer til kreativ storytelling.",
+    description: "En digital dukkeby – sådan beskriver man nok bedst Toca Life: Town. Barnet flytter karakterer rundt mellem lejligheder, en restaurant, en politistation og flere andre steder, åbner skabe, prøver ting af og finder på sine egne historier undervejs. Der er ingen mål og ingen rigtige svar; legen drives af barnets egen fantasi, og netop det gør spillet godt til storytelling, kreativitet og en gryende social forståelse, når figurerne skal tale sammen og hjælpe hinanden. Grafikken er detaljeret og fuld af små overraskelser, og som altid hos Toca Boca er der hverken reklamer eller købsknapper – og alt virker offline. Det er dog et af de ældre Toca Life-spil, så overvej Toca Life World, der samler alle verdenerne ét sted. For børn fra to år, der elsker rolleleg, holder det stadig.",
     shortDescription: "Digital dukkeby med uendelige muligheder",
     minAge: 2,
     maxAge: 9,
@@ -319,7 +319,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Baby Shark World",
     slug: "baby-shark-world",
-    description: "Baby Shark World bringer den populære Baby Shark-familie til live med interaktive spil, sange og aktiviteter. Børn kan synge med, lege gemmeleg, og udforske havets verden. Velegnet for fans af Baby Shark-sangen, men vær opmærksom på reklamer og in-app køb.",
+    description: "Kender man den ørehængende Baby Shark-sang, ved man nogenlunde, hvad der venter i Baby Shark World. Appen samler sange, gemmelege og små spil med hele haj-familien, og barnet kan synge med, trykke sig gennem havets verden og lege med de velkendte figurer. Musikken og gentagelserne støtter sprogudvikling, rytme og hukommelse hos de mindste, og begejstringen hos målgruppen er svær at tage fejl af. Produktionen er farverig og livlig, som man kender det fra YouTube, men her skal man som forælder være vågen: Appen indeholder både reklamer og in-app køb og kræver internetforbindelse. Et abonnement fjerner reklamerne, hvilket er værd at overveje, hvis barnet spiller ofte. Mest oplagt til de 1-5-årige haj-fans – og helst med en voksen i nærheden.",
     shortDescription: "Baby Shark-eventyr med sange og spil",
     minAge: 1,
     maxAge: 5,
@@ -352,7 +352,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Tiny Hands: First Words",
     slug: "tiny-hands-first-words",
-    description: "Tiny Hands: First Words er designet til at hjælpe de mindste med at lære deres første ord. Med over 100 interaktive kort lærer børn ord for dyr, mad, legetøj og meget mere. Hver flashcard har tydelig udtale og charmerende illustrationer.",
+    description: "De første ord skal læres, og det er lige præcis, hvad Tiny Hands: First Words hjælper med. Appen fungerer som en stor samling interaktive billedkort – over 100 i alt – hvor barnet trykker på dyr, mad, legetøj og hverdagsting og hører ordet udtalt klart og tydeligt. Man kigger, lytter og gentager, og netop den enkle rytme gør appen god til sprogudvikling, ordgenkendelse og lytning hos de allermindste. Illustrationerne er charmerende, designet er roligt og uden forstyrrende elementer, og der er ingen reklamer – appen virker endda offline. Det gratis indhold er dog begrænset, så den fulde version kræver et køb. Bedst udbytte får man ved at sidde sammen med barnet og gentage ordene – gerne på dansk bagefter, for appen findes ikke på dansk.",
     shortDescription: "Lær de første ord med interaktive flashcards",
     minAge: 0,
     maxAge: 3,
@@ -385,7 +385,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Hey Duggee: The Big Badge App",
     slug: "hey-duggee-big-badge-app",
-    description: "Hey Duggee-appen bringer den elskede CBeebies-serie til live med over 50 aktiviteter og spil. Børn kan tjene badges ligesom i TV-serien ved at løse opgaver, udforske og lære. Alt er designet med BBC's kvalitetsstandarder.",
+    description: "Fans af Squirrel Club vil føle sig hjemme med det samme i Hey Duggee: The Big Badge App, der bygger på den populære CBeebies-serie. Ligesom i tv-serien optjener barnet badges ved at klare små opgaver – over 50 aktiviteter i alt, hvor der skal løses problemer, udforskes og leges. Aktiviteterne træner problemløsning, kreativitet og motorik i et tempo, der passer de 2-5-årige, og belønningen med badges giver en fin fornemmelse af at mestre noget. Kvaliteten bærer tydeligt præg af BBC's standarder: gennemført grafik, venlig lyd og et design uden reklamer, der også virker offline. Sproget er dog primært engelsk, og de ekstra badges koster via in-app køb – men gratis-versionen rummer rigeligt til at komme i gang. Et solidt valg til små Duggee-fans.",
     shortDescription: "Tjen badges med Duggee og Squirrel Club",
     minAge: 2,
     maxAge: 5,
@@ -418,7 +418,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Bluey: Let's Play!",
     slug: "bluey-lets-play",
-    description: "Bluey: Let's Play! bringer den elskede australske tegnefilmsfamilie til live i en interaktiv legeapp. Børn kan udforske Heeler-familiens hus og baghave, lege kendte lege fra serien og skabe deres egne eventyr med Bluey, Bingo og resten af familien. Appen er designet til åben leg uden mål eller tidspres.",
+    description: "Hjemme hos Heeler-familien er der altid gang i legen, og i Bluey: Let's Play! kan børn selv være med. Appen åbner familiens hus og baghave, hvor barnet leger kendte lege fra tv-serien og finder på sine egne historier med Bluey, Bingo, mor og far. Der er hverken mål, point eller tidspres – alt er åben leg, som styrker kreativitet, fantasi og problemløsning, når legene skal sættes i gang, og historierne skal udvikle sig. Serien genkendes tydeligt i både den flotte grafik og musikken, og appen er fri for reklamer og virker offline. De to gratis områder er en god start, men fuld adgang kræver desværre abonnement, og gratis-indholdet er begrænset. For 2-6-årige Bluey-fans er det dog noget af det nærmeste, man kommer på selv at træde ind i serien.",
     shortDescription: "Leg med Bluey og familien i interaktive eventyr",
     minAge: 2,
     maxAge: 6,
@@ -457,7 +457,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "PAW Patrol Rescue World",
     slug: "paw-patrol-rescue-world",
-    description: "PAW Patrol Rescue World lader børn udforske Adventure Bay og redde dagen sammen med hundene fra PAW Patrol. Børn kan vælge deres yndlingsvalp, køre redningskøretøjer og løse problemer i forskellige områder. Spillet har ingen tekst og er designet til at være let at navigere for de mindste.",
+    description: "Adventure Bay har brug for hjælp, og i PAW Patrol Rescue World er det barnet selv, der rykker ud. Man vælger sin yndlingshvalp, hopper i redningskøretøjet og kører rundt i byens forskellige områder for at løse små problemer og redde dagen. Spillet er helt uden tekst og bygget til små hænder, så selv 2-3-årige kan finde rundt på egen hånd, og undervejs trænes problemløsning, navigation og motorik i et roligt tempo. Budge Studios har lavet en pæn og gennemført produktion med de velkendte figurer og køretøjer, ingen reklamer og mulighed for at spille offline. Vil man låse alle hvalpene op, kræver det dog et abonnement, og gratis-delen er begrænset. Til de 2-6-årige PAW Patrol-fans er det en tryg måde at lege videre med universet på.",
     shortDescription: "Bliv en del af PAW Patrol og red Adventure Bay",
     minAge: 2,
     maxAge: 6,
@@ -496,7 +496,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Peppa Pig: World Adventures",
     slug: "peppa-pig-world-adventures",
-    description: "Peppa Pig: World Adventures tager børn med på en rejse rundt i verden sammen med Peppa og hendes familie. Besøg ikoniske steder som Eiffeltårnet, Frihedsgudinden og mere. Børn kan skabe deres egen karakter og opleve eventyr i Peppas univers.",
+    description: "Verden rundt med Peppa-familien – det er præmissen i Peppa Pig: World Adventures, hvor børn besøger kendte steder som Eiffeltårnet og Frihedsgudinden sammen med Peppa. Barnet skaber sin egen figur, rejser fra sted til sted og oplever små eventyr og aktiviteter i det velkendte univers, alt sammen i et roligt tempo uden krav om hurtige fingre. Undervejs snuser de mindste til geografi og forskellige kulturer, mens kreativitet og udforskning driver legen. Spillet fås til både tablet, pc og konsoller, og grafikken rammer tegnefilmens stil fint med venlig musik og enkel styring. Der er hverken reklamer eller in-app køb, men prisen er til gengæld i den høje ende, og spilletiden er forholdsvis begrænset. Bedst til 2-6-årige Peppa-fans, der vil se verden hjemme fra sofaen.",
     shortDescription: "Rejs verden rundt med Peppa Pig og familien",
     minAge: 2,
     maxAge: 6,
@@ -529,7 +529,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Peekaboo Barn",
     slug: "peekaboo-barn",
-    description: "Peekaboo Barn er en simpel og charmerende app hvor babyer opdager bondegårdsdyr der gemmer sig bag ladedøre. Med søde animationer og dyrelyde lærer de mindste om dyr og bygger forventning og genkendelse. God som en af de allerførste apps.",
+    description: "Bag ladedørene i denne lille app gemmer der sig bondegårdsdyr, som venter på at blive opdaget af de allermindste. Barnet trykker på døren, dyret springer frem med sin lyd og sit navn, og legen begynder forfra - en digital udgave af titte-bøh, som babyer kender og elsker. Netop gentagelsen er pointen: Barnet øver genkendelse og lærer at opbygge forventning, mens dyrelydene stille og roligt sætter sig fast. Designet er enkelt og trygt med søde animationer, og appen er uden reklamer og in-app køb og virker offline, så den kan gives fra sig med god samvittighed. Indholdet er dog meget begrænset, og større børn vokser hurtigt fra den. Til gengæld er det svært at finde en bedre allerførste app til babyer og små tumlinger fra nul til tre år.",
     shortDescription: "Opdag bondegårdsdyr med titte-bøh leg",
     minAge: 0,
     maxAge: 3,
@@ -567,7 +567,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Moka Mera Lingua",
     slug: "moka-mera-lingua",
-    description: "Moka Mera Lingua er en prisvindende finsk sprogindlæringsapp der nu også er tilgængelig på dansk. Appen lærer børn nye ord gennem interaktive lege og øvelser med søde dyrekarakterer. Børnene hører ordene udtalt af indfødte og gentager dem selv - appen genkender deres tale og giver feedback. Alt indhold er udviklet af sprogforskere og pædagoger. Det bedste? Appen er helt gratis, uden reklamer, uden in-app køb, og virker offline. Co-finansieret af Innovationsfonden Danmark. En af de bedste danske læringsapps til små børn.",
+    description: "Det er sjældent, at en helt gratis app uden reklamer og in-app køb samtidig er gennemarbejdet, men denne finske sprogapp er netop det - og den findes på dansk. Barnet leger sig gennem små øvelser med søde dyrefigurer, hører ord udtalt af indfødte stemmer og gentager dem selv, hvorefter appen genkender talen og giver feedback. På den måde trænes ordforråd, udtale og lytning på en legende måde, og indholdet er udviklet af sprogforskere og pædagoger, blandt andet med støtte fra Innovationsfonden Danmark. Appen virker offline og egner sig fint til ventetid hos lægen eller i bilen. Den er afgrænset til sprogindlæring, og nogle børn skal lige vænne sig til at skulle sige ordene højt, men for de to- til syvårige er det en af de mest troværdige danske læringsapps.",
     shortDescription: "Gratis dansk sprogindlæring for de mindste",
     minAge: 2,
     maxAge: 7,
@@ -606,7 +606,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "ALPA Kids Denmark",
     slug: "alpa-kids-denmark",
-    description: "ALPA Kids Denmark er en dansk læseapp der lærer børn det danske alfabet, tal og former gennem interaktive øvelser. Alle bogstaver præsenteres med danske ord og billeder - æ, ø og å er selvfølgelig med! Appen følger barnets fremskridt og tilpasser sværhedsgraden automatisk. Forældre kan se statistik over barnets læring. Udviklet specifikt til danske børn med danske stemmer og dansk kultur. En solid app til at forberede børn på skolestart.",
+    description: "Æ, ø og å er med fra starten i denne danske læringsapp, der lærer børn alfabetet, tal og former gennem små interaktive øvelser. Barnet trykker, lytter og løser opgaver, hvor hvert bogstav præsenteres med danske ord, billeder og rigtige danske stemmer, og appen tilpasser løbende sværhedsgraden til barnets niveau. Undervejs trænes bogstavgenkendelse, udtale, tælling og former, og som forælder kan du følge fremskridtene i en statistikoversigt. Det hele er pakket ind i et venligt univers med afsæt i dansk kultur, hvilket gør den oplagt som forberedelse til skolestart. Grundversionen er gratis, men fuld adgang kræver dog in-app køb, og enkelte funktioner skal bruge internet. Bedst til de tre- til syvårige, gerne kombineret med fysiske bogstavklodser derhjemme.",
     shortDescription: "Lær det danske alfabet med danske stemmer",
     minAge: 3,
     maxAge: 7,
@@ -645,7 +645,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Jinja – Køretur",
     slug: "jinja-koeretur",
-    description: "Jinja – Køretur er et roligt og charmerende dansk spil for de mindste. Børn kan køre rundt i forskellige køretøjer og udforske omgivelserne i deres eget tempo. Spillet er helt uden tekst, reklamer eller in-app køb, hvilket gør det perfekt til de alleryngste. Udviklet med fokus på sikkerhed og kvalitet for små børn.",
+    description: "Ro er nøgleordet i dette lille danske spil, hvor de mindste sætter sig bag rattet i forskellige køretøjer og tøffer rundt i hyggelige omgivelser i deres helt eget tempo. Der er ingen tekst, ingen mål og intet tidspres - barnet styrer, udforsker og opdager, hvad der sker, når man trykker på tingene, og træner undervejs finmotorik og forståelse for årsag og virkning. Spillet er helt gratis uden reklamer, in-app køb eller dataindsamling, hvilket gør det til et af de tryggeste valg til de alleryngste overhovedet. Indholdet er til gengæld begrænset, og legen er så simpel, at ældre børn hurtigt keder sig. Men som en af de første apps til to- til femårige, der elsker biler og traktorer, er det svært at pege på noget mere gennemført trygt.",
     shortDescription: "Roligt køretur-spil for de mindste - helt uden reklamer",
     minAge: 2,
     maxAge: 5,
@@ -678,7 +678,7 @@ export const games0to3: GameSeedData[] = [
   {
     title: "Rasmus Klump",
     slug: "rasmus-klump",
-    description: "Rasmus Klump appen bringer den elskede danske karakter til live for de mindste. Børn kan udforske Rasmus Klumps verden med simple aktiviteter og genkendelige karakterer fra bøgerne. Appen er nem at navigere uden læsefærdigheder og er helt fri for reklamer, in-app køb og skjult dataindsamling. En tryg og velkendt oplevelse for danske børn.",
+    description: "De fleste danske børn kender Rasmus Klump fra bøgerne, og i denne app fra Egmont får de mindste lov at lege i hans univers. Aktiviteterne er enkle: Barnet trykker sig rundt, udforsker og møder de velkendte figurer, og alt kan betjenes uden læsefærdigheder. Undervejs øves finmotorik, genkendelse og simpel interaktion - ikke store læringsmål, men netop den slags rolige skærmleg, der passer til de nul- til femårige. Appen er gratis og helt fri for reklamer, in-app køb og skjult dataindsamling, hvilket giver ekstra tryghed. Designet virker efterhånden lidt bedaget, og indholdet er begrænset, så forvent ikke timevis af leg. Til gengæld er det en velkendt og sikker oplevelse, der bliver endnu bedre, hvis I bagefter læser de fysiske Rasmus Klump-bøger sammen.",
     shortDescription: "Den elskede danske bjørn i en sikker app for de mindste",
     minAge: 0,
     maxAge: 5,
@@ -718,7 +718,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Khan Academy Kids",
     slug: "khan-academy-kids",
-    description: "Khan Academy Kids er en af de bedste gratis læringsapps til børn. Den indeholder tusindvis af aktiviteter inden for læsning, matematik, social-emotionel læring og meget mere. Alt er 100% gratis, uden reklamer og uden in-app køb. Appen tilpasser sig automatisk til barnets niveau og holder styr på fremskridt.",
+    description: "Hvis der findes en guldstandard blandt gratis børneapps, er det denne. Nonprofitorganisationen Khan Academy har samlet tusindvis af aktiviteter inden for læsning, matematik, logik, kreativitet og social-emotionel læring, og alt er 100 % gratis uden reklamer eller in-app køb. Barnet guides gennem små opgaver, historier og spil af søde dyrefigurer, og appen tilpasser sig automatisk barnets niveau og holder styr på fremskridtene. Kvaliteten er høj hele vejen igennem med venlig grafik og rolige stemmer, og indholdet kan downloades til offline brug. Den største hurdle er sproget: Alt er på engelsk, og mængden af indhold kan virke overvældende i starten. Kan man leve med det, er det et oplagt valg til de to- til otteårige - og en app, man roligt kan lade barnet bruge på egen hånd.",
     shortDescription: "100% gratis læring uden reklamer eller køb",
     minAge: 2,
     maxAge: 8,
@@ -757,7 +757,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Endless Alphabet",
     slug: "endless-alphabet",
-    description: "Endless Alphabet gør det sjovt at lære alfabetet og nye ord. Interaktive puslespil med animerede bogstaver hjælper børn med at lære bogstavernes lyde og ordenes betydning. Hver ord får liv med morsomme animationer der forklarer betydningen.",
+    description: "Fjollede monstre roder bogstaverne rundt, og barnets opgave er at trække dem på plads igen - sådan lærer man alfabetet i denne prisvindende app. Hvert bogstav siger sin lyd, mens det flyttes, og når ordet er samlet, belønnes barnet med en lille animation, der forklarer, hvad ordet betyder. Det træner bogstavgenkendelse, fonetik og ordforråd på en måde, der føles som ren leg, og designet er gennemført og humoristisk med charmerende lyd. Appen er et engangskøb uden reklamer eller in-app køb og virker offline. Prisen kan dog virke lidt høj, og ordene er på engelsk, så danske børn lærer de engelske bogstavlyde - det skal man være opmærksom på. Som legende introduktion til bogstaver for de tre- til syvårige holder den til gengæld længe og bliver brugt igen og igen.",
     shortDescription: "Lær alfabetet med sjove monster-animationer",
     minAge: 3,
     maxAge: 7,
@@ -795,7 +795,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Duolingo ABC",
     slug: "duolingo-abc",
-    description: "Fra skaberne af Duolingo kommer Duolingo ABC, designet til at lære børn at læse. Med over 700 korte lektioner lærer børn bogstaver, fonetik og læsefærdigheder. Appen er helt gratis og bruger den samme engagerende tilgang som Duolingos sprogapp.",
+    description: "Holdet bag den kendte sprogapp Duolingo står også bag denne læseapp til børn, og tilgangen er den samme: korte, motiverende lektioner, man får lyst til at vende tilbage til. Over 700 små øvelser fører barnet gennem bogstaver, lyde og efterhånden hele ord, og hver lektion er kort nok til, at koncentrationen holder hele vejen. Fokus ligger på fonetik og bogstavgenkendelse som fundament for læsning, og den veltilrettelagte progression gør, at barnet sjældent går i stå. Appen er helt gratis uden reklamer eller in-app køb og fremstår poleret med farverig grafik og tydelig oplæsning. Den kræver dog internetforbindelse og findes kun på engelsk, så den lærer barnet at læse engelsk - ikke dansk. Bedst til tre- til syvårige som supplement til danske bøger derhjemme.",
     shortDescription: "Lær at læse med Duolingo-metoden",
     minAge: 3,
     maxAge: 7,
@@ -834,7 +834,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Dr. Panda Town",
     slug: "dr-panda-town",
-    description: "Dr. Panda Town er en åben legeverden hvor børn kan udforske en hel by. Besøg supermarkedet, politistationen, brandstationen og meget mere. Interager med karakterer og genstande for at skabe dine egne historier. Rigtig god til kreativ rolleleg hvor børnene selv bestemmer hvad der skal ske.",
+    description: "En hel lille by ligger her klar til rolleleg: supermarked, politistation, brandstation og flere andre steder, som barnet frit kan udforske. Der er ingen regler eller mål - man flytter rundt på figurer og genstande, opdager sjove reaktioner og finder på sine egne historier, næsten som at lege med et dukkehus. Netop den åbne form gør spillet godt for kreativitet, fortælleevne og social forståelse, fordi barnet selv iscenesætter genkendelige hverdagssituationer. Grafikken er farverig og venlig, alt virker offline, og der er ingen reklamer. Til gengæld låses ekstra områder op via in-app køb, og spillet kan godt friste til flere køb, så det er en god idé at slå køb fra i enhedens indstillinger. Passer fint til børn fra tre til otte år, der elsker at lege far, mor og børn.",
     shortDescription: "Udforsk og leg i Dr. Pandas by",
     minAge: 3,
     maxAge: 8,
@@ -867,7 +867,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Toca Life World",
     slug: "toca-life-world",
-    description: "Toca Life World er den ultimative digitale legeverdenen der samler alle Toca Life-lokationer i ét spil. Børn kan skabe deres egne historier på tværs af 8 gratis lokationer med over 50 karakterer. Køb flere lokationer eller brug Toca Life-abonnement for adgang til alt.",
+    description: "Toca Boca har samlet alle deres Life-spil i ét stort univers, hvor børn kan bygge deres egne historier på tværs af byer, hjem og butikker. Fra start følger 8 lokationer og over 50 karakterer gratis med, og legen er helt fri: Man flytter figurer rundt, klipper hår, laver mad og iscenesætter alt fra hverdagsscener til vilde eventyr. Den åbne form træner fantasi, fortælleglæde og social forståelse, og de mange skæve detaljer belønner nysgerrige fingre. Grafikken er farverig og legesyg, der er ingen reklamer, og alt fungerer offline. Prisen for friheden er dog de mange in-app køb - nye lokationer koster ekstra, og det kan løbe op, hvis barnet vil have det hele. Start med gratisdelen, den rækker langt. Oplagt til børn fra tre år og helt op i tweenalderen.",
     shortDescription: "Skab dine egne historier i en uendelig legeverdenen",
     minAge: 3,
     maxAge: 12,
@@ -906,7 +906,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "LEGO Builder's Journey",
     slug: "lego-builders-journey",
-    description: "LEGO Builder's Journey er et smukt puslespil hvor du bygger med LEGO-klodser for at løse udfordringer. Spillet fortæller en rørende historie om en far og søn gennem kreativt byggeri. Grafikken er helt i top med realistiske LEGO-klodser der næsten ser ægte ud. Et roligt spil uden tidspres.",
+    description: "Stille og næsten poetisk - sådan opleves dette LEGO-puslespil, hvor man bygger sig gennem små baner klods for klods og undervejs følger en rørende, ordløs historie om en far og et barn. Spilleren flytter klodser for at bane vej, løse gåder og hjælpe figurerne videre, og det træner både problemløsning, rumlig forståelse og kreativitet. Grafikken er noget af det flotteste i genren - klodserne ser næsten ægte ud - og musikken understøtter den rolige stemning, hvor intet tidspres forstyrrer. Spillet er et engangskøb uden reklamer eller in-app køb og virker offline. Historien er dog forholdsvis kort, og enkelte baner kan drille de yngste, så det er oplagt at spille sammen. En fin fælles oplevelse for LEGO-glade børn fra omkring fire år og deres forældre.",
     shortDescription: "Poetisk puslespil med ægte LEGO-følelse",
     minAge: 4,
     maxAge: 12,
@@ -945,7 +945,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Pok Pok Playroom",
     slug: "pok-pok-playroom",
-    description: "Pok Pok Playroom er designet af pædagoger og tilbyder åbne legeaktiviteter uden mål eller point. Børn kan tegne, bygge, sortere og eksperimentere i deres eget tempo. Alt er skabt til at fremme kreativitet og selvstændig udforskning.",
+    description: "Ingen point, ingen baner og ingen forkerte svar - i dette digitale legerum, designet af pædagoger, bestemmer barnet selv. Aktiviteterne er åbne: Man kan tegne, bygge, sortere og eksperimentere med legetøjsagtige ting, der reagerer på nysgerrige fingre, og alt foregår i barnets eget tempo. Den frie form styrker kreativitet, finmotorik, problemløsning og selvstændighed, og der er intet stressende eller voldsomt indhold overhovedet. Æstetikken er rolig og håndtegnet med bløde, behagelige lyde, og appen er uden reklamer og in-app køb og virker offline. Den findes dog kun til iOS og kræver abonnement uden en gratis version, så prøv prøveperioden af, før I beslutter jer. Egner sig til børn fra to til syv år, der har glæde af rolig og fordybet skærmleg.",
     shortDescription: "Åben digital leg designet af pædagoger",
     minAge: 2,
     maxAge: 7,
@@ -978,7 +978,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Montessori Preschool",
     slug: "montessori-preschool",
-    description: "Montessori Preschool er baseret på den anerkendte Montessori-metode og tilbyder over 850 aktiviteter inden for læsning, matematik, kunst, musik og praktiske færdigheder. Appen følger barnets fremskridt og tilpasser aktiviteterne til deres niveau.",
+    description: "Med afsæt i den anerkendte Montessori-metode samler denne app over 850 aktiviteter inden for læsning, matematik, kunst, musik og praktiske færdigheder. Barnet arbejder sig gennem øvelserne i eget tempo - sporer bogstaver, tæller, sorterer og eksperimenterer - og appen følger fremskridtene og justerer løbende sværhedsgraden til barnets niveau. Den brede læreplan gør den velegnet både som supplement til børnehaven og til hjemmeundervisning, og de rolige, gennemarbejdede aktiviteter minder om ægte Montessori-materialer. Der er ingen reklamer, og alt virker offline. Adgangen kræver dog abonnement, som kan blive en bekostelig affære over tid, og sproget er engelsk. For tre- til syvårige, hvis forældre ønsker struktureret læring uden støj, er den alligevel et solidt valg.",
     shortDescription: "Montessori-læring med 850+ aktiviteter",
     minAge: 3,
     maxAge: 7,
@@ -1011,7 +1011,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Teach Your Monster to Read",
     slug: "teach-your-monster-to-read",
-    description: "Teach Your Monster to Read er et prisvindende spil der hjælper børn med at lære at læse. Gennem tre eventyrlige verdener lærer børn bogstaver, lyde og hele ord. Udviklet i samarbejde med læseforsker og brugt i tusindvis af skoler.",
+    description: "Et lille monster har brug for hjælp til at lære at læse, og det bliver barnets opgave gennem tre eventyrlige verdener fyldt med minispil. Undervejs trænes bogstaver, lyde og til sidst hele ord i en gennemtænkt progression, der er udviklet i samarbejde med læseforskere og bruges i tusindvis af skoler. Barnet designer sit eget monster og samler belønninger undervejs, hvilket holder motivationen oppe, og både grafik og stemmer er charmerende og af høj kvalitet. Appen er et engangskøb uden reklamer eller in-app køb og virker offline - og kan man leve med at spille i en browser, er spillet gratis på udviklerens hjemmeside. Sproget er dog engelsk, så dansktalende børn lærer engelske bogstavlyde, ikke danske. Bedst til tre- til syvårige, gerne med en voksen ved siden.",
     shortDescription: "Prisvindende læsespil brugt i skoler",
     minAge: 3,
     maxAge: 7,
@@ -1050,7 +1050,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Thinkrolls 2",
     slug: "thinkrolls-2",
-    description: "Thinkrolls 2 er et logik-puslespil med 235 baner der lærer fysik og logik. Børn ruller søde karakterer gennem labyrintiske baner og skal tænke kreativt for at komme videre. Progressivt sværere med koncepter som tyngdekraft, elektricitet og kemi.",
+    description: "Bag de søde, rullende figurer i Thinkrolls 2 gemmer der sig et gennemtænkt logikspil fra Avokiddo med hele 235 baner. Barnet ruller sin figur gennem labyrintagtige baner og skal eksperimentere sig frem for at finde vejen videre, og undervejs dukker begreber som tyngdekraft, elektricitet og kemi op. Der trænes både fysikforståelse, logik og kritisk tænkning, og læringen sidder bedst fast, når barnet får lov at prøve sig frem uden for meget voksenhjælp. Grafikken er charmerende og rolig, og appen er fri for reklamer og in-app køb og virker offline. Banerne bliver dog gradvist ret svære, så de yngste kan få brug for en hjælpende hånd hen ad vejen. Bedst til nysgerrige børn fra cirka 3 til 9 år, der kan lide at nørkle med gåder.",
     shortDescription: "Logik-puslespil der lærer fysik og tænkning",
     minAge: 3,
     maxAge: 9,
@@ -1083,7 +1083,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Moose Math",
     slug: "moose-math",
-    description: "Moose Math fra Duck Duck Moose lærer grundlæggende matematik gennem fem aktiviteter i Pet Bingo, Moose Juice og mere. Børn lærer at tælle, addere, subtrahere og genkende geometriske former gennem engagerende spil.",
+    description: "Elgen Moose og hans venner byder på fem små matematikaktiviteter, heriblandt Pet Bingo og Moose Juice, hvor barnet tæller, lægger sammen, trækker fra og øver sig i at genkende geometriske former. Alt foregår i et venligt tegneserieunivers, og opgaverne er korte nok til, at selv en treårig kan være med uden at miste tålmodigheden. Appen kommer fra Duck Duck Moose, holdet bag Khan Academy Kids, og kvaliteten mærkes i både grafik, lyd og den enkle betjening. Den er helt gratis, uden reklamer og in-app køb, og den virker offline, så den kan bruges i bilen eller på ferien. Det er efterhånden en ældre app med et begrænset omfang, men som en blid start på tal og regning for børn på 3-7 år fungerer den stadig fint.",
     shortDescription: "Sjov matematik med Moose og venner",
     minAge: 3,
     maxAge: 7,
@@ -1116,7 +1116,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Todo Math",
     slug: "todo-math",
-    description: "Todo Math tilbyder daglige matematikøvelser tilpasset barnets niveau. Med over 700 aktiviteter dækker den alt fra tælling til multiplikation. Appen holder styr på fremskridt og motiverer med belønninger og daglige mål.",
+    description: "Vil man gøre matematik til en fast lille rutine i hverdagen, er Todo Math fra Enuma et gennemarbejdet bud. Appen serverer daglige øvelser tilpasset barnets niveau, og med over 700 aktiviteter dækker den alt fra simpel tælling til begyndende multiplikation. Barnet løser korte opgaver, samler belønninger og følger sine daglige mål, mens appen stille og roligt justerer sværhedsgraden, så udfordringen hele tiden passer. På den måde trænes talforståelse, regning og problemløsning, uden at det føles som lektier. Der er ingen reklamer, og det hele virker offline. Grundversionen er gratis, men fuld adgang kræver et abonnement, som kan løbe op, så prøv det gratis indhold af først. Velegnet til børn fra 3 til 8 år, hvor ti minutters daglig træning rækker langt.",
     shortDescription: "Daglig matematik tilpasset dit barns niveau",
     minAge: 3,
     maxAge: 8,
@@ -1149,7 +1149,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Busy Shapes & Colors",
     slug: "busy-shapes-colors",
-    description: "Busy Shapes & Colors lærer former og farver gennem interaktive puslespil. Træk figurer til de rigtige huller og se dem forsvinde med sjove animationer. Designet til de mindste med stor opmærksomhed på finmotorik.",
+    description: "De allermindste fingre er tænkt ind fra starten i Busy Shapes & Colors fra EDOKI ACADEMY. Barnet trækker figurer hen til de huller, hvor de passer, og belønnes med små, sjove animationer, når det lykkes. Opgaverne er enkle og selvforklarende, så selv en toårig hurtigt fanger idéen uden hjælp fra en voksen. Undervejs trænes genkendelse af former og farver samt finmotorikken, som netop i den alder udvikler sig hastigt. Grafikken er ren og rolig uden forstyrrende elementer, og appen er fri for reklamer og in-app køb og virker offline. Man betaler en engangspris på omkring 35 kroner, og indholdet er til gengæld ikke enormt, så nogle børn vokser hurtigt fra den. Bedst til de yngste på 2-5 år, der skal have et frustrationsfrit første møde med former og farver på skærmen.",
     shortDescription: "Lær former og farver med træk-og-slip",
     minAge: 2,
     maxAge: 5,
@@ -1182,7 +1182,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Artie's World",
     slug: "arties-world",
-    description: "Artie's World lærer børn at kode gennem tegning. Børn programmerer Artie-robotten til at tegne figurer ved at give enkle kommandoer. En sjov introduktion til programmering og logisk tænkning.",
+    description: "En lille robot ved navn Artie er omdrejningspunktet i denne charmerende iOS-app fra Minilab Studios, der introducerer kodning gennem tegning. Barnet giver Artie enkle kommandoer og ser robotten omsætte instruktionerne til streger og figurer på skærmen. På den måde opdager barnet, at programmering i bund og grund handler om at fortælle en maskine, hvad den skal gøre i den rigtige rækkefølge, og undervejs trænes logik, problemløsning og kreativitet i skøn forening. Stilen er enkel og indbydende, og appen er reklamefri, uden køb og virker offline for en lav engangspris. Indholdet er dog ikke stort, så mange børn er igennem det på relativt kort tid, og den findes kun til iOS. En fin første smagsprøve på kodning for børn på 4-8 år, der i forvejen kan lide at tegne.",
     shortDescription: "Lær at kode gennem tegning",
     minAge: 4,
     maxAge: 8,
@@ -1215,7 +1215,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Daniel Tiger's Neighborhood",
     slug: "daniel-tigers-neighborhood",
-    description: "Daniel Tigers Neighborhood lærer social-emotionel læring gennem aktiviteter baseret på den populære PBS-serie. Børn lærer om følelser, venskab og hverdagsudfordringer med Daniel og hans venner.",
+    description: "Følelser fylder meget, når man er lille, og netop dét tager denne app fra PBS Kids fat i. Med udgangspunkt i tv-serien Daniel Tiger's Neighborhood leger barnet sig gennem aktiviteter om følelser, venskab og hverdagens små udfordringer sammen med Daniel og hans venner. I stedet for bogstaver og tal trænes de sociale og følelsesmæssige muskler: at genkende følelser, vise empati og finde ro, når noget er svært, blandt andet gennem seriens små sange, som mange forældre kender og kan genbruge i hverdagen. Kvaliteten er som forventet fra PBS høj, der er ingen reklamer, og appen virker offline. Indholdet er dog primært på engelsk, og noget ekstra materiale kræver in-app køb. God til børn på 2-6 år, som skal have hjælp til at sætte ord på de store følelser.",
     shortDescription: "Social-emotionel læring med Daniel Tiger",
     minAge: 2,
     maxAge: 6,
@@ -1248,7 +1248,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "ScratchJr",
     slug: "scratchjr",
-    description: "ScratchJr er en gratis kodnings-app designet til børn i alderen 5-7 år fra MIT og Scratch Foundation. Børn sætter grafiske programmeringsblokke sammen for at få figurer til at bevæge sig, hoppe, danse og synge. Det lærer grundlæggende kodningskoncepter gennem kreativ leg og historiefortælling.",
+    description: "Helt gratis og udviklet af MIT og Scratch Foundation er ScratchJr noget nær standardvalget, når 5-7-årige skal snuse til programmering. Barnet bygger små programmer ved at sætte farverige blokke sammen og får figurer til at bevæge sig, hoppe, danse og synge i egne små historier og animationer. Undervejs læres grundlæggende kodningskoncepter som sekvenser, og der trænes logik, kreativitet og problemløsning gennem fri, skabende leg. Der er hverken reklamer eller in-app køb, appen virker offline, og den findes til både iOS, Android, Amazon og Chromebook. De første gange kræver det dog lidt hjælp fra en voksen at komme i gang, og mulighederne er bevidst holdt til simple projekter. Oplagt til børn omkring 5-7 år, der skal skabe noget selv frem for kun at forbruge på skærmen.",
     shortDescription: "Lær at kode med farverige blokke - helt gratis",
     minAge: 5,
     maxAge: 7,
@@ -1283,7 +1283,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Kodable",
     slug: "kodable",
-    description: "Kodable lærer børn at kode gennem farverige spilbaner hvor de guider søde fuzzy-figurer gennem labyrinter. Appen bruges i over 50% af amerikanske grundskoler og lærer vigtige kodningskoncepter som sekvenser, betingelser og loops på en sjov måde.",
+    description: "Søde, lodne fuzzy-figurer skal guides gennem farverige labyrinter, og på den måde lærer Kodable børn helt ned til fire år at tænke som programmører. Barnet lægger kommandoer i rækkefølge og møder efterhånden rigtige kodningskoncepter som sekvenser, betingelser og loops, pakket ind i baner der føles som et spil snarere end undervisning. Læringsvejen er gennemtænkt, og appen bruges i over halvdelen af de amerikanske grundskoler, ligesom de ældste børn kan arbejde videre med rigtig JavaScript. Der er ingen reklamer, og præsentationen er farverig og letforståelig. Til gengæld kræver den internetforbindelse, fuld adgang koster abonnement, og som app findes den kun til iOS foruden webversionen. Et solidt valg til børn fra 4 til 10 år, der er klar til mere systematisk kodetræning.",
     shortDescription: "Kodning for de yngste med søde fuzzy-figurer",
     minAge: 4,
     maxAge: 10,
@@ -1322,7 +1322,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "PAW Patrol Academy",
     slug: "paw-patrol-academy",
-    description: "PAW Patrol Academy kombinerer læring med børns yndlingsvalpe. Øv bogstaver med Rubble, dans Pup Pup Boogie med Skye, byg ord med Chase, lær tal med Marshall, former med Rocky og farvelæg med Zuma. Alt i et sikkert, reklamefrit miljø.",
+    description: "Kender dit barn allerede Chase, Skye og Marshall, ligger der en oplagt genvej til læring i PAW Patrol Academy fra Budge Studios. Hver hvalp har sit eget område: Barnet øver bogstaver med Rubble, bygger ord med Chase, lærer tal med Marshall og former med Rocky, danser Pup Pup Boogie med Skye og farvelægger med Zuma. Aktiviteterne træner bogstaver, tal, former og tidlig fonetik, og motivationen kommer næsten af sig selv, når det er yndlingsfigurerne, der er med. Det hele foregår i et sikkert, reklamefrit miljø med flot produktion, og appen virker offline. Det gratis indhold er dog ret begrænset, og fuld adgang kræver abonnement, så mærk efter om interessen holder, inden I betaler. Mest oplagt til PAW Patrol-fans på 3-7 år, der skal lokkes i gang med skoleforberedende færdigheder.",
     shortDescription: "Lær bogstaver, tal og former med PAW Patrol",
     minAge: 3,
     maxAge: 7,
@@ -1358,7 +1358,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "DR Ramasjang LEG",
     slug: "dr-ramasjang-leg",
-    description: "I Ramasjang LEG er der timevis af digital underholdning med alle dine yndlingskarakterer fra Ramasjang. Her kan du koble af og hygge dig med masser af sjove aktiviteter. Spil fodboldkamp i Ramasjangs store stadion, løs mysterier med Kristian fra Ramasjang Mysteriet, byg en by af kage med Rosa fra Rouladegade eller dans amok med Danse Staffan. Helt gratis og uden reklamer - finansieret af DR licens.",
+    description: "Alle de kendte figurer fra Ramasjang er samlet i DR's store lege-app, som er helt gratis og finansieret via licensen. Barnet kan spille fodboldkamp på Ramasjangs store stadion, løse mysterier med Kristian fra Ramasjang Mysteriet, bygge en by af kage med Rosa fra Rouladegade eller danse amok med Danse Staffan. Aktiviteterne er ren leg snarere end skoleforberedelse, men træner alligevel finmotorik, kreativitet og fantasi undervejs. Kvaliteten er høj, alt er på dansk, og appen er fuldstændig fri for reklamer og in-app køb. Downloader man indholdet hjemmefra, virker det hele også offline på farten. Oplevelsen er dog klart sjovest for børn, der kender karaktererne fra tv i forvejen. Til danske børn på 4-8 år, der vil hygge sig i trygt selskab med Ramasjang-universet.",
     shortDescription: "Leg med alle Ramasjang-karakterer - gratis fra DR",
     minAge: 4,
     maxAge: 8,
@@ -1397,7 +1397,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "DR Ramasjang LÆR",
     slug: "dr-ramasjang-laer",
-    description: "I Ramasjang LÆR har DR samlet en masse sjove spil, hvor børn på en spændende måde kan lære om verden og træne både tal og sprog. Find bogstaver med Hr. Skæg, kom ud i naturen og lær dyr at kende med Ramasjang Redder, eller øv din hukommelse med et vendespil. Inkluderer 'Hr. Skægs Store Ordspil' hvor børn kan lære de 120 mest almindelige danske ord.",
+    description: "Skal der trænes bogstaver og tal på dansk i stedet for engelsk, er Ramasjang LÆR fra DR et oplagt sted at starte. Appen samler en stribe små læringsspil, hvor barnet finder bogstaver med Hr. Skæg, lærer dyr og natur at kende med Ramasjang Redder og træner hukommelsen med vendespil. Særligt Hr. Skægs Store Ordspil er værd at fremhæve, for her øver barnet de 120 mest almindelige danske ord, hvilket er en rigtig god forberedelse til at lære at læse. Sproget er dansk hele vejen igennem, hvilket er sjældent blandt læringsapps, og DR-kvaliteten mærkes i både grafik og indhold. Appen er helt gratis, uden reklamer og in-app køb, og den virker offline. Indholdet henvender sig naturligt nok kun til dansktalende børn. Velegnet til 4-8-årige, ikke mindst dem der nærmer sig skolestart.",
     shortDescription: "Lær dansk og tal med Ramasjang-karakterer - gratis",
     minAge: 4,
     maxAge: 8,
@@ -1436,7 +1436,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "DR Ramasjang KREA",
     slug: "dr-ramasjang-krea",
-    description: "Ramasjang KREA er den kreative app fra DR hvor børn kan tegne, male og skabe kunstværker sammen med deres yndlingskarakterer fra Ramasjang. Her kan kreative børn udtrykke sig gennem kunst og design, og alt er gratis og uden reklamer. En tryg kreativ legeplads.",
+    description: "Tegneglade børn får frit lærred i Ramasjang KREA, DR's kreative app, hvor man tegner, maler og skaber kunstværker sammen med figurerne fra Ramasjang. Barnet vælger farver og redskaber og går bare i gang; der er ingen rigtige eller forkerte løsninger, kun plads til at eksperimentere. Det træner finmotorik, farvelære og det kunstneriske udtryk, og mange børn kan sidde længe fordybet i deres værker, som bagefter kan gemmes til familiealbummet. Som de øvrige DR-apps er den helt gratis, finansieret af licensen, uden reklamer og in-app køb, og den virker offline. Funktionerne er enklere end i betalte tegneapps, så de mest øvede små kunstnere kan komme til at savne flere muligheder. Til gengæld er det en tryg kreativ legeplads for børn på 4-8 år, hvor intet kan gå galt.",
     shortDescription: "Tegn og mal med Ramasjang-karakterer - gratis",
     minAge: 4,
     maxAge: 8,
@@ -1475,7 +1475,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "DR Øen (Ø-spillet)",
     slug: "dr-oeen",
-    description: "I DR Øen kan børn komme med til landet Ramasjang og spille med deres yndlingskarakterer. Børn kan gå på opdagelse på Ramasjang Ø, hvor der venter masser af sjov, spil og leg. Spillet er helt gratis ligesom de andre DR apps - der skal aldrig betales for nyt indhold eller opdateringer.",
+    description: "På Ramasjang Ø venter et helt lille land fyldt med spil, leg og aktiviteter, som barnet frit kan gå på opdagelse i sammen med sine yndlingsfigurer fra Ramasjang. I stedet for faste baner udforsker barnet øen i sit eget tempo, finder nye steder og prøver de lege, der dukker op undervejs, og det træner både nysgerrighed, navigation og problemløsning på en dejligt ustyret måde. Universet er stort og flot lavet med dansk tale, og som DR's andre apps er den helt gratis uden reklamer og in-app køb; nyt indhold og opdateringer koster heller aldrig noget. Den åbne struktur kan dog virke lidt forvirrende for de mindste, som ikke altid ved, hvad de skal. Bedst til børn på 4-8 år, der elsker selv at bestemme, hvor legen skal bevæge sig hen.",
     shortDescription: "Udforsk Ramasjang Ø med dine yndlingskarakterer",
     minAge: 4,
     maxAge: 8,
@@ -1514,7 +1514,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "DR Minisjang",
     slug: "dr-minisjang",
-    description: "Minisjang-appen er lavet til de alleryngste seere og indeholder indhold fra DRs Minisjang-kanal. Med enkle aktiviteter og kendte karakterer passer den godt til børn under skolealderen. Alt er trygt, gratis og uden reklamer.",
+    description: "Til familiens alleryngste har DR lavet Minisjang-appen, som bygger på indholdet fra tv-kanalen af samme navn. Aktiviteterne er meget enkle, så selv en toårig kan betjene dem uden hjælp, og undervejs trænes finmotorik, genkendelse og den første, simple interaktion med en skærm. Figurerne kender mange børn allerede fra fjernsynet, hvilket giver tryghed, og alt i appen er roligt, venligt og tilpasset små børns tempo. Som resten af DR's app-familie er den helt gratis, uden reklamer og in-app køb, og den virker offline, så den også kan bruges på farten. Indholdet er til gengæld begrænset, og de fleste børn vokser fra appen omkring femårsalderen. En god og tryg første app til de mindste på 2-5 år, når skærmtiden alligevel skal bruges på noget.",
     shortDescription: "For de alleryngste - indhold fra Minisjang",
     minAge: 2,
     maxAge: 5,
@@ -1547,7 +1547,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "DR Naturspillet",
     slug: "dr-naturspillet",
-    description: "Naturspillet fra DR lærer børn om dansk natur på en sjov og interaktiv måde. Udforsk skoven, stranden og andre danske naturtyper, og lær om de dyr og planter der lever der. Udviklet i samarbejde med natureksperter for at give børn ægte viden om naturen.",
+    description: "Med Naturspillet fra DR kan børn udforske den danske natur direkte fra skærmen. Barnet bevæger sig rundt i forskellige naturtyper som skov og strand og opdager de dyr og planter, der hører hjemme der, gennem små interaktive opgaver. Indholdet er udviklet sammen med natureksperter, så den viden om natur, observation og miljø, barnet samler op, faktisk er korrekt. Appen er helt gratis, uden reklamer og in-app køb, og den virker offline, så den kan bruges på turen ud i det grønne. Grafikken er venlig og genkendeligt dansk, dog er indholdet netop fokuseret på dansk natur, så eksotiske dyr må man kigge andre steder efter. Et godt valg til nysgerrige børn fra omkring 5 år, der gerne vil vide mere om det, de møder på skovturen.",
     shortDescription: "Lær om dansk natur med DR",
     minAge: 5,
     maxAge: 10,
@@ -1586,7 +1586,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "DR Karla",
     slug: "dr-karla",
-    description: "Karla-appen er baseret på den populære Ramasjang-serie 'Karla og hendes venner'. Børn kan spille med Karla og opleve eventyr sammen med hende og vennerne. Velegnet for fans af serien.",
+    description: "Fans af Ramasjang-serien 'Karla og hendes venner' kan her lege videre med Karla på tabletten. Barnet oplever små eventyr sammen med Karla og vennerne og løser undervejs opgaver, der kalder på fantasi og en smule problemløsning. Samtidig får de en fornemmelse for venskaber og sociale situationer, fordi historierne kredser om, hvordan man er en god ven. Som altid hos DR er appen helt gratis, uden reklamer og in-app køb, og den fungerer offline, når først den er hentet. Udtrykket er trygt og genkendeligt fra tv med samme varme streg og danske stemmer. Oplevelsen er dog klart bedst for børn, der kender serien i forvejen, så se et par afsnit sammen først. Passer til børn på 4-8 år, der allerede har et blødt punkt for Karla.",
     shortDescription: "Spil med Karla og hendes venner",
     minAge: 4,
     maxAge: 8,
@@ -1619,7 +1619,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "DR Motor Mille",
     slug: "dr-motor-mille",
-    description: "Motor Mille-appen lader børn lege med den populære karakter fra Ramasjang. Kør rundt, løs opgaver og hav det sjovt med Mille og hendes venner. Velegnet for børn der elsker biler og køretøjer.",
+    description: "Er der en lille bilentusiast i huset, er Motor Mille-appen fra DR et oplagt bud. Barnet kører rundt med Mille fra Ramasjang, løser små opgaver undervejs og leger sig gennem et univers af biler og køretøjer. Styringen træner finmotorik og retningssans, og opgaverne kræver lidt problemløsning uden at blive frustrerende for de mindste. Appen er gratis, fri for reklamer og in-app køb, og den virker offline, så den også kan bruges på bagsædet på lange køreture. Udtrykket er farverigt og genkendeligt fra tv. Indholdet er dog ret begrænset, så regn ikke med uger af nyt at opdage. Til gengæld rammer den plet hos de 3-7-årige, der elsker alt på hjul - og den kan fint kombineres med legetøjsbilerne på gulvet bagefter.",
     shortDescription: "Kør og leg med Motor Mille",
     minAge: 3,
     maxAge: 7,
@@ -1652,7 +1652,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Spil med Mus og Kran",
     slug: "spil-med-mus-og-kran",
-    description: "I Spil med Mus og Kran kan børn hjælpe Mus, Kran og Elektryne med at løse kreative udfordringer for sjove væsner på havnen - som fx Havspøgelserne og den ensomme Skrotbisse. Børn kan bygge, tænke og skabe sammen med vennerne fra den populære DR-serie. Når appen er hentet, har man alt indhold direkte på enheden, så man kan bruge den helt uden internet. 100% gratis fra DR.",
+    description: "På havnen hos Mus, Kran og Elektryne venter en stribe skæve figurer som Havspøgelserne og den ensomme Skrotbisse, der alle har brug for hjælp. Barnet bygger, eksperimenterer og finder løsninger på de kreative udfordringer, spillet stiller - der er sjældent kun ét rigtigt svar, og det inviterer til at tænke selv. Undervejs trænes logisk tænkning, problemløsning og finmotorik, pakket ind i samme legende tone som DR-serien. Appen er helt gratis uden reklamer og in-app køb, og alt indhold ligger på enheden efter download, så den virker uden internet - hent den derfor hjemmefra inden bilturen. Man får dog mest ud af universet, hvis barnet kender serien i forvejen. Et fint kreativt byggespil til de 4-8-årige, der kan lide at nørkle med løsninger.",
     shortDescription: "Byg og løs udfordringer med Mus og Kran - gratis fra DR",
     minAge: 4,
     maxAge: 8,
@@ -1685,7 +1685,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Mumi, Mymlen og Lille My",
     slug: "mumi-mymlen-og-lille-my",
-    description: "Mumi, Mymlen og Lille My er en interaktiv bog-app baseret på Tove Janssons elskede Mumitrold-univers. Børn kan udforske historien om Mumitrolden og hans venner med smukke illustrationer og animationer der aktiveres ved tryk. Appen er tro mod den originale fortælling og byder på dansk oplæsning. En magisk oplevelse for børn der elsker Mumitroldene.",
+    description: "Tove Janssons mumitrolde får nyt liv i denne interaktive bog-app, hvor børn kan opleve historien om Mumi, Mymlen og Lille My med dansk oplæsning. Barnet bladrer gennem fortællingen, trykker på illustrationerne og ser små animationer folde sig ud, mens historien bliver læst højt. Det træner lytning, sprogudvikling og fantasi på en stille og rolig måde, der egner sig godt som godnathistorie. Appen er tro mod den originale fortælling, og illustrationerne har bevaret den nordiske charme fra bøgerne. Der er ingen reklamer eller in-app køb, men appen koster et engangsbeløb og indeholder kun denne ene historie, så oplevelsen er afgrænset. Til gengæld er kvaliteten høj hele vejen igennem. Bedst til 4-8-årige, der holder af rolige fortællinger - og til forældre med et blødt punkt for Mumidalen.",
     shortDescription: "Interaktiv Mumitrold-historie med dansk oplæsning",
     minAge: 4,
     maxAge: 8,
@@ -1718,7 +1718,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Bille & Trille",
     slug: "bille-og-trille",
-    description: "Bille & Trille er en dansk læreapp lavet til børn i børnehavealderen. Appen tager udgangspunkt i børnenes eget liv i børnehaven med genkendelige situationer og aktiviteter. Spillet er fyldt med spil og lege, og sværhedsgraden indstilles automatisk efter barnets niveau. En tryg og velkendt ramme for danske børn med fokus på leg og læring.",
+    description: "Hverdagen i børnehaven er omdrejningspunktet i denne danske læringsapp, hvor Bille og Trille tager barnet med gennem genkendelige situationer fra deres eget liv. Gennem små spil og lege arbejder barnet med tal, bogstaver, former og farver, og sværhedsgraden justeres automatisk efter barnets niveau, så opgaverne hverken bliver for lette eller for svære. Netop genkendeligheden gør appen god til børn, der lige er startet i børnehave - de møder situationer, de kender fra deres egen dag. Alt er på dansk, og der er ingen reklamer. Grundversionen er gratis, men fuld adgang kræver in-app køb, og det gratis indhold er ret begrænset, så regn med at skulle betale, hvis appen bliver et hit. Henvender sig til de 3-7-årige og deres første legende skridt mod skolen.",
     shortDescription: "Dansk børnehave-app med automatisk sværhedsgrad",
     minAge: 3,
     maxAge: 7,
@@ -1751,7 +1751,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Sigurd Fortæller",
     slug: "sigurd-fortaeller",
-    description: "Sigurd Fortæller er en gratis dansk app hvor børn kan lære om historie, kultur og verden gennem fortællinger. Appen indeholder historier fortalt på en engagerende måde der fanger børns interesse. Helt uden reklamer og in-app køb - en ren læringsoplevelse på dansk. God til nysgerrige børn der elsker at høre historier.",
+    description: "Sigurd Barrett har samlet sine fortællinger om historie, kultur og verden i denne gratis app, hvor børn kan lytte sig klogere. Barnet vælger en historie og hører Sigurd fortælle på sin engagerede, letforståelige måde, der har gjort ham elsket af danske børn. Undervejs vokser ordforrådet, og barnet får viden og en begyndende historieforståelse med i købet - uden at det føles som undervisning. Appen er helt fri for reklamer og in-app køb og virker offline, så den er oplagt til lange bilture eller rolige stunder inden sengetid. Oplevelsen er dog overvejende lyttende, så den kræver et barn, der kan sidde stille og koncentrere sig - de mest fysisk aktive holder næppe ud ret længe ad gangen. For nysgerrige børn fra 4 til 10 år er den til gengæld en lille guldgrube af fortællinger.",
     shortDescription: "Gratis danske historiefortællinger for nysgerrige børn",
     minAge: 4,
     maxAge: 10,
@@ -1784,7 +1784,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Poikilingo",
     slug: "poikilingo",
-    description: "Poikilingo er en dansk sprogindlæringsapp der kombinerer interaktive mini-spil med personlige historier. Børnene lærer nye ord og sætninger gennem eventyrlige fortællinger tilpasset deres niveau. Appen er co-finansieret af Innovationsfonden Danmark og Det Danske Filminstitut, og er gratis for danske børn frem til 2025. Sprogforskning viser at børn lærer bedst gennem historier og leg - og det er præcis hvad Poikilingo leverer. Fin supplement til danskundervisning i skolen.",
+    description: "Sproglæring gennem historier er kernen i Poikilingo, en dansk app der blander interaktive mini-spil med eventyrlige fortællinger. Barnet følger historierne, løser små sprogopgaver undervejs og lærer på den måde nye ord og sætninger i et tempo, der tilpasses barnets niveau. Tilgangen bygger på sprogforskning, der viser, at børn lærer bedst gennem leg og fortælling, og appen er medfinansieret af Innovationsfonden og Det Danske Filminstitut. Der er hverken reklamer eller in-app køb, og historierne kan hentes hjemmefra, så de virker offline - selve downloadet kræver dog internet, og den gratis adgang har været tidsbegrænset, så tjek de aktuelle vilkår. Et fint supplement til danskundervisningen for børn på 4-10 år, der godt kan lide at få læring serveret som fortælling.",
     shortDescription: "Gratis dansk sprogindlæring gennem historier",
     minAge: 4,
     maxAge: 10,
@@ -1817,7 +1817,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "codeSpark Academy",
     slug: "codespark-academy",
-    description: "codeSpark Academy lærer børn grundlæggende programmering gennem leg og puzzles - helt uden at de behøver læse. Appen bruger et visuelt programmeringssprog hvor børn trækker blokke for at styre søde karakterer. Over 1000 aktiviteter og daglige udfordringer holder interessen ved lige. Udviklet i samarbejde med MIT og Princeton. Spillet tilpasser sig automatisk til barnets niveau og der er separate forældrekontroller. En af de bedste apps til at introducere kodning.",
+    description: "Programmering uden bogstaver - det er idéen bag codeSpark Academy, hvor børn helt ned til femårsalderen lærer at kode, før de kan læse. Barnet trækker visuelle blokke for at styre de søde figurer gennem baner og puzzles, og undervejs opbygges logisk og sekventiel tænkning samt en god portion problemløsning. Med over 1000 aktiviteter og daglige udfordringer er der længe noget at arbejde med, og appen tilpasser sig automatisk barnets niveau. Indholdet er udviklet i samarbejde med MIT og Princeton, der er separate forældrekontroller, og det hele virker offline. Prisen er dog et abonnement efter prøveperioden, og appen er primært på engelsk - de visuelle opgaver kan til gengæld fint klares uden sprog. En rigtig god indgang til kodning for børn på 5-10 år med appetit på logik.",
     shortDescription: "Lær kodning uden at kunne læse",
     minAge: 5,
     maxAge: 10,
@@ -1856,7 +1856,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Draw and Tell HD",
     slug: "draw-and-tell-hd",
-    description: "Draw and Tell HD er en prisvindende kreativ app fra Duck Duck Moose (nu Khan Academy). Børn tegner billeder og optager derefter historier om deres tegninger. De kan tilføje klistermærker, stempler og effekter. Resultatet kan gemmes og deles med familie. Appen kombinerer kunst med storytelling og opmuntrer børn til at udtrykke sig kreativt. Helt gratis, ingen reklamer, ingen in-app køb - støttet af Khan Academys non-profit mission.",
+    description: "Tegning og fortælling smelter sammen i Draw and Tell HD fra Duck Duck Moose, der i dag hører under Khan Academy. Barnet tegner et billede, pynter med klistermærker og stempler og optager bagefter sin egen fortælling om tegningen, som kan gemmes og deles med familien. Kombinationen træner både finmotorik, kreativitet og sprogudvikling - og de optagede historier bliver små tidskapsler, man som forælder bliver glad for at gense. Appen er helt gratis uden reklamer og in-app køb, båret af Khan Academys non-profit-mission, og den virker offline. Brugerfladen virker efterhånden lidt dateret, og menuerne er på engelsk, men selve tegnelegen og optagelsen kræver stort set ingen sprogfærdigheder. Velegnet til børn fra 2 til 8 år, der elsker at tegne og snakke om det, de laver.",
     shortDescription: "Tegn og fortæl historier om dine tegninger",
     minAge: 2,
     maxAge: 8,
@@ -1895,7 +1895,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Toontastic 3D",
     slug: "toontastic-3d",
-    description: "Toontastic 3D fra Google lader børn skabe deres egne 3D-animerede historier. Vælg eller tegn karakterer, vælg baggrunde, optag dialog og musik, og se din historie komme til live som en 3D-animationsfilm. Appen guider børn gennem klassisk historiestruktur med begyndelse, midte og slutning. Færdige film kan eksporteres og deles. Helt gratis uden reklamer eller køb. Et fantastisk værktøj til kreativ udtryk.",
+    description: "Toontastic 3D fra Google gør barnet til filminstruktør med sine egne 3D-animerede historier. Man vælger eller tegner figurer, sætter dem ind i en baggrund, flytter dem rundt mens der optages, og indtaler selv dialogen - til sidst lægges musik på, og den færdige film kan eksporteres og deles. Appen guider undervejs gennem klassisk historiestruktur med begyndelse, midte og slutning, så barnet lærer at planlægge og fortælle en historie frem for bare at trykke løs. Det hele er gratis, uden reklamer og køb, og virker offline. De mange muligheder kan dog virke lidt overvældende i starten, og appen er på engelsk, så start med de korte formater og hjælp til de første film. Et stærkt kreativt værktøj til børn fra omkring 6 til 12 år, der har lyst til at fortælle deres egne historier.",
     shortDescription: "Skab dine egne 3D-animerede historier",
     minAge: 6,
     maxAge: 12,
@@ -1934,7 +1934,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Pepi Wonder World",
     slug: "pepi-wonder-world",
-    description: "Pepi Wonder World er et eventyrspil hvor børn udforsker magiske verdener fyldt med eventyrkarakterer. Besøg trollens hule, prinsessens slot, heksens hus og mange flere steder. Løs quests, find skjulte objekter, og opdag hemmeligheder. Spillet kombinerer fri leg med milde udfordringer - der er ingen forkerte svar eller game over. Alt er håndtegnet i en charmerende stil. Virker helt offline efter download.",
+    description: "Trolde, prinsesser og hekse befolker de magiske verdener i Pepi Wonder World, hvor barnet går på opdagelse i sit eget tempo. Man udforsker trollens hule, prinsessens slot og heksens hus, løser små quests, finder skjulte ting og opdager hemmeligheder - der er ingen forkerte svar og intet game over, så selv de yngste kan lege med uden frustration. Formen med fri leg og milde udfordringer træner observation, problemløsning og kreativitet. Alt er håndtegnet i en charmerende stil, spillet virker helt offline efter download, og der er ingen reklamer. De første verdener er gratis, men de ekstra koster in-app køb, så vent med at åbne pungen, til barnet har vist, at spillet holder. Et venligt eventyrspil til de 4-10-årige, der hellere vil udforske end konkurrere.",
     shortDescription: "Udforsk magiske eventyr-verdener",
     minAge: 4,
     maxAge: 10,
@@ -1967,7 +1967,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Pango Seek and Find",
     slug: "pango-seek-and-find",
-    description: "Pango Seek and Find er et observationsspil for småbørn hvor de udforsker eventyr-verdener og finder skjulte objekter. Hvert scenarie er fyldt med animerede detaljer og overraskelser. Der er ingen tekst, ingen tidspres, og ingen forkerte svar - bare ren udforskning og opdagelse. De farverige illustrationer stimulerer opmærksomhed og koncentration. God introduktion til puslespil-genren for de yngste.",
+    description: "De helt små kan være med i Pango Seek and Find, et roligt observationsspil, hvor barnet leder efter skjulte objekter i farverige eventyrverdener. Hvert scenarie bugner af animerede detaljer og små overraskelser, som belønner den, der kigger godt efter, og der er hverken tekst, tidspres eller forkerte svar - bare udforskning i barnets eget tempo. Det træner observation, koncentration og finmotorik og fungerer som en blid introduktion til puslespilsgenren for de yngste. Illustrationerne er gennemførte og farverige, og appen er fri for reklamer og in-app køb og virker offline. Man betaler et engangsbeløb, og indholdet er ret begrænset, så de ældste bliver hurtigt færdige. Snak med barnet om, hvad det finder undervejs - så følger sprogtræningen med oveni. Bedst til de 2-6-årige.",
     shortDescription: "Find skjulte objekter i farverige eventyr-verdener",
     minAge: 2,
     maxAge: 6,
@@ -2000,7 +2000,7 @@ export const games3to6: GameSeedData[] = [
   {
     title: "Crayola Create and Play",
     slug: "crayola-create-and-play",
-    description: "Crayola Create and Play kombinerer tegning, farvning og spil i én app. Lær at tegne step-by-step, farv billeder med virtuelle farver, og spil sjove mini-spil. Alt er præsenteret i Crayolas velkendte farverige stil. Appen opdateres løbende med nye aktiviteter og sæsonindhold. Der er en gratis version med begrænset indhold og en premium-version med alt indhold. God app for kreative børn der elsker at tegne og farve.",
+    description: "Farveblyantsfirmaet Crayola står bag denne kreative app, der samler tegning, farvelægning og mini-spil ét sted. Barnet kan lære at tegne trin for trin, farve billeder med virtuelle farver og bagefter kaste sig over små spil - alt sammen i Crayolas velkendte, farvestrålende stil. Undervejs trænes finmotorik, kreativitet og farvegenkendelse, og appen opdateres løbende med nye aktiviteter og sæsonindhold, så der jævnligt er noget nyt at prøve. Der er ingen reklamer, men den gratis version er ret begrænset, og fuld adgang kræver in-app køb. Appen er desuden på engelsk, selvom det meste kan klares uden at læse. Et godt fif er at kombinere med rigtige farver på papir, så det digitale følges op af fysisk kreativitet. Henvender sig til kreative børn på 3-8 år, der elsker at tegne og farve.",
     shortDescription: "Tegn, farv og spil med Crayola",
     minAge: 3,
     maxAge: 8,
@@ -2040,7 +2040,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Minecraft",
     slug: "minecraft",
-    description: "Minecraft er verdens mest populære sandkassespil hvor spillere bygger, udforsker og overlever i en uendelig blokverden. I kreativ tilstand kan børn bygge hvad som helst uden begrænsninger. I overlevelsestilstand skal de samle ressourcer og overleve natten. Spillet fremmer kreativitet, problemløsning og samarbejde.",
+    description: "Få spil har grebet børn verden over som Minecraft, sandkassespillet hvor alt er bygget af blokke, og hvor fantasien bestemmer, hvad der skal ske. I kreativ tilstand bygger barnet frit og uden farer, mens overlevelsestilstand kræver, at man samler ressourcer, bygger ly og klarer sig gennem natten. Undervejs trænes kreativitet, problemløsning, ressourcestyring og rumlig forståelse, og spiller man sammen med søskende eller venner, kommer samarbejdet helt af sig selv. Blokgrafikken er enkel men charmerende, spillet virker offline, er uden reklamer og opdateres stadig jævnligt. Dog skal man være opmærksom på in-app køb til skins og verdener, og multiplayer kræver abonnement. Et oplagt valg til børn fra 6-7 år, der elsker at bygge og udforske — gerne i mange timer, så aftal skærmtid på forhånd.",
     shortDescription: "Byg din egen verden i blokke",
     minAge: 6,
     maxAge: 99,
@@ -2079,7 +2079,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Monument Valley 2",
     slug: "monument-valley-2",
-    description: "Monument Valley 2 er et visuelt betagende puslespil hvor du guider en mor og datter gennem umulige arkitektoniske verdener. Manipuler perspektivet og geometrien for at finde vejen. Spillet er et kunstværk der stimulerer både øjne og hjerne.",
+    description: "Sjældent ser man et puslespil så smukt som Monument Valley 2, hvor man guider en mor og hendes datter gennem umulige bygninger inspireret af optiske illusioner. Barnet drejer og forskyder arkitekturen, så nye veje opstår, og hvert bræt løses ved at manipulere perspektivet — det træner rumlig forståelse, problemløsning og kreativ tænkning på en rolig, næsten meditativ måde. Grafikken er som små kunstværker, musikken er blid, og styringen er så enkel, at selv yngre børn kan være med. Der er hverken reklamer eller in-app køb, og spillet virker offline. Til gengæld er oplevelsen forholdsvis kort — omkring 2-3 timer — så se det som en lille perle snarere end et spil til mange uger. Fint til børn fra 6 år og deres forældre, der gerne vil spille noget stemningsfuldt sammen og tale om kunst undervejs.",
     shortDescription: "Smukt perspektiv-puslespil for hele familien",
     minAge: 6,
     maxAge: 99,
@@ -2118,7 +2118,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Human Resource Machine",
     slug: "human-resource-machine",
-    description: "Human Resource Machine lærer programmering gennem visuelle puslespil. Du styrer en kontormedarbejder der udfører simple kommandoer for at løse problemer. En sjov og tilgængelig introduktion til programmeringstankegang.",
+    description: "Bag den grå kontorfacade i Human Resource Machine gemmer sig en overraskende god introduktion til rigtig programmering. Barnet styrer en lille kontormedarbejder ved at sætte kommandoer sammen i rækkefølge, og opgaverne løses med de samme byggesten, som ægte kode består af: sekvenser, loops og procedurer. Det træner logik, algoritmisk tænkning og problemløsning, uden at det føles som undervisning — humoren og den skæve tegnestil gør det hele letfordøjeligt. Spillet er et engangskøb uden reklamer eller in-app køb og virker offline. Vær dog forberedt på, at sværhedsgraden stiger mærkbart undervejs, så det kræver tålmodighed — og gerne en voksen ved siden af i starten. Bedst til børn fra omkring 8 år, der er nysgerrige på, hvordan computere egentlig tænker.",
     shortDescription: "Lær programmering på en kontorarbejders måde",
     minAge: 8,
     maxAge: 15,
@@ -2157,7 +2157,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "DragonBox Numbers",
     slug: "dragonbox-numbers",
-    description: "DragonBox Numbers gør matematik håndgribelig ved at lade børn lege med tal som fysiske objekter. Børn lærer hvad tal faktisk betyder og hvordan de relaterer til hinanden. Udviklet af matematiklærere og forskere.",
+    description: "Tal bliver til levende væsner i DragonBox Numbers, hvor børn helt bogstaveligt kan røre ved matematikken. De små figurer kan stables, deles og sættes sammen, og gennem fri leg opdager barnet selv, hvad tal betyder, og hvordan de hænger sammen — længe før der er tale om plusstykker på papir. Appen er udviklet af matematiklærere og forskere, og tilgangen bygger på eksperimentering frem for facitlister, hvilket giver en solid talforståelse. Grafikken er farverig og indbydende, alt virker offline, og der er hverken reklamer eller in-app køb. Prisen er et engangskøb, og de første gange kan barnet have brug for lidt forældreforklaring, før legen rigtig folder sig ud. Et rigtig godt valg til de 4-9-årige, der skal have et venligt og legende første møde med tallene.",
     shortDescription: "Forstå tal gennem leg og eksperimentering",
     minAge: 4,
     maxAge: 9,
@@ -2196,7 +2196,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "DragonBox Algebra",
     slug: "dragonbox-algebra",
-    description: "DragonBox Algebra 12+ lærer algebra uden at det føles som matematik. Gennem leg lærer børn de grundlæggende principper for at løse ligninger. Brugt i skoler verden over som et effektivt værktøj til matematikundervisning.",
+    description: "Ligninger uden tårer — det er kort fortalt idéen bag DragonBox Algebra, som sniger algebraens regler ind gennem leg. Barnet flytter kort og små væsner rundt på skærmen efter bestemte regler, og uden at opdage det lærer det de samme principper, man bruger til at løse rigtige ligninger. Efterhånden erstattes væsnerne af tal og bogstaver, og pludselig står barnet med ægte algebra mellem hænderne. Spillet træner logik, abstrakt tænkning og problemløsning og bruges i skoler verden over. Der er ingen reklamer eller in-app køb, og det virker offline. De første baner kan dog føles lidt abstrakte, så det hjælper at sidde med i starten. Særligt velegnet til børn fra 9 år og opefter — også dem, der ellers har besluttet, at matematik ikke er noget for dem.",
     shortDescription: "Lær algebra gennem leg - uden at vide det",
     minAge: 9,
     maxAge: 15,
@@ -2235,7 +2235,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Stack the States",
     slug: "stack-the-states",
-    description: "Stack the States lærer børn om USAs geografi gennem et puslespil-stackingspil. Svar rigtigt på spørgsmål for at få stater, og stable dem for at nå toppen. Indeholder fakta om alle 50 stater.",
+    description: "Amerikansk geografi lyder måske tørt, men Stack the States gør det til en balanceleg: Barnet svarer på spørgsmål om USA's stater, og hver rigtig besvarelse giver en stat, som skal stables oven på de andre for at nå op til målstregen. Staterne har fjollede ansigter og vipper og vælter, så der både trænes geografi, hukommelse og en smule strategi, når tårnet skal holde balancen. Appen indeholder fakta om alle 50 stater, koster et lille engangsbeløb og er fri for reklamer og in-app køb — og den virker offline. Man skal dog vide, at indholdet udelukkende handler om USA, hvilket gør det mindre oplagt for danske børn; til verdensgeografi findes søsterappen Stack the Countries. Sjovt til nysgerrige børn fra 6 år, der gerne vil vide mere om verden — eller bare elsker at stable ting.",
     shortDescription: "Lær USAs geografi gennem stabling",
     minAge: 6,
     maxAge: 12,
@@ -2274,7 +2274,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Prodigy Math",
     slug: "prodigy-math",
-    description: "Prodigy Math er et gratis rollespil hvor matematikproblemer er magiske kampe. Børn løser matematikopgaver for at bekæmpe monstre og samle belønninger. Tilpasser sig automatisk til barnets niveau og bruges i mange skoler.",
+    description: "Matematiktræning pakket ind i et magisk rollespil — sådan fungerer Prodigy Math, hvor barnet skaber sin egen troldmand og kæmper mod monstre ved at løse regneopgaver. Hver kamp kræver rigtige svar, og opgaverne tilpasser sig automatisk barnets niveau, så både den øvede og den mindre sikre regner kan være med. Undervejs trænes matematik, problemløsning og strategi, og belønningerne holder motivationen oppe. Spillet bruges i mange skoler, al matematikken er gratis, og der er ingen reklamer. Til gengæld kræver det internetforbindelse, og der lokkes med kosmetiske køb undervejs — slå eventuelt køb fra på enheden. Vær også opmærksom på, at nogle børn fokuserer mere på selve spillet end på læringen. Bedst til børn mellem 6 og 14 år, der skal have lidt ekstra lyst til tallene.",
     shortDescription: "Rollespil hvor matematik er magi",
     minAge: 6,
     maxAge: 14,
@@ -2313,7 +2313,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Lightbot: Code Hour",
     slug: "lightbot-code-hour",
-    description: "Lightbot Code Hour introducerer programmering gennem puslespil hvor du styrer en robot til at tænde lys. Lær grundlæggende koncepter som sekventering, loops og procedurer. Gratis og god som første introduktion til kodning.",
+    description: "Som første møde med kodning er Lightbot: Code Hour svær at slå — ikke mindst fordi appen er helt gratis. Opgaven er enkel: Giv en lille robot en række kommandoer, så den går hen over felterne og tænder lys. For at løse banerne må barnet planlægge rækkefølgen nøje, og snart dukker loops og procedurer op, så man lærer at genbruge sine kommandoer klogt. Det træner logik, sekventering og problemløsning — kernebegreber i al programmering — i små, overskuelige bidder. Der er hverken reklamer eller in-app køb, alt virker offline, og designet er enkelt og let at gå til. Man skal dog vide, at det er en smagsprøve: Spilletiden er kort, og indholdet holder sig til de grundlæggende koncepter, så når barnet er fanget, er den fulde Lightbot-app det naturlige næste skridt. Fint til børn fra 6 år.",
     shortDescription: "Introduktion til kodning med lys-robot",
     minAge: 6,
     maxAge: 12,
@@ -2350,7 +2350,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Scratch Jr",
     slug: "scratch-jr",
-    description: "Scratch Jr lader børn programmere interaktive historier og spil ved at sætte grafiske blokke sammen. Designet af MIT Media Lab som en yngre version af den populære Scratch. God introduktion til kreativ programmering.",
+    description: "Med Scratch Jr får selv de yngste skolebørn lov at programmere deres egne historier og små spil. Barnet trækker farverige kommandoblokke sammen til kæder, og straks bevæger figurerne sig, taler og skifter scene — på den måde bliver abstrakt programmering pludselig konkret og kreativ. Appen er udviklet af MIT Media Lab som lillesøster til det kendte Scratch, og undervejs trænes logik, kreativitet og evnen til at fortælle historier. Den er helt gratis, open source, uden reklamer og in-app køb, og den virker offline — svær at komme udenom, hvad enten det er i skolen eller derhjemme. Regn dog med at hjælpe til i starten; interfacet kan virke lidt overvældende, men efter et par introduktionsvideoer klarer de fleste børn sig selv. Oplagt til de 5-8-årige, der vil skabe frem for bare at forbruge på skærmen.",
     shortDescription: "Programmér historier og spil med blokke",
     minAge: 5,
     maxAge: 8,
@@ -2385,7 +2385,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Alto's Odyssey",
     slug: "altos-odyssey",
-    description: "Alto's Odyssey er et fredfyldt sandboarding-eventyr gennem smukke ørkenlandskaber. Spring, laviner og kløfter mens du samler mønter og udforsker hemmeligheder. Simpel kontrol med dyb gameplaysom passer til alle aldre.",
+    description: "Ro på skærmen er en sjælden vare, men Alto's Odyssey leverer den: et stille sandboarding-eventyr gennem ørkenlandskaber i skiftende lys. Med ét tryk springer man og laver tricks, mens man glider forbi kløfter og gamle ruiner og samler mønter undervejs. Styringen er så enkel, at små hænder hurtigt er med, men timing og koncentration bliver alligevel udfordret, jo længere man kommer. Der er ingen reklamer eller in-app køb, spillet virker offline, og grafikken og lydsiden hører til det smukkeste, man finder på en tablet. Læringsindholdet er beskedent — her handler det mere om reaktionsevne, timing og afslapning end om bogstaver og tal — og banerne kan med tiden føles lidt ens. Et fint valg til børn fra 6 år og opefter, der har brug for skærmtid helt uden stress og larm.",
     shortDescription: "Fredfyldt sandboarding-eventyr",
     minAge: 6,
     maxAge: 99,
@@ -2424,7 +2424,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Osmo Coding",
     slug: "osmo-coding",
-    description: "Osmo Coding kombinerer fysiske blokke med digital leg for at lære kodning. Børn lægger fysiske kommando-blokke foran kameraet og ser resultaterne på skærmen. Kræver Osmo Base (sælges separat).",
+    description: "Kodning med hænderne er idéen bag Osmo Coding, hvor fysiske brikker og en tablet arbejder sammen. Barnet lægger kommandobrikker på bordet foran skærmen — gå, hop, gentag — og via kameraet udfører figuren på skærmen kommandoerne, så koden bliver til et lille eventyr, man kan følge med i. At kunne røre ved sin kode gør abstrakte begreber som sekventering og loops helt konkrete, og undervejs trænes logik og problemløsning i et roligt tempo. Selve appen er gratis og uden reklamer og in-app køb, men den kræver Osmo Base og kodebrikkerne, som købes separat — en reel investering — og systemet virker kun med iPad og Amazon Fire. Til gengæld er brikkerne solide og gennemtænkte og tåler små hænder. God til børn fra 5 år, der lærer bedst, når de har noget mellem hænderne.",
     shortDescription: "Fysisk kodning med blokke og app",
     minAge: 5,
     maxAge: 12,
@@ -2457,7 +2457,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "GeoGuessr",
     slug: "geoguessr",
-    description: "GeoGuessr placerer dig et tilfældigt sted på Google Street View, og du skal gætte hvor i verden du er. Lær geografi ved at kigge efter spor i landskabet, bygninger, skilte og køretøjer. Vanedannende og lærerigt.",
+    description: "Hvor i verden er vi havnet? Det spørgsmål er hele motoren i GeoGuessr, som sætter spilleren af et tilfældigt sted på Google Street View. Nu gælder det om at lede efter spor — vejskilte, vegetation, nummerplader, husenes byggestil — og derefter sætte en nål på verdenskortet så tæt på det rigtige sted som muligt. Det træner geografi, observation, deduktion og kulturel forståelse, og som familiespil er det en gave: Der opstår helt af sig selv samtaler om lande, sprog og levevis. Billedmaterialet er ægte Street View, så kvaliteten svinger med Googles fotos, og spillet kræver internetforbindelse. Gratisudgaven har desuden reklamer, og fuld adgang kræver abonnement. Bedst til børn fra 8 år, der spiller sammen med en voksen — så bliver det både hyggeligt og lærerigt på én gang.",
     shortDescription: "Gæt hvor i verden du er",
     minAge: 8,
     maxAge: 99,
@@ -2494,7 +2494,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Tynker",
     slug: "tynker",
-    description: "Tynker lærer programmering gennem spil, puslespil og kreative projekter. Fra simple blokke til rigtig JavaScript og Python. Bruges i over 100.000 skoler og tilpasser sig barnets niveau.",
+    description: "Fra de første simple blok-programmer til rigtig JavaScript og Python — Tynker er en kodningsplatform, barnet kan vokse i gennem mange år. Man lærer gennem spil, puslespil og kreative projekter, hvor egne idéer bliver til animationer og små spil, og sværhedsgraden tilpasser sig barnets niveau undervejs. Platformen bruges i over 100.000 skoler og træner logik, kreativitet og problemløsning på en struktureret måde. Der er ingen reklamer, meget af indholdet virker offline, og man kan komme langt med gratisdelen. Vil man have fuld adgang til kurser og projekter, kræver det dog abonnement, og det kan løbe op — så vent med at betale, til barnet har vist ægte interesse. Velegnet til børn og unge fra 5 til 17 år, netop fordi indholdet spænder fra nybegynder til reelt avanceret kodning.",
     shortDescription: "Lær at kode fra blokke til rigtig kode",
     minAge: 5,
     maxAge: 17,
@@ -2533,7 +2533,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "ScratchJr Adventures",
     slug: "hopscotch",
-    description: "Hopscotch gør det nemt for børn at lave deres egne spil og animationer med visuel programmering. Del kreationer med et globalt fællesskab af unge programmører. Fra simple projekter til avancerede spil.",
+    description: "Egne spil, som andre børn faktisk kan spille — det er den store gulerod i Hopscotch, en app hvor børn bygger spil og animationer med visuel blok-programmering. Man trækker kommandoer sammen, tester med det samme og kan dele sine kreationer med et globalt fællesskab af unge programmører, hvor det er helt normalt at remixe hinandens projekter og lære af dem. Det træner programmering, design, kreativitet og problemløsning, og spændet rækker fra enkle førsteprojekter til overraskende avancerede spil. Appen er uden reklamer og virker offline, men den findes kun til iOS, og de avancerede funktioner gemmer sig bag et abonnement. Bedst til børn fra omkring 8 år og op gennem teenageårene, der er vokset fra de simpleste kodningsapps og nu vil skabe noget, de kan vise frem for andre.",
     shortDescription: "Lav dine egne spil og del dem",
     minAge: 8,
     maxAge: 16,
@@ -2572,7 +2572,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "BrainPOP Jr. Movie of the Week",
     slug: "brainpop-jr",
-    description: "BrainPOP Jr. tilbyder ugentlige gratis animerede videoer der forklarer emner som videnskab, matematik, læsning og sociale studier. Hver video kommer med quizzer og aktiviteter. Brugt i mange skoler.",
+    description: "Hver uge lægger BrainPOP Jr. en ny gratis animationsfilm op, der forklarer et emne fra videnskab, historie, kunst eller sundhed i børnehøjde. Barnet ser den korte video og tester bagefter sin forståelse med quizzer og små aktiviteter, der hører til emnet. Det træner både konkret viden, forståelse og kritisk tænkning, fordi videoerne lægger op til spørgsmål frem for udenadslære — mange skoler bruger da også materialet i undervisningen. Produktionen er gennemarbejdet med charmerende animation og god fortællestemme, og der er ingen reklamer. Indholdet er dog primært på engelsk, og fuld adgang til videobiblioteket kræver abonnement. Bedst til nysgerrige børn omkring 5-9 år, gerne med en voksen ved siden, der kan oversætte og snakke med om ugens emne.",
     shortDescription: "Ugentlige læringsvideoer om alt",
     minAge: 5,
     maxAge: 9,
@@ -2611,7 +2611,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Minecraft Education",
     slug: "minecraft-education",
-    description: "Minecraft Education er den uddannelsesrettede version af Minecraft, udviklet af Microsoft til brug i skoler. Spillet indeholder hundredvis af lektioner i kodning, matematik, historie og naturvidenskab. Ingen reklamer, ingen in-app køb, og sikker kommunikation kun inden for skolen.",
+    description: "Skoleudgaven af Minecraft er udviklet af Microsoft til undervisning, og den er helt gratis — uden reklamer og uden køb i appen. Barnet bygger og udforsker i det velkendte klodsunivers, men her med hundredvis af færdige lektioner i kodning, matematik, historie og naturvidenskab, som kan løses alene eller sammen med klassekammerater, og man kan endda programmere direkte inde i spillet. Kreativitet, samarbejde og problemløsning trænes altså side om side med STEM-fagene. Teknisk kører det lige så stabilt som det almindelige Minecraft, og kommunikationen er sikker, fordi den kun fungerer inden for skolens rammer. Det kræver dog en Microsoft-konto og er primært tænkt til skolebrug, så spørg barnets lærer om adgang. Oplagt til børn fra 6 år, der allerede elsker Minecraft.",
     shortDescription: "Lær gennem byggeri - uden reklamer og køb",
     minAge: 6,
     maxAge: 18,
@@ -2650,7 +2650,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Bluey: The Videogame",
     slug: "bluey-the-videogame",
-    description: "Bluey: The Videogame lader spillere udforske fire interaktive episoder fra den elskede tegnefilmsserie. Besøg Heeler-huset, legepladser, bækken og mere. Spil minispil fra serien som Keepy Uppy, Magic Xylophone og Shadowlands. Med multiplayer kan hele familien spille sammen.",
+    description: "Fans af tv-serien om den blå hundehvalp kan her spille sig gennem fire interaktive episoder, hvor både Heeler-huset, legepladser og bækken er genskabt fra serien. Barnet styrer figurerne rundt i miljøerne, udforsker og kaster sig over minispil kendt fra afsnittene som Keepy Uppy, Magic Xylophone og Shadowlands. Undervejs trænes koordination og samarbejde, for op til fire kan spille sammen på samme skærm, og de yngste kan sagtens være med, når en voksen eller storesøskende hjælper til. Grafikken rammer seriens varme streg fint, der er hverken reklamer eller køb, og spillet virker offline. Indholdet er dog ret begrænset i forhold til engangsprisen på omkring 299 kr. Bedst til Bluey-glade familier med børn på 4-10 år, der vil lege sammen i sofaen.",
     shortDescription: "Fire interaktive Bluey-episoder med familiespil",
     minAge: 4,
     maxAge: 10,
@@ -2683,7 +2683,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Sky: Children of the Light",
     slug: "sky-children-of-the-light",
-    description: "Sky: Children of the Light er et storslået multiplayer-eventyrspil fra skaberne af Journey. Udforsk syv drømmende verdener sammen med andre spillere fra hele verden. Hjælp hinanden med at løse puzzles, find skjulte skatte, og oplev en smuk historie om venskab og håb. Spillet er designet til at fremme venlighed og samarbejde - du kan kun kommunikere gennem kram, håndtegn og musik. Ingen vold, ingen konkurrence, bare ren glæde ved at opdage sammen. Free-to-play med kosmetiske køb. Fantastisk grafik og musik.",
+    description: "Bag dette rolige onlineeventyr står thatgamecompany, som også lavede Journey. Man svæver som et lysbarn gennem syv drømmende verdener og møder undervejs spillere fra hele kloden, som man kan holde i hånden, hjælpe og løse gåder sammen med. Kommunikationen foregår udelukkende gennem kram, håndtegn og musik — der er ingen fri chat, ingen vold og ingen konkurrence, så det er et usædvanligt trygt sted at prøve onlinespil af første gang. Samarbejde, navigation og problemløsning trænes helt naturligt, mens historien om venskab og håb folder sig ud. Grafikken og musikken er i særklasse, og spillet er gratis med kosmetiske køb. Det kræver dog internet, og det kan tage lidt tid at forstå, hvad man egentlig skal. Til drømmere fra 7 år — og gerne deres forældre.",
     shortDescription: "Samarbejds-eventyr om venskab og håb",
     minAge: 7,
     maxAge: 99,
@@ -2722,7 +2722,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "The Gardens Between",
     slug: "the-gardens-between",
-    description: "The Gardens Between er et kunstnerisk puslespil om tid, venskab og minder. Følg to bedste venner gennem surrealistiske haver der repræsenterer deres fælles minder. Manipuler tiden for at løse puzzles - spol frem og tilbage for at ændre verden omkring dig. Ingen tekst, ingen dialog, bare visuel fortælling og smuk musik. Hvert niveau er en miniature-have bygget af deres minder. Et kort men meningsfuldt spil der efterlader et varigt indtryk.",
+    description: "Minder, tid og venskab er omdrejningspunktet i dette stemningsfulde puslespil, hvor man følger to bedste venner gennem surrealistiske øhaver bygget af deres fælles erindringer. Barnet styrer ikke figurerne direkte, men spoler i stedet tiden frem og tilbage, så verden omkring vennerne ændrer sig, og vejen gennem hver have åbner sig. Det kræver rumlig tænkning, tålmodighed og en god portion eksperimenteren — men aldrig hurtige reflekser. Historien fortælles helt uden tekst og dialog, kun gennem billeder og smuk musik, så sprog er ingen hindring. Spillet er gennemført flot, uden reklamer og køb, og det virker offline. Til gengæld er det overstået på 3-4 timer, og de yngste kan finde gåderne svære. Bedst fra omkring 8 år, gerne spillet sammen med en voksen.",
     shortDescription: "Kunstnerisk puslespil om tid og venskab",
     minAge: 8,
     maxAge: 99,
@@ -2761,7 +2761,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Gorogoa",
     slug: "gorogoa",
-    description: "Gorogoa er et unikt håndtegnet puslespil skabt af én kunstner over fem år. Spillet består af fire paneler som billeder du kan flytte, stable, zoome ind i og forbinde på overraskende måder. Historien fortælles helt uden ord gennem de smukke illustrationer. Hvert panel er et kunstværk i sig selv, og måden de interagerer på er genial. Et af de mest originale puslespil nogensinde skabt - kort men uforglemmelig.",
+    description: "Én kunstner brugte fem år på at håndtegne dette stilfærdige puslespil, og det kan ses. Skærmen er delt i fire paneler med billeder, som barnet flytter rundt, stabler oven på hinanden og zoomer ind i, så de pludselig forbindes på overraskende måder — en mekanik, man ikke finder magen til andre steder. Historien fortælles helt uden ord, så det gælder om at observere, tænke skævt og prøve sig frem, hvilket træner lateral tænkning, tålmodighed og kreativ problemløsning. Illustrationerne er små kunstværker i sig selv, og der er hverken reklamer eller køb i appen, som også virker offline. Spilletiden er dog kun 2-3 timer, og nogle gåder kræver, at man tør sidde fast lidt undervejs. Bedst til eftertænksomme børn fra omkring 10 år — og til forældre, der vil undre sig med.",
     shortDescription: "Unikt kunstnerisk puslespil med forbundne billeder",
     minAge: 10,
     maxAge: 99,
@@ -2800,7 +2800,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Chrome Music Lab",
     slug: "chrome-music-lab",
-    description: "Chrome Music Lab er en gratis samling af interaktive musikeksperimenter fra Google. Lav beats med Rhythm, tegn melodier med Melody Maker, udforsk harmonier med Harmonics, og meget mere. Alt fungerer i browseren uden installation. Hvert eksperiment visualiserer musikken på fascinerende måder - se lydbølger, harmoniske overtoner og rytmemønstre. Perfekt til at introducere musik og lydvidenskab. Bruges i mange skoler verden over.",
+    description: "Googles gratis musiklegeplads samler en stribe interaktive eksperimenter, der kører direkte i browseren uden installation. Barnet kan bygge beats i Rhythm, tegne melodier i Melody Maker og Song Maker og undersøge, hvordan lyd egentlig ser ud, gennem visualiseringer af lydbølger, overtoner og rytmemønstre. På den måde bliver musikalitet, rytme og lidt lydvidenskab leget ind, uden at det føles som undervisning — mange skoler verden over bruger da også værktøjerne. Alt er enkelt, farverigt og helt uden reklamer, og selv en 4-årig kan trykke sig frem til noget, der lyder godt. Det er dog eksperimenter snarere end en fuld musikapp, så dybden er begrænset, og der kræves internet. God til nysgerrige børn i alle aldre — og til fælles melodibyggeri i familien.",
     shortDescription: "Gratis interaktive musikeksperimenter fra Google",
     minAge: 4,
     maxAge: 99,
@@ -2833,7 +2833,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Smart Tales",
     slug: "smart-tales",
-    description: "Smart Tales kombinerer eventyr med læring på en unik måde. Børn oplever interaktive historier hvor de skal løse matematik- og naturfagsopgaver for at hjælpe karaktererne videre. Fra tælling og former til fysik og kodning - alt er vævet ind i engagerende fortællinger. Appen dækker pensum fra børnehave til 5. klasse. Ingen reklamer, og forældrepanel viser fremskridt. Over 500 aktiviteter med løbende nyt indhold.",
+    description: "Historier og skoleopgaver flettes sammen i denne læringsapp, hvor barnet oplever interaktive eventyr og undervejs løser opgaver i matematik, naturfag og logik for at hjælpe figurerne videre. Fra tælling og former for de mindste til fysik og kodning for de større — alt er vævet ind i fortællingerne, så øvelserne føles som en del af historien frem for et afbræk. Appen dækker pensum fra børnehave til 5. klasse med over 500 aktiviteter og løbende nyt indhold, og et forældrepanel viser, hvor barnet klarer sig godt, og hvor det driller. Der er ingen reklamer, og det hele virker offline. Fuld adgang kræver dog abonnement, og indholdet er primært på engelsk. Velegnet til børn fra 2 til 11 år, hvis forældre gerne vil følge med i, hvad der bliver lært.",
     shortDescription: "Læring vævet ind i interaktive eventyr",
     minAge: 2,
     maxAge: 11,
@@ -2869,7 +2869,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "National Geographic Kids",
     slug: "national-geographic-kids",
-    description: "National Geographic Kids er en gratis webside fyldt med lærerige spil om dyr, natur og geografi. Børn kan udforske dyreverdenen med quizzer, puslespil og interaktive eventyr. Alt indhold er baseret på National Geographics verdenskendte ekspertise inden for natur og videnskab. Perfekt til nysgerrige børn der elsker dyr og vil lære om verden. Ingen download krævet - spil direkte i browseren.",
+    description: "Nysgerrige dyreelskere kan boltre sig på National Geographics gratis børneside, som er spækket med quizzer, puslespil og små interaktive eventyr om dyr, natur og geografi. Barnet klikker sig rundt mellem spillene direkte i browseren — intet skal installeres — og lærer undervejs om alt fra vilde rovdyr til verdenskort og videnskab. Indholdet bygger på National Geographics faglige ekspertise, så fakta er i orden, og spillene lægger fint op til snak om naturen bagefter; en dokumentar samme aften er et oplagt makkerpar. Kvaliteten af indholdet er høj, men siden har reklamer, alt er på engelsk, og der kræves internet. Bedst til børn på 6-12 år, der elsker dyr og gerne vil vide mere om verden, end en enkelt skoletime kan nå omkring.",
     shortDescription: "Gratis læringsspil om dyr, natur og geografi",
     minAge: 6,
     maxAge: 12,
@@ -2902,7 +2902,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Funbrain",
     slug: "funbrain",
-    description: "Funbrain er en af de ældste og mest betroede uddannelsesplatforme på nettet med gratis spil, bøger og videoer. Siden 1997 har millioner af børn brugt Funbrain til at lære matematik, læsning og problemløsning. Spillene spænder fra simple talspil til avancerede ordgåder. Indholdet er organiseret efter klassetrin, så det er nemt at finde alderssvarende udfordringer. En solid ressource for læring gennem leg.",
+    description: "Helt tilbage fra 1997 har Funbrain serveret gratis læringsspil, bøger og videoer på nettet, og siden er stadig en af de mest betroede af slagsen. Børnene vælger mellem alt fra simple talspil til avancerede ordgåder, og fordi indholdet er organiseret efter klassetrin, er det nemt at finde noget, der matcher barnets niveau. Matematik, læsning, logik og problemløsning trænes gennem leg, og udvalget af spiltyper er stort nok til, at der altid er noget nyt at prøve. Designet bærer dog præg af sidens alder, der er reklamer, og alt foregår på engelsk. Til gengæld koster det ingenting, og alt kører direkte i browseren uden installation. En solid ressource til skolebørn fra omkring 4 til 14 år, især hvis engelsklæsningen alligevel skal have lidt træning.",
     shortDescription: "Gratis uddannelsesspil i matematik og læsning siden 1997",
     minAge: 4,
     maxAge: 14,
@@ -2935,7 +2935,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Topmarks",
     slug: "topmarks",
-    description: "Topmarks er en britisk uddannelsesplatform med hundredvis af gratis læringsspil til børn fra 3-14 år. Siden er meget populær i britiske skoler og dækker matematik, læsning, naturfag og meget mere. Spillene er enkle og fokuserede på læring uden distraktioner. Den simple søgefunktion lader dig filtrere efter alder og emne. En fremragende ressource til målrettet øvelse af specifikke færdigheder.",
+    description: "Tusindvis af britiske skoler bruger Topmarks, en gratis platform med hundredvis af læringsspil til børn fra 3 til 14 år. Barnet finder frem via den enkle søgefunktion, der filtrerer efter alder og emne, og øver sig så i matematik, læsning eller naturfag gennem korte, fokuserede spil — her er ingen unødige dikkedarer, kun selve øvelsen. Netop den målrettethed gør siden god til at træne noget bestemt, for eksempel tabeller eller klokken, i små doser derhjemme. Spillene er enkle i grafikken, men gennemtænkte og helt uden reklamer, hvilket er sjældent for en gratis side. Man skal dog kunne lidt engelsk, og opgaverne følger det britiske pensum, så enkelte emner rammer skævt i forhold til dansk skole. Bedst som supplement til skolearbejdet fra børnehavealderen og op.",
     shortDescription: "Britisk uddannelsesplatform brugt i tusindvis af skoler",
     minAge: 3,
     maxAge: 14,
@@ -2968,7 +2968,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Little Alchemy 2",
     slug: "little-alchemy-2",
-    description: "Little Alchemy 2 er et fascinerende opdagelsesspil hvor børn kombinerer elementer for at skabe nye ting. Start med de fire grundelementer (jord, vand, ild, luft) og kombiner dem for at lave alt fra planter til mennesker til rumskibe. Med over 700 elementer at opdage er der timevis af udforskning. Spillet belønner nysgerrighed og eksperimentering - der er ingen forkerte svar, kun nye opdagelser.",
+    description: "Jord, vand, ild og luft — mere får man ikke udleveret i dette rolige opdagelsesspil, hvor alting skabes ved at kombinere elementer. Barnet trækker to ting sammen og ser, hvad der sker, og snart vokser samlingen med planter, dyr, mennesker og til sidst rumskibe. Med over 700 elementer at finde er der timevis af eksperimenteren, og fordi der ingen forkerte svar findes, belønnes nysgerrigheden hele vejen. Undervejs sniger der sig en del naturvidenskabelig logik ind, især hvis en voksen spiller med og snakker om, hvordan tingene hænger sammen i virkeligheden. Spillet er gratis og holdt i et pænt, enkelt design, men det har reklamer, er på engelsk og kan blive lidt repetitivt i længden. Fint til tålmodige opdagere fra 7 år og opefter — og forældre hænger let på.",
     shortDescription: "Kombiner elementer og opdag 700+ nye ting",
     minAge: 7,
     maxAge: 99,
@@ -3001,7 +3001,7 @@ export const games7to10: GameSeedData[] = [
   {
     title: "Safe Kid Games",
     slug: "safe-kid-games",
-    description: "Safe Kid Games er en kurateret samling af sikre online-spil for børn. Alle spil er håndudvalgt for at sikre de er passende for børn uden vold, skræmmende indhold eller upassende temaer. Siden indeholder klassiske spil, puslespil, eventyr og læringsspil. Fokus er på sikkerhed og tryghed - en god portal for forældre der vil lade børn spille online uden bekymringer.",
+    description: "Forældre, der er trætte af tvivlsomme spilportaler, kan i stedet pege børnene mod denne kuraterede samling af browserspil, hvor alt indhold er håndplukket og gennemgået for vold, skræmmende scener og upassende temaer. Barnet vælger frit mellem klassikere, puslespil, små eventyr og læringsspil og spiller direkte i browseren uden registrering. Der er ikke ét bestemt spil at mestre, men snarere en tryg legeplads, hvor problemløsning, kreativitet og reaktionsevne trænes på skift, alt efter hvad barnet vælger. Kvaliteten svinger dog en del fra spil til spil, siden har reklamer, og menuerne er på engelsk. Som gratis og sikker hjemmebase for onlinespil fungerer den alligevel godt, især til børn på 4-12 år, der gerne selv vil vælge, hvad der skal spilles.",
     shortDescription: "Kurateret samling af sikre spil for børn",
     minAge: 4,
     maxAge: 12,
@@ -3041,7 +3041,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Civilization VI",
     slug: "civilization-vi",
-    description: "Civilization VI er et turbaseret strategispil hvor du bygger et imperium fra stenalder til rumfart. Vælg en civilisation, byg byer, forsk teknologier, og før krig eller diplomati. Et dybt og lærerigt spil om verdenshistorie og strategi.",
+    description: "Verdenshistorien er banen i dette turbaserede strategispil, hvor man fører sin egen civilisation fra stenalderen til rumfart. Barnet vælger et historisk folk, grundlægger byer, forsker i teknologier og må undervejs balancere mellem diplomati, handel og krig for at klare sig. Fordi alt foregår i ture, er der god tid til at tænke sig om, og spillet træner strategisk planlægning og ressourcestyring, samtidig med at det vækker nysgerrighed på virkelige civilisationer, ledere og opfindelser. Produktionen er flot, og indholdet rækker til mange, mange timers spil uden reklamer. Kompleksiteten kan dog virke overvældende i starten, prisen er høj, og udvidelser koster ekstra. Bedst til historieinteresserede børn fra omkring 10 år, gerne med en voksen som medspiller i de første partier.",
     shortDescription: "Byg et imperium gennem verdenshistorien",
     minAge: 10,
     maxAge: 99,
@@ -3080,7 +3080,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Kerbal Space Program",
     slug: "kerbal-space-program",
-    description: "I Kerbal Space Program bygger du rumraketter og sender små grønne Kerbals ud i rummet. Med realistisk fysik lærer du om orbital mekanik, raketvidenskab og rumfart. Et godt værktøj til STEM-uddannelse.",
+    description: "Raketvidenskab lyder tørt, men Kerbal Space Program gør det til leg: Man bygger sine egne rumraketter og sender de små grønne Kerbals ud i rummet – og ser dem tit brase ned igen, indtil designet holder. Barnet samler selv raketten af motorer, brændstoftanke og faldskærme, skyder den op og lærer gennem forsøg og fejl, hvordan tyngdekraft og kredsløb faktisk virker. Fysikken er så realistisk, at spillet bruges i undervisning, og det træner både problemløsning, ingeniørtænkning og kreativitet. Der er ingen reklamer eller køb i spillet, og det virker offline. Læringskurven er dog stejl, og spillet findes ikke til mobil, så det kræver tålmodighed og en pc eller konsol. Bedst til rum-interesserede børn fra omkring 10 år, der ikke giver op efter første eksplosion.",
     shortDescription: "Byg raketter og udforsk rummet med ægte fysik",
     minAge: 10,
     maxAge: 99,
@@ -3113,7 +3113,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Portal",
     slug: "portal",
-    description: "Portal er et gennemtænkt puslespil hvor du bruger et portalvåben til at løse fysik-baserede gåder. Teleporter dig selv og objekter mellem to portaler mens du undgår farer. Humoristisk og dybt tilfredsstillende.",
+    description: "Få spil træner rumlig tænkning så elegant som Portal. Med et portalvåben skyder man to forbundne åbninger på vægge og gulve og teleporterer sig selv og kasser rundt i testkamre fulde af fysikgåder. Barnet skal observere, tænke i vinkler og fart og prøve sig frem, indtil brikkerne falder på plads – og undervejs binder en tør, humoristisk computerstemme det hele sammen. Spillet træner logik, problemløsning og rumlig forståelse på en måde, der føles som leg. Designet er gennemført, styringen præcis, og der er hverken reklamer eller køb undervejs. Historien er til gengæld relativt kort, og førstepersonsperspektivet kan give kvalme hos enkelte. En oplagt lille investering til børn fra omkring 10 år, der kan lide at få hjernen på arbejde.",
     shortDescription: "Løs puslespil med portaler og fysik",
     minAge: 10,
     maxAge: 99,
@@ -3146,7 +3146,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Stardew Valley",
     slug: "stardew-valley",
-    description: "Stardew Valley er et charmerende gårdspil hvor du arver en gammel gård og bygger den op fra bunden. Dyrk afgrøder, opdræt dyr, min i huler, fisk, og bliv venner med landsbyboerne. Afslappende og dybt tilfredsstillende.",
+    description: "En nedslidt gård, lidt værktøj og god tid – det er udgangspunktet i Stardew Valley, hvor man langsomt bygger sin bedstefars gamle gård op. Barnet sår og høster afgrøder, passer dyr, fisker, udforsker miner og lærer landsbyens beboere at kende, alt sammen i eget tempo uden tidspres. Undervejs trænes planlægning, ressourcestyring og ikke mindst tålmodighed, for sæsonerne skifter langsomt, og belønningen kommer til den, der tænker fremad. Den håndtegnede pixelgrafik og rolige musik giver en varm stemning, og med engangskøb uden reklamer eller ekstra køb er der enorm spilletid for pengene. Spillet kan dog være svært at lægge fra sig, så aftal spilletid på forhånd. Et fint alternativ til hurtige actionspil for børn fra omkring 10 år.",
     shortDescription: "Byg din drømmegård i denne charmerende simulering",
     minAge: 10,
     maxAge: 99,
@@ -3185,7 +3185,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Cities: Skylines",
     slug: "cities-skylines",
-    description: "Cities: Skylines er en bybyggersimulering hvor du designer og styrer din egen by. Planlæg veje, zoner, offentlig transport og services. Se din by vokse fra en lille landsby til en storby. Lærer om byplanlægning og økonomi.",
+    description: "Hvem lægger vejene, og hvor skal skolen ligge? I Cities: Skylines er barnet borgmester og byplanlægger i én og bygger sin egen by op fra en lille landsby til en myldrende storby. Man tegner veje, udlægger zoner til boliger og butikker, anlægger busruter og sørger for strøm, vand og skoler – og mærker hurtigt konsekvenserne, når trafikken sander til, eller kassen er tom. Det giver en konkret fornemmelse af økonomi, planlægning og hvordan et samfund hænger sammen, med stor kreativ frihed. Spillet er uden reklamer og virker offline, men det kræver en rimelig kraftig computer, og de mange tilkøbspakker kan løbe op, hvis man vil have det hele. Bedst til tålmodige børn fra omkring 10 år med interesse for byer, arkitektur eller tal.",
     shortDescription: "Design og styr din egen storby",
     minAge: 10,
     maxAge: 99,
@@ -3218,7 +3218,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Duolingo",
     slug: "duolingo",
-    description: "Duolingo er verdens mest populære sprogapp med over 40 sprog at lære fra. Korte daglige lektioner gør sprogtræning til en vane. Gamification med point, streaks og ligaer motiverer til at fortsætte.",
+    description: "Fem minutters sprogtræning om dagen er hele idéen bag Duolingo, verdens mest brugte sprogapp med over 40 sprog. Lektionerne er korte og spilagtige: Man oversætter sætninger, lytter, taler og matcher ord, mens point, streaks og ligaer holder motivationen oppe fra dag til dag. Det træner ordforråd, lytning, læsning og hukommelse i små bidder, der passer fint ind i en travl hverdag, og appen virker endda offline. Grundversionen er gratis, men den viser reklamer, og hjertesystemet begrænser, hvor meget man kan øve, når man laver fejl – det reklamefri Super-abonnement er til gengæld i den dyre ende. Bedst til børn fra omkring 10 år, der vil i gang med engelsk eller et nyt sprog, gerne med et familieabonnement hvis flere i huset er med.",
     shortDescription: "Lær sprog gratis med daglige lektioner",
     minAge: 10,
     maxAge: 99,
@@ -3257,7 +3257,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Factorio",
     slug: "factorio",
-    description: "Factorio handler om at bygge og optimere fabrikker på en fremmed planet. Automatiser produktion fra simple transportbånd til komplekse logistiksystemer. Dybt tilfredsstillende for dem der elsker systemer og optimering.",
+    description: "Strandet på en fremmed planet skal man i Factorio bygge en fabrik, der kan få en hjem igen. Det starter med, at barnet graver malm op i hånden, men snart overtager transportbånd, maskiner og robotter arbejdet, og opgaven bliver at designe produktionskæder, der spiller sammen uden flaskehalse. Det er ren systemtænkning: logik, optimering og problemløsning i stor skala, og mange børn oplever her for første gang, hvor tilfredsstillende det er at automatisere noget, de selv har udtænkt. Spillet er uden reklamer og køb, virker offline og udvikles stadig aktivt. Det er dog meget komplekst, prisen er høj, og det kan sluge timer, så faste aftaler om spilletid er en god idé. Til logisk tænkende børn fra omkring 12 år med hang til at bygge systemer.",
     shortDescription: "Byg og optimer fabrikker til perfektion",
     minAge: 12,
     maxAge: 99,
@@ -3290,7 +3290,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "The Room",
     slug: "the-room",
-    description: "The Room er et atmosfærisk puslespil hvor du løser mystiske boksers hemmeligheder. Drej, skub og udforsk intrikate mekanismer. Smuk grafik og fængende gåder. Første spil i en prisbelønnet serie.",
+    description: "En mystisk boks med skjulte mekanismer står foran én – og opgaven i The Room er at lirke dens hemmeligheder op. Man drejer, skubber og undersøger boksen fra alle vinkler, finder skjulte låger og nøgler og løser den ene sindrige mekaniske gåde efter den anden, mens mysteriet langsomt folder sig ud. Det træner observation, problemløsning og tålmodighed, for løsningen ligger tit lige for næsen af én, hvis man bare kigger godt efter. Grafikken er flot og stemningsfuld, styringen fungerer fint på touchskærm, og med den lave pris uden reklamer eller ekstra køb er det billige timer. Spillet er til gengæld ret kort og kan være i den lette ende for erfarne gådeløsere – heldigvis venter efterfølgerne 2, 3 og 4 bagefter. Fint til børn fra omkring 10 år.",
     shortDescription: "Løs mysteriet i de mystiske bokse",
     minAge: 10,
     maxAge: 99,
@@ -3329,7 +3329,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Mini Metro",
     slug: "mini-metro",
-    description: "Mini Metro er et minimalistisk strategispil hvor du designer og bygger et metrosystem. Forbind stationer med linjer og hold passagerer bevægede. Simpelt at lære, svært at mestre.",
+    description: "Streger, prikker og passagerer – mere skal der ikke til i Mini Metro, hvor man tegner sit eget metrokort over en voksende storby. Barnet trækker linjer mellem stationer, flytter dem rundt og fordeler tog og vogne, mens flere og flere passagerer skal nå frem, før stationerne bliver overfyldte. Reglerne er lært på et minut, men efterhånden som byen vokser, kræver det planlægning, optimering og rumlig tænkning at holde systemet kørende. Det minimalistiske design er elegant og roligt, lyden diskret, og korte runder gør spillet velegnet til små pauser. Sværhedsgraden stiger dog støt, og variationen er begrænset i længden. Godt til børn fra omkring 8 år, der kan lide at pusle med systemer – og en fin anledning til at snakke om trafikken i jeres egen by.",
     shortDescription: "Design det perfekte metrosystem",
     minAge: 8,
     maxAge: 99,
@@ -3368,7 +3368,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Bloons TD 6",
     slug: "bloons-td-6",
-    description: "Bloons TD 6 er et tower defense spil hvor aber forsvarer mod balloner. Placer tårne strategisk, opgrader dem, og overlev så mange runder som muligt. Farverigt, sjovt og overraskende dybt strategisk.",
+    description: "Abernes kamp mod balloner har underholdt børn i årevis, og Bloons TD 6 er seriens bedste bud. Barnet placerer abetårne langs en bane, hvor bølger af balloner kommer flydende, og skal vælge de rigtige tårne, opgradere klogt og få pengene til at række – klassisk tower defense med farverig humor. Bag det fjollede ydre gemmer sig overraskende meget strategi, planlægning og hovedregning, når man regner på, hvad næste opgradering koster og kaster af sig. Grafikken er flot og glad, og der er indhold til mange timers spil uden reklamer, også offline. Spillet indeholder dog valgfrie køb af power-ups, og det kan være svært at lægge fra sig, så hold lidt øje undervejs. Passer godt til børn fra omkring 8 år, der kan lide at tænke sig om, mens det går løs.",
     shortDescription: "Tower defense med aber og balloner",
     minAge: 8,
     maxAge: 99,
@@ -3407,7 +3407,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "ABCmouse",
     slug: "abcmouse",
-    description: "ABCmouse er en omfattende læringsplatform med tusindvis af aktiviteter for børn fra 2-8 år. Dækker læsning, matematik, videnskab, kunst og meget mere. Et struktureret læringsprogram der følger barnets fremskridt og tilpasser sig deres niveau.",
+    description: "Bag ABCmouse gemmer sig en hel lille skole med tusindvis af aktiviteter for børn fra 2 til 8 år. Programmet fører barnet gennem et struktureret forløb med læsning, matematik, videnskab og kreative opgaver – man løser små spil, hører historier og samler belønninger, mens systemet følger fremskridt og tilpasser niveauet. Den røde tråd gør det nemt for forældre at følge med i, hvad barnet faktisk lærer, og der er hverken reklamer eller ekstra køb. Til gengæld kræver det et abonnement, indholdet er primært på engelsk, og de mange muligheder kan virke overvældende for de mindste i starten. Prøv den gratis prøveperiode, før I binder jer. Bedst til nysgerrige børnehavebørn og tidlige skolebørn – især i familier, hvor engelsk gerne må komme tidligt ind.",
     shortDescription: "Omfattende læringsplatform for små børn",
     minAge: 2,
     maxAge: 8,
@@ -3440,7 +3440,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Lingokids",
     slug: "lingokids",
-    description: "Lingokids er en prisbelønnet app brugt af over 100 millioner familier. Designet til børn 2-8 år med tusindvis af læringsspil inden for literacy, matematik, videnskab og social-emotionel læring. Børn lærer i eget tempo i et sikkert, reklamefrit miljø.",
+    description: "Med over 100 millioner familier bag sig er Lingokids en af de mest udbredte læringsapps til de 2-8-årige. Barnet hopper rundt mellem tusindvis af små spil, sange og aktiviteter om bogstaver, tal, natur og følelser – alt sammen på engelsk, hvilket gør appen til en blid introduktion til sproget for danske børn. Læringen foregår i barnets eget tempo uden pres, og miljøet er helt uden reklamer, så man trygt kan lade barnet sidde med den selv. Figurerne er farverige og charmerende, lyden venlig, og appen virker også offline, for eksempel på ferien. Den gratis version er dog ret begrænset, så vil familien have fuldt udbytte, skal der abonnement til. Velegnet til børnehavebørn, der skal have de første engelske ord ind gennem leg.",
     shortDescription: "Prisbelønnet læringsapp brugt af 100+ millioner familier",
     minAge: 2,
     maxAge: 8,
@@ -3473,7 +3473,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "HOMER",
     slug: "homer",
-    description: "HOMER er en personaliseret læringsapp der tilpasser sig hvert barns interesser og niveau. Fokuserer på læsning med over 1000 lektioner, men inkluderer også sociale færdigheder og kritisk tænkning. Appen skaber et unikt læringsforløb for hvert barn.",
+    description: "I stedet for ét fast forløb bygger HOMER et personligt læringsprogram op omkring barnets egne interesser – elsker barnet dinosaurer, bliver der læst og øvet med dinosaurer. Appen fokuserer på tidlig læsning med over 1000 lektioner i fonetik, ordforråd og historier, men kommer også omkring sociale færdigheder og kritisk tænkning. Barnet arbejder i eget tempo, og metoden er forskningsbaseret, hvilket kan mærkes i den rolige, gennemtænkte opbygning uden forstyrrende elementer. Der er ingen reklamer, indholdet virker offline, og oplæsningen er klar og venlig. Alt foregår dog på engelsk, og efter prøveperioden kræver appen abonnement, så prøv den grundigt af først. Mest oplagt til børn fra 2 til 8 år, der er ved at knække læsekoden – eller skal have engelsk ind ad legens vej.",
     shortDescription: "Personaliseret læseprogram der tilpasser sig barnet",
     minAge: 2,
     maxAge: 8,
@@ -3506,7 +3506,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "SplashLearn",
     slug: "splashlearn",
-    description: "SplashLearn er en omfattende matematik- og læseplatform for børn i børnehaveklassen til 5. klasse. Med spilbaseret læring og adaptiv teknologi tilpasser programmet sig barnets niveau. Brugt af millioner af elever og lærere.",
+    description: "Matematik og læsning pakket ind i små spil – det er kernen i SplashLearn, som dækker fra børnehaveklasse til 5. klasse. Barnet løser opgaver om tal, former, regnearter og læsning i korte, spilagtige forløb, hvor rigtige svar skubber eventyret videre, og den adaptive teknologi justerer sværhedsgraden efter barnets niveau, så det hverken bliver for let eller for kedeligt. Platformen bruges af millioner af elever og lærere og fungerer fint som supplement til skolens undervisning derhjemme. Der er ingen reklamer, og designet er farverigt uden at larme. Indholdet er dog på engelsk, fuld adgang kræver abonnement, og appen skal bruge internet for at virke. Bedst til børn fra cirka 4 til 11 år, der har brug for ekstra træning eller bare godt kan lide talgåder.",
     shortDescription: "Spilbaseret matematik og læsning for børnehave til 5. klasse",
     minAge: 4,
     maxAge: 11,
@@ -3539,7 +3539,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Kahoot!",
     slug: "kahoot",
-    description: "Kahoot! gør læring til et spil! Den interaktive quiz-platform lader børn deltage i live-quizzer eller spille på egen hånd. Med millioner af færdige quizzer og mulighed for at lave egne, er det sjov læring for alle aldre.",
+    description: "Quizaftener får nyt liv med Kahoot!, hvor spørgsmålene vises på en fælles skærm, og alle svarer med hver deres telefon eller tablet. Mange børn kender platformen fra skolen: Man vælger blandt millioner af færdige quizzer om alt fra dyr til geografi – eller laver sine egne – og kappes om at svare rigtigt og hurtigst. Det træner paratviden, hukommelse og reaktionsevne, og konkurrenceelementet gør selv tør fagviden underholdende. Grundversionen er gratis og uden reklamer, og det er oplagt at lave familiequizzer, hvor børnene selv skriver spørgsmålene. Der kræves dog internetforbindelse, og en del funktioner er gemt bag betalte pakker. Sjovest når flere spiller sammen – fra omkring 6 år og opefter, gerne med hele familien omkring bordet.",
     shortDescription: "Interaktiv quiz-platform der gør læring sjovt",
     minAge: 6,
     maxAge: 99,
@@ -3578,7 +3578,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "CodeMonkey",
     slug: "codemonkey",
-    description: "CodeMonkey lærer børn programmering gennem sjove spil og udfordringer. Børn skriver rigtig kode for at hjælpe en abe med at samle bananer. Med kurser til alle niveauer er det en god introduktion til kodning.",
+    description: "Vil dit barn prøve kræfter med rigtig programmering, er CodeMonkey et godt sted at starte. Barnet skriver ægte kode – ikke bare blokke – for at hjælpe en lille abe med at samle bananer, og hver bane er en lille gåde, der kræver logisk tænkning. Sværhedsgraden bygger stille og roligt op, så man kan begynde helt uden forudsætninger og ende med reelle færdigheder som sekvenser, løkker og problemløsning. Universet med aben er charmerende, og opgaverne er korte nok til at holde motivationen oppe. Spillet er dog på engelsk, fuld adgang til alle kurser kræver abonnement, og der skal internet til. Til gengæld er gratisdelen rigelig til at finde ud af, om kodning fanger. Bedst til børn fra omkring 7 år med lyst til at bygge og tænke.",
     shortDescription: "Lær at programmere ved at hjælpe aben med bananer",
     minAge: 5,
     maxAge: 14,
@@ -3611,7 +3611,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Adventure Academy",
     slug: "adventure-academy",
-    description: "Fra skaberne af ABCmouse kommer Adventure Academy - en virtuel verden for børn 8-13 år. Udforsk, lær og spil sammen med andre i et sikkert online miljø. Dækker matematik, videnskab, engelsk og samfundsfag.",
+    description: "Adventure Academy kombinerer læringsspil med en virtuel verden, hvor tweens kan udforske, løse opgaver og mødes med andre spillere i trygge rammer. Barnet skaber sin egen figur og bevæger sig rundt på et stort akademi fyldt med quizzer, videoer og aktiviteter inden for matematik, naturvidenskab, engelsk og samfundsfag. Den sociale del er modereret, så interaktionen med andre holder sig inden for sikre rammer. Indholdet er omfattende og laves af folkene bag ABCmouse, så det pædagogiske fundament er i orden – dog er alt på engelsk, og selve spilverdenen kan til tider stjæle opmærksomheden fra læringen. Der kræves abonnement og internetforbindelse. Et fint valg til 8-13-årige, der er vokset fra de klassiske småbørnsapps, men stadig gerne vil lære gennem leg.",
     shortDescription: "Virtuel læringsverdenen for tweens",
     minAge: 8,
     maxAge: 13,
@@ -3644,7 +3644,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Thinkrolls",
     slug: "thinkrolls",
-    description: "Et prisbelønnet puslespil der træner logisk tænkning. Rul dine karakterer gennem labyrint-agtige baner ved at løse fysik-baserede gåder. Børn lærer om tyngdekraft, bevægelse og problemløsning uden at vide det.",
+    description: "Bag Thinkrolls' søde, rullende figurer gemmer sig en gennemtænkt logiktræner for de yngste. Barnet ruller sin karakter gennem labyrintagtige baner og skal undervejs løse små fysikgåder – flytte ting, bruge tyngdekraften rigtigt, tænke et skridt frem – for at komme videre. Hver forhindring introduceres blidt, så selv treårige kan være med, mens de senere baner giver ældre søskende noget at tygge på. Uden at det føles som undervisning træner spillet logik, planlægning og en begyndende forståelse for fysik. Appen er prisbelønnet, virker offline og er helt fri for reklamer og køb – man betaler én gang og får det hele. Antallet af baner er dog begrænset, så de mest ihærdige spiller det igennem på nogle uger. God til nysgerrige børn fra 3 år og opefter.",
     shortDescription: "Fysik-puslespil der træner logisk tænkning",
     minAge: 3,
     maxAge: 9,
@@ -3683,7 +3683,7 @@ export const games11to15: GameSeedData[] = [
   {
     title: "Where's My Water?",
     slug: "wheres-my-water",
-    description: "Disney's populære puslespil hvor du graver kanaler for at lede vand til krokodillen Swampy's brusebad. Kreativ fysik-baseret problemløsning med hundredvis af niveauer. Charmerende karakterer og progressiv sværhedsgrad.",
+    description: "Krokodillen Swampy vil bare gerne have et bad, og det er dit barns opgave at skaffe ham vand. I Disneys puslespil graver man med fingeren kanaler gennem jorden, så vandet løber uden om farer og ned i Swampys bruser. Det lyder enkelt, men hvert niveau er en lille fysikgåde, hvor man skal planlægge, eksperimentere og tænke sig om – god træning i problemløsning og forståelse af, hvordan vand opfører sig. Med hundredvis af baner og en sværhedsgrad, der stiger støt, er der underholdning til lang tid, selvom nogle af de senere niveauer kan kræve en voksen hånd. Grafikken er charmerende og gennemført i klassisk Disney-kvalitet. Gratisversionen indeholder dog reklamer og køb i appen, så det kan betale sig at købe den fulde version. Fint fra omkring 4-5 år og sjovt for hele familien.",
     shortDescription: "Grav kanaler og led vand i Disneys puslespil",
     minAge: 4,
     maxAge: 99,
@@ -3795,7 +3795,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Wylde Flowers",
     slug: "wylde-flowers",
-    description: "Wylde Flowers er en overraskende dyb farm-simulator med et magisk twist - du arver din bedstemors gård og opdager langsomt at landsbyen har en hemmelig hekse-kreds. Dyrk afgrøder, pas dyr, fisk, lav mad og sælg varer som i klassiske farm-spil, men lær også at brygge trylledrikke, kaste besværgelser og flyve på kosteskaft. Historien er varm og inkluderende med diverse karakterer. Stemmeskuespillet er fremragende med fuldt indtalte dialoger. Kampagnen kan tage 40+ timer at gennemføre. Hekse-temaet er venligt og uden skræmmende elementer. Et af Apple Arcades mest omfattende og elskede spil.",
+    description: "En nedarvet gård og en landsby med en hemmelig heksekreds – det er udgangspunktet i Wylde Flowers, en usædvanligt gennemført farm-simulator på Apple Arcade. Barnet dyrker afgrøder, passer dyr, fisker og laver mad som i klassiske farmspil, men lærer efterhånden også at brygge trylledrikke og flyve på kosteskaft. Historien er varm og inkluderende, og alle dialoger er indtalt af dygtige stemmeskuespillere – dog på engelsk, så et vist sprogniveau hjælper. Undervejs trænes planlægning og ressourcestyring, for gården kræver, at man prioriterer sin tid og sine penge. Der er intet tidspres, så barnet kan spille i sit eget tempo, men med over 40 timers indhold kan omfanget virke overvældende for de yngste. Til rolige spillere fra omkring 8 år, der elsker at fordybe sig.",
     shortDescription: "Hyggelig farm-simulator med et magisk hekse-twist",
     minAge: 8,
     maxAge: 99,
@@ -3861,7 +3861,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "LEGO Brawls",
     slug: "lego-brawls",
-    description: "LEGO Brawls lader dig skabe din helt egen LEGO-minifigur fra bunden med tusindvis af kombinationsmuligheder - vælg hoved, krop, ben, hat, tilbehør og våben. Derefter kæmper du mod andre spillere i farverige arenaer inspireret af populære LEGO-temaer som Ninjago, Jurassic World og LEGO Movie. Gameplayet er simpelt men sjovt - saml power-ups, undgå farer og slå modstanderne ud af arenaen. Der er både online multiplayer og lokal multiplayer hvor op til 4 spillere kan spille sammen. Baner er varierede med unikke mekanikker. Et tilgængeligt brawler-spil for både børn og voksne LEGO-fans.",
+    description: "Først bygger man sin helt egen LEGO-minifigur – hoved, krop, hat og tilbehør i tusindvis af kombinationer – og bagefter kaster man sig ud i kampe mod andre spillere i farverige arenaer. LEGO Brawls henter sine temaer fra populære serier som Ninjago og Jurassic World, og selve gameplayet er nemt at gå til: saml power-ups, undgå farer og puf modstanderne ud af banen. Volden er tegneserieagtig og harmløs, og figurbyggeriet giver plads til kreativitet, mens kampene træner reaktionsevnen. Op til fire kan spille sammen lokalt, hvilket gør det til et oplagt familiespil på sofaen. Grafikken er farverig og gennemført i ægte LEGO-stil. Spillet kræver Apple Arcade og fungerer bedst med internetforbindelse. Sjovest for børn fra 5-6 år, der i forvejen er vilde med klodserne.",
     shortDescription: "Byg din egen LEGO-figur og kæmp i farverige arenaer",
     minAge: 5,
     maxAge: 12,
@@ -3927,7 +3927,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Alto's Odyssey: The Lost City",
     slug: "altos-odyssey-lost-city",
-    description: "Alto's Odyssey: The Lost City er en udvidet version af det prisbelønnede sandboarding-spil med eksklusivt Apple Arcade-indhold. Du glider ned ad endeløse sanddyner, springer over kløfter, lander tricks og udforsker en mystisk ørkenverden fyldt med gamle ruiner. Grafikken er betagende smuk med dynamiske dag/nat-cyklusser og dramatiske solnedgange. Musikken er atmosfærisk og beroligende. Kontrollen er enkel - tryk for at hoppe, hold for at lave backflip. Spillet har også en Zen Mode helt uden mål eller point, bare ren afslappende sandboarding. Godt til korte pauser eller længere rolige stunder.",
+    description: "Få mobilspil er så rolige at se på som Alto's Odyssey: The Lost City, hvor man glider ned ad endeløse sanddyner gennem en mystisk ørkenverden med gamle ruiner. Styringen er enkel – tryk for at hoppe, hold for at lave backflip – så selv små børn kan være med, mens ældre børn kan jagte tricks og længere ture. Spillet træner timing og reaktion i et blidt tempo, og den særlige Zen Mode fjerner alle mål og point, så man bare glider afsted til beroligende musik. Grafikken er noget af det smukkeste på mobilen med dynamiske dag- og natskift og dramatiske solnedgange, og lydsiden matcher med stemningsfuld, afdæmpet musik. Spillet kræver et Apple Arcade-abonnement, men er til gengæld helt fri for reklamer og køb. Velegnet til både korte pauser og rolige stunder før sengetid.",
     shortDescription: "Smuk endless runner gennem ørkenlandskaber",
     minAge: 4,
     maxAge: 99,
@@ -3960,7 +3960,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Crossy Road Castle",
     slug: "crossy-road-castle",
-    description: "Crossy Road Castle tager de elskede karakterer fra Crossy Road og sætter dem i et kooperativt platformspil. Op til 4 spillere hopper sammen gennem procedurelt genererede slotniveauer der bliver sværere jo højere op I kommer. Hver karakter har sin egen unikke evne, og samarbejde er nøglen. Der er hundredvis af figurer at låse op. Grafikken har den velkendte voxel-stil, og kontrollen er simpel nok til at små børn kan være med. Det bedste er den lokale multiplayer på Apple TV hvor hele familien kan spille sammen. Humoristisk, farverigt og overraskende vanedannende.",
+    description: "Mangler familien et spil at grine over sammen, er Crossy Road Castle et godt bud. Op til fire spillere hopper side om side gennem et endeløst slot, hvor banerne genereres på ny hver gang og bliver sværere, jo højere op man kommer. Man skal time sine hop, undgå fælder og hjælpe hinanden videre – samarbejde er hele pointen, og netop dét gør spillet velegnet til søskende og forældre-barn-hold. Der er hundredvis af skøre figurer at låse op, og den velkendte klodsede voxel-grafik er både charmerende og overskuelig. Styringen er så enkel, at børn fra omkring 5 år kan være med, og bedst er den lokale multiplayer, især på Apple TV, hvor alle spiller på samme skærm. Det kræver Apple Arcade, og på egen hånd kan spillet med tiden blive lidt ensformigt – sammen med andre holder det længe.",
     shortDescription: "Hop gennem et endeløst slot med venner",
     minAge: 5,
     maxAge: 12,
@@ -3993,7 +3993,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Sonic Racing",
     slug: "sonic-racing",
-    description: "Sonic Racing bringer den blå pindsvin og hans venner til Apple Arcade i et teambaseret racerspil. Vælg mellem 15 karakterer fra Sonic-universet - Sonic, Tails, Knuckles, Amy, Dr. Eggman og flere - og kør gennem farverige baner inspireret af klassiske Sonic-spil. Det unikke er team-mekanikken: du kører som et hold af tre og kan dele power-ups og booste hinanden. Kontrollen er tilpasset touchskærme men understøtter også controllers. Banerne er varierede med loops, genveje og power-ups. Grafik og musik er ægte Sonic-kvalitet.",
+    description: "Det blå pindsvin sætter farten op i Sonic Racing, et racerspil på Apple Arcade, hvor man kører i hold i stedet for kun at tænke på sig selv. Barnet vælger mellem 15 kendte figurer fra Sonic-universet – Sonic, Tails, Knuckles, Amy og flere – og suser gennem farverige baner med loops, genveje og power-ups. Det særlige er holdmekanikken: Man kører tre sammen og kan dele power-ups og booste hinanden, hvilket lægger et strategisk lag oven på den rene reaktionstræning. Touch-styringen fungerer fint, men en controller giver mærkbart bedre kontrol, så det er værd at koble en til. Grafik og musik holder den kvalitet, man forventer af SEGA, og tempoet er højt uden at blive uoverskueligt. Kræver Apple Arcade-abonnement. Et sikkert hit for fartglade børn fra omkring 5 år.",
     shortDescription: "Fartfyldt racerspil med Sonic og venner",
     minAge: 5,
     maxAge: 12,
@@ -4026,7 +4026,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Cooking Mama: Cuisine!",
     slug: "cooking-mama-cuisine",
-    description: "Cooking Mama er tilbage på Apple Arcade! Følg opskrifter trin-for-trin og lav retter fra hele verden med Mamas vejledning. Skær grøntsager med swipe-bevægelser, rør i gryden ved at dreje fingeren, bag i ovnen med præcis timing - alt styres med intuitive touch-bevægelser. Mama guider dig med sin karakteristiske entusiasme, og selv når du laver fejl er hun venlig. Apple Arcade-versionen er fri for energi-systemer og ventetider. Der er hundredvis af opskrifter at mestre fra simple snacks til avancerede retter. Spillet kan inspirere børn til at hjælpe i det rigtige køkken.",
+    description: "I Cooking Mama: Cuisine! følger barnet opskrifter trin for trin og laver retter fra hele verden med den ikoniske Mama som venlig guide. Alt styres med intuitive fingerbevægelser: Man skærer grøntsager med swipes, rører i gryden ved at dreje fingeren og skal ramme den rette timing, når noget skal i ovnen. Det træner finmotorik og evnen til at følge en rækkefølge – og selv når det går galt, reagerer Mama med opmuntring frem for skæld ud. Apple Arcade-versionen er befriet for de energisystemer og ventetider, der plager mange gratis mobilspil, og der er hundredvis af opskrifter fra simple snacks til mere avancerede retter. Mange børn får desuden lyst til at hjælpe i det rigtige køkken bagefter. Kræver dog Apple Arcade. Sødt og stressfrit til børn fra omkring 4 år.",
     shortDescription: "Lav mad med den elskede Cooking Mama",
     minAge: 4,
     maxAge: 10,
@@ -4059,7 +4059,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Taiko no Tatsujin Pop Tap Beat",
     slug: "taiko-no-tatsujin-pop-tap-beat",
-    description: "Taiko no Tatsujin er Japans mest elskede rytmespil, og nu er det på Apple Arcade. Tryk i takt til musikken på de farverige trommer. Med over 50 sange fra forskellige genrer - J-pop, anime, klassisk, spilmusik - er der noget for enhver smag. Sværhedsgraden kan justeres fra nemt til ekstremt udfordrende. De søde Don-chan maskotter guider dig gennem spillet. Grafikkens farverige japanske stil er en fest for øjnene. Rytmespil træner timing, koordination og musikalitet. Op til 4 spillere kan spille sammen lokalt.",
+    description: "Japans elskede tromme-rytmespil er landet på Apple Arcade i form af Taiko no Tatsujin Pop Tap Beat. Princippet er enkelt: Noderne ruller hen over skærmen, og man trykker i takt til musikken, når de rammer trommen. Med over 50 sange fra J-pop og anime til klassisk musik og spilmelodier er der bred variation, og de søde Don-chan-maskotter og den farvestrålende japanske stil gør det til en fest at se på. Spillet træner rytme, timing og koncentration, og sværhedsgraden kan skrues fra meget nemt til vildt udfordrende – de højeste niveauer er dog reelt svære, så start på Easy og arbejd jer op. Op til fire kan spille sammen lokalt, hvilket gør det til et sjovt festspil for hele familien. Kræver Apple Arcade. Godt fra omkring 5 år og opefter – også de voksne bliver hængende.",
     shortDescription: "Japansk tromme-rytmespil med catchy musik",
     minAge: 5,
     maxAge: 99,
@@ -4092,7 +4092,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Patterned",
     slug: "patterned",
-    description: "Patterned er et roligt og meditativt puslespil hvor du samler smukke mønstre inspireret af kunst, natur og kulturer fra hele verden. Der er ingen tidspres, ingen point og ingen måder at fejle på - bare smukke billeder der langsomt bliver til under dine fingre. Interfacet er elegant og minimalistisk med bløde farver og rolig musik. Mønstrene spænder fra japanske kimonobroderi over marokkanske fliser til skandinaviske tekstiler. Puslespillene varierer i sværhedsgrad. Nye puslespil tilføjes løbende. God som beroligende aktivitet før sengetid.",
+    description: "Nogle spil skal ikke vindes – de skal bare nydes, og Patterned hører til den kategori. Her samler barnet smukke mønstre inspireret af kunst, natur og kulturer fra hele verden, fra japansk kimonobroderi over marokkanske fliser til skandinaviske tekstiler. Brikkerne lægges på plads i ro og mag; der er hverken tidspres, point eller mulighed for at fejle, kun et billede, der langsomt vokser frem under fingrene. Undervejs trænes koncentration, mønstergenkendelse og finmotorik, uden at det føles som træning. Det minimalistiske interface, de bløde farver og den dæmpede musik gør appen velegnet som rolig aktivitet før sengetid, og nye puslespil kommer løbende til. Kræver Apple Arcade, og de mest actionhungrende børn vil nok finde det for stille – men til fordybelse er det svært at slå.",
     shortDescription: "Afslappende puslespil med smukke mønstre",
     minAge: 4,
     maxAge: 99,
@@ -4125,7 +4125,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Spire Blast",
     slug: "spire-blast",
-    description: "Spire Blast kombinerer match-3 mekanikker med tilfredsstillende fysik-baseret destruktion. Du skyder farveblokke mod høje tårne og matcher tre eller flere af samme farve for at få dem til at forsvinde. Målet er at vælte hele tårnet og redde de søde små væsner fanget indeni. Der er overraskende dybde - du skal tænke strategisk over hvilke blokke du rammer først. Fysikken er tilfredsstillende realistisk. Med over 200 håndlavede niveauer og daglige udfordringer er der masser af indhold. Ingen tidspres på de fleste baner.",
+    description: "Der er noget dybt tilfredsstillende ved at vælte et højt tårn, og det er netop kernen i Spire Blast. Barnet skyder farvede blokke mod tårnene og matcher tre eller flere af samme farve, så de forsvinder – målet er at få hele konstruktionen til at styrte sammen og redde de små væsner, der er fanget indeni. Bag den enkle facade gemmer sig overraskende dybde, for rækkefølgen betyder noget: Rammer man de rigtige blokke først, vælter tårnet meget lettere. Det træner logik, planlægning og en intuitiv fornemmelse for fysik. Med over 200 håndbyggede baner og daglige udfordringer er der masser at gå i gang med, og de fleste baner er uden tidspres, så tempoet bestemmer man selv. Farverne er klare, og fysikken opfører sig troværdigt. Kræver Apple Arcade. Fint til børn fra omkring 4 år, der kan lide at pusle og eksperimentere.",
     shortDescription: "Byg og ødelæg farverige tårne i dette puslespil",
     minAge: 4,
     maxAge: 10,
@@ -4158,7 +4158,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Sago Mini Friends",
     slug: "sago-mini-friends",
-    description: "Sago Mini Friends er designet med kærlighed til de allermindste. Besøg fem forskellige venners huse og deltag i hverdagsaktiviteter som at lave mad, plante blomster, bade og lege med legetøj. Der er ingen regler, ingen mål og ingen måder at fejle på - bare fri leg og udforskning i trygge rammer. De runde, farverige karakterer er designet af pædagoger til at være beroligende og venlige. Interfacet har store knapper til små fingre. Ingen tale så sproget er ingen barriere. Helt offline efter download.",
+    description: "Til de allermindste skal et spil hverken have regler eller mål, og det har Sago Mini Friends heller ikke. Barnet besøger fem søde venner i deres huse og deltager i genkendelige hverdagsaktiviteter: lave mad, plante blomster, tage bad og lege med legetøj. Alt foregår i barnets eget tempo, og der findes ingen måder at fejle på – kun fri leg og udforskning. Undervejs øves finmotorikken, når små fingre trykker, trækker og prikker, og de store knapper er tydeligt designet til netop de mindste hænder. Karaktererne er runde, venlige og beroligende, og fordi appen helt undlader tale, er sproget aldrig en barriere. Den virker desuden offline efter download, så den kan bruges på farten. Kræver et Apple Arcade-abonnement. Bedst til 2-5-årige, gerne med en voksen ved siden, der kan sætte ord på legen.",
     shortDescription: "Besøg venner og leg i dette søde univers for de mindste",
     minAge: 2,
     maxAge: 5,
@@ -4191,7 +4191,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "My Talking Tom Friends",
     slug: "my-talking-tom-friends",
-    description: "My Talking Tom Friends samler hele banden - Tom, Angela, Hank, Ginger og Ben - i ét stort hus hvor du skal passe på dem alle. Giv dem mad når de er sultne, put dem i seng når de er trætte, og leg med dem når de keder sig. Apple Arcade-versionen er uden reklamer og ventetider fra den gratis version. Karaktererne reagerer på berøring og gentager hvad du siger med sjove stemmer. Der er masser af minispil at spille og tøj at samle. Simpelt gameplay der holder små børn beskæftiget.",
+    description: "Hele banden fra Talking Tom-universet – Tom, Angela, Hank, Ginger og Ben – bor her sammen i ét stort hus, og det er dit barns opgave at passe dem alle. Der skal serveres mad, når de er sultne, puttes, når de er trætte, og leges, når de keder sig, og undervejs er der minispil at prøve og tøj at samle på. Figurerne reagerer på berøring og gentager alt, hvad man siger, med sjove stemmer, hvilket plejer at udløse store grin hos de mindste. Spillet træner omsorg og en begyndende fornemmelse for planlægning og rutiner – brug det gerne som afsæt til en snak om jeres egne rutiner derhjemme. Apple Arcade-udgaven er helt fri for reklamer og ventetider, men kræver dog et abonnement. Godt til børn i 4-8-årsalderen, der elsker virtuelle kæledyr.",
     shortDescription: "Pas på Tom og hans venner i dette virtuelle kæledyrsspil",
     minAge: 4,
     maxAge: 8,
@@ -4224,7 +4224,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "The Get Out Kids",
     slug: "the-get-out-kids",
-    description: "The Get Out Kids er et charmerende eventyrspil hvor en gruppe modige børn udforsker mystiske steder og løser gåder sammen. Tænk Stranger Things for børn - men helt uden de skræmmende elementer. Hvert barn i gruppen har unikke evner der skal bruges: én kan klatre, én er stærk, én er klog. Du skifter mellem karaktererne for at løse puslespil der kræver samarbejde. Grafikken er håndtegnet med en varm, nostalgisk stil. Kontrollen er enkel og intuitiv. Godt til børn der elsker mysterier.",
+    description: "En flok modige børn udforsker mystiske steder og opklarer gåder sammen i dette charmerende eventyrspil – tænk Stranger Things for børn, bare helt uden de skræmmende elementer. Hvert barn i gruppen har sine egne evner: én kan klatre, én er stærk, og én er klog, og man skifter løbende mellem dem for at løse puslespil, der kræver samarbejde. På den måde træner spillet både logik og problemløsning, og gåderne er designet, så børn selv kan knække dem – så hold dig lidt i baggrunden og lad barnet prøve først. Grafikken er håndtegnet i en varm, nostalgisk stil, og styringen er enkel og intuitiv. Spillet kræver dog et Apple Arcade-abonnement og findes ikke på dansk. Oplagt til børn fra omkring 7 år, der elsker mysterier og en god historie.",
     shortDescription: "Løs mysterier med en gruppe modige børn",
     minAge: 7,
     maxAge: 12,
@@ -4257,7 +4257,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Transformers Tactical Arena",
     slug: "transformers-tactical-arena",
-    description: "Transformers Tactical Arena er et turbaseret strategispil hvor du bygger dit hold af legendariske Transformers og kæmper mod AI eller andre spillere. Saml ikoniske karakterer som Optimus Prime, Bumblebee, Megatron og Starscream. Kampene foregår på et taktisk gitter hvor placering, timing og brug af specielle evner er afgørende. Hver Transformer har unikke angreb og kan transformere mellem robot- og køretøjsform. Spillet lærer strategisk tænkning uden at være for komplekst. Flotte transformations-animationer.",
+    description: "Autobots og Decepticons mødes på kamppladsen i dette turbaserede strategispil, hvor man bygger sit eget hold af legendariske Transformers og kæmper mod computeren eller andre spillere. Kampene udspiller sig på et taktisk gitter, hvor placering, timing og de rette specialevner afgør udfaldet, og hver figur kan skifte mellem robot- og køretøjsform undervejs. Kendte navne som Optimus Prime, Bumblebee og Megatron er med, og transformations-animationerne er flotte at se på. Spillet træner strategisk tænkning og planlægning uden at blive for komplekst for målgruppen – start eventuelt med single-player-kampagnen, så mekanikkerne sidder fast, før barnet møder andre spillere. Bemærk dog, at spillet kræver både internetforbindelse og Apple Arcade-abonnement. Bedst til børn fra 7 år, der er vilde med robotter og taktik.",
     shortDescription: "Strategisk kampspil med Autobots og Decepticons",
     minAge: 7,
     maxAge: 14,
@@ -4290,7 +4290,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Mineko's Night Market",
     slug: "mineko-night-market",
-    description: "Mineko's Night Market er et hyggeligt og charmerende spil hvor du hjælper Mineko med at finde sin plads i en lille japansk landsby og drive en bod på det lokale natmarked. Saml materialer i skoven, lav håndværk, dyrk afgrøder i din have, og sælg dine varer på markedet hver weekend. Landsbyen er fyldt med venlige karakterer og katte at finde. Kunststilen er smuk og japansk-inspireret. Stemningen er afslappet uden stress eller tidspres. Spillet introducerer japansk kultur på en respektfuld måde.",
+    description: "I en lille japansk landsby hjælper man Mineko med at finde sin plads og drive en bod på det lokale natmarked. Ugen går med at samle materialer i skoven, lave håndværk, dyrke afgrøder i haven og møde landsbyens venlige beboere – og de mange katte – inden varerne skal sælges på markedet i weekenden. Spillet er hyggeligt og helt uden stress og tidspres, og det japansk-inspirerede univers præsenteres på en respektfuld måde, der kan vække nysgerrighed på japansk kultur. Undervejs trænes kreativitet og planlægning, når boden skal fyldes med de rigtige varer. Kunststilen er smuk, og stemningen afslappet, men tempoet er til gengæld ret langsomt, så det passer bedst til tålmodige børn. Kræver Apple Arcade. Godt fra omkring 7 år og opefter – også for forældre, der spiller med.",
     shortDescription: "Sælg håndlavede varer på et japansk natmarked",
     minAge: 7,
     maxAge: 14,
@@ -4323,7 +4323,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Stitch.",
     slug: "stitch",
-    description: "Stitch. lader dig skabe smukke broderier på din skærm sting for sting. Vælg mellem hundredvis af mønstre - fra simple blomster og dyr til komplekse kunstværker - og sy dem langsomt til live. Det er overraskende meditativt at se mønstret tage form under dine fingre. Lyddesignet er ASMR-agtigt med bløde klik fra nålen, og den rolige musik skaber en afslappende atmosfære. Der er ingen tidspres, ingen point, ingen konkurrence - bare rolig kreativitet. Nye mønstre tilføjes løbende. God som beroligende aktivitet før sengetid.",
+    description: "Broderi på en skærm lyder måske støvet, men her syr man smukke mønstre frem sting for sting, og det er overraskende meditativt at se motivet tage form under fingrene. Man vælger mellem hundredvis af mønstre – fra enkle blomster og dyr til store, komplekse kunstværker – og nye kommer løbende til. Der er intet tidspres, ingen point og ingen konkurrence, kun rolig kreativitet, og undervejs trænes finmotorik, koncentration og tålmodighed helt af sig selv. Lyddesignet er nærmest ASMR-agtigt med bløde klik fra nålen og stille musik, hvilket gør spillet velegnet som beroligende aktivitet før sengetid. Tempoet er dog meget roligt, så børn, der vil have fart over feltet, keder sig hurtigt. Kræver Apple Arcade. Fint fra omkring 6 år – og mange voksne bliver også hængende.",
     shortDescription: "Afslappende broderi-simulation",
     minAge: 6,
     maxAge: 99,
@@ -4356,7 +4356,7 @@ export const appleArcadeGames: GameSeedData[] = [
   {
     title: "Peppa Pig: Party Time",
     slug: "peppa-pig-party-time",
-    description: "Peppa Pig: Party Time lader de små planlægge og afholde fester med Peppa og alle hendes venner fra tv-serien. Vælg tema for festen, dekorer lokalet med balloner og bannere, vælg mad og kage, og spil sjove minispil som stoledans, piñata og gemmesteder. Alt er præsenteret i den velkendte Peppa Pig-stil med den karakteristiske britiske humor og de genkendelige stemmer. Interfacet er godt til små hænder med store knapper og simpel navigation. Der er ingen tekst at læse, så selv de mindste kan lege selvstændigt.",
+    description: "De mindste Peppa Pig-fans kan her planlægge og holde fester sammen med Peppa og vennerne fra tv-serien. Barnet vælger tema, pynter lokalet med balloner og bannere, bestemmer mad og kage og spiller sjove minispil som stoledans og piñata. Alt foregår i den velkendte streg med de genkendelige stemmer og den karakteristiske britiske humor, og fordi der ingen tekst er at læse, kan selv helt små børn lege på egen hånd. Undervejs øver de sig i kreativitet og i at planlægge – prøv bagefter at lade barnet planlægge en rigtig fødselsdagsfest inspireret af spillet. Knapperne er store, og navigationen enkel, så det fungerer fint til små hænder. Indholdet er dog noget begrænset, og der kræves Apple Arcade-abonnement. Bedst til de 2-6-årige, der allerede elsker Peppa.",
     shortDescription: "Fest med Peppa og alle hendes venner",
     minAge: 2,
     maxAge: 6,
