@@ -4,19 +4,27 @@ import prisma from '@/lib/db';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://xn--brnespilguiden-qqb.dk';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Get all content
-  const [digitalGames, boardGames, media] = await Promise.all([
-    prisma.game.findMany({
-      select: { slug: true, updatedAt: true },
-    }),
-    prisma.boardGame.findMany({
-      select: { slug: true, updatedAt: true },
-    }),
-    prisma.media.findMany({
-      where: { isActive: true },
-      select: { slug: true, updatedAt: true },
-    }),
-  ]);
+  // Get all content. A DB hiccup must not kill the build (the sitemap is
+  // prerendered) - fall back to the static pages only.
+  let digitalGames: Array<{ slug: string; updatedAt: Date }> = [];
+  let boardGames: Array<{ slug: string; updatedAt: Date }> = [];
+  let media: Array<{ slug: string; updatedAt: Date }> = [];
+  try {
+    [digitalGames, boardGames, media] = await Promise.all([
+      prisma.game.findMany({
+        select: { slug: true, updatedAt: true },
+      }),
+      prisma.boardGame.findMany({
+        select: { slug: true, updatedAt: true },
+      }),
+      prisma.media.findMany({
+        where: { isActive: true },
+        select: { slug: true, updatedAt: true },
+      }),
+    ]);
+  } catch (error) {
+    console.error('Sitemap: could not fetch content from database', error);
+  }
 
   // Use the newest content change as lastModified for listing/static pages,
   // so lastmod stays meaningful instead of changing on every request
