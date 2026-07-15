@@ -23,7 +23,8 @@
     "about": "About Us",
     "contact": "Contact",
     "privacy": "Privacy Policy",
-    "cookies": "Cookie Policy"
+    "cookies": "Cookie Policy",
+    "filmSeries": "TV & Movies"
   },
   "ageGroups": {
     "0-3": "0-3 years",
@@ -57,7 +58,14 @@
     "cantFind": "Can't find the right game?",
     "cantFindDesc": "Use our advanced search with filters for age, category and more",
     "searchGames": "Search for games",
-    "gamesCount": "{count} games"
+    "gamesCount": "{count} games",
+    "filmSerierTitle": "Movies & series for kids",
+    "filmSerierDesc": "Streaming recommendations with parent guides - find safe movies and series on Netflix, Disney+ and more",
+    "filmSerierTeaserTitle": "Movies & series with parent guides",
+    "filmSerierTeaserDesc": "We have reviewed 100+ movies and series on streaming services like Netflix, Disney+ and DR Ramasjang. Get honest reviews and parent guides.",
+    "exploreFilmSerier": "Explore movies & series",
+    "seeAllFilmSerier": "See all movies & series",
+    "seriesCount": "{count} series"
   },
   "games": {
     "title": "Digital Games",
@@ -226,7 +234,35 @@
     "party": "Party",
     "cards": "Cards",
     "family": "Family",
-    "memory": "Memory"
+    "memory": "Memory",
+    "læring": "Learning",
+    "eventyr": "Adventure",
+    "puslespil": "Puzzle",
+    "kreativ": "Creative",
+    "musik": "Music",
+    "strategi": "Strategy",
+    "samarbejde": "Cooperation",
+    "familie": "Family",
+    "hukommelse": "Memory",
+    "bogstaver": "Letters",
+    "underholdning": "Entertainment",
+    "køretøjer": "Vehicles",
+    "personaliseret": "Personalized",
+    "tal": "Numbers",
+    "følelser": "Emotions",
+    "natur": "Nature",
+    "dyr": "Animals",
+    "tegning": "Drawing",
+    "kunst": "Art",
+    "læsning": "Reading",
+    "matematik": "Math",
+    "simulation": "Simulation",
+    "simulering": "Simulation",
+    "rollespil": "Role-play",
+    "landbrug": "Farming",
+    "byggeri": "Building",
+    "arkitektur": "Architecture",
+    "kodning": "Coding"
   },
   "skills": {
     "math": "Math",

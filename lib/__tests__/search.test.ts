@@ -77,12 +77,18 @@ describe('parseSearchQuery', () => {
   describe('Price parsing', () => {
     it('should recognize exact "gratis" keyword', () => {
       const result = parseSearchQuery('gratis');
-      expect(result.priceModel).toBe('free');
+      expect(result.priceModel).toBe('gratis');
     });
 
     it('should recognize "helt gratis"', () => {
       const result = parseSearchQuery('helt gratis spil');
-      expect(result.priceModel).toBe('free');
+      expect(result.priceModel).toBe('gratis');
+    });
+
+    it('should recognize "gratis" in multi-word queries', () => {
+      const result = parseSearchQuery('gratis matematik spil');
+      expect(result.priceModel).toBe('gratis');
+      expect(result.skills).toContain('matematik');
     });
 
     it('should recognize "uden køb" keywords', () => {

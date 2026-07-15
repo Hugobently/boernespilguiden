@@ -6,7 +6,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('privacy');
   return {
     title: t('metaTitle'),
-    description: 'Read our privacy policy and how we protect your personal information.',
+    description: 'Læs vores privatlivspolitik og se, hvordan vi beskytter dine personlige oplysninger.',
+    alternates: {
+      canonical: '/privatlivspolitik',
+    },
   };
 }
 

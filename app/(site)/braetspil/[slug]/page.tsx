@@ -8,6 +8,7 @@ import { GameCard } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { getBoardGameWithTranslation, getBoardGamesWithTranslation } from '@/lib/translations';
 import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { resolveGameImage } from '@/lib/game-image';
 
 // ============================================================================
 // TYPES
@@ -27,32 +28,39 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const game = await getBoardGameWithTranslation(slug, locale);
 
   if (!game) {
-    return { title: 'Board game not found - Børnespilguiden' };
+    return { title: 'Brætspillet blev ikke fundet' };
   }
 
   const categories = parseJsonArray<string>(game.categories);
+  const ageLabel = game.maxAge >= 99 ? `${game.minAge}+ år` : `${game.minAge}-${game.maxAge} år`;
+  const shortDesc = game.shortDescription.trim();
+  const intro = /[.!?]$/.test(shortDesc) ? shortDesc : `${shortDesc}.`;
+  const description = `${intro} Læs vores anmeldelse: ${ageLabel}, ${game.minPlayers}-${game.maxPlayers} spillere, ${game.rating.toFixed(1).replace('.', ',')}/5 stjerner.`;
+  const image = resolveGameImage('board', slug, game.imageUrl) || '/og-image.png';
 
   return {
-    title: `${game.title} - Board game review | Børnespilguiden`,
-    description: game.shortDescription,
+    title: `${game.title} anmeldelse – brætspil til børn ${ageLabel}`,
+    description,
     keywords: [
       game.title,
-      'board game',
-      'review',
-      `board game for ${game.minAge}-${game.maxAge} year olds`,
-      `${game.minPlayers}-${game.maxPlayers} players`,
+      `${game.title} anmeldelse`,
+      'brætspil til børn',
+      `brætspil til ${game.minAge}-årige`,
       ...categories,
     ],
+    alternates: {
+      canonical: `/braetspil/${slug}`,
+    },
     openGraph: {
-      title: `${game.title} - Board game review`,
-      description: game.shortDescription,
+      title: `${game.title} anmeldelse`,
+      description,
       type: 'article',
-      images: game.imageUrl ? [{ url: game.imageUrl, alt: game.title }] : [],
+      images: [{ url: image, alt: game.title }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${game.title} - Board game review`,
-      description: game.shortDescription,
+      title: `${game.title} anmeldelse`,
+      description,
     },
   };
 }
@@ -168,7 +176,10 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
       {/* Structured Data for SEO */}
-      <GameJsonLd game={game} type="board" />
+      <GameJsonLd
+        game={{ ...game, imageUrl: resolveGameImage('board', slug, game.imageUrl) }}
+        type="board"
+      />
       <JsonLd data={generateBreadcrumbJsonLd(breadcrumbItems)} />
 
       {/* Breadcrumbs */}

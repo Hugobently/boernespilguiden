@@ -23,7 +23,8 @@
     "about": "À propos",
     "contact": "Contact",
     "privacy": "Politique de confidentialité",
-    "cookies": "Politique des cookies"
+    "cookies": "Politique des cookies",
+    "filmSeries": "TV & Films"
   },
   "ageGroups": {
     "0-3": "0-3 ans",
@@ -57,7 +58,14 @@
     "cantFind": "Vous ne trouvez pas le bon jeu ?",
     "cantFindDesc": "Utilisez notre recherche avancée avec des filtres pour l'âge, la catégorie et plus",
     "searchGames": "Rechercher des jeux",
-    "gamesCount": "{count} jeux"
+    "gamesCount": "{count} jeux",
+    "filmSerierTitle": "Films et séries pour enfants",
+    "filmSerierDesc": "Recommandations de streaming avec guides pour parents - trouvez des films et séries sûrs sur Netflix, Disney+ et plus",
+    "filmSerierTeaserTitle": "Films et séries avec guides pour parents",
+    "filmSerierTeaserDesc": "Nous avons passé en revue plus de 100 films et séries sur des services de streaming comme Netflix, Disney+ et DR Ramasjang. Obtenez des avis honnêtes et des guides pour parents.",
+    "exploreFilmSerier": "Découvrir films et séries",
+    "seeAllFilmSerier": "Voir tous les films et séries",
+    "seriesCount": "{count} séries"
   },
   "games": {
     "title": "Jeux numériques",
@@ -226,7 +234,35 @@
     "party": "Fête",
     "cards": "Cartes",
     "family": "Famille",
-    "memory": "Mémoire"
+    "memory": "Mémoire",
+    "læring": "Apprentissage",
+    "eventyr": "Aventure",
+    "puslespil": "Puzzle",
+    "kreativ": "Créatif",
+    "musik": "Musique",
+    "strategi": "Stratégie",
+    "samarbejde": "Coopération",
+    "familie": "Famille",
+    "hukommelse": "Mémoire",
+    "bogstaver": "Lettres",
+    "underholdning": "Divertissement",
+    "køretøjer": "Véhicules",
+    "personaliseret": "Personnalisé",
+    "tal": "Nombres",
+    "følelser": "Émotions",
+    "natur": "Nature",
+    "dyr": "Animaux",
+    "tegning": "Dessin",
+    "kunst": "Art",
+    "læsning": "Lecture",
+    "matematik": "Mathématiques",
+    "simulation": "Simulation",
+    "simulering": "Simulation",
+    "rollespil": "Jeu de rôle",
+    "landbrug": "Agriculture",
+    "byggeri": "Construction",
+    "arkitektur": "Architecture",
+    "kodning": "Programmation"
   },
   "skills": {
     "math": "Mathématiques",

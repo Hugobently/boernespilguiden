@@ -9,6 +9,7 @@ import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { ScreenshotGallery } from '@/components/games/GameDetailComponents';
 import { getGameWithTranslation, getGamesWithTranslation } from '@/lib/translations';
 import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { resolveGameImage } from '@/lib/game-image';
 
 // ============================================================================
 // TYPES
@@ -28,31 +29,46 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const game = await getGameWithTranslation(slug, locale);
 
   if (!game) {
-    return { title: 'Game not found - Børnespilguiden' };
+    return { title: 'Spillet blev ikke fundet' };
   }
 
   const categories = parseJsonArray<string>(game.categories);
+  const ageLabel = game.maxAge >= 99 ? `${game.minAge}+ år` : `${game.minAge}-${game.maxAge} år`;
+  const trustSignals = [
+    `${game.rating.toFixed(1).replace('.', ',')}/5 stjerner`,
+    !game.hasAds ? 'ingen reklamer' : null,
+    game.price === 0 ? 'gratis' : null,
+  ]
+    .filter(Boolean)
+    .join(', ');
+  const shortDesc = game.shortDescription.trim();
+  const intro = /[.!?]$/.test(shortDesc) ? shortDesc : `${shortDesc}.`;
+  const description = `${intro} Læs vores anmeldelse: ${ageLabel}, ${trustSignals}.`;
+  const image = resolveGameImage('digital', slug, game.iconUrl) || '/og-image.png';
 
   return {
-    title: `${game.title} - Review | Børnespilguiden`,
-    description: game.shortDescription,
+    title: `${game.title} anmeldelse – spil til børn ${ageLabel}`,
+    description,
     keywords: [
       game.title,
-      'kids games',
-      'review',
-      `games for ${game.minAge}-${game.maxAge} year olds`,
+      `${game.title} anmeldelse`,
+      'spil til børn',
+      `spil til ${game.minAge}-årige`,
       ...categories,
     ],
+    alternates: {
+      canonical: `/spil/${slug}`,
+    },
     openGraph: {
-      title: `${game.title} - Review`,
-      description: game.shortDescription,
+      title: `${game.title} anmeldelse`,
+      description,
       type: 'article',
-      images: game.iconUrl ? [{ url: game.iconUrl, alt: game.title }] : [],
+      images: [{ url: image, alt: game.title }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${game.title} - Review`,
-      description: game.shortDescription,
+      title: `${game.title} anmeldelse`,
+      description,
     },
   };
 }
@@ -159,7 +175,10 @@ export default async function GameDetailPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
       {/* Structured Data for SEO */}
-      <GameJsonLd game={game} type="digital" />
+      <GameJsonLd
+        game={{ ...game, iconUrl: resolveGameImage('digital', slug, game.iconUrl) }}
+        type="digital"
+      />
       <JsonLd data={generateBreadcrumbJsonLd(breadcrumbItems)} />
 
       {/* Breadcrumbs */}

@@ -17,9 +17,12 @@ interface SearchParams {
 }
 
 export const metadata = {
-  title: 'Film & Serier til Børn | Børnespilguiden',
+  title: 'Film & Serier til Børn',
   description:
     'Find de bedste børnefilm og serier på streaming. Se hvor du kan se dem - Netflix, Disney+, DR TV og flere.',
+  alternates: {
+    canonical: '/film-serier',
+  },
 };
 
 export default async function FilmSerierPage({

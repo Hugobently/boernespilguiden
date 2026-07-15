@@ -8,10 +8,10 @@ import {
   importTMDBSeries,
   importDRRamasjangSeries,
 } from '@/lib/services/tmdb-import';
+import { isAdminAuthorized } from '@/lib/admin-auth';
 
 export async function POST(request: Request) {
-  const auth = request.headers.get('authorization');
-  if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
+  if (!isAdminAuthorized(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

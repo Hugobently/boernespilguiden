@@ -45,12 +45,17 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
     return {
       title: t('metaTitleWithQuery', { query }),
       description: t('metaDescriptionWithQuery', { query }),
+      robots: { index: false, follow: true },
     };
   }
 
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
+    robots: { index: false, follow: true },
+    alternates: {
+      canonical: '/soeg',
+    },
   };
 }
 

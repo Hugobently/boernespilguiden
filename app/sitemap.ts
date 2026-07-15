@@ -18,59 +18,60 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   ]);
 
+  // Use the newest content change as lastModified for listing/static pages,
+  // so lastmod stays meaningful instead of changing on every request
+  const allDates = [...digitalGames, ...boardGames, ...media].map((item) =>
+    item.updatedAt.getTime()
+  );
+  const newestContentDate = allDates.length > 0 ? new Date(Math.max(...allDates)) : new Date();
+
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: siteUrl,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'daily',
       priority: 1,
     },
     {
       url: `${siteUrl}/spil`,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
       url: `${siteUrl}/braetspil`,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
       url: `${siteUrl}/film-serier`,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
-      url: `${siteUrl}/soeg`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
       url: `${siteUrl}/om`,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${siteUrl}/kontakt`,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${siteUrl}/privatlivspolitik`,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'monthly',
       priority: 0.3,
     },
     {
       url: `${siteUrl}/cookiepolitik`,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'monthly',
       priority: 0.3,
     },
@@ -81,13 +82,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const categoryPages: MetadataRoute.Sitemap = ageGroups.flatMap((age) => [
     {
       url: `${siteUrl}/spil/kategori/${age}`,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'daily' as const,
       priority: 0.8,
     },
     {
       url: `${siteUrl}/braetspil/kategori/${age}`,
-      lastModified: new Date(),
+      lastModified: newestContentDate,
       changeFrequency: 'daily' as const,
       priority: 0.8,
     },

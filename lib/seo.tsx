@@ -18,6 +18,15 @@ export const siteConfig = {
 // JSON-LD TYPES
 // ============================================================================
 
+interface ReviewNotes {
+  '@type': 'ItemList';
+  itemListElement: Array<{
+    '@type': 'ListItem';
+    position: number;
+    name: string;
+  }>;
+}
+
 interface VideoGameJsonLd {
   '@context': 'https://schema.org';
   '@type': 'VideoGame';
@@ -25,13 +34,6 @@ interface VideoGameJsonLd {
   description: string;
   url: string;
   image?: string;
-  aggregateRating?: {
-    '@type': 'AggregateRating';
-    ratingValue: number;
-    bestRating: number;
-    worstRating: number;
-    ratingCount: number;
-  };
   author?: {
     '@type': 'Organization';
     name: string;
@@ -58,6 +60,8 @@ interface VideoGameJsonLd {
       name: string;
     };
     reviewBody?: string;
+    positiveNotes?: ReviewNotes;
+    negativeNotes?: ReviewNotes;
   };
 }
 
@@ -68,13 +72,6 @@ interface BoardGameJsonLd {
   description: string;
   url: string;
   image?: string;
-  aggregateRating?: {
-    '@type': 'AggregateRating';
-    ratingValue: number;
-    bestRating: number;
-    worstRating: number;
-    ratingCount: number;
-  };
   genre?: string[];
   numberOfPlayers?: {
     '@type': 'QuantitativeValue';
@@ -94,6 +91,8 @@ interface BoardGameJsonLd {
       name: string;
     };
     reviewBody?: string;
+    positiveNotes?: ReviewNotes;
+    negativeNotes?: ReviewNotes;
   };
 }
 
@@ -139,6 +138,24 @@ interface OrganizationJsonLd {
 // JSON-LD GENERATORS
 // ============================================================================
 
+function toAbsoluteUrl(url: string | null | undefined): string | undefined {
+  if (!url) return undefined;
+  return url.startsWith('http') ? url : `${siteConfig.url}${url}`;
+}
+
+function toReviewNotes(value: string | string[] | null | undefined): ReviewNotes | undefined {
+  const items = Array.isArray(value) ? value : parseJsonArray<string>(value || '[]');
+  if (items.length === 0) return undefined;
+  return {
+    '@type': 'ItemList',
+    itemListElement: items.map((name, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name,
+    })),
+  };
+}
+
 export function generateVideoGameJsonLd(game: {
   slug: string;
   title: string;
@@ -153,6 +170,8 @@ export function generateVideoGameJsonLd(game: {
   maxAge: number;
   price: number;
   priceModel?: string | null;
+  pros?: string | string[] | null;
+  cons?: string | string[] | null;
 }): VideoGameJsonLd {
   const categories = parseJsonArray<string>(game.categories);
   const platforms = parseJsonArray<Platform>(game.platforms);
@@ -173,14 +192,7 @@ export function generateVideoGameJsonLd(game: {
     name: game.title,
     description: game.description || game.shortDescription,
     url: `${siteConfig.url}/spil/${game.slug}`,
-    image: game.iconUrl || undefined,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: game.rating,
-      bestRating: 5,
-      worstRating: 1,
-      ratingCount: 1,
-    },
+    image: toAbsoluteUrl(game.iconUrl),
     author: game.developerName
       ? {
           '@type': 'Organization',
@@ -208,7 +220,9 @@ export function generateVideoGameJsonLd(game: {
         '@type': 'Organization',
         name: siteConfig.name,
       },
-      reviewBody: game.shortDescription,
+      reviewBody: game.description || game.shortDescription,
+      positiveNotes: toReviewNotes(game.pros),
+      negativeNotes: toReviewNotes(game.cons),
     },
   };
 }
@@ -225,6 +239,8 @@ export function generateBoardGameJsonLd(game: {
   maxAge: number;
   minPlayers: number;
   maxPlayers: number;
+  pros?: string | string[] | null;
+  cons?: string | string[] | null;
 }): BoardGameJsonLd {
   const categories = parseJsonArray<string>(game.categories);
 
@@ -234,14 +250,7 @@ export function generateBoardGameJsonLd(game: {
     name: game.title,
     description: game.description || game.shortDescription,
     url: `${siteConfig.url}/braetspil/${game.slug}`,
-    image: game.imageUrl || undefined,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: game.rating,
-      bestRating: 5,
-      worstRating: 1,
-      ratingCount: 1,
-    },
+    image: toAbsoluteUrl(game.imageUrl),
     genre: categories.length > 0 ? categories : undefined,
     numberOfPlayers: {
       '@type': 'QuantitativeValue',
@@ -260,7 +269,9 @@ export function generateBoardGameJsonLd(game: {
         '@type': 'Organization',
         name: siteConfig.name,
       },
-      reviewBody: game.shortDescription,
+      reviewBody: game.description || game.shortDescription,
+      positiveNotes: toReviewNotes(game.pros),
+      negativeNotes: toReviewNotes(game.cons),
     },
   };
 }

@@ -295,7 +295,8 @@ DATABASE_URL="your-connection-string" npx tsx prisma/seed.ts
 ```bash
 # Development
 npm run dev              # Start dev server (localhost:3000)
-npm run build            # Production build (prisma generate + db push + seed + next build)
+npm run build            # Local production build (prisma generate + next build)
+npm run vercel-build     # Vercel deploy build (generate + db push + seed + next build)
 npm run lint             # Run ESLint
 
 # Database
@@ -308,7 +309,7 @@ npm run db:seed          # Run seed script
 DATABASE_URL="postgres://..." npx tsx prisma/seed.ts
 ```
 
-**Note:** The build script automatically seeds the database on every deploy to Vercel, ensuring all game data stays in sync with seed files.
+**Note:** The `vercel-build` script (used by Vercel) runs `prisma db push` + seed on every deploy, keeping game data in sync with seed files. The seed upserts by slug and removes games no longer in the seed files — it never wipes the tables. Local `npm run build` does NOT touch the database.
 
 ---
 
@@ -411,8 +412,8 @@ GameCard/GameDetail were refactored into smaller components:
 - Always include parentInfo and parentTip
 - Images stored in `/public/images/games/` (.webp preferred)
 - Run `npx prisma generate` after schema changes
-- Build script auto-runs `prisma generate && prisma db push && seed`
-- Database is re-seeded on every deploy to keep data in sync
+- Vercel deploys use `vercel-build` (`prisma generate && prisma db push && seed && next build`); local `npm run build` skips the database
+- Database is re-seeded (upsert by slug) on every deploy to keep data in sync
 - E2E tests: 29 Playwright tests in `e2e/` folder
 - Known tech debt: ~49 TypeScript `any` types, ~1800 inline hex colors (utility classes exist but not applied everywhere)
 - See `DEPLOYMENT.md` for deploy guide, `CLAUDE-NOTES.md` for session history

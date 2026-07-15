@@ -59,7 +59,7 @@ Andre: `npm run build`, `npm run lint`, `npm run test`, `npm run test:e2e`, `npx
 
 **Auto-deploy**: Hvert push til `main` trigger et nyt build via Vercel Git integration.
 
-**Build-script**: `prisma generate && next build`
+**Build-script**: Vercel bruger `vercel-build` (`prisma generate && prisma db push && npx tsx prisma/seed.ts && next build`), så databasen holdes i sync med seed-filerne ved hvert deploy. Lokalt kører `npm run build` kun `prisma generate && next build` (rører ikke databasen).
 
 ### Environment Variables i Vercel
 

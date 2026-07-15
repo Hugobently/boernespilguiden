@@ -7,6 +7,7 @@ import { AgeFilter } from '@/components/filters';
 import { StickyFilterBar } from '@/components/ui';
 import { FloatingBlobs } from '@/components/brand';
 import { getBoardGamesWithTranslation } from '@/lib/translations';
+import { toGameCardData } from '@/lib/game-card-data';
 
 export const metadata: Metadata = {
   title: 'Brætspil til Børn - Familie, Strategi & Samarbejdsspil',
@@ -105,7 +106,7 @@ export default async function BoardGamesPage({ searchParams }: PageProps) {
           <AgeFilter basePath="/braetspil" selectedAge={selectedAge} />
         </StickyFilterBar>
 
-        <GameGrid games={games} type="board" />
+        <GameGrid games={games.map(toGameCardData)} type="board" />
       </div>
     </div>
   );

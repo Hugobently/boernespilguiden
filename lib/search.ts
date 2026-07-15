@@ -1,5 +1,7 @@
 // Intelligent search query parser for Danish children's game searches
 
+import { PriceModel } from './types';
+
 export interface ParsedSearchQuery {
   // Age filtering
   minAge: number | null;
@@ -19,8 +21,8 @@ export interface ParsedSearchQuery {
   hasInAppPurchases: boolean | null;
   isOfflineCapable: boolean | null;
 
-  // Price filtering
-  priceModel: 'free' | 'paid' | 'freemium' | null;
+  // Price filtering (must match DB values: 'gratis' | 'engangskøb' | 'abonnement' | 'freemium')
+  priceModel: PriceModel | null;
 
   // Remaining search terms (for text search)
   searchTerms: string[];
@@ -259,12 +261,11 @@ const negativeFilters: Array<{
   // Free games
   {
     patterns: [
-      /^gratis$/i,
-      /helt\s*gratis/i,
-      /free/i,
+      /\bgratis\b/i,
+      /\bfree\b/i,
     ],
     filter: 'priceModel',
-    value: 'free',
+    value: 'gratis',
   },
 ];
 
@@ -288,7 +289,7 @@ function getAgeGroupFromRange(minAge: number, maxAge: number): string | null {
  * Examples:
  * - "læring 5år pige uden reklamer" → { ageGroup: "3-6", targetGender: "piger", categories: ["læring"], hasAds: false }
  * - "matematik spil til 7-årig dreng" → { minAge: 7, maxAge: 7, ageGroup: "7+", targetGender: "drenge", skills: ["matematik"] }
- * - "gratis puslespil offline" → { priceModel: "free", categories: ["puslespil", "logik"], isOfflineCapable: true }
+ * - "gratis puslespil offline" → { priceModel: "gratis", categories: ["puslespil", "logik"], isOfflineCapable: true }
  */
 export function parseSearchQuery(query: string): ParsedSearchQuery {
   const result: ParsedSearchQuery = {
@@ -318,7 +319,7 @@ export function parseSearchQuery(query: string): ParsedSearchQuery {
     for (const pattern of filter.patterns) {
       if (pattern.test(remainingQuery)) {
         if (filter.filter === 'priceModel') {
-          result.priceModel = filter.value as 'free' | 'paid' | 'freemium';
+          result.priceModel = filter.value as PriceModel;
         } else {
           (result[filter.filter] as boolean | null) = filter.value as boolean;
         }

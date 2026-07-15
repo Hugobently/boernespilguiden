@@ -454,10 +454,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const ageDesc = tAgeGroups(`${age}-desc`);
 
   return {
-    title: `${t('gamesForAge', { age: ageLabel })} - Børnespilguiden`,
+    title: t('gamesForAge', { age: ageLabel }),
     description: t('description') + ' ' + ageDesc,
+    alternates: {
+      canonical: `/spil/kategori/${age}`,
+    },
     openGraph: {
-      title: `${t('gamesForAge', { age: ageLabel })} - Børnespilguiden`,
+      title: t('gamesForAge', { age: ageLabel }),
       description: t('description') + ' ' + ageDesc,
     },
   };

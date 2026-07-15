@@ -7,6 +7,7 @@ import { AgeFilter } from '@/components/filters';
 import { StickyFilterBar } from '@/components/ui';
 import { FloatingBlobs } from '@/components/brand';
 import { getGamesWithTranslation } from '@/lib/translations';
+import { toGameCardData } from '@/lib/game-card-data';
 
 export const metadata: Metadata = {
   title: 'Digitale Spil til Børn - Apps, Tablet & Konsolspil',
@@ -128,7 +129,7 @@ export default async function DigitalGamesPage({ searchParams }: PageProps) {
           </a>
         </StickyFilterBar>
 
-        <GameGrid games={games} type="digital" />
+        <GameGrid games={games.map(toGameCardData)} type="digital" />
       </div>
     </div>
   );

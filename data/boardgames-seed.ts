@@ -251,7 +251,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     slug: "roll-and-play",
     description: "Roll & Play er designet specifikt til de allermindste. Rul den store bløde terning, find et kort i samme farve, og udfør den simple aktivitet - dans, lav dyrelyde, find noget blåt osv. Ingen vindere eller tabere, bare sjov interaktion.",
     shortDescription: "Aktivitetsspil med stor blød terning for de mindste",
-    minAge: 18, // måneder, konverteret til år nedenfor
+    minAge: 1, // fra 18 måneder
     maxAge: 3,
     ageGroup: "0-3",
     minPlayers: 1,

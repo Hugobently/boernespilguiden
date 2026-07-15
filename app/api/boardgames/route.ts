@@ -1,25 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/db';
 
+function parseIntParam(value: string | null): number | null {
+  if (!value) return null;
+  const parsed = parseInt(value, 10);
+  return Number.isNaN(parsed) ? null : parsed;
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
 
     // Query parameters
     const ageGroup = searchParams.get('ageGroup');
-    const minAge = searchParams.get('minAge');
-    const maxAge = searchParams.get('maxAge');
-    const minPlayers = searchParams.get('minPlayers');
-    const maxPlayers = searchParams.get('maxPlayers');
-    const complexity = searchParams.get('complexity');
+    const minAge = parseIntParam(searchParams.get('minAge'));
+    const maxAge = parseIntParam(searchParams.get('maxAge'));
+    const minPlayers = parseIntParam(searchParams.get('minPlayers'));
+    const maxPlayers = parseIntParam(searchParams.get('maxPlayers'));
+    const complexity = parseIntParam(searchParams.get('complexity'));
     const categories = searchParams.get('categories'); // comma-separated
     const skills = searchParams.get('skills'); // comma-separated
     const themes = searchParams.get('themes'); // comma-separated
     const search = searchParams.get('search');
     const sort = searchParams.get('sort') || 'rating';
     const order = searchParams.get('order') || 'desc';
-    const limit = parseInt(searchParams.get('limit') || '20');
-    const offset = parseInt(searchParams.get('offset') || '0');
+    const limit = parseIntParam(searchParams.get('limit')) ?? 20;
+    const offset = parseIntParam(searchParams.get('offset')) ?? 0;
     const featured = searchParams.get('featured');
     const editorChoice = searchParams.get('editorChoice');
 
@@ -30,23 +36,23 @@ export async function GET(request: NextRequest) {
     if (ageGroup) {
       where.ageGroup = ageGroup;
     }
-    if (minAge) {
-      where.minAge = { lte: parseInt(minAge) };
+    if (minAge !== null) {
+      where.minAge = { lte: minAge };
     }
-    if (maxAge) {
-      where.maxAge = { gte: parseInt(maxAge) };
+    if (maxAge !== null) {
+      where.maxAge = { gte: maxAge };
     }
 
     // Player count filtering
-    if (minPlayers) {
-      where.minPlayers = { lte: parseInt(minPlayers) };
+    if (minPlayers !== null) {
+      where.minPlayers = { lte: minPlayers };
     }
-    if (maxPlayers) {
-      where.maxPlayers = { gte: parseInt(maxPlayers) };
+    if (maxPlayers !== null) {
+      where.maxPlayers = { gte: maxPlayers };
     }
 
     // Complexity filtering
-    if (complexity) {
+    if (complexity !== null) {
       where.complexity = complexity;
     }
 

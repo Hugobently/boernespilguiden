@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { parseJsonArray, Platform, DataCollection } from '@/lib/types';
-import { forwardRef, memo, useMemo, HTMLAttributes } from 'react';
+import { forwardRef, memo, useMemo } from 'react';
 import { GameImageWithFallback } from './GameCardImage';
 import {
   QuickBadges,
@@ -19,7 +19,11 @@ import {
 // GAME CARD COMPONENT
 // ============================================================================
 
-export interface GameCardProps extends HTMLAttributes<HTMLDivElement> {
+// NOTE: deliberately NOT extending HTMLAttributes — unknown props used to be
+// spread onto the wrapper div, leaking full game objects (description,
+// parentInfo, ...) into the HTML as attributes (~1.2 MB extra on /spil).
+export interface GameCardProps {
+  className?: string;
   slug: string;
   title: string;
   shortDescription: string;
@@ -63,7 +67,6 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
       platforms,
       categories,
       className,
-      ...props
     },
     ref
   ) => {
@@ -121,7 +124,7 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
     ], [t, supportsDanish, priceModel, hasAds, offlinePlay, hasInAppPurchases]);
 
     return (
-      <div ref={ref} className={cn('group', className)} {...props}>
+      <div ref={ref} className={cn('group', className)}>
         <Link href={href} className="block">
           <article
             className={cn(

@@ -4,6 +4,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { enhanceMediaDescriptionWithRetry } from '@/lib/services/ai-enhance';
+import { isAdminAuthorized } from '@/lib/admin-auth';
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -17,8 +18,7 @@ interface EnhanceStats {
 
 export async function POST(request: Request) {
   // Auth check
-  const auth = request.headers.get('authorization');
-  if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
+  if (!isAdminAuthorized(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -138,8 +138,7 @@ export async function POST(request: Request) {
 
 // GET endpoint to check enhancement status
 export async function GET(request: Request) {
-  const auth = request.headers.get('authorization');
-  if (auth !== `Bearer ${process.env.ADMIN_SECRET}`) {
+  if (!isAdminAuthorized(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

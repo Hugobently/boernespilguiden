@@ -24,8 +24,11 @@ export async function generateMetadata({ params }: PageProps) {
   }
 
   return {
-    title: `${media.title} | Film & Serier | Børnespilguiden`,
+    title: `${media.title} – børne${media.type === 'MOVIE' ? 'film' : 'serie'}`,
     description: media.description || `Se ${media.title} - børne${media.type === 'MOVIE' ? 'film' : 'serie'}`,
+    alternates: {
+      canonical: `/film-serier/${params.slug}`,
+    },
   };
 }
 

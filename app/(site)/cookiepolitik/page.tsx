@@ -6,7 +6,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('cookies');
   return {
     title: t('metaTitle'),
-    description: 'Learn about our use of cookies and how you can manage them.',
+    description: 'Læs om vores brug af cookies, og hvordan du kan administrere dem.',
+    alternates: {
+      canonical: '/cookiepolitik',
+    },
   };
 }
 

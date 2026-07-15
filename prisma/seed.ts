@@ -97,22 +97,38 @@ async function main() {
   console.log(`   Familiespil: ${boardGameStats.familyGames}`);
   console.log('');
 
-  // Clear existing data
-  await prisma.game.deleteMany();
-  await prisma.boardGame.deleteMany();
-  console.log('🗑️  Cleared existing data');
-
-  // Seed digital games
+  // Upsert (instead of delete-all + recreate) so the live site never serves
+  // an empty database while seeding runs, e.g. during a Vercel deploy
   for (const game of allDigitalGames) {
-    await prisma.game.create({ data: transformGameForPrisma(game) });
+    const data = transformGameForPrisma(game);
+    await prisma.game.upsert({
+      where: { slug: game.slug },
+      update: data,
+      create: data,
+    });
   }
-  console.log(`✅ Created ${allDigitalGames.length} digital games`);
+  console.log(`✅ Upserted ${allDigitalGames.length} digital games`);
 
-  // Seed board games
   for (const game of allBoardGames) {
-    await prisma.boardGame.create({ data: transformBoardGameForPrisma(game) });
+    const data = transformBoardGameForPrisma(game);
+    await prisma.boardGame.upsert({
+      where: { slug: game.slug },
+      update: data,
+      create: data,
+    });
   }
-  console.log(`✅ Created ${allBoardGames.length} board games`);
+  console.log(`✅ Upserted ${allBoardGames.length} board games`);
+
+  // Remove games that no longer exist in the seed files
+  const removedGames = await prisma.game.deleteMany({
+    where: { slug: { notIn: allDigitalGames.map((g) => g.slug) } },
+  });
+  const removedBoardGames = await prisma.boardGame.deleteMany({
+    where: { slug: { notIn: allBoardGames.map((g) => g.slug) } },
+  });
+  if (removedGames.count > 0 || removedBoardGames.count > 0) {
+    console.log(`🗑️  Removed ${removedGames.count} digital / ${removedBoardGames.count} board games no longer in seed files`);
+  }
 
   console.log('');
   console.log('🎉 Seeding complete!');
