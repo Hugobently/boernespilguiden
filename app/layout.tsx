@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import { Nunito } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
+import { Analytics } from '@vercel/analytics/react';
 import { Header, Footer, CookieConsent, BackToTop } from '@/components/layout';
+import { GoogleAnalytics } from '@/components/tracking/GoogleAnalytics';
 import './globals.css';
 
 const nunito = Nunito({
@@ -121,6 +123,10 @@ export default async function RootLayout({
           <Footer />
           <CookieConsent />
           <BackToTop />
+          {/* Vercel Web Analytics: cookieless page-view counting */}
+          <Analytics />
+          {/* GA4: loads only with NEXT_PUBLIC_GA_ID set and statistics consent */}
+          <GoogleAnalytics />
         </NextIntlClientProvider>
       </body>
     </html>

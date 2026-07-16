@@ -1,3 +1,4 @@
+import { unstable_cache } from 'next/cache';
 import prisma from './db';
 import { Game, BoardGame, GameTranslation, BoardGameTranslation } from '@prisma/client';
 import { parseJsonArray } from './types';
@@ -99,101 +100,125 @@ export function applyBoardGameTranslation(
 // DATABASE QUERIES WITH TRANSLATIONS
 // ============================================================================
 
+// All fetchers are wrapped in unstable_cache (1 hour) so pages stop hitting
+// the database on every request - the cookie-based locale forces dynamic
+// rendering, so this data cache is what actually carries the load.
+// NOTE: cached results are JSON-serialized, so Date fields come back as
+// strings - no page uses Date methods on this data.
+const DATA_CACHE_SECONDS = 3600;
+
 /**
  * Get a single game with translations
  */
-export async function getGameWithTranslation(slug: string, locale: string) {
-  const game = await prisma.game.findUnique({
-    where: { slug },
-    include: {
-      translations: {
-        where: { locale },
+export const getGameWithTranslation = unstable_cache(
+  async (slug: string, locale: string) => {
+    const game = await prisma.game.findUnique({
+      where: { slug },
+      include: {
+        translations: {
+          where: { locale },
+        },
       },
-    },
-  });
+    });
 
-  if (!game) return null;
+    if (!game) return null;
 
-  return applyGameTranslation(game, locale);
-}
+    return applyGameTranslation(game, locale);
+  },
+  ['game-with-translation'],
+  { revalidate: DATA_CACHE_SECONDS, tags: ['games'] }
+);
 
 /**
  * Get multiple games with translations
  */
-export async function getGamesWithTranslation(
-  options: {
-    where?: object;
-    orderBy?: object;
-    take?: number;
-    skip?: number;
-  },
-  locale: string
-) {
-  const games = await prisma.game.findMany({
-    where: options.where,
-    orderBy: options.orderBy,
-    take: options.take,
-    skip: options.skip,
-    include: {
-      translations: {
-        where: { locale },
-      },
+export const getGamesWithTranslation = unstable_cache(
+  async (
+    options: {
+      where?: object;
+      orderBy?: object;
+      take?: number;
+      skip?: number;
     },
-  });
+    locale: string
+  ) => {
+    const games = await prisma.game.findMany({
+      where: options.where,
+      orderBy: options.orderBy,
+      take: options.take,
+      skip: options.skip,
+      include: {
+        translations: {
+          where: { locale },
+        },
+      },
+    });
 
-  return games.map((game) => applyGameTranslation(game, locale));
-}
+    return games.map((game) => applyGameTranslation(game, locale));
+  },
+  ['games-with-translation'],
+  { revalidate: DATA_CACHE_SECONDS, tags: ['games'] }
+);
 
 /**
  * Get a single board game with translations
  */
-export async function getBoardGameWithTranslation(slug: string, locale: string) {
-  const game = await prisma.boardGame.findUnique({
-    where: { slug },
-    include: {
-      translations: {
-        where: { locale },
+export const getBoardGameWithTranslation = unstable_cache(
+  async (slug: string, locale: string) => {
+    const game = await prisma.boardGame.findUnique({
+      where: { slug },
+      include: {
+        translations: {
+          where: { locale },
+        },
       },
-    },
-  });
+    });
 
-  if (!game) return null;
+    if (!game) return null;
 
-  return applyBoardGameTranslation(game, locale);
-}
+    return applyBoardGameTranslation(game, locale);
+  },
+  ['boardgame-with-translation'],
+  { revalidate: DATA_CACHE_SECONDS, tags: ['boardgames'] }
+);
 
 /**
  * Get multiple board games with translations
  */
-export async function getBoardGamesWithTranslation(
-  options: {
-    where?: object;
-    orderBy?: object;
-    take?: number;
-    skip?: number;
-  },
-  locale: string
-) {
-  const games = await prisma.boardGame.findMany({
-    where: options.where,
-    orderBy: options.orderBy,
-    take: options.take,
-    skip: options.skip,
-    include: {
-      translations: {
-        where: { locale },
-      },
+export const getBoardGamesWithTranslation = unstable_cache(
+  async (
+    options: {
+      where?: object;
+      orderBy?: object;
+      take?: number;
+      skip?: number;
     },
-  });
+    locale: string
+  ) => {
+    const games = await prisma.boardGame.findMany({
+      where: options.where,
+      orderBy: options.orderBy,
+      take: options.take,
+      skip: options.skip,
+      include: {
+        translations: {
+          where: { locale },
+        },
+      },
+    });
 
-  return games.map((game) => applyBoardGameTranslation(game, locale));
-}
+    return games.map((game) => applyBoardGameTranslation(game, locale));
+  },
+  ['boardgames-with-translation'],
+  { revalidate: DATA_CACHE_SECONDS, tags: ['boardgames'] }
+);
 
 // ============================================================================
 // HOMEPAGE DATA WITH TRANSLATIONS
 // ============================================================================
 
-export async function getHomepageDataWithTranslation(locale: string) {
+export const getHomepageDataWithTranslation = unstable_cache(
+  async (locale: string) => {
   const [editorChoiceGames, adFreeGames, featuredBoardGames, featuredMedia, allGameAges, mediaCount] =
     await Promise.all([
       // Editor's Choice - digital games (prioritize Danish + younger kids)
@@ -280,4 +305,7 @@ export async function getHomepageDataWithTranslation(locale: string) {
     gameCounts,
     mediaCount: mediaCount,
   };
-}
+  },
+  ['homepage-data'],
+  { revalidate: DATA_CACHE_SECONDS, tags: ['games', 'boardgames', 'media'] }
+);

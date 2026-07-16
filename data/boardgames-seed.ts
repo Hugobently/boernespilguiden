@@ -52,7 +52,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 229,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B001IWUH4A",
+    amazonUrl: "https://www.amazon.de/dp/B001IWUH4A",
     affiliateUrl: null,
     rating: 4.9,
     pros: [
@@ -88,7 +88,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 179,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B004S5GUOU",
+    amazonUrl: "https://www.amazon.de/dp/B004S5GUOU",
     affiliateUrl: null,
     rating: 4.5,
     pros: [
@@ -123,7 +123,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 169,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B004S5GU0K",
+    amazonUrl: "https://www.amazon.de/dp/B004S5GU0K",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -158,7 +158,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 159,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B0036WT3BA",
+    amazonUrl: "https://www.amazon.de/dp/B0036WT3BA",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -193,7 +193,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 149,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00FXNQJS2",
+    amazonUrl: "https://www.amazon.de/dp/B00FXNQJS2",
     affiliateUrl: null,
     rating: 4.4,
     pros: [
@@ -228,7 +228,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 129,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00000DMF5",
+    amazonUrl: "https://www.amazon.de/dp/B00000DMF5",
     affiliateUrl: null,
     rating: 4.2,
     pros: [
@@ -264,7 +264,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 159,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B008DXVQ9O",
+    amazonUrl: "https://www.amazon.de/dp/B008DXVQ9O",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -299,7 +299,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 169,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B001NGXBTI",
+    amazonUrl: "https://www.amazon.de/dp/B001NGXBTI",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -334,7 +334,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 159,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B001RQU7TQ",
+    amazonUrl: "https://www.amazon.de/dp/B001RQU7TQ",
     affiliateUrl: null,
     rating: 4.5,
     pros: [
@@ -369,7 +369,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 149,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B01MU2AQWU",
+    amazonUrl: "https://www.amazon.de/dp/B01MU2AQWU",
     affiliateUrl: null,
     rating: 4.4,
     pros: [
@@ -404,7 +404,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 199,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B001TOQ8PC",
+    amazonUrl: "https://www.amazon.de/dp/B001TOQ8PC",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -439,7 +439,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 169,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B004S5GU0K",
+    amazonUrl: "https://www.amazon.de/dp/B004S5GU0K",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -474,7 +474,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 199,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B08TVFYMJT",
+    amazonUrl: "https://www.amazon.de/dp/B08TVFYMJT",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -552,7 +552,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 99,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00000IWD0",
+    amazonUrl: "https://www.amazon.de/dp/B00000IWD0",
     affiliateUrl: null,
     rating: 4.3,
     pros: [
@@ -588,7 +588,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 129,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00000IWDK",
+    amazonUrl: "https://www.amazon.de/dp/B00000IWDK",
     affiliateUrl: null,
     rating: 4.2,
     pros: [
@@ -624,7 +624,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 199,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00WWENSD2",
+    amazonUrl: "https://www.amazon.de/dp/B00WWENSD2",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -659,7 +659,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 169,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B003XNARKM",
+    amazonUrl: "https://www.amazon.de/dp/B003XNARKM",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -694,7 +694,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 229,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B01LYAMKGK",
+    amazonUrl: "https://www.amazon.de/dp/B01LYAMKGK",
     affiliateUrl: null,
     rating: 4.5,
     pros: [
@@ -729,7 +729,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 99,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00PYMDV1Q",
+    amazonUrl: "https://www.amazon.de/dp/B00PYMDV1Q",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -765,7 +765,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 189,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B0002HYFDI",
+    amazonUrl: "https://www.amazon.de/dp/B0002HYFDI",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -800,7 +800,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 159,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B0002HYFKY",
+    amazonUrl: "https://www.amazon.de/dp/B0002HYFKY",
     affiliateUrl: null,
     rating: 4.5,
     pros: [
@@ -835,7 +835,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 139,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B0007PC8VA",
+    amazonUrl: "https://www.amazon.de/dp/B0007PC8VA",
     affiliateUrl: null,
     rating: 4.4,
     pros: [
@@ -870,7 +870,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 169,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00000IWD9",
+    amazonUrl: "https://www.amazon.de/dp/B00000IWD9",
     affiliateUrl: null,
     rating: 4.5,
     pros: [
@@ -905,7 +905,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 99,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00486TRZQ",
+    amazonUrl: "https://www.amazon.de/dp/B00486TRZQ",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -940,7 +940,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 139,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00004TDGP",
+    amazonUrl: "https://www.amazon.de/dp/B00004TDGP",
     affiliateUrl: null,
     rating: 4.4,
     pros: [
@@ -1122,7 +1122,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 249,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B01MR3LK4M",
+    amazonUrl: "https://www.amazon.de/dp/B01MR3LK4M",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -1157,7 +1157,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 299,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B003N0UBB2",
+    amazonUrl: "https://www.amazon.de/dp/B003N0UBB2",
     affiliateUrl: null,
     rating: 4.5,
     pros: [
@@ -1192,7 +1192,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 299,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B009CQLNOW",
+    amazonUrl: "https://www.amazon.de/dp/B009CQLNOW",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -1227,7 +1227,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 99,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B0009XBY3A",
+    amazonUrl: "https://www.amazon.de/dp/B0009XBY3A",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -1262,7 +1262,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 249,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00000J0JF",
+    amazonUrl: "https://www.amazon.de/dp/B00000J0JF",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -1297,7 +1297,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 229,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B0019O19NC",
+    amazonUrl: "https://www.amazon.de/dp/B0019O19NC",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -1332,7 +1332,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 299,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B001OH9EDW",
+    amazonUrl: "https://www.amazon.de/dp/B001OH9EDW",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -1367,7 +1367,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 89,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00J57VU44",
+    amazonUrl: "https://www.amazon.de/dp/B00J57VU44",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -1402,7 +1402,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 299,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00IZEUFIA",
+    amazonUrl: "https://www.amazon.de/dp/B00IZEUFIA",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -1437,7 +1437,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 179,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B01N3A4070",
+    amazonUrl: "https://www.amazon.de/dp/B01N3A4070",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -1472,7 +1472,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 199,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B003D7F4YY",
+    amazonUrl: "https://www.amazon.de/dp/B003D7F4YY",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -1507,7 +1507,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 129,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B0031QBHMA",
+    amazonUrl: "https://www.amazon.de/dp/B0031QBHMA",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -1647,7 +1647,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 199,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B07BLX42BW",
+    amazonUrl: "https://www.amazon.de/dp/B07BLX42BW",
     affiliateUrl: null,
     rating: 4.9,
     pros: [
@@ -1683,7 +1683,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 249,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B08DQYCZ6M",
+    amazonUrl: "https://www.amazon.de/dp/B08DQYCZ6M",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -1900,7 +1900,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 349,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00U26V4VQ",
+    amazonUrl: "https://www.amazon.de/dp/B00U26V4VQ",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -1936,7 +1936,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 349,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B0002TV2LU",
+    amazonUrl: "https://www.amazon.de/dp/B0002TV2LU",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -1971,7 +1971,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 179,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B014Q1XX9S",
+    amazonUrl: "https://www.amazon.de/dp/B014Q1XX9S",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -2006,7 +2006,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 449,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B07YQ641NQ",
+    amazonUrl: "https://www.amazon.de/dp/B07YQ641NQ",
     affiliateUrl: null,
     rating: 4.9,
     pros: [
@@ -2042,7 +2042,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 349,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B077MZ2MPB",
+    amazonUrl: "https://www.amazon.de/dp/B077MZ2MPB",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
@@ -2077,7 +2077,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 399,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B0043KJW5M",
+    amazonUrl: "https://www.amazon.de/dp/B0043KJW5M",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -2113,7 +2113,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 349,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00A2HD40E",
+    amazonUrl: "https://www.amazon.de/dp/B00A2HD40E",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -2149,7 +2149,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 399,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B013TJ5P80",
+    amazonUrl: "https://www.amazon.de/dp/B013TJ5P80",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -2185,7 +2185,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 299,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B002IUFSPM",
+    amazonUrl: "https://www.amazon.de/dp/B002IUFSPM",
     affiliateUrl: null,
     rating: 4.5,
     pros: [
@@ -2220,7 +2220,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 179,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B08XYQKZ71",
+    amazonUrl: "https://www.amazon.de/dp/B08XYQKZ71",
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -2255,7 +2255,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 119,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B00004TDGP",
+    amazonUrl: "https://www.amazon.de/dp/B00004TDGP",
     affiliateUrl: null,
     rating: 4.7,
     pros: [
@@ -2536,7 +2536,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 349,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.com/dp/B07MBMMVRY",
+    amazonUrl: "https://www.amazon.de/dp/B07MBMMVRY",
     affiliateUrl: null,
     rating: 4.8,
     pros: [
