@@ -124,11 +124,11 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
     ], [t, supportsDanish, priceModel, hasAds, offlinePlay, hasInAppPurchases]);
 
     return (
-      <div ref={ref} className={cn('group', className)}>
-        <Link href={href} className="block">
+      <div ref={ref} className={cn('group h-full', className)}>
+        <Link href={href} className="block h-full">
           <article
             className={cn(
-              'relative h-full bg-white rounded-3xl overflow-hidden',
+              'relative h-full flex flex-col bg-white rounded-3xl overflow-hidden',
               'shadow-card border border-white/50',
               'transition-all duration-300 ease-out',
               'group-hover:shadow-card-hover',
@@ -136,7 +136,7 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
             )}
           >
             {/* Image Container */}
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0">
               {/* Solid pastel surface behind image/fallback */}
               <div
                 className={cn(
@@ -188,16 +188,17 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
               )}
             </div>
 
-            {/* Content */}
-            <div className="p-4">
+            {/* Content - flex column so the categories pin to the bottom
+                and all cards in a row get the same height */}
+            <div className="p-4 flex-1 flex flex-col">
               {/* Age indicator and rating row */}
               <div className="flex items-center justify-between mb-3">
                 <AgeIndicator minAge={minAge} maxAge={maxAge} />
                 <StarRating rating={rating} />
               </div>
 
-              {/* Quick badges */}
-              <div className="mb-3">
+              {/* Quick badges - reserve one row so badge-less cards align */}
+              <div className="mb-3 min-h-[22px]">
                 <QuickBadges badges={quickBadges} />
               </div>
 
@@ -206,14 +207,14 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
                 {title}
               </h3>
 
-              {/* Description */}
-              <p className="text-sm text-[#6B6258] line-clamp-2 mb-3">
+              {/* Description - reserve two lines so single-line cards align */}
+              <p className="text-sm text-[#6B6258] line-clamp-2 mb-3 min-h-[2.5rem]">
                 {shortDescription}
               </p>
 
-              {/* Categories */}
+              {/* Categories - pinned to the card bottom */}
               {parsedCategories.length > 0 && (
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1 mt-auto">
                   {parsedCategories.slice(0, 2).map((cat) => (
                     <span
                       key={cat}

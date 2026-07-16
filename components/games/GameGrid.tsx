@@ -208,7 +208,7 @@ export const GameGrid = forwardRef<HTMLDivElement, GameGridProps>(
         {games.map((game, index) => (
           <div
             key={game.slug}
-            className="animate-slide-up opacity-0"
+            className="animate-slide-up opacity-0 h-full"
             style={{
               animationDelay: `${index * 0.05}s`,
               animationFillMode: 'forwards',

@@ -179,7 +179,7 @@ function EditorChoiceSection({ games, t }: EditorChoiceSectionProps) {
           {games.map((game, index) => (
             <div
               key={game.slug}
-              className="animate-slide-up opacity-0"
+              className="animate-slide-up opacity-0 h-full"
               style={{
                 animationDelay: `${index * 0.1}s`,
                 animationFillMode: 'forwards',
@@ -273,7 +273,7 @@ function AdFreeSection({ games, t }: AdFreeSectionProps) {
           {games.map((game, index) => (
             <div
               key={game.slug}
-              className="animate-slide-up opacity-0"
+              className="animate-slide-up opacity-0 h-full"
               style={{
                 animationDelay: `${index * 0.1}s`,
                 animationFillMode: 'forwards',
@@ -362,7 +362,7 @@ function BoardGamesSection({ games, t, tCategories }: BoardGamesSectionProps) {
             {games.map((game, index) => (
               <div
                 key={game.slug}
-                className="animate-slide-up opacity-0"
+                className="animate-slide-up opacity-0 h-full"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                   animationFillMode: 'forwards',
@@ -482,7 +482,7 @@ function FilmSerierSection({ media, mediaCount, t }: FilmSerierSectionProps) {
               return (
                 <div
                   key={item.id}
-                  className="animate-slide-up opacity-0"
+                  className="animate-slide-up opacity-0 h-full"
                   style={{
                     animationDelay: `${index * 0.1}s`,
                     animationFillMode: 'forwards',

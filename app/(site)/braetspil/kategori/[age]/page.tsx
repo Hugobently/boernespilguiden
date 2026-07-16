@@ -382,7 +382,7 @@ export default async function BoardGameAgeGroupPage({ params, searchParams }: Pa
                   {gamesData.games.map((game, index) => (
                     <div
                       key={game.slug}
-                      className="animate-slide-up opacity-0"
+                      className="animate-slide-up opacity-0 h-full"
                       style={{
                         animationDelay: `${index * 0.05}s`,
                         animationFillMode: 'forwards',

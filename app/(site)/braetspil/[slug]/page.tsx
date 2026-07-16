@@ -478,7 +478,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               {relatedGames.map((relatedGame, index) => (
                 <div
                   key={relatedGame.slug}
-                  className="animate-slide-up opacity-0"
+                  className="animate-slide-up opacity-0 h-full"
                   style={{
                     animationDelay: `${index * 0.1}s`,
                     animationFillMode: 'forwards',
