@@ -219,7 +219,8 @@
     "newsletterDesc": "Get the latest recommendations in your inbox",
     "subscribe": "Subscribe",
     "emailPlaceholder": "Your email",
-    "copyright": "All rights reserved"
+    "copyright": "All rights reserved",
+    "topics": "Popular topics"
   },
   "categories": {
     "learning": "Learning",

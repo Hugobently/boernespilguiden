@@ -10,6 +10,7 @@ import { ScreenshotGallery } from '@/components/games/GameDetailComponents';
 import { getGameWithTranslation, getGamesWithTranslation } from '@/lib/translations';
 import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 import { resolveGameImage } from '@/lib/game-image';
+import { getTopicForCategory } from '@/lib/topics';
 
 // ============================================================================
 // TYPES
@@ -309,14 +310,25 @@ export default async function GameDetailPage({ params }: PageProps) {
                 >
                   {getAgeLabel(game.minAge, game.maxAge)}
                 </span>
-                {categories.slice(0, 3).map((cat) => (
-                  <span
-                    key={cat}
-                    className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#E2C2FF]/50 text-[#5B4670] font-medium text-sm capitalize"
-                  >
-                    {cat}
-                  </span>
-                ))}
+                {categories.slice(0, 3).map((cat) => {
+                  const topic = getTopicForCategory(cat);
+                  return topic ? (
+                    <Link
+                      key={cat}
+                      href={topic.path}
+                      className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#E2C2FF]/50 text-[#5B4670] font-medium text-sm capitalize hover:bg-[#E2C2FF] transition-colors"
+                    >
+                      {cat}
+                    </Link>
+                  ) : (
+                    <span
+                      key={cat}
+                      className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#E2C2FF]/50 text-[#5B4670] font-medium text-sm capitalize"
+                    >
+                      {cat}
+                    </span>
+                  );
+                })}
               </div>
 
               {/* Title */}

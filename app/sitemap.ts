@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import prisma from '@/lib/db';
+import { ALL_TOPICS } from '@/lib/topics';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://xn--brnespilguiden-qqb.dk';
 
@@ -102,6 +103,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]);
 
+  // Topic landing pages (uden-reklamer, gratis, laeringsspil, ...)
+  const topicPages: MetadataRoute.Sitemap = ALL_TOPICS.map((topic) => ({
+    url: `${siteUrl}${topic.path}`,
+    lastModified: newestContentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
   // Digital game pages
   const digitalGamePages: MetadataRoute.Sitemap = digitalGames.map((game) => ({
     url: `${siteUrl}/spil/${game.slug}`,
@@ -126,5 +135,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...categoryPages, ...digitalGamePages, ...boardGamePages, ...mediaPages];
+  return [...staticPages, ...categoryPages, ...topicPages, ...digitalGamePages, ...boardGamePages, ...mediaPages];
 }

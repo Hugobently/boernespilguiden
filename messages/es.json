@@ -219,7 +219,8 @@
     "newsletterDesc": "Recibe las últimas recomendaciones en tu correo",
     "subscribe": "Suscribirse",
     "emailPlaceholder": "Tu email",
-    "copyright": "Todos los derechos reservados"
+    "copyright": "Todos los derechos reservados",
+    "topics": "Temas populares"
   },
   "categories": {
     "learning": "Educativo",

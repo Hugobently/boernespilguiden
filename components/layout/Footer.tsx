@@ -112,7 +112,7 @@ export async function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand & description */}
           <div className="lg:col-span-1">
             <FooterLogo />
@@ -127,7 +127,7 @@ export async function Footer() {
             emoji="🎮"
             titleColor="text-[#A2D2FF]"
             links={ageCategories.map((age) => ({
-              href: `/spil?alder=${age.slug}`,
+              href: `/spil/kategori/${age.slug}`,
               label: t(`ageGroups.${age.labelKey}`),
               emoji: age.emoji,
               hoverColor: age.color,
@@ -140,11 +140,25 @@ export async function Footer() {
             emoji="🎲"
             titleColor="text-[#FFE66D]"
             links={ageCategories.map((age) => ({
-              href: `/braetspil?alder=${age.slug}`,
+              href: `/braetspil/kategori/${age.slug}`,
               label: t(`ageGroups.${age.labelKey}`),
               emoji: age.emoji,
               hoverColor: age.color,
             }))}
+          />
+
+          {/* Popular topics */}
+          <FooterLinkSection
+            title={t('footer.topics')}
+            emoji="⭐"
+            titleColor="text-[#B8E0D2]"
+            links={[
+              { href: '/spil/uden-reklamer', label: 'Spil uden reklamer', emoji: '🚫' },
+              { href: '/spil/gratis', label: 'Gratis spil', emoji: '🆓' },
+              { href: '/spil/emne/laeringsspil', label: 'Læringsspil', emoji: '📚' },
+              { href: '/spil/offline', label: 'Offline spil', emoji: '📵' },
+              { href: '/spil/paa-dansk', label: 'Spil på dansk', emoji: '🇩🇰' },
+            ]}
           />
 
           {/* Quick links */}
