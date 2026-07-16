@@ -58,7 +58,7 @@ interface HeroSectionProps {
 
 function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden pt-4 pb-8 sm:pt-8 sm:pb-12 bg-gradient-to-b from-primary-50/50 via-transparent to-transparent">
+    <section className="relative overflow-hidden pt-4 pb-8 sm:pt-8 sm:pb-12 bg-gradient-to-b from-[#FFF3EC] via-[#FFFDF8] to-white">
       {/* Decorative elements - hidden on mobile for cleaner look */}
       <div className="hidden sm:block">
         <FloatingBlobs />
@@ -88,11 +88,11 @@ function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
               <span className="text-2xl sm:text-4xl sm:animate-bounce-slow hidden sm:inline" role="img" aria-label="Film og serier" style={{ animationDelay: '0.6s' }}>📺</span>
             </div>
 
-            {/* Main headline with gradient */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-              <span className="text-text-primary">{t('heroTitle').split(' ').slice(0, 2).join(' ')}</span>{' '}
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                {t('heroTitle').split(' ').slice(2).join(' ')}
+            {/* Main headline - solid ink with a single deep-coral accent */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight text-[#2E2822]">
+              <span>{t('heroTitle').split(' ').slice(0, -2).join(' ')}</span>{' '}
+              <span className="text-[#C2410C]">
+                {t('heroTitle').split(' ').slice(-2).join(' ')}
               </span>
             </h1>
 
@@ -116,22 +116,28 @@ function HeroSection({ t, tAge, tCommon }: HeroSectionProps) {
               </Suspense>
             </div>
 
-            {/* Quick age links - improved design */}
-            <div className="flex justify-center lg:justify-start gap-2 sm:gap-3">
+            {/* Quick age links - calm white chips with hairline borders */}
+            <div className="flex justify-center lg:justify-start gap-2 sm:gap-3 mb-4 sm:mb-6">
               {ageCategoryConfig.map((cat) => (
                 <Link
                   key={cat.slug}
-                  href={`/spil?alder=${cat.slug}`}
-                  className="group inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:scale-105 active:scale-95 min-h-[44px]"
-                  style={{
-                    background: `linear-gradient(135deg, ${cat.color.bg.split(' ')[0].replace('from-[', '').replace(']', '')}, ${cat.color.bg.split(' ')[1].replace('to-[', '').replace(']', '')})`,
-                    color: cat.color.text,
-                  }}
+                  href={`/spil/kategori/${cat.slug}`}
+                  className="group inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold text-sm sm:text-base text-[#2E2822] bg-white border border-[#EAE3D8] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C2410C]/40 hover:shadow-md active:translate-y-0 min-h-[44px]"
                 >
-                  <span className="text-lg sm:text-2xl group-hover:animate-jiggle" role="img" aria-label={cat.emojiLabel}>{cat.emoji}</span>
-                  <span className="text-sm sm:text-base">{tAge(cat.slug as '0-3' | '3-6' | '7+')}</span>
+                  <span className="text-lg sm:text-xl" role="img" aria-label={cat.emojiLabel}>{cat.emoji}</span>
+                  <span>{tAge(cat.slug as '0-3' | '3-6' | '7+')}</span>
                 </Link>
               ))}
+            </div>
+
+            {/* Trust stamp */}
+            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 rounded-full bg-white border border-[#EAE3D8] shadow-sm text-xs sm:text-sm text-[#4A443C]">
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#DCF2E3] text-[#16603A] font-bold" aria-hidden="true">✓</span>
+              <span className="font-bold text-[#2E2822]">Ærligt testet</span>
+              <span className="text-[#D9D0C3]" aria-hidden="true">·</span>
+              <span>100% uafhængig</span>
+              <span className="text-[#D9D0C3]" aria-hidden="true">·</span>
+              <span>Ingen reklamer</span>
             </div>
           </div>
         </div>
@@ -153,19 +159,17 @@ function EditorChoiceSection({ games, t }: EditorChoiceSectionProps) {
   if (games.length === 0) return null;
 
   return (
-    <section className="py-8 sm:py-12 bg-gradient-to-b from-transparent via-[#FFF9F0]/50 to-transparent">
+    <section className="py-8 sm:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-6 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#FFE66D] to-[#FFD93D] text-[#7D6608] font-bold text-sm mb-3">
-            <span>⭐</span>
-            <span>{t('editorChoice')}</span>
-            <span>⭐</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A4A4A] mb-2">
+          <p className="text-xs font-bold tracking-widest uppercase text-[#C2410C] mb-2">
+            ⭐ {t('editorChoice')}
+          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#2E2822] mb-2">
             {t('editorChoiceTitle')}
           </h2>
-          <p className="text-[#7A7A7A] text-base sm:text-lg max-w-xl mx-auto">
+          <p className="text-[#6B6258] text-base sm:text-lg max-w-xl mx-auto">
             {t('editorChoiceDesc')}
           </p>
         </div>
@@ -233,33 +237,29 @@ function AdFreeSection({ games, t }: AdFreeSectionProps) {
   if (games.length === 0) return null;
 
   return (
-    <section className="py-8 sm:py-12 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#D8F3DC]/30 via-transparent to-[#BAE1FF]/20" />
-
+    <section className="py-8 sm:py-12 bg-[#FBF5EC]">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header with special styling */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#77DD77] text-white font-bold text-sm mb-3">
-              <span>🛡️</span>
-              <span>{t('adFree')}</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A4A4A] mb-2">
+            <p className="text-xs font-bold tracking-widest uppercase text-[#16603A] mb-2">
+              🛡️ {t('adFree')}
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#2E2822] mb-2">
               {t('adFreeTitle')}
             </h2>
-            <p className="text-[#7A7A7A] text-base sm:text-lg max-w-xl">
+            <p className="text-[#6B6258] text-base sm:text-lg max-w-xl">
               {t('adFreeDesc')}
             </p>
           </div>
 
           {/* USP callout - hidden on mobile to save space */}
-          <div className="hidden sm:block bg-[#FFFCF7] rounded-2xl p-5 shadow-md border-2 border-[#77DD77]/30 max-w-sm">
+          <div className="hidden sm:block bg-white rounded-2xl p-5 shadow-sm border border-[#EAE3D8] max-w-sm">
             <div className="flex items-start gap-3">
               <span className="text-3xl">✨</span>
               <div>
-                <h4 className="font-bold text-[#2D6A4F] mb-1">{t('ourPromise')}</h4>
-                <p className="text-sm text-[#4A4A4A]">
+                <h4 className="font-bold text-[#16603A] mb-1">{t('ourPromise')}</h4>
+                <p className="text-sm text-[#4A443C]">
                   {t('ourPromiseText')}
                 </p>
               </div>
@@ -329,18 +329,18 @@ interface BoardGamesSectionProps {
 
 function BoardGamesSection({ games, t, tCategories }: BoardGamesSectionProps) {
   return (
-    <section className="py-8 sm:py-12 bg-gradient-to-b from-transparent via-[#FFE66D]/10 to-transparent">
+    <section className="py-8 sm:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
           <div>
             <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
               <span className="text-3xl sm:text-5xl">🎲</span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A4A4A]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#2E2822]">
                 {t('boardGamesTitle')}
               </h2>
             </div>
-            <p className="text-[#7A7A7A] text-lg max-w-xl">
+            <p className="text-[#6B6258] text-lg max-w-xl">
               {t('boardGamesDesc')}
             </p>
           </div>
@@ -386,8 +386,8 @@ function BoardGamesSection({ games, t, tCategories }: BoardGamesSectionProps) {
           </div>
         ) : (
           /* Teaser card when no board games */
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFE66D] via-[#FFD93D] to-[#FFB5A7] p-1">
-            <div className="bg-[#FFFCF7] rounded-[1.4rem] p-8 sm:p-12">
+          <div className="relative rounded-3xl overflow-hidden border border-[#EAE3D8] shadow-sm">
+            <div className="bg-[#EEF8F2] rounded-3xl p-8 sm:p-12">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 {/* Illustration */}
                 <div className="flex-shrink-0">
@@ -446,18 +446,18 @@ interface FilmSerierSectionProps {
 
 function FilmSerierSection({ media, mediaCount, t }: FilmSerierSectionProps) {
   return (
-    <section className="py-8 sm:py-12 bg-gradient-to-b from-transparent via-[#A2D2FF]/10 to-transparent">
+    <section className="py-8 sm:py-12 bg-[#FBF5EC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
           <div>
             <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
               <span className="text-3xl sm:text-5xl">📺</span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4A4A4A]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#2E2822]">
                 {t('filmSerierTitle')}
               </h2>
             </div>
-            <p className="text-[#7A7A7A] text-lg max-w-xl">
+            <p className="text-[#6B6258] text-lg max-w-xl">
               {t('filmSerierDesc')}
             </p>
           </div>
@@ -501,8 +501,8 @@ function FilmSerierSection({ media, mediaCount, t }: FilmSerierSectionProps) {
           </div>
         ) : (
           /* Teaser card when no media */
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#A2D2FF] via-[#CDB4DB] to-[#FFB5A7] p-1">
-            <div className="bg-[#FFFCF7] rounded-[1.4rem] p-8 sm:p-12">
+          <div className="relative rounded-3xl overflow-hidden border border-[#EAE3D8] shadow-sm">
+            <div className="bg-[#DCEDFC]/40 rounded-3xl p-8 sm:p-12">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 {/* Illustration */}
                 <div className="flex-shrink-0">
@@ -561,28 +561,21 @@ function CTASection({ t }: CTASectionProps) {
   return (
     <section className="py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden">
-          {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FFB5A7] via-[#CDB4DB] to-[#A2D2FF]" />
-
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0E5A6D]">
           {/* Content */}
           <div className="relative px-6 py-8 sm:px-12 sm:py-12 text-center">
-            {/* Decorative elements - simplified */}
-            <div className="absolute top-4 left-4 text-3xl opacity-20 hidden sm:block">✨</div>
-            <div className="absolute bottom-4 right-4 text-3xl opacity-20 hidden sm:block">🎯</div>
-
             <span className="text-4xl sm:text-5xl block mb-3">🔍</span>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-3">
               {t('cantFind')}
             </h2>
-            <p className="text-white/90 mb-6 max-w-xl mx-auto text-sm sm:text-base">
+            <p className="text-white/85 mb-6 max-w-xl mx-auto text-sm sm:text-base">
               {t('cantFindDesc')}
             </p>
             <Link href="/soeg">
               <Button
                 variant="primary"
                 size="lg"
-                className="bg-white text-[#4A4A4A] hover:bg-[#FFFCF7] shadow-lg"
+                className="bg-white text-[#0E5A6D] hover:bg-[#FFF3EC] shadow-lg font-bold"
               >
                 {t('searchGames')}
                 <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -680,7 +673,9 @@ export default async function HomePage() {
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Børnespilguiden - Find de bedste spil til børn 2026 | Anmeldelser & Guide',
+  title: {
+    absolute: 'Børnespilguiden - Find de bedste spil til børn 2026 | Anmeldelser & Guide',
+  },
   description:
     'Danmarks bedste guide til børnespil! ⭐ Ærlige anmeldelser af 130+ digitale spil og brætspil til børn 0-15 år. ✓ Reklamefri ✓ Sikre ✓ Lærerige. Find det perfekte spil i dag!',
   keywords: [

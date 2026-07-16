@@ -351,10 +351,10 @@ export function SearchBar({
             className={cn(
               'absolute right-2 top-1/2 -translate-y-1/2',
               'px-4 py-1.5 rounded-xl',
-              'bg-gradient-to-b from-[#FFB5A7] to-[#F8A99B]',
-              'text-white font-semibold text-sm',
-              'shadow-[0_2px_0_0_#E8958A]',
-              'hover:shadow-[0_1px_0_0_#E8958A] hover:translate-y-[1px]',
+              'bg-[#C2410C]',
+              'text-white font-bold text-sm',
+              'shadow-[0_2px_0_0_#A93409]',
+              'hover:shadow-[0_1px_0_0_#A93409] hover:translate-y-[1px] hover:bg-[#A93409]',
               'active:shadow-none active:translate-y-[2px]',
               'transition-all duration-150',
               variant === 'compact' && 'px-3 py-1 text-xs'

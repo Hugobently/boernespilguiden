@@ -106,7 +106,7 @@ export async function Footer() {
   const t = await getTranslations();
 
   return (
-    <footer className="relative bg-[#4A4A4A] text-white mt-20">
+    <footer className="relative bg-[#2B2620] text-white mt-20">
       {/* Decorative wave */}
       <FooterWave />
 

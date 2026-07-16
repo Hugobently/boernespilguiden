@@ -29,24 +29,32 @@ export function DanishFlag({ className }: { className?: string }) {
 
 export interface QuickBadge {
   label: string;
-  emoji: string | ReactNode;
+  emoji?: string | ReactNode;
   show: boolean;
-  color: { bg: string; text: string };
+  /** 'positive' = soft green with checkmark, 'info' = warm neutral */
+  variant: 'positive' | 'info';
 }
 
+// Max badges per card - the detail page carries the full story
+const MAX_BADGES = 3;
+
 export function QuickBadges({ badges }: { badges: QuickBadge[] }) {
-  const visibleBadges = badges.filter((b) => b.show);
+  const visibleBadges = badges.filter((b) => b.show).slice(0, MAX_BADGES);
   if (visibleBadges.length === 0) return null;
 
   return (
-    <div className="flex flex-wrap gap-1">
+    <div className="flex flex-wrap gap-1.5">
       {visibleBadges.map((badge) => (
         <span
           key={badge.label}
-          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold shadow-sm transition-transform hover:scale-105"
-          style={{ backgroundColor: badge.color.bg, color: badge.color.text }}
+          className={
+            badge.variant === 'positive'
+              ? 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-[#DCF2E3] text-[#16603A]'
+              : 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-[#F1EDE6] text-[#55503F]'
+          }
         >
-          <span className="flex items-center">{badge.emoji}</span>
+          {badge.variant === 'positive' && <span aria-hidden="true">✓</span>}
+          {badge.emoji && <span className="flex items-center">{badge.emoji}</span>}
           <span>{badge.label}</span>
         </span>
       ))}
@@ -102,16 +110,16 @@ export function StarRating({ rating, size = 'sm' }: { rating: number; size?: 'sm
           className={cn(
             'transition-colors',
             i < fullStars
-              ? 'text-[#FFE66D]'
+              ? 'text-[#9A6700]'
               : i === fullStars && hasHalf
-              ? 'text-[#FFE66D]/60'
-              : 'text-[#6B7280]/40'
+              ? 'text-[#9A6700]/50'
+              : 'text-[#6B6258]/25'
           )}
         >
           ★
         </span>
       ))}
-      <span className="text-xs text-[#7A7A7A] ml-1 font-medium">
+      <span className="text-xs text-[#4A443C] ml-1 font-semibold">
         {rating.toFixed(1)}
       </span>
     </div>
@@ -123,26 +131,12 @@ export function StarRating({ rating, size = 'sm' }: { rating: number; size?: 'sm
 // ============================================================================
 
 import { getAgeLabel } from '@/lib/utils';
-import { ageGroups } from '@/lib/config/age-groups';
 
 export function AgeIndicator({ minAge, maxAge }: { minAge: number; maxAge: number }) {
-  // Find matching age group
-  const ageGroup = ageGroups.find(group => {
-    if (group.slug === '0-3') return minAge <= 3;
-    if (group.slug === '3-6') return minAge > 3 && minAge <= 6;
-    return minAge > 6;
-  }) || ageGroups[2]; // Default to 7+
-
+  // Solid petrol chip - the one fact parents scan for first, so it gets
+  // a look nothing else on the card has (white on #0E5A6D: 7.8:1)
   return (
-    <div
-      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold transition-transform hover:scale-105"
-      style={{
-        backgroundColor: ageGroup.color.bg,
-        color: ageGroup.color.text,
-        boxShadow: `0 2px 0 0 ${ageGroup.color.border}`,
-      }}
-    >
-      <span>{ageGroup.emoji}</span>
+    <div className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-[#0E5A6D] text-white">
       <span>{getAgeLabel(minAge, maxAge)}</span>
     </div>
   );

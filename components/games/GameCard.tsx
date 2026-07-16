@@ -89,37 +89,34 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
       [categories]
     );
 
-    // Memoize quick badges configuration
+    // Quick badges: two roles (positive/info), priority-ordered, max 3 shown.
+    // The detail page carries the full safety story.
     const quickBadges: QuickBadge[] = useMemo(() => [
+      {
+        label: t('adFree'),
+        show: hasAds === false,
+        variant: 'positive' as const,
+      },
+      {
+        label: t('free'),
+        show: priceModel === 'gratis',
+        variant: 'positive' as const,
+      },
       {
         label: t('danish'),
         emoji: <DanishFlag />,
         show: supportsDanish === true,
-        color: { bg: '#C8102E', text: '#FFFFFF' },
-      },
-      {
-        label: t('free'),
-        emoji: '🆓',
-        show: priceModel === 'gratis',
-        color: { bg: '#D8F3DC', text: '#2D6A4F' },
-      },
-      {
-        label: t('adFree'),
-        emoji: '🚫',
-        show: hasAds === false,
-        color: { bg: '#BAE1FF', text: '#1D4E89' },
-      },
-      {
-        label: t('offline'),
-        emoji: '📱',
-        show: offlinePlay === true,
-        color: { bg: '#E2C2FF', text: '#5B4670' },
+        variant: 'positive' as const,
       },
       {
         label: t('noInApp'),
-        emoji: '💰',
         show: hasInAppPurchases === false && priceModel !== 'gratis',
-        color: { bg: '#FFF3B0', text: '#7D6608' },
+        variant: 'positive' as const,
+      },
+      {
+        label: t('offline'),
+        show: offlinePlay === true,
+        variant: 'info' as const,
       },
     ], [t, supportsDanish, priceModel, hasAds, offlinePlay, hasInAppPurchases]);
 
@@ -135,26 +132,15 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
               'group-hover:-translate-y-2 group-hover:scale-[1.02]'
             )}
           >
-            {/* Featured/Editor's Choice Banner */}
-            {(featured || editorChoice) && (
-              <div className="absolute top-0 left-0 right-0 z-20 bg-gradient-to-r from-primary via-accent to-secondary py-1.5 px-3">
-                <span className="text-xs font-bold text-white flex items-center justify-center gap-1">
-                  <span className="animate-sparkle">⭐</span>
-                  {editorChoice ? t('editorChoice') : t('recommended')}
-                  <span className="animate-sparkle" style={{ animationDelay: '0.3s' }}>⭐</span>
-                </span>
-              </div>
-            )}
-
             {/* Image Container */}
-            <div
-              className={cn(
-                'relative aspect-[4/3] overflow-hidden',
-                featured || editorChoice ? 'mt-7' : ''
-              )}
-            >
-              {/* Background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/60 via-lavender/60 to-primary/60" />
+            <div className="relative aspect-[4/3] overflow-hidden">
+              {/* Solid pastel surface behind image/fallback */}
+              <div
+                className={cn(
+                  'absolute inset-0',
+                  type === 'digital' ? 'bg-[#DCEDFC]' : 'bg-[#ECE3F6]'
+                )}
+              />
 
               {/* Image with fallback to game title */}
               <GameImageWithFallback
@@ -166,8 +152,15 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
 
-              {/* Decorative blob */}
-              <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-primary/20 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] transition-transform duration-500 group-hover:scale-150 group-hover:rotate-45" />
+              {/* Editor's choice / recommended - small chip instead of banner */}
+              {(editorChoice || featured) && (
+                <div className="absolute bottom-3 left-3 z-10">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-white/95 text-[#9A6700] shadow-sm">
+                    <span aria-hidden="true">⭐</span>
+                    {editorChoice ? t('editorChoice') : t('recommended')}
+                  </span>
+                </div>
+              )}
 
               {/* Type badge */}
               <div className="absolute top-3 left-3">
@@ -205,12 +198,12 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
               </div>
 
               {/* Title */}
-              <h3 className="font-bold text-lg text-text-primary mb-1.5 line-clamp-1 transition-colors group-hover:text-primary">
+              <h3 className="font-bold text-lg text-[#2E2822] mb-1.5 line-clamp-1 transition-colors group-hover:text-[#C2410C]">
                 {title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-[#7A7A7A] line-clamp-2 mb-3">
+              <p className="text-sm text-[#6B6258] line-clamp-2 mb-3">
                 {shortDescription}
               </p>
 
@@ -220,13 +213,13 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
                   {parsedCategories.slice(0, 2).map((cat) => (
                     <span
                       key={cat}
-                      className="text-xs text-[#7A7A7A] bg-[#FFF9F0] px-2 py-0.5 rounded-full capitalize"
+                      className="text-xs text-[#55503F] bg-[#F1EDE6] px-2 py-0.5 rounded-full capitalize"
                     >
                       {cat}
                     </span>
                   ))}
                   {parsedCategories.length > 2 && (
-                    <span className="text-xs text-[#7A7A7A] bg-[#FFF9F0] px-2 py-0.5 rounded-full">
+                    <span className="text-xs text-[#55503F] bg-[#F1EDE6] px-2 py-0.5 rounded-full">
                       +{parsedCategories.length - 2}
                     </span>
                   )}

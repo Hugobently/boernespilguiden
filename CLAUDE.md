@@ -141,13 +141,17 @@ type TargetGender = 'alle' | 'drenge' | 'piger';
 
 ## Design System
 
-### Color Palette
+### Color Palette ("Raffineret legende", 2026 redesign)
 
 ```
-Primary:    coral #FFB5A7, mint #B8E0D2, sky #A2D2FF, sunflower #FFE66D, lavender #CDB4DB
-Background: paper #FFFCF7, cream #FFF9F0, peach #FFF0E8, mist #F5F9FC
-Text:       primary #4A4A4A, secondary #7A7A7A, muted #6B7280
-Age:        baby(0-3) #FFD1DC, child(3-6) #BAFFC9, tween(7+) #BAE1FF
+Ink (tekst):   ink-900 #2E2822 (headings), ink-700 #4A443C (body), ink-500 #6B6258 (secondary)
+Interaktiv:    action-600 #C2410C (links/CTAs, AA on white), action-700 #A93409 (hover)
+Aldersbadge:   agebadge #0E5A6D (solid petrol, white text)
+Badge-roller:  positiv #DCF2E3/#16603A (med ✓), info #F1EDE6/#55503F  (max 3 pr. kort)
+Rating:        star #9A6700 (mørk rav)
+Flader:        band #FBF5EC (skiftevis med hvid), line #EAE3D8, footer #2B2620
+Pasteller:     coral #FFB5A7, mint #B8E0D2, sky #A2D2FF, sunflower #FFE66D, lavender #CDB4DB
+               - KUN som flader/fyld, ALDRIG som tekst på hvid. Ingen gradients på flader.
 ```
 
 ### Custom Shadows

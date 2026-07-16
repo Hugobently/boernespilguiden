@@ -9,6 +9,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // "RAFFINERET LEGENDE" DESIGN TOKENS (2026 redesign)
+        // Ink: warm dark text with real contrast (13.9:1 / 9.3:1 / 5.6:1 on white)
+        ink: {
+          900: "#2E2822",
+          700: "#4A443C",
+          500: "#6B6258",
+        },
+        // Deep coral: THE interactive color - links, CTAs (5.2:1 on white)
+        action: {
+          700: "#A93409",
+          600: "#C2410C",
+          100: "#FFE7DC",
+          50: "#FFF3EC",
+        },
+        // Age badge: deep petrol, distinct from everything else (white text 7.8:1)
+        agebadge: "#0E5A6D",
+        // Badge roles: positive (soft green) and info (warm neutral)
+        badge: {
+          "pos-bg": "#DCF2E3",
+          "pos-text": "#16603A",
+          "info-bg": "#F1EDE6",
+          "info-text": "#55503F",
+        },
+        // Surfaces & lines
+        band: "#FBF5EC",
+        line: {
+          DEFAULT: "#EAE3D8",
+          strong: "#D9D0C3",
+        },
+        // Rating stars: dark amber (4.9:1 on white)
+        star: "#9A6700",
+        // Dark warm footer
+        footer: "#2B2620",
+
         // NEW VIBRANT PALETTE - More child-friendly and energetic
         primary: {
           DEFAULT: "#FF6B6B",  // Friendly coral-red

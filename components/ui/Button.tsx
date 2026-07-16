@@ -43,21 +43,22 @@ const baseStyles = `
 `;
 
 const variantStyles: Record<ButtonVariant, string> = {
-  // Primary - Soft coral with 3D press effect
+  // Primary - Deep coral, the interactive color (AA contrast)
   primary: `
-    bg-gradient-to-b from-[#FFB5A7] to-[#F8A99B]
-    text-white
-    shadow-[0_4px_0_0_#E8958A,0_6px_16px_-4px_rgba(255,181,167,0.4)]
-    hover:shadow-[0_6px_0_0_#E8958A,0_10px_24px_-6px_rgba(255,181,167,0.5)]
+    bg-[#C2410C]
+    text-white font-bold
+    shadow-[0_4px_0_0_#A93409,0_6px_16px_-4px_rgba(194,65,12,0.35)]
+    hover:bg-[#A93409]
+    hover:shadow-[0_6px_0_0_#8A2B07,0_10px_24px_-6px_rgba(194,65,12,0.45)]
     hover:-translate-y-0.5
-    active:shadow-[0_2px_0_0_#E8958A,0_4px_12px_-2px_rgba(255,181,167,0.3)]
+    active:shadow-[0_2px_0_0_#8A2B07,0_4px_12px_-2px_rgba(194,65,12,0.25)]
     active:translate-y-0.5
-    focus-visible:ring-[#FFB5A7]/50
+    focus-visible:ring-[#C2410C]/50
   `,
   // Secondary - Soft mint green
   secondary: `
-    bg-gradient-to-b from-[#B8E0D2] to-[#95D5B2]
-    text-[#4A4A4A]
+    bg-[#B8E0D2]
+    text-[#2E2822] font-bold
     shadow-[0_4px_0_0_#7CC9A8,0_6px_16px_-4px_rgba(184,224,210,0.4)]
     hover:shadow-[0_6px_0_0_#7CC9A8,0_10px_24px_-6px_rgba(184,224,210,0.5)]
     hover:-translate-y-0.5
@@ -65,32 +66,32 @@ const variantStyles: Record<ButtonVariant, string> = {
     active:translate-y-0.5
     focus-visible:ring-[#B8E0D2]/50
   `,
-  // Outline - Coral border
+  // Outline - Calm hairline border with readable deep-coral text
   outline: `
-    bg-[#FFFCF7]
-    border-2 border-[#FFB5A7]
-    text-[#F8A99B]
-    shadow-[0_2px_8px_-2px_rgba(255,181,167,0.2)]
-    hover:bg-[#FFB5A7]/10
-    hover:shadow-[0_4px_12px_-2px_rgba(255,181,167,0.3)]
+    bg-white
+    border border-[#D9D0C3]
+    text-[#C2410C] font-bold
+    shadow-sm
+    hover:border-[#C2410C]/50
+    hover:bg-[#FFF3EC]
     hover:-translate-y-0.5
     active:translate-y-0
     active:shadow-none
-    focus-visible:ring-[#FFB5A7]/30
+    focus-visible:ring-[#C2410C]/30
   `,
   // Ghost - Subtle hover
   ghost: `
     bg-transparent
     text-[#7A7A7A]
     hover:bg-[#4A4A4A]/5
-    hover:text-[#4A4A4A]
+    hover:text-[#2E2822] font-bold
     active:bg-[#4A4A4A]/10
     focus-visible:ring-[#4A4A4A]/20
   `,
   // Coral pastel
   coral: `
-    bg-gradient-to-b from-[#FFB5A7] to-[#FCD5CE]
-    text-[#4A4A4A]
+    bg-[#FFB5A7]
+    text-[#2E2822] font-bold
     shadow-[0_4px_0_0_#F8A99B,0_6px_16px_-4px_rgba(255,181,167,0.35)]
     hover:shadow-[0_6px_0_0_#F8A99B,0_10px_24px_-6px_rgba(255,181,167,0.45)]
     hover:-translate-y-0.5
@@ -100,8 +101,8 @@ const variantStyles: Record<ButtonVariant, string> = {
   `,
   // Mint pastel
   mint: `
-    bg-gradient-to-b from-[#B8E0D2] to-[#D8F3DC]
-    text-[#4A4A4A]
+    bg-[#B8E0D2]
+    text-[#2E2822] font-bold
     shadow-[0_4px_0_0_#95D5B2,0_6px_16px_-4px_rgba(184,224,210,0.35)]
     hover:shadow-[0_6px_0_0_#95D5B2,0_10px_24px_-6px_rgba(184,224,210,0.45)]
     hover:-translate-y-0.5
@@ -111,8 +112,8 @@ const variantStyles: Record<ButtonVariant, string> = {
   `,
   // Sky blue pastel
   sky: `
-    bg-gradient-to-b from-[#A2D2FF] to-[#CAF0F8]
-    text-[#4A4A4A]
+    bg-[#A2D2FF]
+    text-[#2E2822] font-bold
     shadow-[0_4px_0_0_#72B4E8,0_6px_16px_-4px_rgba(162,210,255,0.35)]
     hover:shadow-[0_6px_0_0_#72B4E8,0_10px_24px_-6px_rgba(162,210,255,0.45)]
     hover:-translate-y-0.5
@@ -122,8 +123,8 @@ const variantStyles: Record<ButtonVariant, string> = {
   `,
   // Sunflower yellow pastel
   sunflower: `
-    bg-gradient-to-b from-[#FFE66D] to-[#FFF3B0]
-    text-[#4A4A4A]
+    bg-[#FFE66D]
+    text-[#2E2822] font-bold
     shadow-[0_4px_0_0_#FFD93D,0_6px_16px_-4px_rgba(255,230,109,0.35)]
     hover:shadow-[0_6px_0_0_#FFD93D,0_10px_24px_-6px_rgba(255,230,109,0.45)]
     hover:-translate-y-0.5
@@ -133,8 +134,8 @@ const variantStyles: Record<ButtonVariant, string> = {
   `,
   // Lavender purple pastel
   lavender: `
-    bg-gradient-to-b from-[#CDB4DB] to-[#E2D1F0]
-    text-[#4A4A4A]
+    bg-[#CDB4DB]
+    text-[#2E2822] font-bold
     shadow-[0_4px_0_0_#B392C9,0_6px_16px_-4px_rgba(205,180,219,0.35)]
     hover:shadow-[0_6px_0_0_#B392C9,0_10px_24px_-6px_rgba(205,180,219,0.45)]
     hover:-translate-y-0.5

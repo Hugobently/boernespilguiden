@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Nunito } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
-import { Header, Footer, DecorativeFrame, CookieConsent, BackToTop } from '@/components/layout';
+import { Header, Footer, CookieConsent, BackToTop } from '@/components/layout';
 import './globals.css';
 
 const nunito = Nunito({
@@ -116,7 +116,6 @@ export default async function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider messages={messages}>
-          <DecorativeFrame />
           <Header />
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
