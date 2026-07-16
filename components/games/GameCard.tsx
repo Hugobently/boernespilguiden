@@ -24,6 +24,8 @@ import {
 // parentInfo, ...) into the HTML as attributes (~1.2 MB extra on /spil).
 export interface GameCardProps {
   className?: string;
+  /** Set for above-the-fold cards so the image loads eagerly (better LCP) */
+  imagePriority?: boolean;
   slug: string;
   title: string;
   shortDescription: string;
@@ -67,6 +69,7 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
       platforms,
       categories,
       className,
+      imagePriority,
     },
     ref
   ) => {
@@ -149,6 +152,7 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
                 title={title}
                 type={type}
                 slug={slug}
+                priority={imagePriority}
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
 

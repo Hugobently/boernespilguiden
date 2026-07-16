@@ -186,6 +186,7 @@ function EditorChoiceSection({ games, t }: EditorChoiceSectionProps) {
               }}
             >
               <GameCard
+                imagePriority={index < 3}
                 slug={game.slug}
                 title={game.title}
                 shortDescription={game.shortDescription}

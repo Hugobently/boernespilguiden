@@ -25,6 +25,8 @@ interface GameImageWithFallbackProps {
   slug?: string;
   fill?: boolean;
   className?: string;
+  /** Set for above-the-fold cards so the image loads eagerly (better LCP) */
+  priority?: boolean;
 }
 
 export function GameImageWithFallback({
@@ -35,6 +37,7 @@ export function GameImageWithFallback({
   slug,
   fill = true,
   className,
+  priority = false,
 }: GameImageWithFallbackProps) {
   const [formatIndex, setFormatIndex] = useState(0);
   const [hasError, setHasError] = useState(false);
@@ -74,7 +77,7 @@ export function GameImageWithFallback({
       fill={fill}
       className={className}
       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-      loading="lazy"
+      {...(priority ? { priority: true } : { loading: 'lazy' as const })}
       onError={handleError}
     />
   );

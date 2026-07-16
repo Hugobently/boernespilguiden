@@ -217,6 +217,7 @@ export const GameGrid = forwardRef<HTMLDivElement, GameGridProps>(
             <GameCard
               {...game}
               type={type}
+              imagePriority={index < 4}
             />
           </div>
         ))}
