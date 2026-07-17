@@ -67,6 +67,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     },
     {
+      url: `${siteUrl}/saadan-tester-vi`,
+      lastModified: newestContentDate,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
       url: `${siteUrl}/kontakt`,
       lastModified: newestContentDate,
       changeFrequency: 'monthly',

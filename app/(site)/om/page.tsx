@@ -140,10 +140,10 @@ export default async function AboutPage() {
             <p className="text-[#7A7A7A] mb-6">
               <span className="mr-2">📧</span>
               <a
-                href="mailto:boernespilguiden@proton.me"
+                href="mailto:boernespislguiden@proton.me"
                 className="text-[#1D4E89] font-medium hover:underline"
               >
-                boernespilguiden@proton.me
+                boernespislguiden@proton.me
               </a>
             </p>
             <Link

@@ -168,6 +168,7 @@ export async function Footer() {
             titleColor="text-[#FFB5A7]"
             links={[
               { href: '/om', label: t('nav.about'), emoji: '👋' },
+              { href: '/saadan-tester-vi', label: 'Sådan tester vi', emoji: '🔍' },
               { href: '/kontakt', label: t('nav.contact'), emoji: '✉️' },
               { href: '/privatlivspolitik', label: t('nav.privacy'), emoji: '🔒' },
               { href: '/cookiepolitik', label: t('nav.cookies'), emoji: '🍪' },
