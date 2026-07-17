@@ -439,7 +439,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 169,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.de/dp/B004S5GU0K",
+    amazonUrl: null,
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -905,7 +905,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 99,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.de/dp/B00486TRZQ",
+    amazonUrl: null,
     affiliateUrl: null,
     rating: 4.6,
     pros: [
@@ -2666,7 +2666,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     supportsDanish: true,
     price: 119,
     imageUrl: null,
-    amazonUrl: "https://www.amazon.de/dp/B00004TDGP",
+    amazonUrl: null,
     affiliateUrl: null,
     rating: 4.7,
     pros: [
