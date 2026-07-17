@@ -20,6 +20,19 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Prerender all game pages at build time; unknown slugs still render on
+// demand. The catalog only changes via deploys, so pages stay fresh.
+export async function generateStaticParams() {
+  try {
+    const prisma = (await import('@/lib/db')).default;
+    const games = await prisma.game.findMany({ select: { slug: true } });
+    return games.map((game) => ({ slug: game.slug }));
+  } catch {
+    // No database at build time (e.g. local build) — render on demand
+    return [];
+  }
+}
+
 // ============================================================================
 // METADATA
 // ============================================================================

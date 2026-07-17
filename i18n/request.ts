@@ -1,19 +1,9 @@
 import { getRequestConfig } from 'next-intl/server';
-import { cookies } from 'next/headers';
-import { defaultLocale, locales, type Locale } from './config';
+import { defaultLocale } from './config';
 
-export default getRequestConfig(async () => {
-  // Get locale from cookie, fallback to default
-  const cookieStore = await cookies();
-  const localeCookie = cookieStore.get('NEXT_LOCALE')?.value;
-
-  // Validate the locale
-  const locale: Locale = locales.includes(localeCookie as Locale)
-    ? (localeCookie as Locale)
-    : defaultLocale;
-
-  return {
-    locale,
-    messages: (await import(`../messages/${locale}.json`)).default
-  };
-});
+// The site is Danish-only. The locale is fixed so no request data (cookies)
+// is read here — that would force every page into dynamic rendering.
+export default getRequestConfig(async () => ({
+  locale: defaultLocale,
+  messages: (await import(`../messages/${defaultLocale}.json`)).default,
+}));

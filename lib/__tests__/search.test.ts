@@ -1,4 +1,4 @@
-import { parseSearchQuery } from '../search';
+import { parseSearchQuery, sortByGenderRelevance } from '../search';
 
 describe('parseSearchQuery', () => {
   describe('Empty/Invalid queries', () => {
@@ -137,5 +137,37 @@ describe('parseSearchQuery', () => {
       // "minecraft" should remain as a search term after age is extracted
       expect(result.searchTerms.length).toBeGreaterThan(0);
     });
+  });
+});
+
+describe('sortByGenderRelevance', () => {
+  const games = [
+    { title: 'Mathegame', themes: '["matematik"]' },
+    { title: 'Prinsessespil', themes: '["prinsesser","eventyr"]' },
+    { title: 'Bilspil', themes: '["biler"]' },
+    { title: 'Uden temaer', themes: null },
+  ];
+
+  it('should never exclude games, only reorder them', () => {
+    const result = sortByGenderRelevance(games, 'piger');
+    expect(result).toHaveLength(games.length);
+    expect(result.map(g => g.title)).toEqual(
+      expect.arrayContaining(games.map(g => g.title))
+    );
+  });
+
+  it('should rank gender-matching themes first', () => {
+    expect(sortByGenderRelevance(games, 'piger')[0].title).toBe('Prinsessespil');
+    expect(sortByGenderRelevance(games, 'drenge')[0].title).toBe('Bilspil');
+  });
+
+  it('should preserve incoming order within groups', () => {
+    const result = sortByGenderRelevance(games, 'drenge');
+    const rest = result.slice(1).map(g => g.title);
+    expect(rest).toEqual(['Mathegame', 'Prinsessespil', 'Uden temaer']);
+  });
+
+  it('should return games untouched when no gender is given', () => {
+    expect(sortByGenderRelevance(games, null)).toEqual(games);
   });
 });

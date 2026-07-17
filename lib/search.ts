@@ -465,20 +465,8 @@ export function buildPrismaWhereClause(parsed: ParsedSearchQuery): Record<string
     });
   }
 
-  // Gender-based theme filtering
-  if (parsed.targetGender === 'piger') {
-    // Boost princess, fashion, etc. themes
-    const girlThemes = ['prinsesser', 'mode', 'dukker', 'eventyr', 'unicorn'];
-    andConditions.push({
-      OR: girlThemes.map(theme => ({ themes: { contains: theme } })),
-    });
-  } else if (parsed.targetGender === 'drenge') {
-    // Boost cars, action, etc. themes
-    const boyThemes = ['biler', 'action', 'superhelte', 'robotter', 'dinosaurer'];
-    andConditions.push({
-      OR: boyThemes.map(theme => ({ themes: { contains: theme } })),
-    });
-  }
+  // Gender is intentionally NOT part of the where clause: it must only
+  // affect ranking (see sortByGenderRelevance), never exclude games
 
   // Text search from remaining terms
   if (parsed.searchTerms.length > 0) {
@@ -536,18 +524,8 @@ export function buildBoardGameWhereClause(parsed: ParsedSearchQuery): Record<str
     });
   }
 
-  // Gender-based theme filtering for board games
-  if (parsed.targetGender === 'piger') {
-    const girlThemes = ['prinsesser', 'eventyr', 'unicorn', 'dyr'];
-    andConditions.push({
-      OR: girlThemes.map(theme => ({ themes: { contains: theme } })),
-    });
-  } else if (parsed.targetGender === 'drenge') {
-    const boyThemes = ['pirater', 'robotter', 'dinosaurer', 'rummet'];
-    andConditions.push({
-      OR: boyThemes.map(theme => ({ themes: { contains: theme } })),
-    });
-  }
+  // Gender is intentionally NOT part of the where clause: it must only
+  // affect ranking (see sortByGenderRelevance), never exclude games
 
   // Text search
   if (parsed.searchTerms.length > 0) {
@@ -564,4 +542,25 @@ export function buildBoardGameWhereClause(parsed: ParsedSearchQuery): Record<str
   }
 
   return where;
+}
+
+const GENDER_BOOST_THEMES: Record<'piger' | 'drenge', string[]> = {
+  piger: ['prinsesser', 'mode', 'dukker', 'unicorn', 'dyr'],
+  drenge: ['biler', 'action', 'superhelte', 'robotter', 'dinosaurer', 'pirater', 'rummet'],
+};
+
+/**
+ * Rank games with gender-matching themes first without ever hiding the rest.
+ * The sort is stable, so the editorChoice/rating ordering from the database
+ * is preserved within both groups.
+ */
+export function sortByGenderRelevance<T extends { themes: string | null }>(
+  games: T[],
+  targetGender: 'piger' | 'drenge' | null
+): T[] {
+  if (!targetGender) return games;
+  const boostThemes = GENDER_BOOST_THEMES[targetGender];
+  const matches = (game: T) =>
+    boostThemes.some(theme => (game.themes ?? '').includes(theme));
+  return [...games.filter(matches), ...games.filter(g => !matches(g))];
 }

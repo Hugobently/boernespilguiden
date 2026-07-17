@@ -5,6 +5,7 @@ import {
   parseSearchQuery,
   buildPrismaWhereClause,
   buildBoardGameWhereClause,
+  sortByGenderRelevance,
   type ParsedSearchQuery,
 } from '@/lib/search';
 import { withRateLimit, rateLimits } from '@/lib/middleware/rate-limit';
@@ -53,14 +54,17 @@ async function searchHandler(request: NextRequest) {
     const itemsPerType = type ? limit : Math.ceil(limit / 3);
 
     if (type !== 'board' && type !== 'media') {
+      // Fetch all matches so the gender boost can rank across the full
+      // result set before the limit is applied (catalog is small)
       digitalGames = await prisma.game.findMany({
         where: digitalWhere,
         orderBy: [
           { editorChoice: 'desc' },
           { rating: 'desc' },
         ],
-        take: type === 'digital' ? limit : itemsPerType,
       });
+      digitalGames = sortByGenderRelevance(digitalGames, parsed.targetGender)
+        .slice(0, type === 'digital' ? limit : itemsPerType);
     }
 
     if (type !== 'digital' && type !== 'media') {
@@ -70,8 +74,9 @@ async function searchHandler(request: NextRequest) {
           { editorChoice: 'desc' },
           { rating: 'desc' },
         ],
-        take: type === 'board' ? limit : itemsPerType,
       });
+      boardGames = sortByGenderRelevance(boardGames, parsed.targetGender)
+        .slice(0, type === 'board' ? limit : itemsPerType);
     }
 
     // Search Film & Serier
