@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Sådan tester vi spil | Børnespilguiden',
+  title: 'Sådan tester vi spil',
   description:
     'Se hvordan Børnespilguiden vurderer spil til børn: reklamer, købspres, datasikkerhed, dansk sprog, aldersvurdering og læringsværdi. Ærlige anmeldelser uden betalte placeringer.',
   alternates: {
