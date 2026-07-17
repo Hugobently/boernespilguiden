@@ -15,11 +15,16 @@ function withConnectionLimit(url: string | undefined): string | undefined {
   return `${url}${separator}connection_limit=3&pool_timeout=30`;
 }
 
+// Same fallback order as scripts/deploy-db-sync.js, so the build and the
+// seed sync always agree on which database they talk to
+const databaseUrl =
+  process.env.DATABASE_URL || process.env.POSTGRES_URL || process.env.DIRECT_URL;
+
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
     log: process.env.NODE_ENV === 'development' ? ['query'] : [],
-    datasourceUrl: withConnectionLimit(process.env.DATABASE_URL),
+    datasourceUrl: withConnectionLimit(databaseUrl),
   });
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
