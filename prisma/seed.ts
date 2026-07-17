@@ -36,6 +36,7 @@ function transformGameForPrisma(game: typeof allDigitalGames[0]) {
     pros: game.pros,
     cons: game.cons,
     parentTip: game.parentTip,
+    parentInfo: game.parentInfo,
     featured: game.featured,
     editorChoice: game.editorChoice,
   };

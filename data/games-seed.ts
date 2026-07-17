@@ -31,6 +31,7 @@ export interface GameSeedData {
   pros: string[];
   cons: string[];
   parentTip: string | null;
+  parentInfo?: string;
   featured: boolean;
   editorChoice: boolean;
 }
@@ -172,40 +173,7 @@ export const games0to3: GameSeedData[] = [
     featured: true,
     editorChoice: true,
   },
-  {
-    title: "Fisher-Price: Laugh & Learn",
-    slug: "fisher-price-laugh-learn",
-    description: "Sang, farver og store knapper er kernen i Fisher-Price: Laugh & Learn, en app bygget til babyer og de mindste tumlinger. Barnet trykker, hvor det vil, og bliver belønnet med musik, glade animationer og små overraskelser, mens bogstaver, tal, farver og former præsenteres gennem sange og enkel leg. Der er intet, der kan gøres forkert, så selv helt små fingre kan være med, og undervejs trænes både sprog, motorik og genkendelse. Kvaliteten er, som man kender det fra Fisher-Price-legetøjet: farvestrålende, venlig og gennemtænkt, og appen virker offline og uden reklamer. Ekstra indhold koster dog via in-app køb, og børn over tre år vil hurtigt finde den for simpel. Bedst i korte doser til de 0-3-årige – gerne med en voksen ved siden af.",
-    shortDescription: "Læring gennem sang og leg for babyer",
-    minAge: 0,
-    maxAge: 3,
-    ageGroup: "0-3",
-    categories: ["læring", "musik", "baby"],
-    skills: ["sprogudvikling", "motorik", "genkendelse"],
-    themes: ["bogstaver", "tal", "farver", "musik"],
-    platforms: ["iOS", "Android"],
-    hasAds: false,
-    hasInAppPurchases: true,
-    isOfflineCapable: true,
-    dataCollection: "minimal",
-    supportsDanish: false,
-    price: 0,
-    priceModel: "freemium",
-    rating: 4.2,
-    iconUrl: null,
-    screenshotUrls: [],
-    videoUrl: null,
-    appStoreUrl: null,
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.fisher_price.animal_sounds",
-    websiteUrl: "https://www.fisher-price.com",
-    developerName: "Mattel",
-    pros: ["Ingen reklamer", "Virker offline", "Designet til babyer", "Kendt brand"],
-    cons: ["In-app køb for ekstra indhold", "Kan virke simpelt for ældre børn"],
-    parentTip: "God til korte sessioner - sæt en timer så skærmtiden ikke løber løbsk.",
-    featured: false,
-    editorChoice: false,
-  },
-  {
+{
     title: "Toca Hair Salon 4",
     slug: "toca-hair-salon-4",
     description: "Frisørsaksen får frit spil i Toca Hair Salon 4, hvor børn klipper, farver, krøller og styler løs på en flok skæve karakterer. Der er ingen opgaver eller point – barnet vælger selv værktøjerne, og figurerne reagerer med sjove miner, uanset hvor vildt resultatet bliver. Netop friheden gør spillet til ren kreativ leg, som samtidig træner finmotorik og fantasi, når frisurerne skal formes, og farverne skal vælges. Toca Boca leverer som altid lækker, humoristisk grafik og finurlige lyde, og appen er købt og betalt én gang uden reklamer eller ekstra køb – og den virker offline. Legen kan dog godt blive lidt gentagende med tiden, når alle karakterer og værktøjer er prøvet af. Til de 2-8-årige, der elsker at eksperimentere, er det en tryg klassiker.",
@@ -262,7 +230,7 @@ export const games0to3: GameSeedData[] = [
     dataCollection: "ingen",
     supportsDanish: false,
     price: 35,
-    priceModel: "engangskøb",
+    priceModel: "abonnement",
     rating: 4.6,
     iconUrl: null,
     screenshotUrls: [
@@ -273,7 +241,7 @@ export const games0to3: GameSeedData[] = [
       "https://play-lh.googleusercontent.com/K2FiVuJKEL7WRE2IOw9USE6oXhBMpNGMeham98s0kl7rdJnF91Sc5wD70U3u009ozELB=w1920-h1080-rw"
     ],
     videoUrl: null,
-    appStoreUrl: null,
+    appStoreUrl: "https://apps.apple.com/dk/app/toca-boca-jr-fun-kids-games/id943869618",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.tocaboca.tocakitchen2",
     websiteUrl: "https://tocaboca.com",
     developerName: "Toca Boca",
@@ -283,40 +251,7 @@ export const games0to3: GameSeedData[] = [
     featured: false,
     editorChoice: false,
   },
-  {
-    title: "Toca Life: Town",
-    slug: "toca-life-town",
-    description: "En digital dukkeby – sådan beskriver man nok bedst Toca Life: Town. Barnet flytter karakterer rundt mellem lejligheder, en restaurant, en politistation og flere andre steder, åbner skabe, prøver ting af og finder på sine egne historier undervejs. Der er ingen mål og ingen rigtige svar; legen drives af barnets egen fantasi, og netop det gør spillet godt til storytelling, kreativitet og en gryende social forståelse, når figurerne skal tale sammen og hjælpe hinanden. Grafikken er detaljeret og fuld af små overraskelser, og som altid hos Toca Boca er der hverken reklamer eller købsknapper – og alt virker offline. Det er dog et af de ældre Toca Life-spil, så overvej Toca Life World, der samler alle verdenerne ét sted. For børn fra to år, der elsker rolleleg, holder det stadig.",
-    shortDescription: "Digital dukkeby med uendelige muligheder",
-    minAge: 2,
-    maxAge: 9,
-    ageGroup: "0-3",
-    categories: ["rolleleg", "kreativitet", "eventyr"],
-    skills: ["kreativitet", "storytelling", "social forståelse"],
-    themes: ["by", "hverdag", "eventyr"],
-    platforms: ["iOS", "Android", "Amazon"],
-    hasAds: false,
-    hasInAppPurchases: false,
-    isOfflineCapable: true,
-    dataCollection: "ingen",
-    supportsDanish: false,
-    price: 35,
-    priceModel: "engangskøb",
-    rating: 4.5,
-    iconUrl: null,
-    screenshotUrls: [],
-    videoUrl: null,
-    appStoreUrl: null,
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.tocaboca.tocalifetown",
-    websiteUrl: "https://tocaboca.com",
-    developerName: "Toca Boca",
-    pros: ["Ingen reklamer", "Ingen in-app køb", "Virker offline", "Fremmer fantasi"],
-    cons: ["Engangspris", "Ældre Toca Life-spil"],
-    parentTip: "Overvej Toca Life World i stedet - det samler alle Toca Life-verdener i ét spil.",
-    featured: false,
-    editorChoice: false,
-  },
-  {
+{
     title: "Baby Shark World",
     slug: "baby-shark-world",
     description: "Kender man den ørehængende Baby Shark-sang, ved man nogenlunde, hvad der venter i Baby Shark World. Appen samler sange, gemmelege og små spil med hele haj-familien, og barnet kan synge med, trykke sig gennem havets verden og lege med de velkendte figurer. Musikken og gentagelserne støtter sprogudvikling, rytme og hukommelse hos de mindste, og begejstringen hos målgruppen er svær at tage fejl af. Produktionen er farverig og livlig, som man kender det fra YouTube, men her skal man som forælder være vågen: Appen indeholder både reklamer og in-app køb og kræver internetforbindelse. Et abonnement fjerner reklamerne, hvilket er værd at overveje, hvis barnet spiller ofte. Mest oplagt til de 1-5-årige haj-fans – og helst med en voksen i nærheden.",
@@ -642,40 +577,7 @@ export const games0to3: GameSeedData[] = [
     featured: true,
     editorChoice: false,
   },
-  {
-    title: "Jinja – Køretur",
-    slug: "jinja-koeretur",
-    description: "Ro er nøgleordet i dette lille danske spil, hvor de mindste sætter sig bag rattet i forskellige køretøjer og tøffer rundt i hyggelige omgivelser i deres helt eget tempo. Der er ingen tekst, ingen mål og intet tidspres - barnet styrer, udforsker og opdager, hvad der sker, når man trykker på tingene, og træner undervejs finmotorik og forståelse for årsag og virkning. Spillet er helt gratis uden reklamer, in-app køb eller dataindsamling, hvilket gør det til et af de tryggeste valg til de alleryngste overhovedet. Indholdet er til gengæld begrænset, og legen er så simpel, at ældre børn hurtigt keder sig. Men som en af de første apps til to- til femårige, der elsker biler og traktorer, er det svært at pege på noget mere gennemført trygt.",
-    shortDescription: "Roligt køretur-spil for de mindste - helt uden reklamer",
-    minAge: 2,
-    maxAge: 5,
-    ageGroup: "0-3",
-    categories: ["leg", "udforskning", "køretøjer"],
-    skills: ["finmotorik", "udforskning", "årsag-virkning"],
-    themes: ["køretøjer", "transport", "eventyr"],
-    platforms: ["iOS", "Android"],
-    hasAds: false,
-    hasInAppPurchases: false,
-    isOfflineCapable: true,
-    dataCollection: "ingen",
-    supportsDanish: true,
-    price: 0,
-    priceModel: "gratis",
-    rating: 4.5,
-    iconUrl: null,
-    screenshotUrls: [],
-    videoUrl: null,
-    appStoreUrl: null,
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.jinja.koeretur",
-    websiteUrl: null,
-    developerName: "Jinja Games",
-    pros: ["100% gratis", "Ingen reklamer overhovedet", "Ingen in-app køb", "Ingen dataindsamling", "Dansk app"],
-    cons: ["Begrænset indhold", "Simpelt gameplay"],
-    parentTip: "Perfekt første app for de alleryngste - helt trygt uden fristelser eller reklamer.",
-    featured: false,
-    editorChoice: false,
-  },
-  {
+{
     title: "Rasmus Klump",
     slug: "rasmus-klump",
     description: "De fleste danske børn kender Rasmus Klump fra bøgerne, og i denne app fra Egmont får de mindste lov at lege i hans univers. Aktiviteterne er enkle: Barnet trykker sig rundt, udforsker og møder de velkendte figurer, og alt kan betjenes uden læsefærdigheder. Undervejs øves finmotorik, genkendelse og simpel interaktion - ikke store læringsmål, men netop den slags rolige skærmleg, der passer til de nul- til femårige. Appen er gratis og helt fri for reklamer, in-app køb og skjult dataindsamling, hvilket giver ekstra tryghed. Designet virker efterhånden lidt bedaget, og indholdet er begrænset, så forvent ikke timevis af leg. Til gengæld er det en velkendt og sikker oplevelse, der bliver endnu bedre, hvis I bagefter læser de fysiske Rasmus Klump-bøger sammen.",
@@ -707,6 +609,292 @@ export const games0to3: GameSeedData[] = [
     parentTip: "Kombiner med de fysiske Rasmus Klump-bøger for en komplet oplevelse!",
     featured: false,
     editorChoice: false,
+  },
+  {
+    "title": "Hey Bear Sensory",
+    "slug": "hey-bear-sensory",
+    "description": "De dansende frugter fra Hey Bear er blevet et globalt babyfænomen, og her får man dem i en officiel app uden YouTubes reklamer og anbefalinger. Indholdet er korte sensory-videoer i to spor: livlige dansefester med musik, der opmuntrer de mindste til at vugge med, og rolige, langsomme videoer med høj kontrast til putning og afslapning. Barnet ser og lytter – der er ingen knapper eller opgaver – og de kontrastrige animationer træner visuel opmærksomhed og tracking hos babyer. Interfacet er så enkelt, at forældre hurtigt finder det rette indhold til situationen. Kvaliteten af musik og animation er høj, men man skal være ærlig om, at det er passiv skærmtid: barnet interagerer ikke selv, og appen kræver både abonnement og internetforbindelse. Bedst til de allermindste, hvor udvalget af gode apps ellers er tyndt – og i små, afmålte doser.",
+    "shortDescription": "Reklamefri sensory-videoer til babyer – dans og ro fra Hey Bear-universet",
+    "minAge": 0,
+    "maxAge": 3,
+    "ageGroup": "0-3",
+    "categories": [
+      "musik",
+      "leg"
+    ],
+    "skills": [
+      "koncentration",
+      "farver"
+    ],
+    "themes": [
+      "sanser",
+      "musik",
+      "dans"
+    ],
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": false,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 0,
+    "priceModel": "abonnement",
+    "rating": 4,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/hey-bear-sensory/id6449767650",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=ott.heybearproductions",
+    "websiteUrl": null,
+    "developerName": "Hey Bear Productions Limited",
+    "parentInfo": "Hey Bear Sensory er gratis at hente, men indholdet kræver abonnement på cirka 49 kr. om måneden eller 499 kr. om året, tegnet som in-app-køb. Til gengæld er der ingen reklamer, ingen anbefalingsalgoritmer og ingen eksterne links – den væsentligste forskel fra at se de samme videoer på YouTube. Videoerne streames, så appen kræver internetforbindelse og fungerer ikke på flyture eller i sommerhuset uden net. Indholdet er på engelsk, men reelt sprogfrit, så sproget er ingen barriere for danske babyer. Udvikleren Hey Bear Productions står bag YouTube-fænomenet af samme navn, og appen findes til iOS, Android og Apple TV. I App Store er den mærket 'Made for Ages 0-5' og hører dermed under Apples skrappere regler for børneapps.",
+    "parentTip": "Brug de rolige videoer som fast del af putterutinen og gem dansevideoerne til tidligere på dagen – og se med, så skærmtiden bliver fælles i stedet for en pause fra hinanden.",
+    "pros": [
+      "Reklamefrit alternativ til YouTube for de mindste",
+      "Både aktiverende dansevideoer og beroligende sovevideoer",
+      "Meget enkelt interface",
+      "Høj kvalitet i musik og animation"
+    ],
+    "cons": [
+      "Passivt videoindhold uden interaktion",
+      "Kræver abonnement og internetforbindelse"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Sago Mini School",
+    "slug": "sago-mini-school",
+    "description": "Bag Sago Minis velkendte, runde streg gemmer der sig her et egentligt førskoleprogram. Sago Mini School er søsterappen til Sago Mini World og rummer hundredvis af legebaserede aktiviteter inden for tidlig matematik, bogstaver, naturfag og kreativitet. Barnet arbejder med ugentlige temaer – den ene uge krabber, den næste biler eller vejr – og tæller, tegner, pusler og laver små eksperimenter undervejs. Aktiviteterne er designet af børnepædagogiske eksperter, og appen er nomineret til Kidscreen Award 2026 som bedste læringsapp. Alt foregår uden reklamer og eksterne links, og indholdet fungerer offline. Kvaliteten er gennemgående høj, og temaerne skiftes løbende ud, så appen holder længere end de fleste. Den største hage er sproget: al tale er på engelsk, så de mindste skal have lidt voksenstøtte i starten. Passer bedst til nysgerrige 2-5-årige, der allerede kender Sago Mini-figurerne.",
+    "shortDescription": "Legebaseret førskolelæring i ugentlige temaer fra Sago Mini-universet",
+    "minAge": 2,
+    "maxAge": 5,
+    "ageGroup": "0-3",
+    "categories": [
+      "læring",
+      "kreativitet",
+      "tal"
+    ],
+    "skills": [
+      "matematik",
+      "kreativitet",
+      "logik",
+      "koncentration"
+    ],
+    "themes": [
+      "skole",
+      "dyr",
+      "natur"
+    ],
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 0,
+    "priceModel": "abonnement",
+    "rating": 4.5,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/sago-mini-school-kids-2-5/id1483068197",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.sagosago.School.googleplay",
+    "websiteUrl": null,
+    "developerName": "Sago Mini (Sago Sago Toys Inc.)",
+    "parentInfo": "Sago Mini School bruger en abonnementsmodel med gratis prøveperiode; abonnementet tegnes som in-app-køb, og prisen ligger på niveau med andre store børneapps. Der er ingen reklamer og ingen eksterne links, og aktiviteterne kan bruges offline, når de først er hentet – praktisk på rejser. Indholdet er udelukkende på engelsk, men det meste formidles visuelt med guidende tale undervejs. Udvikleren Sago Mini (Sago Sago Toys) er blandt de mest etablerede navne inden for småbørnsapps og står også bag Sago Mini World; appen er nomineret til Kidscreen Award 2026 som Best Learning App og opdateres løbende med nye temaer. Abonnementet er separat fra Sago Mini World, så familier med begge apps betaler to gange.",
+    "parentTip": "Sid med de første gange og oversæt de engelske instruktioner – aktiviteterne er visuelle nok til, at barnet hurtigt klarer sig selv bagefter.",
+    "pros": [
+      "Pædagogisk dybde bag charmerende Sago Mini-æstetik",
+      "Kidscreen Award-nomineret og løbende opdateret",
+      "Helt reklamefri og offline-venlig",
+      "Ugentlige temaer holder indholdet friskt"
+    ],
+    "cons": [
+      "Kun engelsk tale og tekst",
+      "Dyrt hvis man også abonnerer på Sago Mini World"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "LEGO DUPLO MARVEL",
+    "slug": "lego-duplo-marvel",
+    "description": "Spider-Man, Hulk og Captain America i DUPLO-udgave lyder som en opskrift på action, men her er hverken kamp eller vold. LEGO DUPLO MARVEL er efterfølgeren til LEGO DUPLO World og lader 2-5-årige bygge med virtuelle klodser, løse små opgaver og lege rollelege i åbne miniverdener sammen med venlige superhelte. Der er ingen point eller tidspres – barnet udforsker i eget tempo, og appen taler dansk, hvilket er sjældent i denne liga. Finmotorik, kreativitet og tidlig problemløsning trænes gennem den frie leg, og kvaliteten matcher det prisvindende søsterspil; nye verdener kommer løbende til, senest i 2026. Til gengæld er kun enkelte verdener gratis – resten kræver oplåsning via køb eller abonnement – og appen fylder meget på enheden. En god første spilapp til småbørn, især dem der i forvejen er vilde med DUPLO-klodser eller har superheltefans som storesøskende.",
+    "shortDescription": "Fri, tryg DUPLO-leg med Marvel-helte på dansk – helt uden kamp og vold",
+    "minAge": 2,
+    "maxAge": 5,
+    "ageGroup": "0-3",
+    "categories": [
+      "leg",
+      "eventyr"
+    ],
+    "skills": [
+      "finmotorik",
+      "kreativitet",
+      "problemløsning"
+    ],
+    "themes": [
+      "superhelte",
+      "klodser",
+      "byggeri"
+    ],
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": true,
+    "price": 0,
+    "priceModel": "freemium",
+    "rating": 4.3,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/lego-duplo-marvel/id1573101225",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.storytoys.lego.duplo.marvel.spiderman.avengers.kids.preschool.free.googleplay",
+    "websiteUrl": null,
+    "developerName": "StoryToys Limited",
+    "parentInfo": "Appen er gratis at hente med enkelte verdener åbne; resten låses op via in-app-køb eller abonnement, som ligger bag en forældrelås. Der er ingen reklamer og ingen eksterne links i børnedelen, og appen fungerer offline, når indholdet er hentet – dog er downloaden stor og fylder en del på enheden. Sproget er dansk i både tale og tekst, hvilket adskiller den fra de fleste store internationale børneapps. Udvikleren StoryToys er et etableret irsk studie, der også står bag LEGO DUPLO World og Hungry Caterpillar Play School, og appen opdateres fortsat med nye verdener. Med over 11.000 vurderinger i App Store og et snit omkring 4,2 er den bredt afprøvet af andre familier.",
+    "parentTip": "Lad barnet lege grundigt med de gratis verdener, før I låser op – barnets interesse for netop dette univers afgør, om det fulde køb er pengene værd.",
+    "pros": [
+      "Dansk tale og tekst",
+      "Fri, tryg leg uden vold trods superheltetema",
+      "Ingen reklamer og forældrelås om køb",
+      "Opdateres løbende med nye verdener"
+    ],
+    "cons": [
+      "Fuldt indhold kræver køb eller abonnement",
+      "Stort download, der fylder på enheden"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Hungry Caterpillar Play School",
+    "slug": "hungry-caterpillar-play-school",
+    "description": "Eric Carles klassiker om den sultne larve Aldrigmæt danner ramme om et komplet førskoleunivers i kunstnerens karakteristiske collage-stil. Hungry Caterpillar Play School dækker fem områder – bogstaver, tal og matematik, farver og former, puslespil samt kreativitet – gennem hundredvis af aktiviteter, digitale billedbøger og videoer. Barnet bevæger sig frit mellem områderne og møder larven som gennemgående guide. Æstetikken er rolig og tro mod bøgerne, og pædagogikken er prisbelønnet med blandt andet KAPi Award og Mom's Choice Gold. Reelt får man et helt førskolecurriculum i én app, og aktiviteter kan hentes til offline-brug. Prisen er dog derefter: Abonnementet ligger i den dyre ende, og al tale er på engelsk, så barnet møder engelske bogstavlyde frem for danske. Velegnet til 2-5-årige, der holder af ro og fordybelse – mindre til børn, der søger fart og action.",
+    "shortDescription": "Komplet førskoleunivers med den sultne larve – bogstaver, tal, former og kreativitet",
+    "minAge": 2,
+    "maxAge": 5,
+    "ageGroup": "0-3",
+    "categories": [
+      "læring",
+      "tal",
+      "sprog"
+    ],
+    "skills": [
+      "matematik",
+      "sprogudvikling",
+      "farver",
+      "kreativitet"
+    ],
+    "themes": [
+      "billedbog",
+      "larve",
+      "førskole"
+    ],
+    "platforms": [
+      "iOS",
+      "Android",
+      "Web"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 0,
+    "priceModel": "abonnement",
+    "rating": 4.6,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/hungry-caterpillar-play-school/id1318671922",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.storytoys.hungry.caterpillar.play.school.abc.kids.books.free.android.googleplay",
+    "websiteUrl": null,
+    "developerName": "StoryToys Limited",
+    "parentInfo": "Hungry Caterpillar Play School er abonnementsbaseret uden reklamer; abonnementet tegnes som in-app-køb og ligger prismæssigt i den høje ende sammenlignet med enkeltkøbs-apps. Aktiviteter kan hentes til offline-brug, så appen fungerer på rejser uden internet, og abonnementet giver også adgang via web. Al tale er på engelsk, hvilket især har betydning i bogstavdelen, hvor lydene følger engelsk udtale. Udvikleren StoryToys er et af de mest erfarne studier inden for børneapps og har officiel licens til Eric Carle-universet; appen er prisbelønnet med blandt andet KAPi Award og Mom's Choice Gold og opdateres fortsat aktivt i 2026. Der er ingen eksterne links i børnedelen.",
+    "parentTip": "Læs den danske udgave af bogen om larven Aldrigmæt ved siden af, så barnet får historien og begreberne på dansk parallelt med de engelske aktiviteter.",
+    "pros": [
+      "Rolig, æstetisk pædagogik i verdensklasse",
+      "Bred faglig dækning – et helt førskolecurriculum",
+      "Ingen reklamer",
+      "Offline-brug på rejser"
+    ],
+    "cons": [
+      "Kun engelsk tale",
+      "Abonnementet er relativt dyrt"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Papumba: Kids Learning Games",
+    "slug": "papumba-kids-learning-games",
+    "description": "Over 500 læringsaktiviteter i én app – Papumba satser på bredde. De 2-7-årige vælger frit mellem korte, afgrænsede minispil om bogstaver, tal, former, farver, dyr, musik, hygiejne og tidlig logik, alle med venlige dyrefigurer som følgesvende. Sværhedsgraden kan tilpasses barnets alder, så appen vokser med i flere år, og aktivitetspakker kan hentes til offline-brug på bilture og flyrejser. Appen er kidSAFE-certificeret, uden reklamer og eksterne links, og har været fremhævet som Editor's Choice på Google Play. Til gengæld findes der ingen dansk sprogversion – tale og instruktioner er på engelsk eller et af 14 andre sprog – og abonnementet kan føles dyrt, hvis barnet kun vender tilbage til få af de mange aktiviteter. Som samlet alt-i-én-løsning til småbørnsfamilier, der hellere vil have én gennemtestet app end ti forskellige, er den dog et solidt bud.",
+    "shortDescription": "500+ læringsspil i ét abonnement – bogstaver, tal, dyr og musik for 2-7-årige",
+    "minAge": 2,
+    "maxAge": 7,
+    "ageGroup": "0-3",
+    "categories": [
+      "læring",
+      "tal",
+      "sprog"
+    ],
+    "skills": [
+      "sprogudvikling",
+      "matematik",
+      "logik",
+      "farver"
+    ],
+    "themes": [
+      "dyr",
+      "minispil",
+      "læring"
+    ],
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 0,
+    "priceModel": "abonnement",
+    "rating": 4.4,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/papumba-kids-learning-games/id1267322870",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.papumba.academyforkids",
+    "websiteUrl": null,
+    "developerName": "Papumba LLC",
+    "parentInfo": "Papumba er abonnementsbaseret med over 500 aktiviteter i én samlet pakke; abonnementet tegnes som in-app-køb, og der er hverken reklamer eller eksterne links. Appen er kidSAFE-certificeret, hvilket betyder uafhængig kontrol af børnesikkerheden, og aktivitetspakker kan hentes til offline-brug på rejser. Indholdet findes på 15 sprog, men dansk er ikke blandt dem, så tale og instruktioner vil typisk være på engelsk. Sværhedsgraden kan indstilles efter barnets alder fra 2 til 7 år. Udvikleren Papumba er et etableret børneapp-studie, og appen har været fremhævet som Editor's Choice på Google Play. Prisen ligger på niveau med andre store abonnementsapps, hvilket bliver dyrt, hvis kun få aktiviteter bruges.",
+    "parentTip": "Brug prøveperioden til at se, hvilke aktiviteter barnet faktisk vender tilbage til, før abonnementet får lov at fortsætte.",
+    "pros": [
+      "Meget stort og varieret indhold for én pris",
+      "kidSAFE-certificeret og reklamefri",
+      "Offline-tilstand til bilture og fly",
+      "Sværhedsgrad tilpasses barnets alder"
+    ],
+    "cons": [
+      "Ingen dansk sprogversion",
+      "Abonnement kan være dyrt ved begrænset brug"
+    ],
+    "featured": false,
+    "editorChoice": false
   },
 ];
 
@@ -1179,40 +1367,7 @@ export const games3to6: GameSeedData[] = [
     featured: false,
     editorChoice: false,
   },
-  {
-    title: "Artie's World",
-    slug: "arties-world",
-    description: "En lille robot ved navn Artie er omdrejningspunktet i denne charmerende iOS-app fra Minilab Studios, der introducerer kodning gennem tegning. Barnet giver Artie enkle kommandoer og ser robotten omsætte instruktionerne til streger og figurer på skærmen. På den måde opdager barnet, at programmering i bund og grund handler om at fortælle en maskine, hvad den skal gøre i den rigtige rækkefølge, og undervejs trænes logik, problemløsning og kreativitet i skøn forening. Stilen er enkel og indbydende, og appen er reklamefri, uden køb og virker offline for en lav engangspris. Indholdet er dog ikke stort, så mange børn er igennem det på relativt kort tid, og den findes kun til iOS. En fin første smagsprøve på kodning for børn på 4-8 år, der i forvejen kan lide at tegne.",
-    shortDescription: "Lær at kode gennem tegning",
-    minAge: 4,
-    maxAge: 8,
-    ageGroup: "3-6",
-    categories: ["læring", "kodning", "tegning"],
-    skills: ["kodning", "logik", "kreativitet", "problemløsning"],
-    themes: ["robot", "tegning", "programmering"],
-    platforms: ["iOS"],
-    hasAds: false,
-    hasInAppPurchases: false,
-    isOfflineCapable: true,
-    dataCollection: "ingen",
-    supportsDanish: false,
-    price: 29,
-    priceModel: "engangskøb",
-    rating: 4.3,
-    iconUrl: null,
-    screenshotUrls: [],
-    videoUrl: null,
-    appStoreUrl: null,
-    playStoreUrl: null,
-    websiteUrl: null,
-    developerName: "Minilab Studios",
-    pros: ["Ingen reklamer", "Ingen in-app køb", "Virker offline", "Introduktion til kodning"],
-    cons: ["Kun iOS", "Kort spilletid"],
-    parentTip: "God start på kodning for de mindste - fra tegning til programmering.",
-    featured: false,
-    editorChoice: false,
-  },
-  {
+{
     title: "Daniel Tiger's Neighborhood",
     slug: "daniel-tigers-neighborhood",
     description: "Følelser fylder meget, når man er lille, og netop dét tager denne app fra PBS Kids fat i. Med udgangspunkt i tv-serien Daniel Tiger's Neighborhood leger barnet sig gennem aktiviteter om følelser, venskab og hverdagens små udfordringer sammen med Daniel og hans venner. I stedet for bogstaver og tal trænes de sociale og følelsesmæssige muskler: at genkende følelser, vise empati og finde ro, når noget er svært, blandt andet gennem seriens små sange, som mange forældre kender og kan genbruge i hverdagen. Kvaliteten er som forventet fra PBS høj, der er ingen reklamer, og appen virker offline. Indholdet er dog primært på engelsk, og noget ekstra materiale kræver in-app køb. God til børn på 2-6 år, som skal have hjælp til at sætte ord på de store følelser.",
@@ -1682,40 +1837,7 @@ export const games3to6: GameSeedData[] = [
     featured: true,
     editorChoice: true,
   },
-  {
-    title: "Mumi, Mymlen og Lille My",
-    slug: "mumi-mymlen-og-lille-my",
-    description: "Tove Janssons mumitrolde får nyt liv i denne interaktive bog-app, hvor børn kan opleve historien om Mumi, Mymlen og Lille My med dansk oplæsning. Barnet bladrer gennem fortællingen, trykker på illustrationerne og ser små animationer folde sig ud, mens historien bliver læst højt. Det træner lytning, sprogudvikling og fantasi på en stille og rolig måde, der egner sig godt som godnathistorie. Appen er tro mod den originale fortælling, og illustrationerne har bevaret den nordiske charme fra bøgerne. Der er ingen reklamer eller in-app køb, men appen koster et engangsbeløb og indeholder kun denne ene historie, så oplevelsen er afgrænset. Til gengæld er kvaliteten høj hele vejen igennem. Bedst til 4-8-årige, der holder af rolige fortællinger - og til forældre med et blødt punkt for Mumidalen.",
-    shortDescription: "Interaktiv Mumitrold-historie med dansk oplæsning",
-    minAge: 4,
-    maxAge: 8,
-    ageGroup: "3-6",
-    categories: ["historier", "læsning", "eventyr"],
-    skills: ["læsning", "lytning", "fantasi", "sprogudvikling"],
-    themes: ["Mumitrold", "eventyr", "venskab", "nordisk"],
-    platforms: ["iOS", "Android"],
-    hasAds: false,
-    hasInAppPurchases: false,
-    isOfflineCapable: true,
-    dataCollection: "ingen",
-    supportsDanish: true,
-    price: 39,
-    priceModel: "engangskøb",
-    rating: 4.6,
-    iconUrl: null,
-    screenshotUrls: [],
-    videoUrl: null,
-    appStoreUrl: null,
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.spinfy.moomin",
-    websiteUrl: "https://www.moomin.com",
-    developerName: "Spinfy",
-    pros: ["Klassisk nordisk børnelitteratur", "Dansk oplæsning", "Smukke illustrationer", "Ingen reklamer", "Ingen in-app køb"],
-    cons: ["Engangsbetaling krævet", "Begrænset til én historie"],
-    parentTip: "Perfekt som godnathistorie - kombiner med de fysiske Mumitrold-bøger!",
-    featured: false,
-    editorChoice: false,
-  },
-  {
+{
     title: "Bille & Trille",
     slug: "bille-og-trille",
     description: "Hverdagen i børnehaven er omdrejningspunktet i denne danske læringsapp, hvor Bille og Trille tager barnet med gennem genkendelige situationer fra deres eget liv. Gennem små spil og lege arbejder barnet med tal, bogstaver, former og farver, og sværhedsgraden justeres automatisk efter barnets niveau, så opgaverne hverken bliver for lette eller for svære. Netop genkendeligheden gør appen god til børn, der lige er startet i børnehave - de møder situationer, de kender fra deres egen dag. Alt er på dansk, og der er ingen reklamer. Grundversionen er gratis, men fuld adgang kræver in-app køb, og det gratis indhold er ret begrænset, så regn med at skulle betale, hvis appen bliver et hit. Henvender sig til de 3-7-årige og deres første legende skridt mod skolen.",
@@ -1748,40 +1870,7 @@ export const games3to6: GameSeedData[] = [
     featured: false,
     editorChoice: false,
   },
-  {
-    title: "Sigurd Fortæller",
-    slug: "sigurd-fortaeller",
-    description: "Sigurd Barrett har samlet sine fortællinger om historie, kultur og verden i denne gratis app, hvor børn kan lytte sig klogere. Barnet vælger en historie og hører Sigurd fortælle på sin engagerede, letforståelige måde, der har gjort ham elsket af danske børn. Undervejs vokser ordforrådet, og barnet får viden og en begyndende historieforståelse med i købet - uden at det føles som undervisning. Appen er helt fri for reklamer og in-app køb og virker offline, så den er oplagt til lange bilture eller rolige stunder inden sengetid. Oplevelsen er dog overvejende lyttende, så den kræver et barn, der kan sidde stille og koncentrere sig - de mest fysisk aktive holder næppe ud ret længe ad gangen. For nysgerrige børn fra 4 til 10 år er den til gengæld en lille guldgrube af fortællinger.",
-    shortDescription: "Gratis danske historiefortællinger for nysgerrige børn",
-    minAge: 4,
-    maxAge: 10,
-    ageGroup: "3-6",
-    categories: ["læring", "historier", "kultur"],
-    skills: ["lytning", "viden", "ordforråd", "historieforståelse"],
-    themes: ["historie", "kultur", "verden", "fortællinger"],
-    platforms: ["iOS", "Android"],
-    hasAds: false,
-    hasInAppPurchases: false,
-    isOfflineCapable: true,
-    dataCollection: "ingen",
-    supportsDanish: true,
-    price: 0,
-    priceModel: "gratis",
-    rating: 4.5,
-    iconUrl: null,
-    screenshotUrls: [],
-    videoUrl: null,
-    appStoreUrl: null,
-    playStoreUrl: "https://play.google.com/store/apps/details?id=dk.sigurdfortaeller.app",
-    websiteUrl: null,
-    developerName: "Sigurd Barrett",
-    pros: ["100% gratis", "Ingen reklamer", "Ingen in-app køb", "Dansk fortæller", "Lærerige historier"],
-    cons: ["Kræver at barnet kan sidde stille og lytte", "Passiv oplevelse"],
-    parentTip: "Perfekt til lange bilture eller rolige stunder - lad børnene lære mens de lytter!",
-    featured: true,
-    editorChoice: false,
-  },
-  {
+{
     title: "Poikilingo",
     slug: "poikilingo",
     description: "Sproglæring gennem historier er kernen i Poikilingo, en dansk app der blander interaktive mini-spil med eventyrlige fortællinger. Barnet følger historierne, løser små sprogopgaver undervejs og lærer på den måde nye ord og sætninger i et tempo, der tilpasses barnets niveau. Tilgangen bygger på sprogforskning, der viser, at børn lærer bedst gennem leg og fortælling, og appen er medfinansieret af Innovationsfonden og Det Danske Filminstitut. Der er hverken reklamer eller in-app køb, og historierne kan hentes hjemmefra, så de virker offline - selve downloadet kræver dog internet, og den gratis adgang har været tidsbegrænset, så tjek de aktuelle vilkår. Et fint supplement til danskundervisningen for børn på 4-10 år, der godt kan lide at få læring serveret som fortælling.",
@@ -2029,6 +2118,286 @@ export const games3to6: GameSeedData[] = [
     parentTip: "Kombiner med rigtige Crayola-farver for at overføre det digitale til fysisk kreativitet.",
     featured: false,
     editorChoice: false,
+  },
+  {
+    "title": "Crayola Adventures",
+    "slug": "crayola-adventures",
+    "description": "Vinderen af Apple Design Award 2024 i kategorien Inclusivity er et kreativt fortællespil, hvor barnet farvelægger, designer figurer og bygger sine egne historier i et farvestrålende Crayola-univers. Figurskaberen rummer forskellige hudfarver, kropstyper og hjælpemidler, så alle børn kan skabe en figur, der ligner dem selv, og al tekst kan læses højt, så også ikke-læsere kan følge med. Produktionskvaliteten er usædvanligt høj, og læringsmæssigt trænes kreativitet, fortælleglæde og finmotorik snarere end bogstaver og tal. Fordi spillet udgives på Apple Arcade, er der hverken reklamer eller in-app-køb, og det kan spilles offline. Bagsiden er tilgængeligheden: Det findes kun på Apple-enheder gennem Arcade-abonnementet, og al tale er på engelsk. Bedst til børn fra fire år, der elsker at tegne og digte historier – og til familier, der allerede har Apple Arcade.",
+    "shortDescription": "Prisvindende fortællespil på Apple Arcade – farvelæg, skab figurer og byg historier",
+    "minAge": 4,
+    "maxAge": 8,
+    "ageGroup": "3-6",
+    "categories": [
+      "kreativitet",
+      "eventyr"
+    ],
+    "skills": [
+      "kreativitet",
+      "sprogudvikling",
+      "finmotorik"
+    ],
+    "themes": [
+      "farver",
+      "historier",
+      "tegning"
+    ],
+    "platforms": [
+      "iOS"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 0,
+    "priceModel": "abonnement",
+    "rating": 4.7,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/crayola-adventures/id6444109249",
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "Red Games Co.",
+    "parentInfo": "Crayola Adventures fås udelukkende gennem Apple Arcade, der koster cirka 59 kr. om måneden og kan deles med hele familien via Familiedeling – abonnementet giver samtidig adgang til mange andre børnevenlige spil. Netop fordi det er en Arcade-titel, er der hverken reklamer eller in-app-køb overhovedet, og spillet kan spilles offline efter download. Indholdet er på engelsk, men fuld oplæsning af al tekst gør det tilgængeligt for børn, der endnu ikke læser. Udvikleren Red Games Co. står også bag Crayola Create and Play og har erfaring med børnetitler, og spillet vandt Apple Design Award 2024 for sit inkluderende design. Det findes ikke til Android og kan ikke købes som enkeltstående app.",
+    "parentTip": "Har I allerede Apple Arcade via et Apple One-abonnement, er spillet reelt uden ekstra omkostning – tjek det, før I tegner noget nyt.",
+    "pros": [
+      "Apple Design Award-vinder 2024",
+      "Inkluderende figurskaber med hudfarver og hjælpemidler",
+      "Fuld oplæsning hjælper ikke-læsere",
+      "Ingen reklamer eller in-app-køb"
+    ],
+    "cons": [
+      "Kun på Apple-enheder via Apple Arcade",
+      "Kun engelsk tale"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Play ABC – Alfons Åberg",
+    "slug": "play-abc-alfie-atkins",
+    "description": "Alfons Åberg og hans far inviterer indenfor i lejligheden, hvor bogstaver og lyde gemmer sig i hverdagens scener. I Play ABC bygger barnet ord, lytter til bogstavlyde, rimer og løser små sprogopgaver sammen med den velkendte figur – med fuld dansk tale og tekst, hvilket gør den til en af de få store nordiske ABC-apps af høj kvalitet. Netop dansk lyd er afgørende, når det gælder bogstavlyde: Barnet træner lydlig opmærksomhed, ordforråd og bogstavkendskab med de lyde, det senere skal læse med. Universet er trygt og genkendeligt fra bøger og tv, og der er hverken reklamer eller eksterne links. Grafikken og opgavetyperne er enklere end i de store internationale abonnementsapps, og indholdsmængden er mindre – til gengæld kan man prøve gratis og låse alt op med ét engangskøb. Passer til 4-6-årige, der er begyndt at interessere sig for bogstaver.",
+    "shortDescription": "Dansk ABC-app med Alfons Åberg – bogstavlyde, ordbygning og rim",
+    "minAge": 4,
+    "maxAge": 6,
+    "ageGroup": "3-6",
+    "categories": [
+      "sprog",
+      "læring"
+    ],
+    "skills": [
+      "sprogudvikling",
+      "læsning",
+      "koncentration"
+    ],
+    "themes": [
+      "bogstaver",
+      "Alfons",
+      "hverdag"
+    ],
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": true,
+    "price": 0,
+    "priceModel": "freemium",
+    "rating": 4.2,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/play-abc-alfie-atkins/id1378866718",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.groplay.abcalfons",
+    "websiteUrl": null,
+    "developerName": "Gro Play Digital AB",
+    "parentInfo": "Play ABC er gratis at hente og afprøve; det fulde indhold låses op med ét engangskøb i appen, så der er intet løbende abonnement. Der er ingen reklamer og ingen eksterne links, og appen fungerer offline, når den er hentet. Al tale og tekst er på dansk, hvilket er sjældent for ABC-apps af denne kvalitet og gør den direkte anvendelig til danske børns tidlige sprogudvikling. Udvikleren Gro Play Digital er et svensk studie med flere Alfons Åberg-apps og naturspillet Grow Forest bag sig. Appen har over 16.000 vurderinger globalt med et snit omkring 4,2 stjerner og blev senest opdateret i 2025, så den vedligeholdes fortsat.",
+    "parentTip": "Lad barnet gentage bogstavlydene højt efter Alfons – det er lydene, ikke bogstavernes navne, der bærer den senere læseindlæring.",
+    "pros": [
+      "Dansk tale og tekst",
+      "Trygt, velkendt nordisk univers uden reklamer",
+      "Gratis at afprøve før køb",
+      "Engangskøb frem for abonnement"
+    ],
+    "cons": [
+      "Enklere grafik og opgaver end de store abonnementsapps",
+      "Fuldt indhold kræver in-app-køb"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Grow Forest",
+    "slug": "grow-forest",
+    "description": "En skov, der skal plantes, passes og forstås – det er hele præmissen i Grow Forest fra svenske Gro Play. Barnet planter træer, tager sig af skovens dyr og bygger langsomt en levende skov op, mens spillet på børnehøjde forklarer fotosyntese, dyrs levesteder, genbrug og samspillet mellem mennesker og natur. Der er ingen konkurrence, point eller tidspres; tempoet er roligt og undersøgende, og alt foregår på dansk. Prismodellen er lige så sympatisk som temaet: ét engangskøb på 39 kr., ingen reklamer og ingen in-app-køb. Natur og bæredygtighed er et sjældent tema i apps til aldersgruppen, og det gør Grow Forest til et velkomment supplement. Man skal dog vide, at indholdsmængden er begrænset – mange børn har set det meste efter nogle uger – og at spillet er for svært for de mindste. Bedst fra 4-5 år og opefter, gerne med en voksen, der kan tale med om skovens kredsløb.",
+    "shortDescription": "Plant og pas din egen skov på dansk – natur og bæredygtighed på børnehøjde",
+    "minAge": 4,
+    "maxAge": 8,
+    "ageGroup": "3-6",
+    "categories": [
+      "natur",
+      "dyr",
+      "læring"
+    ],
+    "skills": [
+      "problemløsning",
+      "logik",
+      "koncentration"
+    ],
+    "themes": [
+      "skov",
+      "bæredygtighed",
+      "dyr"
+    ],
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": true,
+    "price": 39,
+    "priceModel": "engangskøb",
+    "rating": 4.3,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/grow-forest-full-version/id1559516382",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.groplay.growforestfullversion",
+    "websiteUrl": null,
+    "developerName": "Gro Play Digital AB",
+    "parentInfo": "Grow Forest købes som komplet version til 39 kr. i ét engangskøb – der er ingen reklamer, ingen in-app-køb og intet abonnement. Vil man teste interessen først, findes der også en gratis prøveversion i app-butikkerne. Spillet fungerer offline og kræver ikke internetforbindelse under leg. Der er fuld dansk sprogversion i både tale og tekst. Udvikleren Gro Play Digital fra Sverige er specialiseret i børneapps om natur og bæredygtighed og står også bag Alfons Åberg-apps som Play ABC; spillet er senest opdateret i 2025. Indholdsmængden er mindre end i de store abonnementsapps, hvilket den lave engangspris til gengæld afspejler.",
+    "parentTip": "Tag temaet med ud i virkeligheden: Gå en tur i skoven og lad barnet genkende dyr, træer og kredsløb fra spillet.",
+    "pros": [
+      "Ærlig prismodel: ét engangskøb uden reklamer",
+      "Dansk sprog og sjældent naturtema",
+      "Rolig leg uden konkurrence og tidspres",
+      "Fungerer helt offline"
+    ],
+    "cons": [
+      "Begrænset indhold – kan være færdigleget efter uger",
+      "For svært for børn under 4 år"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Mini Morfi – leg med matematik",
+    "slug": "mini-morfi",
+    "description": "Danskudviklede Mini Morfi fra Fuzzy House gør tidlig matematik til fri leg i en finurlig lille by. Barnet udforsker geometriske former i Bibis dyrehandel, sammenligner størrelser hos Molly og Polly og leger med mønstre i Alfies planteskole - uden point, niveauer eller tidspres. Matematikken ligger i selve legen: at sortere, sammenligne og få øje på mønstre og former i omgivelserne. Appen er kulturstøttet og derfor helt gratis, uden reklamer og uden køb, og den er fremhævet af Det Danske Filminstitut. På minimorfi.dk ligger desuden kreative offline-aktiviteter, der forlænger legen væk fra skærmen. Indholdsmængden er dog beskeden sammenlignet med de store internationale apps, og appen er ikke opdateret siden 2023. Til 4-6-årige, der skal møde matematikkens grundbegreber legende og på dansk, er den et oplagt sted at starte.",
+    "shortDescription": "Gratis dansk matematik-leg for 4-6-årige – former, størrelser og mønstre",
+    "minAge": 4,
+    "maxAge": 6,
+    "ageGroup": "3-6",
+    "categories": [
+      "tal",
+      "læring",
+      "leg"
+    ],
+    "skills": [
+      "matematik",
+      "logik",
+      "farver"
+    ],
+    "themes": [
+      "former",
+      "mønstre",
+      "by"
+    ],
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": true,
+    "price": 0,
+    "priceModel": "gratis",
+    "rating": 4.1,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/mini-morfi-leg-med-matematik/id1592657014",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.fuzzyhouse.MiniMorfi",
+    "websiteUrl": null,
+    "developerName": "Fuzzy House ApS",
+    "parentInfo": "Mini Morfi er helt gratis – ingen reklamer, ingen in-app-køb og intet abonnement, fordi appen er en kulturstøttet dansk produktion. Den fungerer offline og kræver ikke internetforbindelse under leg. Alt indhold er på dansk. Udvikleren Fuzzy House er et prisvindende dansk studie, og appen er omtalt hos Det Danske Filminstitut og indgår i Filmcentralens Børnebiffen-materiale, hvilket giver en usædvanlig stærk pædagogisk blåstempling. På minimorfi.dk findes supplerende kreative aktiviteter til brug uden skærm. Det væsentligste forbehold er teknisk: Appen er ikke opdateret siden 2023, så der er en vis risiko for, at den med tiden ikke følger med nye iOS- og Android-versioner.",
+    "parentTip": "Hent de kreative aktiviteter på minimorfi.dk og fortsæt legen med former og mønstre ved spisebordet eller på gåturen.",
+    "pros": [
+      "Dansk udviklet, dansk sprog og helt gratis",
+      "Ingen reklamer eller køb overhovedet",
+      "Fri leg-tilgang til tidlig matematik",
+      "Fremhævet af Det Danske Filminstitut"
+    ],
+    "cons": [
+      "Begrænset indholdsmængde",
+      "Ikke opdateret siden 2023"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Moka Mera Emotions",
+    "slug": "moka-mera-emotions",
+    "description": "Hvordan ser vred ud? Og hvad med stolt? Moka Mera Emotions lader 3-6-årige udforske 20 følelser med deres eget ansigt: Barnet trykker på en emotikon, og kameraet forvandler ansigtet med et følelses-filter, som barnet kan spejle, efterligne og tage billeder af. For de mindste kan appen indstilles til kun at vise 7 kernefølelser, og billedkort med monsteret Moka Mera lægger op til samtaler om, hvornår man selv har følt sådan. Følelsesmæssig udvikling er et overset hjørne i de fleste app-samlinger, og her behandles det legende og uden løftede pegefingre. Appen fra finske Moilo er helt gratis, uden reklamer, uden køb og uden dataindsamling, og den virker fuldt offline. Der findes ingen dansk sprogversion, men indholdet er stort set sprogfrit. Man skal dog ikke forvente et spil: Indholdet er smalt og fungerer bedst som pædagogisk redskab sammen med en voksen, der sætter ord på følelserne.",
+    "shortDescription": "Gratis følelsesapp – barnet spejler og efterligner 20 følelser med kameraet",
+    "minAge": 3,
+    "maxAge": 6,
+    "ageGroup": "3-6",
+    "categories": [
+      "følelser",
+      "leg"
+    ],
+    "skills": [
+      "følelser",
+      "koncentration"
+    ],
+    "themes": [
+      "følelser",
+      "ansigter",
+      "spejling"
+    ],
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "ingen",
+    "supportsDanish": false,
+    "price": 0,
+    "priceModel": "gratis",
+    "rating": 4.4,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/moka-mera-emotions/id1532235821",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.moilo.emotions",
+    "websiteUrl": null,
+    "developerName": "Moilo Oy Ab",
+    "parentInfo": "Moka Mera Emotions er helt gratis uden reklamer, uden in-app-køb og uden dataindsamling – en usædvanligt ren pakke. Appen fungerer 100 % offline, og kameraet bruges kun til følelses-filtrene i selve legen; der indsamles ingen data. Indholdet er ikke på dansk, men reelt sprogfrit, så danske børn kan bruge appen uden problemer. Udvikleren Moilo er et finsk studie, der også står bag den ansete sprogapp Moka Mera Lingua, og appen blev senest opdateret i november 2025. En indstilling begrænser udvalget til 7 kernefølelser for de mindste, og medfølgende billedkort understøtter samtaler om følelser. Appen er tænkt som pædagogisk redskab snarere end underholdning.",
+    "parentTip": "Brug appen som samtalestarter: Lav ansigterne sammen og spørg, hvornår barnet sidst selv følte netop den følelse.",
+    "pros": [
+      "Unikt fokus på følelsesmæssig udvikling",
+      "Helt gratis, offline og uden dataindsamling",
+      "Stort set sprogfri – fungerer for danske børn",
+      "Kan begrænses til 7 kernefølelser"
+    ],
+    "cons": [
+      "Smalt indhold – mere redskab end spil",
+      "Kræver en voksen for at give fuldt udbytte"
+    ],
+    "featured": false,
+    "editorChoice": false
   },
 ];
 
@@ -3030,6 +3399,592 @@ export const games7to10: GameSeedData[] = [
     parentTip: "God som 'sikker hjemmebase' når børn vil spille online - alt er gennemgået for sikkerhed.",
     featured: false,
     editorChoice: false,
+  },
+  {
+    "title": "Little Kitty, Big City",
+    "slug": "little-kitty-big-city",
+    "description": "Katten er faldet ned fra sin højhuslejlighed og skal finde vej hjem gennem et japansk-inspireret bykvarter – det er hele præmissen i dette afslappede udforskningsspil. Barnet klatrer, vælter ting ned fra hylder, samler sjove hatte og hjælper byens skæve dyrefigurer med små opgaver. Der er ingen kampe, intet tidspres og ingen måde at tabe på, så også utrænede spillere kan gå på opdagelse i eget tempo. Undervejs øver barnet rumlig orientering og at læse enkle opgavemål, og de korte quests passer godt til børns koncentrationsspænd. Spillet fik meget positive anmeldelser ved udgivelsen i 2024, og humoren rammer bredt. Til gengæld er historien ret kort – fire til seks timer – hvilket kan føles tyndt for prisen. Bedst til nysgerrige børn fra omkring 7 år, der elsker katte og fri leg uden krav.",
+    "shortDescription": "Afslappet katteeventyr i storbyen – klatre, udforske og lave numre helt uden kamp og tidspres.",
+    "minAge": 7,
+    "maxAge": 12,
+    "ageGroup": "7+",
+    "categories": [
+      "eventyr",
+      "hygge",
+      "familie"
+    ],
+    "skills": [
+      "udforskning",
+      "problemløsning",
+      "koncentration"
+    ],
+    "themes": [
+      "katte",
+      "storby",
+      "humor"
+    ],
+    "platforms": [
+      "PC",
+      "Nintendo",
+      "PlayStation",
+      "Xbox"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 185,
+    "priceModel": "engangskøb",
+    "rating": 4.4,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": null,
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "Double Dagger Studio",
+    "parentInfo": "Little Kitty, Big City koster cirka 185 kroner som engangskøb på pc, Nintendo Switch, PlayStation og Xbox – der er hverken reklamer eller køb inde i spillet, og det kan spilles helt uden internetforbindelse efter installation. Indholdet er fuldstændig fredeligt: ingen kamp, ingen skræmmende scener og ingen mulighed for at dø, kun kattestreger som at vælte ting og drille byens beboere. Spillet er ikke oversat til dansk, men kræver kun ganske lidt læsning, da opgaverne vises visuelt. Double Dagger Studio er et lille amerikansk studie, hvis debutspil blev udgivet i maj 2024 til meget positive anmeldelser og nomineringer i familie- og debutkategorier ved branchepriser. Hovedhistorien varer typisk fire til seks timer.",
+    "parentTip": "Spil de første baner sammen og oversæt de få engelske opgavetekster – derefter kan de fleste børn selv finde rundt ved hjælp af kortets ikoner.",
+    "pros": [
+      "Helt uden vold, tidspres og fejltilstande",
+      "Korte, tilfredsstillende opgaver der passer til børns koncentration",
+      "Ærlig engangspris uden reklamer eller mikrokøb",
+      "Humor der fungerer for både børn og voksne"
+    ],
+    "cons": [
+      "Ingen dansk oversættelse",
+      "Kort hovedhistorie på 4-6 timer i forhold til prisen"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Tiny Glade",
+    "slug": "tiny-glade",
+    "description": "Et rent byggelegetøj uden mål, fjender eller ressourcer: Barnet 'tegner' løst på en lille grøn eng, og spillet forvandler automatisk stregerne til smukke middelalderslotte, hytter og haver med efeu, vinduer og snoede stier. Alt justeres i realtid, så hvert eksperiment belønnes med det samme, og det er bogstaveligt talt umuligt at gøre noget forkert. Oplevelsen minder mere om LEGO eller tegning end om et klassisk spil og træner rumlig kreativitet, æstetisk sans og lysten til at prøve sig frem. Kvaliteten er høj – Steam-anmeldelserne er overvældende positive, spillet var nomineret til bedste debut ved The Game Awards, og grafikken imponerer selv voksne. Der er dog ingen progression eller opgaver; børn, der har brug for mål, kan miste interessen efter nogle timer. Bedst til kreative børn og unge, der vil bygge egne små verdener – og det findes kun til pc.",
+    "shortDescription": "Kravløst byggespil hvor løse streger bliver til smukke slotte og haver – ren kreativitet.",
+    "minAge": 7,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "categories": [
+      "kreativitet",
+      "byggeri",
+      "hygge"
+    ],
+    "skills": [
+      "kreativitet",
+      "planlægning",
+      "udforskning"
+    ],
+    "themes": [
+      "slotte",
+      "natur",
+      "arkitektur"
+    ],
+    "platforms": [
+      "PC"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "ingen",
+    "supportsDanish": false,
+    "price": 110,
+    "priceModel": "engangskøb",
+    "rating": 4.7,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": null,
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "Pounce Light",
+    "parentInfo": "Tiny Glade koster omkring 110 kroner som engangskøb på Steam til Windows, Mac og Linux – der findes ingen tablet- eller konsolversion. Spillet indeholder ingen reklamer, ingen køb undervejs og fungerer fuldt ud uden internet. Indholdet er hundrede procent fredeligt: Der er ingen figurer at bekæmpe, ingen historie og ingen tekst af betydning, så manglende dansk oversættelse er i praksis uden betydning. Pounce Light er et lille uafhængigt studie på to udviklere, hvis debutspil udkom i september 2024 og hurtigt opnåede 'Overwhelmingly Positive' anmeldelser på Steam samt en nominering ved The Game Awards. Spillet stiller kun beskedne krav til computeren, men en ældre bærbar uden grafikkort kan få det til at hakke.",
+    "parentTip": "Foreslå barnet en lille selvvalgt opgave – fx 'byg en borg til en drage' – hvis den frie leg går i stå; det giver bygningen retning uden at spillet selv stiller krav.",
+    "pros": [
+      "Umuligt at fejle – ren, presfri kreativitet",
+      "Smuk grafik der belønner eksperimenter med det samme",
+      "Engangskøb uden reklamer, fungerer helt offline",
+      "Kræver ingen læsefærdigheder"
+    ],
+    "cons": [
+      "Findes kun til pc",
+      "Ingen mål eller progression – kan kede børn der vil have opgaver"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Botany Manor",
+    "slug": "botany-manor",
+    "description": "På et engelsk herresæde i 1890'erne spiller barnet botanikeren Arabella Greene, der skal få glemte, magiske planter til at spire igen. Hver plante er en deduktionsgåde: Ledetrådene gemmer sig i breve, plakater og bøger rundt om på godset, og barnet skal kombinere den rette jord, temperatur, lysmængde og udløsende betingelse for at knække koden. Det ligner en stille spadseretur i smukke omgivelser, men træner reelt læseforståelse, kombination af noter og videnskabelig hypotesetestning – helt uden fjender, timere eller mulighed for at fejle. Spillet udkom i april 2024 med en Metascore på 82 og roses som et af årets bedste puslespil til familier. Den største hurdle er sproget: Al tekst er på engelsk, og gåderne kræver solide læsefærdigheder, så det passer realistisk til børn fra 9-10 år med støtte. Spilletiden er desuden kun 4-5 timer med begrænset genspilningsværdi.",
+    "shortDescription": "Roligt detektiv-puslespil hvor barnet dyrker magiske planter ved at kombinere ledetråde.",
+    "minAge": 9,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "categories": [
+      "puslespil",
+      "hygge",
+      "eventyr"
+    ],
+    "skills": [
+      "logik",
+      "læsning",
+      "problemløsning"
+    ],
+    "themes": [
+      "planter",
+      "mysterier",
+      "videnskab"
+    ],
+    "platforms": [
+      "PC",
+      "Nintendo",
+      "Xbox",
+      "PlayStation"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 186,
+    "priceModel": "engangskøb",
+    "rating": 4.4,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": null,
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "Balloon Studios / Whitethorn Games",
+    "parentInfo": "Botany Manor koster cirka 186 kroner som engangskøb på pc, Nintendo Switch og PlayStation og er desuden med i Xbox Game Pass, hvis familien allerede abonnerer dér. Der er ingen reklamer eller køb i spillet, og det kan spilles offline. Indholdet er helt fredeligt – ingen vold, ingen uhygge, kun botanik, breve og gåder i rolige, lyse omgivelser. Spillet er ikke oversat til dansk, og da gåderne bygger på at læse og kombinere engelske tekstuddrag, er sproget den reelle aldersbarriere snarere end sværhedsgraden. Whitethorn Games er kendt som udgiver af rolige, tilgængelige spil, og titlen opnåede en Metascore på 82 ved udgivelsen i april 2024. En gennemspilning tager omkring fire til fem timer.",
+    "parentTip": "Sid med i starten og hjælp med at oversætte de engelske ledetråde – gåderne i sig selv kan barnet ofte løse, når teksten først er forstået, og det giver en god fælles detektivfølelse.",
+    "pros": [
+      "Ægte deduktion der giver barnet følelsen af at være klog",
+      "Videnskabelig tilgang: hypotese, test, konklusion",
+      "Ingen fjender, timere eller fejltilstande",
+      "Med i Xbox Game Pass"
+    ],
+    "cons": [
+      "Kræver ret gode engelske læsefærdigheder",
+      "Kort spilletid på 4-5 timer og lav genspilningsværdi"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Snufkin: Melody of Moominvalley",
+    "slug": "snufkin-melody-of-moominvalley",
+    "description": "Snusmumrikken vender hjem til Mumidalen og opdager, at en parkbetjent har dækket den vilde natur med sterile, regelfyldte parker – og barnet skal nu give dalen sin frihed tilbage. Spillet blander rolig udforskning, musikgåder, hvor mundharmonikaen påvirker dyr og genstande, og lette snigepassager, hvor parkskilte skal pilles ned. Der er ingen kamp overhovedet. Universet bygger direkte på Tove Janssons bøger med håndmalet grafik og musik med bidrag fra Sigur Rós, og budskabet om natur og frihed formidles blidt uden løftede pegefingre. En sjældenhed i denne klasse: Steam- og konsolversionerne har dansk tekst, så barnet kan opleve historien på sit eget sprog. iOS-udgaven er dog kun på engelsk og sælges som gratis prøve med et engangskøb, og snigedelene kan kortvarigt frustrere de yngste. Til rolige børn fra 7 år – og oplagt for familier, der i forvejen holder af mumitroldene.",
+    "shortDescription": "Stemningsfuldt mumi-eventyr med musikgåder og dansk tekst – roligt og helt uden kamp.",
+    "minAge": 7,
+    "maxAge": 13,
+    "ageGroup": "7+",
+    "categories": [
+      "eventyr",
+      "puslespil",
+      "hygge"
+    ],
+    "skills": [
+      "udforskning",
+      "problemløsning",
+      "koncentration"
+    ],
+    "themes": [
+      "mumitrolde",
+      "natur",
+      "musik"
+    ],
+    "platforms": [
+      "PC",
+      "Nintendo",
+      "iOS",
+      "PlayStation"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": true,
+    "price": 149,
+    "priceModel": "engangskøb",
+    "rating": 4.2,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/snufkin-melody-of-moominvalley/id6741589066",
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "Hyper Games",
+    "parentInfo": "På Steam, Nintendo Switch og PlayStation er Snufkin et almindeligt engangskøb til omkring 149 kroner, mens iOS-versionen hentes gratis og låses op med ét enkelt køb efter prøveperioden – det er spillets eneste form for køb, og der er ingen reklamer. Spillet fungerer offline. Indholdet er fredeligt: ingen kamp, kun let snigeri forbi parkbetjente, som højst ender med at blive sat tilbage. Vigtigt for danske familier: Pc- og konsolversionerne har dansk tekst, mens iOS-udgaven kun findes på engelsk. Norske Hyper Games har udviklet spillet i officielt samarbejde med rettighedshaverne bag Tove Janssons mumi-univers, og både grafik og musik – med bidrag fra Sigur Rós – ligger i den høje ende for genren.",
+    "parentTip": "Vælg pc- eller Switch-versionen frem for iOS, hvis dansk tekst er vigtig for jeres barn – indholdet er ellers det samme.",
+    "pros": [
+      "Dansk tekst på pc- og konsolversionerne",
+      "Trofast mod Tove Janssons mumi-univers",
+      "Roligt, musikbåret gameplay uden kamp",
+      "Positivt budskab om natur og frihed"
+    ],
+    "cons": [
+      "iOS-versionen er kun på engelsk",
+      "Snigepassagerne kan kortvarigt frustrere de yngste"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "The Plucky Squire",
+    "slug": "the-plucky-squire",
+    "description": "Jot er helten i en børnebog – lige indtil han opdager, at han kan hoppe ud af bogens sider og op på skrivebordet hos det barn, der ejer den. Spillet skifter konstant mellem tegnede 2D-bogsider og en 3D-verden af blyanter og legetøj, og barnet løser ordgåder ved at bytte ord i selve historien, klarer minispil og kæmper lette, Zelda-inspirerede kampe. Konceptet hylder bøger og sprog på en måde, man sjældent ser, og produktionskvaliteten er høj – det ligner en levende billedbog og blev nomineret til bedste familiespil ved The Game Awards 2024 med en Metascore på 83. Sværhedsgraden kan skrues ned til en historievenlig tilstand, så mindre øvede spillere kan følge med. Forældre skal dog vide, at der er mild tegneseriesværdkamp (PEGI 7), og at ordgåderne kræver rimeligt engelsk. Bedst fra 8 år, gerne med en voksen i nærheden til de sværeste ordspil.",
+    "shortDescription": "Opfindsomt eventyr der hopper mellem 2D-bogsider og 3D-verden – en hyldest til bøger og ord.",
+    "minAge": 8,
+    "maxAge": 14,
+    "ageGroup": "7+",
+    "categories": [
+      "eventyr",
+      "puslespil",
+      "action"
+    ],
+    "skills": [
+      "problemløsning",
+      "læsning",
+      "logik"
+    ],
+    "themes": [
+      "bøger",
+      "eventyr",
+      "ord"
+    ],
+    "platforms": [
+      "PC",
+      "Nintendo",
+      "PlayStation",
+      "Xbox"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 224,
+    "priceModel": "engangskøb",
+    "rating": 4.3,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": null,
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "All Possible Futures / Devolver Digital",
+    "parentInfo": "The Plucky Squire koster omkring 224 kroner som engangskøb på pc, Nintendo Switch, PlayStation og Xbox. Der er ingen reklamer eller køb i spillet, og det kan spilles uden internetforbindelse. Indholdsmæssigt skal man kende til den milde tegneseriesværdkamp: Jot slår fjender med et lille sværd, helt uden blod eller uhygge, og spillet bærer et PEGI 7-mærke. En justerbar sværhedsgrad med historietilstand gør kampene overkommelige for mindre øvede spillere. Spillet findes ikke på dansk, og ordgåderne – hvor engelske ord byttes rundt i historien – forudsætter et vist engelskniveau. Udgiveren Devolver Digital er veletableret, og spillet opnåede en Metascore på 83 samt en nominering til bedste familiespil ved The Game Awards 2024.",
+    "parentTip": "Slå historietilstanden til fra start, hvis barnet er under 10 eller uøvet – så bliver kampene aldrig en stopklods for den del, der virkelig bærer spillet: historien og ordgåderne.",
+    "pros": [
+      "Original 2D/3D-bogverden der fejrer sprog og læsning",
+      "Justerbar sværhedsgrad med historievenlig tilstand",
+      "Høj produktionskvalitet, som en levende billedbog",
+      "Engangskøb uden reklamer eller mikrokøb"
+    ],
+    "cons": [
+      "Mild tegneseriesværdkamp (PEGI 7)",
+      "Engelske ordgåder kræver gode sprogfærdigheder",
+      "I den dyre ende"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Cat Quest III",
+    "slug": "cat-quest-iii",
+    "description": "Piratkatte, skattejagt og et farverigt åbent hav: I dette action-rollespil sejler barnet rundt i 'Purribean', jager skatte, opgraderer udstyr og kæmper mod tegneserie-rotter. Kampsystemet er enkelt – undvig og slå til – uden blod eller uhygge, og hele historien er skrevet i muntre katteordspil på engelsk. Den store styrke er lokal co-op: En forælder eller søskende kan hoppe med når som helst og spille hele eventyret sammen på sofaen – en blid introduktion til rollespilsbegreber som udstyr og sidequests. Spillet fik en Metascore på 83 i 2024, og iOS-versionen er en fuld premium-port med gratis prøveperiode og ét oplåsningskøb. Det er dog det mest kamptunge spil i denne guide; der kæmpes gennem det meste af spilletiden, så familier, der ønsker helt fredelige spil, bør kigge videre. Til børn fra cirka 9 år, der er klar til deres første rigtige rollespil.",
+    "shortDescription": "Farverigt pirat-rollespil med katte og lokal co-op – blid introduktion til RPG-genren.",
+    "minAge": 9,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "categories": [
+      "eventyr",
+      "action",
+      "familie"
+    ],
+    "skills": [
+      "samarbejde",
+      "planlægning",
+      "udforskning"
+    ],
+    "themes": [
+      "katte",
+      "pirater",
+      "skatte"
+    ],
+    "platforms": [
+      "PC",
+      "Nintendo",
+      "PlayStation",
+      "Xbox",
+      "iOS"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 149,
+    "priceModel": "engangskøb",
+    "rating": 4.4,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/cat-quest-iii/id1551304183",
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "The Gentlebros",
+    "parentInfo": "Cat Quest III koster omkring 149 kroner som engangskøb på pc og konsoller, mens iOS-udgaven hentes gratis og låses op med ét enkelt køb efter prøveperioden – der er ingen reklamer og ingen andre køb. Spillet fungerer offline. Indholdet er det mest actionprægede i denne guide: Der kæmpes mod tegneserie-pirater gennem det meste af spillet, men uden blod, og tonen er gennemført munter. Al tekst er på engelsk med mange ordspil, dog kan historien følges nogenlunde uden at forstå hvert ord. Den lokale co-op betyder, at en voksen eller søskende kan spille hele eventyret med. The Gentlebros er et etableret singaporeansk studie med tre roste Cat Quest-spil bag sig, og denne del opnåede en Metascore på 83.",
+    "parentTip": "Prøv den gratis iOS-prøveperiode først, hvis I er i tvivl om kampene passer til jeres barn – og spil gerne med som spiller to, det gør de svære bosser meget lettere.",
+    "pros": [
+      "Fuld lokal co-op til forælder-barn eller søskende",
+      "Tilgivende kampsystem der lærer RPG-grundbegreber blidt",
+      "Ærlig premium-model på både Steam og iOS",
+      "Gratis prøveperiode på iOS"
+    ],
+    "cons": [
+      "Tegneseriekamp fylder det meste af spilletiden",
+      "Kun på engelsk"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "PICO PARK 2",
+    "slug": "pico-park-2",
+    "description": "Samarbejde er ikke bare en mulighed her – det er selve spillet. I PICO PARK 2 styrer 2-8 spillere hver deres lille kat, og banerne kan kun løses, hvis alle bogstaveligt talt arbejder sammen: stabler sig oven på hinandens hoveder, sender nøgler videre i kæde og timer hop præcist. Reglerne forklares ordløst og visuelt, så hverken alder eller sprog spiller nogen rolle, og banerne er så korte, at en fejl blot betyder en hurtig genstart – som regel efterfulgt af latter. Barnet træner kommunikation, turtagning og tålmodighed på en måde, få andre spil kan matche, og prisen på omkring 55 kroner er helt uden købspres. To forbehold: Spillet kræver mindst to spillere og har intet meningsfuldt soloindhold, og de kaotiske baner kan udløse søskendeskænderier lige så let som samarbejde. Med de rette forventninger er det dog familiehygge af høj karat fra 7 år og opefter.",
+    "shortDescription": "Rendyrket samarbejdsspil for 2-8 spillere – banerne kan kun løses, hvis alle hjælper hinanden.",
+    "minAge": 7,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "categories": [
+      "samarbejde",
+      "familie",
+      "puslespil"
+    ],
+    "skills": [
+      "samarbejde",
+      "problemløsning",
+      "koncentration"
+    ],
+    "themes": [
+      "katte",
+      "samarbejde",
+      "fest"
+    ],
+    "platforms": [
+      "PC",
+      "Nintendo",
+      "PlayStation",
+      "Xbox"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 56,
+    "priceModel": "engangskøb",
+    "rating": 4.3,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": null,
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "TECOPARK / Gemdrops",
+    "parentInfo": "PICO PARK 2 koster kun omkring 56 kroner som engangskøb på pc, Nintendo Switch, PlayStation og Xbox – uden reklamer, uden køb i spillet og uden abonnementer. Lokal sofaspil kræver ingen internetforbindelse, mens online-spil med venner og cross-platform naturligvis gør. Indholdet er fuldstændig harmløst: små tegneseriekatte, der hopper og skubber, uden nogen form for vold eller uhygge. Spillet er ordløst designet, så manglende dansk oversættelse betyder intet i praksis. Vær opmærksom på, at der skal mindst to spillere og to controllere til, før spillet overhovedet giver mening – som solospil er det ubrugeligt. Japanske TECOPARK står bag forgængeren PICO PARK, der blev et viralt familiefænomen, og efterfølgeren fra 2024 udvider opskriften med flere baner og spiltyper.",
+    "parentTip": "Aftal på forhånd, at man griner ad fejl i stedet for at give hinanden skylden – banerne er designet til kaos, og den indstilling afgør, om aftenen ender i hygge eller skænderi.",
+    "pros": [
+      "Tvinger ægte kommunikation og samarbejde frem",
+      "Meget billigt og helt uden monetiseringstricks",
+      "Ordløst design – fungerer uanset sprog og alder",
+      "Op til 8 spillere lokalt eller online"
+    ],
+    "cons": [
+      "Kræver mindst to spillere – intet reelt soloindhold",
+      "Kaotiske baner kan give søskendekonflikter"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "LOK Digital",
+    "slug": "lok-digital",
+    "description": "Bag den afdæmpede facade gemmer sig et af de mest gennemtænkte logikspil i nyere tid. Barnet udfylder bogstavgitre for at danne særlige ord som LOK og TLAK, der hver udløser en regel, som forvandler brættet. Nye mekanikker introduceres helt ordløst gennem nøje designede eksempler, så spillet handler om at opdage regler og tænke systematisk – det ligger tættere på matematik og logik end på stavning, og engelskkundskaber er unødvendige. De over 200 håndbyggede gåder stiger blidt i sværhedsgrad, og et generøst hintsystem holder frustrationen nede. Spillet bygger på den roste LOK-gådebog, har overvældende positive Steam-anmeldelser og blev fremhævet som et af årets puslespil i logikspilmiljøet. Det abstrakte udtryk kan dog virke tørt på børn, der vil have historie og figurer, og de sidste gåder er reelt svære. Bedst til tålmodige grublere fra omkring 10 år.",
+    "shortDescription": "Ordløst logik-puslespil med 200+ håndbyggede gåder – systematisk tænkning uden frustration.",
+    "minAge": 9,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "categories": [
+      "puslespil",
+      "strategi",
+      "hygge"
+    ],
+    "skills": [
+      "logik",
+      "koncentration",
+      "problemløsning"
+    ],
+    "themes": [
+      "ord",
+      "logik",
+      "gåder"
+    ],
+    "platforms": [
+      "PC",
+      "iOS",
+      "Android",
+      "Nintendo"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 110,
+    "priceModel": "engangskøb",
+    "rating": 4.6,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/lok-digital/id6476513210",
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "Letibus Design / Icedrop Games (Draknek & Friends)",
+    "parentInfo": "LOK Digital koster omkring 110 kroner som engangskøb på Steam, Android og Nintendo Switch, mens iOS-versionen hentes gratis og låses op med ét enkelt køb – det er den eneste form for køb, og der er ingen reklamer. Spillet fungerer fuldt ud offline og egner sig godt til rejser. Indholdet er fuldstændig fredeligt og abstrakt: kun bogstavgitre og logikregler, ingen figurer, vold eller historie. Selvom gåderne bruger 'ord', kræver de ingen engelskkundskaber – ordene er opfundne, og alt læres visuelt. Udgiveren Draknek & Friends er blandt de mest respekterede navne i puslespilgenren og står også bag A Monster's Expedition. Det indbyggede hintsystem gør, at børn sjældent sidder helt fast, men de senere gåder kræver reel tålmodighed.",
+    "parentTip": "Lær barnet at bruge hintsystemet som et værktøj frem for et nederlag – ét hint ad gangen holder tænkningen i gang uden at afsløre hele løsningen.",
+    "pros": [
+      "Træner ægte logisk deduktion og regelopdagelse",
+      "Generøst hintsystem forebygger frustration",
+      "Billigt, offline og reklamefrit på både mobil og pc",
+      "Kræver ingen engelskkundskaber trods ord-temaet"
+    ],
+    "cons": [
+      "Abstrakt udtryk uden historie eller figurer",
+      "De sidste gåder er meget svære"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "WHAT THE CAR?",
+    "slug": "what-the-car",
+    "description": "Fra det københavnske studie Triband – holdet bag WHAT THE GOLF? – kommer dette absurde komedie-'racerspil', hvor bilen konstant forvandler sig: en bil med ben, en bil der er en slange, en bil spændt fast til en raket. Hundredvis af korte slapstick-baner fungerer som små fysikeksperimenter, hvor det at fejle er en indbygget del af morskaben, og netop derfor opbygger spillet eksperimenterlyst og gåpåmod frem for konkurrencementalitet. Styringen klares med én finger på iPhone og iPad, og humoren er rent visuel, så engelskkundskaber er overflødige. Kvaliteten er anerkendt med en Apple Design Award, og Steam-versionen fra 2024 tilføjede nyt indhold. Læringsdybden er til gengæld beskeden – ud over fysikintuition er det mest velproduceret fjolleri – og på iOS kræver spillet et Apple Arcade-abonnement. Til børn fra 7 år, der elsker at grine, også ad deres egne fejl.",
+    "shortDescription": "Absurd dansk komediespil hvor bilen hele tiden forvandler sig – fejl er en del af morskaben.",
+    "minAge": 7,
+    "maxAge": 14,
+    "ageGroup": "7+",
+    "categories": [
+      "action",
+      "familie",
+      "hygge"
+    ],
+    "skills": [
+      "problemløsning",
+      "kreativitet",
+      "koncentration"
+    ],
+    "themes": [
+      "biler",
+      "humor",
+      "fysik"
+    ],
+    "platforms": [
+      "iOS",
+      "PC"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": false,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 125,
+    "priceModel": "engangskøb",
+    "rating": 4.5,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/what-the-car/id1534708672",
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "Triband",
+    "parentInfo": "WHAT THE CAR? findes i to udgaver: På iPhone og iPad er det en del af Apple Arcade-abonnementet (cirka 59 kroner om måneden for hele kataloget), mens Steam-versionen til pc er et engangskøb på omkring 125 kroner. Ingen af udgaverne har reklamer eller køb i spillet, og Apple Arcade-titler er generelt underlagt Apples skrappe krav om databeskyttelse. Spillet kan spilles offline efter download. Indholdet er ren slapstick uden vold – biler der vælter, eksploderer i konfetti og fejler på komiske måder. Al humor er visuel, så det manglende danske sprog mærkes ikke. Triband er et københavnsk studie, hvis spil har vundet en Apple Design Award og gjort studiet til en af de mest markante danske spilsucceser.",
+    "parentTip": "Har familien allerede Apple Arcade, er spillet reelt gratis at prøve – ellers er Steam-udgaven den billigste vej ind, hvis barnet spiller mest på computer.",
+    "pros": [
+      "Udviklet i Danmark af prisvindende studie",
+      "Fejl er sjove i stedet for frustrerende – godt til forsigtige spillere",
+      "Enkel one-finger-styring og rent visuel humor",
+      "Ingen reklamer eller køb i nogen version"
+    ],
+    "cons": [
+      "Begrænset læringsdybde ud over fysikintuition",
+      "Kræver Apple Arcade-abonnement på iOS"
+    ],
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Tiny Bookshop",
+    "slug": "tiny-bookshop",
+    "description": "En lille brugtboghandel i en campingvogn ved havet danner rammen om dette rolige managementspil. Barnet vælger, hvilke klassiske bøger fra den virkelige verden der skal på hylderne, indretter butikken og anbefaler titler til kunderne ud fra deres ønsker – 'noget spændende, der foregår på havet' skal matches med den rette genre. Det træner læseforståelse, kategorisering og let budgetlægning, mens en stille fortælling om kystbyen og dens indbyggere folder sig ud mellem åbningsdagene. Der er ingen timere og intet pres, og spillet er et af de få, der aktivt fejrer læselyst. Det udkom i august 2025 til 'Very Positive' Steam-anmeldelser og blev et af årets mest omtalte hyggespil. Mængden af engelsk tekst er dog stor, så det passer reelt til sikre læsere fra 10 år, og selve butiksdriften er så enkel, at teenagere kan være færdige med den, før historien slipper op.",
+    "shortDescription": "Hyggeligt butiksspil hvor barnet driver en lille boghandel og matcher bøger med kundernes ønsker.",
+    "minAge": 10,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "categories": [
+      "simulering",
+      "hygge",
+      "familie"
+    ],
+    "skills": [
+      "læsning",
+      "planlægning",
+      "logik"
+    ],
+    "themes": [
+      "bøger",
+      "butik",
+      "kystby"
+    ],
+    "platforms": [
+      "PC",
+      "iOS",
+      "Nintendo"
+    ],
+    "hasAds": false,
+    "hasInAppPurchases": true,
+    "isOfflineCapable": true,
+    "dataCollection": "minimal",
+    "supportsDanish": false,
+    "price": 149,
+    "priceModel": "engangskøb",
+    "rating": 4.4,
+    "iconUrl": null,
+    "screenshotUrls": [],
+    "videoUrl": null,
+    "appStoreUrl": "https://apps.apple.com/dk/app/tiny-bookshop/id6766267906",
+    "playStoreUrl": null,
+    "websiteUrl": null,
+    "developerName": "neoludic games / Skystone Games",
+    "parentInfo": "Tiny Bookshop koster omkring 149 kroner som engangskøb på Steam (Windows, Mac og Linux) og Nintendo Switch, mens iOS-versionen hentes gratis og låses op med ét enkelt køb efter prøvedelen – ingen reklamer og ingen løbende køb. Spillet fungerer offline. Indholdet er fuldstændig fredeligt: bøger, kunder og småsnak i en solbeskinnet kystby, uden vold eller uhygge af nogen art. Til gengæld er tekstmængden stor og udelukkende på engelsk – kundernes ønsker skal læses og forstås, før den rigtige bog kan anbefales, så spillet stiller reelle krav til læsefærdighederne. Tyske neoludic games er et lille indie-studie, og spillet opnåede 'Very Positive' anmeldelser på Steam kort efter udgivelsen i august 2025.",
+    "parentTip": "Brug spillet som afsæt til samtaler om rigtige bøger – mange af titlerne på hylderne er virkelige klassikere, som I bagefter kan finde på biblioteket.",
+    "pros": [
+      "Fejrer bøger og læselyst – sjældent i spil",
+      "Blid introduktion til penge og butiksdrift",
+      "Roligt tempo uden fejltilstande eller tidspres",
+      "Gratis prøvedel på iOS"
+    ],
+    "cons": [
+      "Store mængder engelsk tekst kræver sikre læsere",
+      "Enkel spilmekanik der måske ikke holder teenagere fast"
+    ],
+    "featured": false,
+    "editorChoice": false
   },
 ];
 
@@ -4155,40 +5110,7 @@ export const appleArcadeGames: GameSeedData[] = [
     featured: false,
     editorChoice: false,
   },
-  {
-    title: "Sago Mini Friends",
-    slug: "sago-mini-friends",
-    description: "Til de allermindste skal et spil hverken have regler eller mål, og det har Sago Mini Friends heller ikke. Barnet besøger fem søde venner i deres huse og deltager i genkendelige hverdagsaktiviteter: lave mad, plante blomster, tage bad og lege med legetøj. Alt foregår i barnets eget tempo, og der findes ingen måder at fejle på – kun fri leg og udforskning. Undervejs øves finmotorikken, når små fingre trykker, trækker og prikker, og de store knapper er tydeligt designet til netop de mindste hænder. Karaktererne er runde, venlige og beroligende, og fordi appen helt undlader tale, er sproget aldrig en barriere. Den virker desuden offline efter download, så den kan bruges på farten. Kræver et Apple Arcade-abonnement. Bedst til 2-5-årige, gerne med en voksen ved siden, der kan sætte ord på legen.",
-    shortDescription: "Besøg venner og leg i dette søde univers for de mindste",
-    minAge: 2,
-    maxAge: 5,
-    ageGroup: "0-3",
-    categories: ["kreativ", "læring"],
-    skills: ["finmotorik", "udforskning"],
-    themes: ["dyr", "hverdag"],
-    platforms: ["iOS"],
-    hasAds: false,
-    hasInAppPurchases: false,
-    isOfflineCapable: true,
-    dataCollection: "minimal",
-    supportsDanish: false,
-    price: 0,
-    priceModel: "abonnement",
-    rating: 4.6,
-    iconUrl: "/images/games/digital/sago-mini-friends.jpg",
-    screenshotUrls: [],
-    videoUrl: null,
-    appStoreUrl: null,
-    playStoreUrl: null,
-    websiteUrl: null,
-    developerName: "Sago Mini",
-    pros: ["Godt til småbørn", "Ingen regler eller stress", "Søde karakterer"],
-    cons: ["Kræver Apple Arcade"],
-    parentTip: "Sid sammen med barnet og snak om hvad I ser og gør.",
-    featured: false,
-    editorChoice: false,
-  },
-  {
+{
     title: "My Talking Tom Friends",
     slug: "my-talking-tom-friends",
     description: "Hele banden fra Talking Tom-universet – Tom, Angela, Hank, Ginger og Ben – bor her sammen i ét stort hus, og det er dit barns opgave at passe dem alle. Der skal serveres mad, når de er sultne, puttes, når de er trætte, og leges, når de keder sig, og undervejs er der minispil at prøve og tøj at samle på. Figurerne reagerer på berøring og gentager alt, hvad man siger, med sjove stemmer, hvilket plejer at udløse store grin hos de mindste. Spillet træner omsorg og en begyndende fornemmelse for planlægning og rutiner – brug det gerne som afsæt til en snak om jeres egne rutiner derhjemme. Apple Arcade-udgaven er helt fri for reklamer og ventetider, men kræver dog et abonnement. Godt til børn i 4-8-årsalderen, der elsker virtuelle kæledyr.",
@@ -4350,39 +5272,6 @@ export const appleArcadeGames: GameSeedData[] = [
     pros: ["Meget afslappende", "Smukke mønstre", "Tilfredsstillende lyde"],
     cons: ["Kræver Apple Arcade", "Meget roligt tempo"],
     parentTip: "God som rolig aktivitet før sengetid.",
-    featured: false,
-    editorChoice: false,
-  },
-  {
-    title: "Peppa Pig: Party Time",
-    slug: "peppa-pig-party-time",
-    description: "De mindste Peppa Pig-fans kan her planlægge og holde fester sammen med Peppa og vennerne fra tv-serien. Barnet vælger tema, pynter lokalet med balloner og bannere, bestemmer mad og kage og spiller sjove minispil som stoledans og piñata. Alt foregår i den velkendte streg med de genkendelige stemmer og den karakteristiske britiske humor, og fordi der ingen tekst er at læse, kan selv helt små børn lege på egen hånd. Undervejs øver de sig i kreativitet og i at planlægge – prøv bagefter at lade barnet planlægge en rigtig fødselsdagsfest inspireret af spillet. Knapperne er store, og navigationen enkel, så det fungerer fint til små hænder. Indholdet er dog noget begrænset, og der kræves Apple Arcade-abonnement. Bedst til de 2-6-årige, der allerede elsker Peppa.",
-    shortDescription: "Fest med Peppa og alle hendes venner",
-    minAge: 2,
-    maxAge: 6,
-    ageGroup: "0-3",
-    categories: ["kreativ", "underholdning"],
-    skills: ["kreativitet", "planlægning"],
-    themes: ["fest", "dyr"],
-    platforms: ["iOS"],
-    hasAds: false,
-    hasInAppPurchases: false,
-    isOfflineCapable: true,
-    dataCollection: "minimal",
-    supportsDanish: false,
-    price: 0,
-    priceModel: "abonnement",
-    rating: 4.2,
-    iconUrl: "/images/games/digital/peppa-pig-party-time.jpg",
-    screenshotUrls: [],
-    videoUrl: null,
-    appStoreUrl: null,
-    playStoreUrl: null,
-    websiteUrl: null,
-    developerName: "Hasbro",
-    pros: ["Ægte Peppa Pig", "Godt til småbørn", "Ingen reklamer"],
-    cons: ["Kræver Apple Arcade", "Begrænset indhold"],
-    parentTip: "Lad barnet planlægge en rigtig fest inspireret af spillet!",
     featured: false,
     editorChoice: false,
   },

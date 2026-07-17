@@ -1097,6 +1097,143 @@ export const boardGames3to6: BoardGameSeedData[] = [
     featured: false,
     editorChoice: false,
   },
+  {
+    "title": "Mooki Island",
+    "slug": "mooki-island",
+    "description": "Vinderen af Kinderspiel des Jahres 2026 er et lille tospillerspil, hvor børn vender og samler søde Mookie-væsner fra forskellige familier – og helst undgår den drilske edderkop, der gemmer sig imellem dem. Reglerne er så enkle, at en 4-årig kan være med efter et par minutters forklaring, og et parti tager kun et kvarters tid. Undervejs træner barnet hukommelse, simpel samlemekanik og at vente på tur, og efter spillet kan man sammen udforske øens plakat og finde de Mookies, man har mødt. Materialerne er nærmest sprogløse, så det gør ikke det store, at reglerne kun findes på engelsk og tysk. Til gengæld er spillet låst til præcis to spillere, hvilket begrænser brugen i større søskendeflokke. Med en pris omkring 165 kr. er det en overkommelig investering til hyggestunder mellem én voksen og ét barn.",
+    "shortDescription": "Kinderspiel des Jahres 2026: sødt samle- og huskespil for to, hvor børn fanger Mookie-væsner.",
+    "minAge": 4,
+    "maxAge": 10,
+    "ageGroup": "3-6",
+    "minPlayers": 2,
+    "maxPlayers": 2,
+    "playTimeMinutes": 15,
+    "complexity": 1,
+    "categories": [
+      "hukommelse",
+      "familie",
+      "læring"
+    ],
+    "skills": [
+      "hukommelse",
+      "koncentration"
+    ],
+    "themes": [
+      "væsner",
+      "ø",
+      "dyr"
+    ],
+    "supportsDanish": false,
+    "price": 165,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.5,
+    "pros": [
+      "Frisk vinder af Kinderspiel des Jahres 2026",
+      "Meget enkelt – fungerer fra 4 år",
+      "Kort spilletid på et kvarter",
+      "Billigt og på lager hos danske forhandlere"
+    ],
+    "cons": [
+      "Kun for præcis 2 spillere",
+      "Regler kun på engelsk/tysk"
+    ],
+    "parentTip": "Brug øplakaten efter hvert parti til at snakke om de Mookies, I mødte – det forlænger oplevelsen og træner sproget hos de mindste.",
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Magic Keys",
+    "slug": "magic-keys",
+    "description": "Et 3D-skattekistespil, der vandt Kinderspiel des Jahres 2024. Børnene slår med terninger, bevæger sig rundt på pladen og samler ædelsten, inden de prøver nøgler i den magiske skattekiste – kun den rigtige nøgle åbner låget, og spændingen i netop det øjeblik er spillets hjerte. Undervejs øver barnet sig i at tælle, vurdere risiko (skal jeg prøve nøglen nu eller samle flere sten?) og bruge fingrene præcist, når nøglen skal i låsen. Komponenterne er sprogneutrale og robuste, så de tyske/engelske regler er kun en hurdle for den voksne, der skal lære spillet. Held fylder dog meget, og ældre børn gennemskuer hurtigt mekanikken, så dybden er begrænset. Den største anke er prisen: Som importvare koster spillet omkring 457 kr. i Danmark, hvilket er mange penge for et børnespil – men kisten leverer til gengæld ægte magi ved bordet.",
+    "shortDescription": "Kinderspiel des Jahres 2024: saml ædelsten og find den magiske nøgle til 3D-skattekisten.",
+    "minAge": 6,
+    "maxAge": 10,
+    "ageGroup": "3-6",
+    "minPlayers": 2,
+    "maxPlayers": 4,
+    "playTimeMinutes": 20,
+    "complexity": 1,
+    "categories": [
+      "familie",
+      "læring"
+    ],
+    "skills": [
+      "motorik",
+      "koncentration",
+      "logik"
+    ],
+    "themes": [
+      "magi",
+      "skatte"
+    ],
+    "supportsDanish": false,
+    "price": 457,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.4,
+    "pros": [
+      "Vinder af Kinderspiel des Jahres 2024",
+      "Magisk 3D-skattekiste, børn elsker",
+      "Enkle chancevalg, som 6-årige forstår",
+      "Sprogneutrale komponenter"
+    ],
+    "cons": [
+      "Dyrt i Danmark (import, ca. 457 kr.)",
+      "Meget heldbaseret med begrænset dybde for ældre børn"
+    ],
+    "parentTip": "Lær reglerne på forhånd ud fra den tyske eller engelske vejledning – selve spillet er sprogløst, så børnene mærker intet til sprogbarrieren.",
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Mysterium Kids: Captain Echo's Treasure",
+    "slug": "mysterium-kids-captain-echos-treasure",
+    "description": "Kan man kommunikere med en tamburin? Det er præcis, hvad ét barn skal i denne børneudgave af deduktionsspillet Mysterium, som vandt Kinderspiel des Jahres 2023. Barnet spiller kaptajn Ekkos spøgelse, der ikke kan tale, men banker og rasler lyde på en tamburin, mens de andre spillere sammen tolker lydene og gætter, hvilket rum skatten gemmer sig i. Alle vinder eller taber som hold, og spillet træner lytning, koncentration, fantasi og fælles kommunikation – og spøgelsesrollen giver generte børn en sjov, ordløs måde at styre spillet på. Der kræves ingen læsefærdigheder, så selv de yngste kan deltage på lige fod. Man skal dog kunne holde tamburinstøjen ud i stuen, og tilgængeligheden i Danmark er svingende: Den engelske udgave til omkring 250 kr. er meldt udgået hos flere forhandlere, så slå til, hvis du ser den.",
+    "shortDescription": "Kinderspiel des Jahres 2023: samarbejdsspil hvor et spøgelse kommunikerer med tamburinlyde.",
+    "minAge": 6,
+    "maxAge": 10,
+    "ageGroup": "3-6",
+    "minPlayers": 2,
+    "maxPlayers": 6,
+    "playTimeMinutes": 25,
+    "complexity": 1,
+    "categories": [
+      "samarbejde",
+      "familie"
+    ],
+    "skills": [
+      "kommunikation",
+      "koncentration",
+      "kreativitet"
+    ],
+    "themes": [
+      "spøgelser",
+      "pirater",
+      "lyd"
+    ],
+    "supportsDanish": false,
+    "price": 250,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.4,
+    "pros": [
+      "Vinder af Kinderspiel des Jahres 2023",
+      "Unik lydbaseret kommunikation uden krav om læsning",
+      "Fuldt kooperativt – ingen tabere ved bordet",
+      "Spøgelsesrollen giver generte børn en hovedrolle"
+    ],
+    "cons": [
+      "Svingende tilgængelighed i Danmark",
+      "Tamburinstøj er ikke for alle hjem"
+    ],
+    "parentTip": "Lad børnene skiftes til spøgelsesrollen – det er den sjoveste plads, og rotationen forebygger skænderier om tamburinen.",
+    "featured": false,
+    "editorChoice": false
+  },
 ];
 
 // ============================================
@@ -1563,7 +1700,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     title: "French Toast",
     slug: "french-toast",
     description: "Bag det enkle morgenmads-tema gemmer sig et gættespil, der er lært på få minutter og alligevel svært at lægge fra sig. Runderne er bygget op om hurtige, spændende gæt, og de mange 'bare én gang til'-øjeblikke gør, at æsken sjældent bliver pakket sammen efter første omgang. Børn fra omkring 7 år kan sagtens være med, og undervejs bruger de intuition, observation og timing frem for paratviden, så alle ved bordet har en chance uanset alder. En runde tager et kvarter, og spillet fungerer lige godt med garvede spillere som med familier, hvilket gør det oplagt til fester eller de aftener, hvor det bare skal være sjovt hurtigt. Strategielskere vil nok finde det for enkelt, og heldet fylder en del - men det er netop derfor, lillesøster kan slå både storebror og far. Et let og glad spil til hele familien.",
-    shortDescription: "Simpelt gættespil med elektrisk spænding",
+    shortDescription: "Simpelt gættespil med gættelyst og grin",
     minAge: 7,
     maxAge: 99,
     ageGroup: "7+",
@@ -1810,7 +1947,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     slug: "ziggurat",
     description: "Har familien lyst til at prøve et legacy-spil uden at binde sig til tyve lange aftener, er Ziggurat et oplagt sted at starte. Det er et kooperativt kampagnespil, hvor I over seks sessioner af cirka en halv time bygger en civilisation op, løser opgaver og følger en historie, der udvikler sig fra gang til gang. Undervejs samarbejder I om at lægge planer og løse problemer, så børnene træner både samarbejde og planlægning, mens de oplever den særlige fornemmelse af, at spillet forandrer sig permanent. Reglerne er enklere end i legacy-spil for voksne, og materialerne understøtter historien fint. Man skal dog vide, at kampagnen kun kan spilles én gang, og at den kræver, at I holder fast over flere aftener. Til gengæld er det en oplagt familietradition for børn fra omkring 6-7 år.",
     shortDescription: "Kooperativ legacy-kampagne for familier i 6 sessioner",
-    minAge: 6,
+    minAge: 8,
     maxAge: 12,
     ageGroup: "7+",
     minPlayers: 1,
@@ -1874,6 +2011,280 @@ export const boardGames7to10: BoardGameSeedData[] = [
     parentTip: "Et af de bedste valg for familier der vil prøve lidt dybere strategi!",
     featured: true,
     editorChoice: false,
+  },
+  {
+    "title": "Piratrix",
+    "slug": "piratrix",
+    "description": "Guldbrikken-juryen kårede i 2024 dette Djeco-spil som Årets Børnespil herhjemme, og det er til at forstå hvorfor. Hver spiller placerer hemmeligt sin skattekiste på pladen og kæmper derefter om først at danne et kryds af piratbrikker – en vandret og en lodret linje – gennem netop sit skattested. Afslører man sit mål for tidligt, kan modstanderne blokere, så børnene lærer både rumlig tænkning, planlægning og en smule bluf. Komponenterne er i Djecos sædvanlige solide og smukke kvalitet, spillet er sprogneutralt og fås i de fleste danske legetøjsbutikker til omkring 180 kr. Det abstrakte mål kræver dog et par runder, før børn helt forstår det, og blokeringerne kan føles hårde for følsomme spillere. Til gengæld er der reel strategisk substans i en pakke, der er spillet på 20 minutter – en sjældenhed i børnespil fra 7 år.",
+    "shortDescription": "Guldbrikken 2024: strategisk piratspil med hemmelige skatte, bluf og blokeringer fra 7 år.",
+    "minAge": 7,
+    "maxAge": 12,
+    "ageGroup": "7+",
+    "minPlayers": 2,
+    "maxPlayers": 4,
+    "playTimeMinutes": 20,
+    "complexity": 2,
+    "categories": [
+      "strategi",
+      "familie"
+    ],
+    "skills": [
+      "logik",
+      "planlægning"
+    ],
+    "themes": [
+      "pirater",
+      "skatte"
+    ],
+    "supportsDanish": true,
+    "price": 180,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.4,
+    "pros": [
+      "Vinder af Guldbrikken 2024 som Årets Børnespil",
+      "Reel strategisk dybde på 20 minutter",
+      "Smukke, robuste Djeco-komponenter",
+      "Let at købe i danske butikker"
+    ],
+    "cons": [
+      "Abstrakt mål kræver et par runder at forstå",
+      "Blokeringer kan ramme følsomme børn hårdt"
+    ],
+    "parentTip": "Spil de første partier med åbne skattekister, så barnet forstår krydsmekanikken, før I tilføjer det hemmelige element.",
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Brick Like This!",
+    "slug": "brick-like-this",
+    "description": "Hvordan forklarer man en LEGO-model med ord alene? Det er udfordringen i dette holdspil, der vandt Guldbrikken 2025 som Årets Familiespil. Én spiller beskriver en model udelukkende med ord, mens holdkammeraterne forsøger at bygge den med de samme klodser – uden at kunne se den. Børn træner præcis mundtlig kommunikation, rumlig forståelse og aktiv lytning, og fordi klodserne er ægte LEGO, er tærsklen for at komme i gang næsten ikke-eksisterende. Den danske udgave med danske regler koster omkring 170 kr. og skalerer helt op til otte spillere, hvilket gør den oplagt til fødselsdage og familiekomsammener. Man skal dog helst være mindst fire i hold, før spillet folder sig ud, og det er mere leg og aktivitet end egentligt brætspil – strategifans finder ikke megen dybde her. Som fælles grineaktivitet fungerer det til gengæld på tværs af generationer.",
+    "shortDescription": "Guldbrikken 2025: holdspil hvor én beskriver en LEGO-model, og resten bygger i blinde.",
+    "minAge": 7,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "minPlayers": 2,
+    "maxPlayers": 8,
+    "playTimeMinutes": 25,
+    "complexity": 1,
+    "categories": [
+      "fest",
+      "aktivitet",
+      "familie"
+    ],
+    "skills": [
+      "kommunikation",
+      "kreativitet",
+      "koncentration"
+    ],
+    "themes": [
+      "LEGO",
+      "byggeri"
+    ],
+    "supportsDanish": true,
+    "price": 170,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.4,
+    "pros": [
+      "Guldbrikken 2025-vinder med danske regler",
+      "Skalerer til 8 spillere – oplagt til fødselsdage",
+      "Bygger på klodser, alle børn kender",
+      "Billigt til et familiespil"
+    ],
+    "cons": [
+      "Kræver mindst 4 spillere for at fungere bedst",
+      "Mere aktivitet end brætspil – let på strategi"
+    ],
+    "parentTip": "Sæt en fast tidsgrænse pr. runde og lad de yngste beskrive de simpleste modeller – så kan børn helt ned til 6-7 år være med på lige fod.",
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Trio",
+    "slug": "trio",
+    "description": "Et lille kortspil med stor gennemslagskraft: Trio vandt den franske As d'Or-pris i 2024 og stod på Spiel des Jahres' anbefalingsliste året før. Spillerne jagter sæt af tre ens talkort ved at bede hinanden vise deres højeste eller laveste kort eller vende kort fra bordet – og hvem der har vist hvad, skal man selv huske. Det træner hukommelse, deduktion og talforståelse, og et parti tager et kvarter, så »en gang til« bliver reglen snarere end undtagelsen. Den danske udgave koster omkring 130 kr., fylder ingenting i tasken og læres lige hurtigt af børn og bedsteforældre. Temaet er til gengæld stort set fraværende – det er rene tal – så de yngste, der leder efter en historie, keder sig hurtigere, og man skal være mindst tre spillere. Som familiespil til sommerhuset og rejsen er det svært at finde bedre til prisen.",
+    "shortDescription": "Prisvindende kortspil: find sæt af tre ens tal med hukommelse og deduktion på 15 minutter.",
+    "minAge": 7,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "minPlayers": 3,
+    "maxPlayers": 6,
+    "playTimeMinutes": 15,
+    "complexity": 1,
+    "categories": [
+      "kort",
+      "hukommelse",
+      "familie"
+    ],
+    "skills": [
+      "hukommelse",
+      "logik",
+      "koncentration"
+    ],
+    "themes": [
+      "tal"
+    ],
+    "supportsDanish": true,
+    "price": 130,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.5,
+    "pros": [
+      "Vinder af As d'Or 2024",
+      "Hele familien spiller med på lige vilkår",
+      "Billigt, transportabelt og lynhurtigt lært",
+      "Dansk udgave findes"
+    ],
+    "cons": [
+      "Kræver mindst 3 spillere",
+      "Minimalt tema – rene tal kan kede de yngste"
+    ],
+    "parentTip": "Tag det med på ferie og i sommerhus – æsken er lille, reglerne er lært på to minutter, og partierne er korte nok til aftenkaffen.",
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Harmonies",
+    "slug": "harmonies",
+    "description": "Blandt de mest roste familiespil fra 2024 finder man dette landskabspuslespil fra Libellud, som var nomineret til As d'Or Initié 2025. Hver spiller lægger farvede brikker – bjerge, floder, skove og marker – på sin egen plade og bygger landskaber, der tiltrækker dyrekort med bestemte krav til levesteder. Børn træner mønstergenkendelse, rumlig planlægning og evnen til at tænke flere træk frem, og undervejs får de en fornemmelse af, hvordan dyr og natur hænger sammen. Der følger en solovariant med, og den danske udgave fås bredt til omkring 270 kr. Æsken siger 10+, og selvom mange 8-årige sagtens kan være med, kræver pointkombinationerne reel koncentration. Spillerne interagerer stort set ikke med hinanden undervejs, så børn, der elsker drilleri og direkte konkurrence, kan savne liv ved bordet. For familier, der holder af Kingdomino eller Cascadia, er det et naturligt og smukt næste skridt.",
+    "shortDescription": "Roste landskabspuslespil hvor spillerne bygger naturmiljøer og tiltrækker dyr – med solovariant.",
+    "minAge": 10,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "minPlayers": 1,
+    "maxPlayers": 4,
+    "playTimeMinutes": 30,
+    "complexity": 3,
+    "categories": [
+      "strategi",
+      "familie",
+      "læring"
+    ],
+    "skills": [
+      "planlægning",
+      "logik",
+      "koncentration",
+      "kreativitet"
+    ],
+    "themes": [
+      "natur",
+      "dyr",
+      "landskab"
+    ],
+    "supportsDanish": true,
+    "price": 270,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.6,
+    "pros": [
+      "Smukt naturtema med ægte puslespilsdybde",
+      "Naturligt næste skridt efter Kingdomino/Cascadia",
+      "Solovariant følger med",
+      "Dansk udgave bredt tilgængelig"
+    ],
+    "cons": [
+      "Pointkombinationer kræver koncentration – reelt 10+",
+      "Meget lidt interaktion mellem spillerne"
+    ],
+    "parentTip": "Spil de første partier uden dyrekortene og byg kun landskaber – så lærer barnet brikkernes logik, før pointjagten begynder.",
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Dorfromantik: The Board Game",
+    "slug": "dorfromantik-the-board-game",
+    "description": "Vinderen af Spiel des Jahres 2023 bygger på det afstressende computerspil af samme navn. Sammen lægger familien landskabsbrikker og skaber et landsbylandskab med skinner, floder, skove og marker, mens opgavebrikker stiller krav om størrelser og forbindelser. Alle spiller på samme hold, så bordet fyldes af fælles planlægning og konstruktiv snak i stedet for konkurrence. Et let kampagnesystem låser nye brikker og muligheder op hen over mange partier, hvilket giver familien et langsigtet fælles projekt – og god motivation til faste spilleaftener. Den danske udgave koster omkring 299 kr. Spillet er helt roligt og uden konflikt, men netop derfor kan børn, der elsker direkte kamp og drilleri, finde det for stille, og kampagnen fungerer bedst med en fast gruppe. Til familier, der vil geare ned sammen efter en travl dag, rammer det en sjældent fredfyldt tone.",
+    "shortDescription": "Spiel des Jahres 2023: roligt samarbejdsspil hvor familien bygger landskaber med kampagnesystem.",
+    "minAge": 8,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "minPlayers": 1,
+    "maxPlayers": 6,
+    "playTimeMinutes": 45,
+    "complexity": 2,
+    "categories": [
+      "samarbejde",
+      "strategi",
+      "familie"
+    ],
+    "skills": [
+      "samarbejde",
+      "planlægning",
+      "logik"
+    ],
+    "themes": [
+      "landsby",
+      "natur"
+    ],
+    "supportsDanish": true,
+    "price": 299,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.5,
+    "pros": [
+      "Vinder af Spiel des Jahres 2023",
+      "Kooperativt, roligt og helt konfliktfrit",
+      "Kampagnesystem motiverer faste spilleaftener",
+      "Dansk udgave findes"
+    ],
+    "cons": [
+      "Kan virke for stille for actionglade børn",
+      "Kampagnen er bedst med en fast gruppe"
+    ],
+    "parentTip": "Gør det til et fast ugentligt ritual – kampagnens oplåsninger giver børnene noget at glæde sig til fra gang til gang.",
+    "featured": false,
+    "editorChoice": false
+  },
+  {
+    "title": "Bomb Busters",
+    "slug": "bomb-busters",
+    "description": "Sjældent har et spil høstet priser i den grad: Bomb Busters vandt Spiel des Jahres 2025 og fik samme år Guldbrikkens specialpris herhjemme. Som bomberydningshold skal spillerne i fællesskab »klippe ledninger« ved at udlede, hvilke nummererede brikker holdkammeraterne sidder med – uden selv at have fuldt overblik over egen information. Det træner logisk deduktion, sandsynlighedsvurdering og præcis kommunikation, og en kampagne på 66 missioner drypper løbende nye finurligheder ind, så genspilsværdien er stor. Stemningen ved bordet svinger mellem anspændt tavshed og højlydt latter, når en ledning klippes forkert. Den danske udgave koster omkring 279 kr. Bombetemaet er tegneserieagtigt, men passer ikke til de yngste eller mest ængstelige børn, og med kun to spillere mister spillet en del af sin dynamik. Fra omkring 10 år er det til gengæld en medrivende fælles udfordring for hele familien.",
+    "shortDescription": "Spiel des Jahres 2025: kooperativ deduktion hvor familien klipper ledninger over 66 missioner.",
+    "minAge": 10,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "minPlayers": 2,
+    "maxPlayers": 5,
+    "playTimeMinutes": 30,
+    "complexity": 2,
+    "categories": [
+      "samarbejde",
+      "familie"
+    ],
+    "skills": [
+      "logik",
+      "samarbejde",
+      "kommunikation"
+    ],
+    "themes": [
+      "mission",
+      "agenter"
+    ],
+    "supportsDanish": true,
+    "price": 279,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.8,
+    "pros": [
+      "Spiel des Jahres 2025 og Guldbrikkens specialpris",
+      "66-missioners kampagne giver enorm genspilsværdi",
+      "Anspændt og grinagtig deduktion, teenagere elsker",
+      "Dansk udgave findes"
+    ],
+    "cons": [
+      "Bombetema passer ikke ængstelige børn",
+      "Svagere med kun 2 spillere"
+    ],
+    "parentTip": "Spil helst 3-5 personer og følg missionsrækkefølgen – kampagnen introducerer reglerne i små bidder, så ingen behøver læse hele hæftet først.",
+    "featured": false,
+    "editorChoice": false
   },
 ];
 
@@ -2412,43 +2823,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     featured: false,
     editorChoice: false,
   },
-  {
-    title: "Disney Hidden Realms",
-    slug: "disney-hidden-realms",
-    description: "Med et spillebræt på omkring to meter er Disney Hidden Realms lidt af et syn, når det først er foldet ud på stuegulvet. Familien bevæger sig gennem 12 fortryllede Disney-verdener sammen med Mickey, Minnie, Moana, Lynet McQueen og andre kendte figurer, og undervejs skal børnene planlægge deres træk, huske hvad de har set, og samarbejde om at komme videre. Det træner både hukommelse og planlægning på en måde, der føles som ren leg, især for børn der i forvejen elsker Disney-universet. Brættet og figurerne er visuelt flotte og en oplevelse i sig selv. Man skal dog have god plads i hjemmet, prisen ligger i den høje ende, og med cirka 45 minutters spilletid kan de mindste miste pusten undervejs. Bedst til Disney-glade familier med børn fra omkring 5 år, hvor en voksen spiller med.",
-    shortDescription: "Kæmpe Disney-eventyr på 6-fods spillebræt",
-    minAge: 5,
-    maxAge: 12,
-    ageGroup: "3-6",
-    minPlayers: 2,
-    maxPlayers: 6,
-    playTimeMinutes: 45,
-    complexity: 2,
-    categories: ["eventyr", "karakterer", "familie"],
-    skills: ["planlægning", "hukommelse", "samarbejde"],
-    themes: ["Disney", "eventyr", "magi"],
-    supportsDanish: true,
-    price: 399,
-    imageUrl: null,
-    amazonUrl: null,
-    affiliateUrl: null,
-    rating: 4.4,
-    pros: [
-      "Imponerende stort spillebræt",
-      "Elskede Disney-karakterer",
-      "Visuelt flot",
-      "God for Disney-fans"
-    ],
-    cons: [
-      "Kræver meget plads",
-      "Dyrt",
-      "Langt for små børn"
-    ],
-    parentTip: "Sørg for at have plads til det store bræt - det er en oplevelse i sig selv!",
-    featured: false,
-    editorChoice: false,
-  },
-  {
+{
     title: "Star Wars Super Teams",
     slug: "star-wars-super-teams",
     description: "Rumskibene suser mod målstregen i Star Wars Super Teams, et holdbaseret racerspil, hvor holdene kæmper om at få deres skibe først i mål. Børnene skal ikke bare flytte deres egne skibe - nogle gange skal de også flytte modstanderens, og netop dét skaber sjove strategiske øjeblikke, hvor timing og samarbejde afgør løbet. Reglerne er enkle nok til, at en 6-årig hurtigt er med, og der kræves ingen viden om Star Wars-filmene for at have det sjovt, for temaet er mest kulisse. Undervejs øver børnene sig i at tænke taktisk sammen som hold og vælge det rette tidspunkt for deres træk. De kendte rumskibe falder i god jord hos fans, mens temaet omvendt kan afskrække familier uden Star Wars-interesse, og den strategiske dybde er begrænset. Et let familiespil til blandede aldre, der bare vil race.",
@@ -2587,6 +2962,52 @@ export const boardGames11to15: BoardGameSeedData[] = [
     parentTip: "Kommer i 2026 - hold øje med den som næste skridt op fra simple familiespil!",
     featured: false,
     editorChoice: false,
+  },
+  {
+    "title": "Sky Team",
+    "slug": "sky-team",
+    "description": "To personer, ét cockpit: Sky Team skrev historie som det første rene tospillerspil, der vandt Spiel des Jahres (2024). Som pilot og andenpilot sidder man på samme side af bordet og skal lande et fly ved at placere terninger på cockpittets instrumenter – men kommunikationen er strengt begrænset, så man må aflæse hinandens valg i tavshed. Det træner koordination uden ord, sandsynlighedsvurdering og evnen til at bevare roen under pres, og 21 lufthavne med stigende sværhedsgrad sikrer lang holdbarhed. Den danske udgave fås bredt til omkring 249 kr. Aldersmærkningen 12+ skal tages alvorligt: Reglen om begrænset kommunikation kræver en disciplin, yngre børn sjældent har, og spillet er låst til præcis to spillere. Til gengæld er det en oplagt måde for en forælder og en teenager at dele tyve intense minutter – helt uden skærme.",
+    "shortDescription": "Spiel des Jahres 2024: intenst samarbejdsspil for to, hvor pilot og andenpilot lander et fly.",
+    "minAge": 12,
+    "maxAge": 15,
+    "ageGroup": "7+",
+    "minPlayers": 2,
+    "maxPlayers": 2,
+    "playTimeMinutes": 20,
+    "complexity": 3,
+    "categories": [
+      "samarbejde",
+      "strategi"
+    ],
+    "skills": [
+      "samarbejde",
+      "kommunikation",
+      "logik",
+      "koncentration"
+    ],
+    "themes": [
+      "fly",
+      "luftfart"
+    ],
+    "supportsDanish": true,
+    "price": 249,
+    "imageUrl": null,
+    "amazonUrl": null,
+    "affiliateUrl": null,
+    "rating": 4.7,
+    "pros": [
+      "Historisk Spiel des Jahres 2024-vinder",
+      "Intens samarbejdsfølelse på kun 20 minutter",
+      "21 lufthavne med stigende sværhedsgrad",
+      "Oplagt forælder-teenager-spil uden skærme"
+    ],
+    "cons": [
+      "Kun for præcis 2 spillere",
+      "Kræver disciplin – reelt 12+"
+    ],
+    "parentTip": "Start med de letteste lufthavne og accepter et par styrt i begyndelsen – nederlagene er en del af charmen og lærer teenageren at holde hovedet koldt.",
+    "featured": false,
+    "editorChoice": false
   },
 ];
 
