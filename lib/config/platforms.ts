@@ -1,22 +1,22 @@
 // Platform configuration - shared across components
-// This centralizes platform icons and colors to avoid duplication
+// This centralizes platform labels and colors to avoid duplication.
+// Platforms render as colored dots with a title tooltip (no emoji).
 
 import { Platform } from '@/lib/types';
 
 export interface PlatformConfig {
-  icon: string;
   label: string;
   color: string;
 }
 
 export const platformConfig: Record<Platform, PlatformConfig> = {
-  iOS: { icon: '🍎', label: 'iOS', color: '#007AFF' },
-  Android: { icon: '🤖', label: 'Android', color: '#3DDC84' },
-  PC: { icon: '💻', label: 'PC', color: '#6B7280' },
-  Nintendo: { icon: '🎮', label: 'Nintendo', color: '#E60012' },
-  PlayStation: { icon: '🎯', label: 'PlayStation', color: '#003791' },
-  Xbox: { icon: '🟢', label: 'Xbox', color: '#107C10' },
-  Web: { icon: '🌐', label: 'Web', color: '#4F46E5' },
+  iOS: { label: 'iOS', color: '#007AFF' },
+  Android: { label: 'Android', color: '#3DDC84' },
+  PC: { label: 'PC', color: '#6B7280' },
+  Nintendo: { label: 'Nintendo', color: '#E60012' },
+  PlayStation: { label: 'PlayStation', color: '#003791' },
+  Xbox: { label: 'Xbox', color: '#107C10' },
+  Web: { label: 'Web', color: '#4F46E5' },
 };
 
 // Helper to get platform info

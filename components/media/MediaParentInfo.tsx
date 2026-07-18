@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { Icon } from '@/components/ui/Icon';
 
 // ============================================================================
 // DANISH FLAG SVG COMPONENT
@@ -79,21 +80,21 @@ export function MediaParentInfo({
   // Positive badges
   if (hasDanishAudio) badges.push({ icon: <DanishFlag />, label: 'Dansk tale', positive: true });
   if (hasDanishSubtitles && !hasDanishAudio) badges.push({ icon: <DanishFlag />, label: 'Danske undertekster', positive: true });
-  if (hasEducational) badges.push({ icon: '📚', label: 'Lærerigt', positive: true });
-  if (isFree) badges.push({ icon: '🆓', label: 'Gratis at se', positive: true });
-  if (!hasViolence && !hasScaryContent && !hasLanguage) badges.push({ icon: '✅', label: 'Børnevenligt', positive: true });
+  if (hasEducational) badges.push({ icon: <Icon name="book" className="w-4 h-4" />, label: 'Lærerigt', positive: true });
+  if (isFree) badges.push({ icon: <Icon name="check" className="w-4 h-4" />, label: 'Gratis at se', positive: true });
+  if (!hasViolence && !hasScaryContent && !hasLanguage) badges.push({ icon: <Icon name="shield" className="w-4 h-4" />, label: 'Børnevenligt', positive: true });
 
   // Warning badges
-  if (hasViolence) badges.push({ icon: '⚔️', label: 'Indeholder vold', positive: false });
-  if (hasScaryContent) badges.push({ icon: '😱', label: 'Skræmmende elementer', positive: false });
-  if (hasLanguage) badges.push({ icon: '💬', label: 'Upassende sprog', positive: false });
+  if (hasViolence) badges.push({ icon: <Icon name="warning" className="w-4 h-4" />, label: 'Indeholder vold', positive: false });
+  if (hasScaryContent) badges.push({ icon: <Icon name="warning" className="w-4 h-4" />, label: 'Skræmmende elementer', positive: false });
+  if (hasLanguage) badges.push({ icon: <Icon name="chat" className="w-4 h-4" />, label: 'Upassende sprog', positive: false });
 
   return (
     <div className="bg-gradient-to-br from-[#E8F4EA] to-[#D8F3DC] rounded-3xl overflow-hidden border border-[#95D5B2]/30">
       {/* Header */}
       <div className="bg-[#2D6A4F]/10 px-6 py-4 border-b border-[#95D5B2]/30">
         <div className="flex items-center gap-3">
-          <span className="text-3xl">👨‍👩‍👧‍👦</span>
+          <Icon name="users" className="w-8 h-8 text-[#2D6A4F]" />
           <div>
             <h2 className="font-bold text-xl text-[#2D6A4F]">
               Hvad forældre skal vide
@@ -145,7 +146,7 @@ export function MediaParentInfo({
           {pros.length > 0 && (
             <div className="bg-white/50 rounded-2xl p-4">
               <h3 className="font-semibold text-[#2D6A4F] mb-3 flex items-center gap-2">
-                <span>👍</span>
+                <Icon name="check" className="w-5 h-5" />
                 <span>Det er godt ved {typeLabel}</span>
               </h3>
               <ul className="space-y-2 text-sm text-[#4A4A4A]">
@@ -163,7 +164,7 @@ export function MediaParentInfo({
           {cons.length > 0 && (
             <div className="bg-white/50 rounded-2xl p-4">
               <h3 className="font-semibold text-[#8B4563] mb-3 flex items-center gap-2">
-                <span>⚠️</span>
+                <Icon name="warning" className="w-5 h-5" />
                 <span>Vær opmærksom på</span>
               </h3>
               <ul className="space-y-2 text-sm text-[#4A4A4A]">
@@ -184,7 +185,7 @@ export function MediaParentInfo({
         {/* Sprog og tilgængelighed */}
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>🌍</span>
+            <Icon name="world" className="w-5 h-5" />
             <span>Sprog</span>
           </h3>
           <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
@@ -216,7 +217,7 @@ export function MediaParentInfo({
         {/* Indhold */}
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>📺</span>
+            <Icon name="tv" className="w-5 h-5" />
             <span>Indhold</span>
           </h3>
           <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
@@ -257,7 +258,7 @@ export function MediaParentInfo({
         {streamingProviders.length > 0 && (
           <div className="bg-white/50 rounded-2xl p-4 sm:col-span-2">
             <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-              <span>📱</span>
+              <Icon name="tv" className="w-5 h-5" />
               <span>Hvor kan I se {typeLabel}?</span>
             </h3>
             <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
@@ -283,7 +284,7 @@ export function MediaParentInfo({
         <div className="px-6 pb-6">
           <div className="bg-[#FFF3B0]/50 rounded-2xl p-4 border border-[#FFE66D]/50">
             <div className="flex items-start gap-3">
-              <span className="text-2xl flex-shrink-0">💡</span>
+              <Icon name="lightbulb" className="w-6 h-6 flex-shrink-0 text-[#9A6700]" />
               <div>
                 <h4 className="font-semibold text-[#7D6608] mb-1">Tip til forældre</h4>
                 <p className="text-[#4A4A4A] text-sm leading-relaxed whitespace-pre-line">

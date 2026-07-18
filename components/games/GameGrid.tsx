@@ -3,6 +3,8 @@
 import { cn } from '@/lib/utils';
 import { GameCard, GameCardProps } from './GameCard';
 import { forwardRef, HTMLAttributes } from 'react';
+import { Icon } from '@/components/ui/Icon';
+import { FoxMascot } from '@/components/brand/FoxMascot';
 
 // ============================================================================
 // SKELETON LOADER
@@ -64,18 +66,15 @@ function EmptyState({
   title = 'Ingen spil fundet',
   description = 'Prøv at ændre din søgning eller filtre',
 }: EmptyStateProps) {
-  const emoji = type === 'digital' ? '🎮' : '🎲';
   const suggestions = type === 'digital'
     ? ['Prøv en anden aldersgruppe', 'Søg efter specifik kategori', 'Fjern filtre og se alle spil']
     : ['Prøv en anden aldersgruppe', 'Søg efter spillerantal', 'Se alle brætspil'];
 
   return (
     <div className="text-center py-16 px-4">
-      {/* Animated emoji */}
+      {/* Ræven kigger forgæves efter spil */}
       <div className="relative inline-block mb-6">
-        <div className="text-8xl animate-bounce" style={{ animationDuration: '2s' }}>
-          {emoji}
-        </div>
+        <FoxMascot className="w-32 h-auto animate-float" />
         {/* Decorative circles */}
         <div className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-[#FFB5A7]/40 animate-ping" style={{ animationDuration: '2s' }} />
         <div className="absolute -bottom-1 -right-3 w-4 h-4 rounded-full bg-[#A2D2FF]/40 animate-ping" style={{ animationDuration: '2.5s' }} />
@@ -101,7 +100,7 @@ function EmptyState({
               key={suggestion}
               className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-sm bg-[#FFF9F0] text-[#7A7A7A] border border-[#FFB5A7]/20"
             >
-              <span>💡</span>
+              <Icon name="lightbulb" className="w-3.5 h-3.5 text-[#9A6700]" />
               <span>{suggestion}</span>
             </span>
           ))}

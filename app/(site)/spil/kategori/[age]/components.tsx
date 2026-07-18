@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 // ============================================================================
 // TYPES
@@ -44,16 +45,6 @@ interface Translations {
 // CATEGORY CONFIG
 // ============================================================================
 
-const categoryEmojis: Record<string, string> = {
-  'læring': '📚',
-  'eventyr': '🏰',
-  'puslespil': '🧩',
-  'kreativ': '🎨',
-  'action': '⚡',
-  'musik': '🎵',
-  'sport': '⚽',
-};
-
 const categoryColors: Record<string, { bg: string; text: string }> = {
   'læring': { bg: '#D8F3DC', text: '#2D6A4F' },
   'eventyr': { bg: '#E2C2FF', text: '#5B4670' },
@@ -79,11 +70,11 @@ export function SortDropdown({ currentSort, translations }: SortDropdownProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  const sortOptions: { value: SortOption; label: string; emoji: string }[] = [
-    { value: 'popular', label: translations.popular, emoji: '🔥' },
-    { value: 'newest', label: translations.newest, emoji: '✨' },
-    { value: 'rating', label: translations.bestRated, emoji: '⭐' },
-    { value: 'adfree', label: translations.adFreeFirst, emoji: '🛡️' },
+  const sortOptions: { value: SortOption; label: string }[] = [
+    { value: 'popular', label: translations.popular },
+    { value: 'newest', label: translations.newest },
+    { value: 'rating', label: translations.bestRated },
+    { value: 'adfree', label: translations.adFreeFirst },
   ];
 
   const handleSortChange = (sort: SortOption) => {
@@ -108,7 +99,7 @@ export function SortDropdown({ currentSort, translations }: SortDropdownProps) {
       >
         {sortOptions.map((option) => (
           <option key={option.value} value={option.value}>
-            {option.emoji} {option.label}
+            {option.label}
           </option>
         ))}
       </select>
@@ -187,7 +178,7 @@ export function FilterSidebar({
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h3 className="font-bold text-lg text-[#4A4A4A] flex items-center gap-2">
-          <span>🎯</span>
+          <Icon name="filter" className="w-5 h-5 text-[#C2410C]" />
           <span>{translations.filters}</span>
         </h3>
         {hasFilters && (
@@ -203,34 +194,34 @@ export function FilterSidebar({
       {/* Parent Filters */}
       <div className="space-y-3 mb-8">
         <h4 className="text-sm font-semibold text-[#4A4A4A] flex items-center gap-2">
-          <span>👨‍👩‍👧‍👦</span>
+          <Icon name="users" className="w-4 h-4 text-[#C2410C]" />
           <span>{translations.parentFilters}</span>
         </h4>
 
         <FilterToggle
           label={translations.adFree}
-          emoji="🚫"
+          icon="shield"
           checked={filters.adFree || false}
           onChange={(checked) => updateFilters('reklamefri', checked)}
           color="#77DD77"
         />
         <FilterToggle
           label={translations.noInAppPurchases}
-          emoji="💰"
+          icon="coins"
           checked={filters.noInAppPurchases || false}
           onChange={(checked) => updateFilters('ingenKob', checked)}
           color="#77DD77"
         />
         <FilterToggle
           label={translations.offline}
-          emoji="📱"
+          icon="gamepad"
           checked={filters.offline || false}
           onChange={(checked) => updateFilters('offline', checked)}
           color="#A2D2FF"
         />
         <FilterToggle
           label={translations.freeOnly}
-          emoji="🆓"
+          icon="check"
           checked={filters.free || false}
           onChange={(checked) => updateFilters('gratis', checked)}
           color="#FFE66D"
@@ -241,7 +232,7 @@ export function FilterSidebar({
       {availableCategories.length > 0 && (
         <div>
           <h4 className="text-sm font-semibold text-[#4A4A4A] flex items-center gap-2 mb-3">
-            <span>🏷️</span>
+            <Icon name="tag" className="w-4 h-4 text-[#C2410C]" />
             <span>{translations.categories}</span>
           </h4>
 
@@ -249,7 +240,6 @@ export function FilterSidebar({
             {availableCategories.map((cat) => {
               const isSelected = selectedCategories.includes(cat.name);
               const colors = categoryColors[cat.name] || { bg: '#F5F5F5', text: '#4A4A4A' };
-              const emoji = categoryEmojis[cat.name] || '🎮';
               const displayName = categoryTranslations[cat.name] || cat.name;
 
               return (
@@ -267,7 +257,6 @@ export function FilterSidebar({
                     borderColor: isSelected ? colors.text + '30' : 'transparent',
                   }}
                 >
-                  <span>{emoji}</span>
                   <span className="capitalize">{displayName}</span>
                   <span className="text-xs opacity-60">({cat.count})</span>
                   {isSelected && (
@@ -292,14 +281,14 @@ export function FilterSidebar({
 // ============================================================================
 
 interface FilterToggleProps {
+  icon: IconName;
   label: string;
-  emoji: string;
   checked: boolean;
   onChange: (checked: boolean) => void;
   color: string;
 }
 
-function FilterToggle({ label, emoji, checked, onChange, color }: FilterToggleProps) {
+function FilterToggle({ label, icon, checked, onChange, color }: FilterToggleProps) {
   return (
     <button
       type="button"
@@ -316,7 +305,7 @@ function FilterToggle({ label, emoji, checked, onChange, color }: FilterTogglePr
       style={{ borderColor: checked ? color : 'transparent' }}
     >
       <div className="flex items-center gap-2">
-        <span className="text-lg">{emoji}</span>
+        <Icon name={icon} className="w-4 h-4 text-[#C2410C]" />
         <span className="font-medium text-[#4A4A4A] text-sm">{label}</span>
       </div>
 
@@ -485,22 +474,22 @@ export function ActiveFilters({ filters, selectedCategories, translations, categ
     router.push(`${pathname}?${params.toString()}`);
   };
 
-  const filterLabels: { key: string; paramKey: string; label: string; emoji: string }[] = [
-    { key: 'adFree', paramKey: 'reklamefri', label: translations.adFree, emoji: '🚫' },
-    { key: 'free', paramKey: 'gratis', label: translations.freeOnly, emoji: '🆓' },
-    { key: 'offline', paramKey: 'offline', label: translations.offline, emoji: '📱' },
-    { key: 'noInAppPurchases', paramKey: 'ingenKob', label: translations.noInAppPurchases, emoji: '💰' },
+  const filterLabels: { key: string; paramKey: string; label: string; icon: IconName }[] = [
+    { key: 'adFree', paramKey: 'reklamefri', label: translations.adFree, icon: 'shield' },
+    { key: 'free', paramKey: 'gratis', label: translations.freeOnly, icon: 'check' },
+    { key: 'offline', paramKey: 'offline', label: translations.offline, icon: 'gamepad' },
+    { key: 'noInAppPurchases', paramKey: 'ingenKob', label: translations.noInAppPurchases, icon: 'coins' },
   ];
 
   return (
     <div className="flex flex-wrap gap-2 mb-6">
-      {filterLabels.map(({ key, paramKey, label, emoji }) =>
+      {filterLabels.map(({ key, paramKey, label, icon }) =>
         filters[key as keyof FilterState] ? (
           <span
             key={key}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#77DD77]/20 text-[#2D6A4F] text-sm font-medium"
           >
-            <span>{emoji}</span>
+            <Icon name={icon} className="w-4 h-4" />
             <span>{label}</span>
             <button
               onClick={() => removeFilter(paramKey)}
@@ -516,7 +505,6 @@ export function ActiveFilters({ filters, selectedCategories, translations, categ
 
       {selectedCategories.map((cat) => {
         const colors = categoryColors[cat] || { bg: '#F5F5F5', text: '#4A4A4A' };
-        const emoji = categoryEmojis[cat] || '🎮';
         const displayName = categoryTranslations[cat] || cat;
 
         return (
@@ -525,7 +513,6 @@ export function ActiveFilters({ filters, selectedCategories, translations, categ
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium"
             style={{ backgroundColor: `${colors.bg}60`, color: colors.text }}
           >
-            <span>{emoji}</span>
             <span className="capitalize">{displayName}</span>
             <button
               onClick={() => removeCategory(cat)}

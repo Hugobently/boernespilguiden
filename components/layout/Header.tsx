@@ -17,7 +17,7 @@ interface SearchSuggestion {
   type: 'game' | 'boardgame' | 'media' | 'category' | 'age';
   title: string;
   slug: string;
-  icon: string;
+  icon: IconName;
 }
 
 // ============================================================================
@@ -36,11 +36,11 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
 
   // Quick suggestions when empty - memoized to prevent infinite loops
   const quickSuggestions: SearchSuggestion[] = useMemo(() => [
-    { type: 'age', title: t('ageGroups.0-3'), slug: '0-3', icon: '👶' },
-    { type: 'age', title: t('ageGroups.3-6'), slug: '3-6', icon: '🧒' },
-    { type: 'age', title: t('ageGroups.7+'), slug: '7+', icon: '👦' },
-    { type: 'category', title: t('categories.learning'), slug: 'laering', icon: '📚' },
-    { type: 'category', title: t('games.noAds'), slug: 'ingen-reklamer', icon: '🚫' },
+    { type: 'age', title: t('ageGroups.0-3'), slug: '0-3', icon: 'blocks' },
+    { type: 'age', title: t('ageGroups.3-6'), slug: '3-6', icon: 'kite' },
+    { type: 'age', title: t('ageGroups.7+'), slug: '7+', icon: 'rocket' },
+    { type: 'category', title: t('categories.learning'), slug: 'laering', icon: 'book' },
+    { type: 'category', title: t('games.noAds'), slug: 'ingen-reklamer', icon: 'shield' },
   ], [t]);
 
   // Fetch suggestions
@@ -63,7 +63,7 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
             type: 'game',
             title: game.title,
             slug: game.slug,
-            icon: '🎮',
+            icon: 'gamepad',
           });
         });
 
@@ -73,7 +73,7 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
             type: 'boardgame',
             title: game.title,
             slug: game.slug,
-            icon: '🎲',
+            icon: 'dice',
           });
         });
 
@@ -83,7 +83,7 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
             type: 'media',
             title: item.title,
             slug: item.slug,
-            icon: '📺',
+            icon: 'tv',
           });
         });
 
@@ -236,7 +236,7 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
                     : 'hover:bg-[#FFB5A7]/10 text-[#4A4A4A]'
                 )}
               >
-                <span className="text-lg">{suggestion.icon}</span>
+                <Icon name={suggestion.icon} className="w-5 h-5 text-[#C2410C]" />
                 <span className="font-medium">{suggestion.title}</span>
                 <span className="ml-auto text-xs text-[#6B7280]">
                   {suggestion.type === 'game' && t('search.gamesCategory')}

@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { FoxMascot } from '@/components/brand/FoxMascot';
 
 export default function Error({
   error,
@@ -17,7 +18,7 @@ export default function Error({
   return (
     <div className="min-h-screen bg-[#FFFDF8] flex items-center justify-center px-4">
       <div className="text-center max-w-md">
-        <span className="text-8xl block mb-6">😢</span>
+        <FoxMascot className="w-40 h-auto mx-auto mb-6" />
         <h1 className="text-3xl font-bold text-[#4A4A4A] mb-4">
           Ups! Noget gik galt
         </h1>

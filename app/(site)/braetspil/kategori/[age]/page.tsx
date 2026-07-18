@@ -6,6 +6,8 @@ import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import prisma from '@/lib/db';
 import { GameCard } from '@/components/games';
+import { Icon } from '@/components/ui/Icon';
+import { FoxMascot } from '@/components/brand/FoxMascot';
 import { FilterSidebar, MobileFilters, SortDropdown, Pagination, ActiveFilters } from './components';
 
 // ============================================================================
@@ -300,7 +302,12 @@ export default async function BoardGameAgeGroupPage({ params, searchParams }: Pa
           </nav>
 
           <div className="flex items-center gap-4 sm:gap-6">
-            <span className="text-6xl sm:text-7xl">🎲</span>
+            <span
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white/60 flex items-center justify-center flex-shrink-0"
+              style={{ color: config.color.text }}
+            >
+              <Icon name="dice" className="w-9 h-9 sm:w-11 sm:h-11" />
+            </span>
             <div>
               <h1
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2"
@@ -418,7 +425,7 @@ export default async function BoardGameAgeGroupPage({ params, searchParams }: Pa
             ) : (
               /* Empty State */
               <div className="text-center py-16">
-                <span className="text-6xl block mb-4">🔍</span>
+                <FoxMascot className="w-28 h-auto mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-[#4A4A4A] mb-2">{t('noBoardGamesFound')}</h3>
                 <p className="text-[#7A7A7A] mb-6">{t('tryChangeFilters')}</p>
                 <Link

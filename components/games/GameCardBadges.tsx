@@ -77,11 +77,11 @@ export function PlatformIcons({ platforms }: { platforms: Platform[] }) {
         return (
           <span
             key={platform}
-            className="text-sm opacity-70 hover:opacity-100 transition-opacity cursor-default"
+            className="w-2 h-2 rounded-full opacity-80 hover:opacity-100 transition-opacity cursor-default"
+            style={{ backgroundColor: info.color }}
             title={info.label}
-          >
-            {info.icon}
-          </span>
+            aria-label={info.label}
+          />
         );
       })}
       {platforms.length > 4 && (

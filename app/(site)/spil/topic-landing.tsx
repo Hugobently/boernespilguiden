@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { getLocale } from 'next-intl/server';
 import { Navigation } from '@/components/layout';
 import { GameGrid } from '@/components/games';
+import { Icon, type IconName } from '@/components/ui/Icon';
+import { DanishFlag } from '@/components/games/GameCardBadges';
 import { FloatingBlobs } from '@/components/brand';
 import { getGamesWithTranslation } from '@/lib/translations';
 import { toGameCardData } from '@/lib/game-card-data';
@@ -61,7 +63,13 @@ export async function TopicLandingPage({ topic }: { topic: TopicConfig }) {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
-            <span className="text-4xl sm:text-5xl">{topic.emoji}</span>
+            <span className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#FDE8DC] text-[#C2410C] flex items-center justify-center flex-shrink-0">
+              {topic.slug === 'paa-dansk' ? (
+                <span className="scale-[1.8]"><DanishFlag /></span>
+              ) : (
+                <Icon name={topic.icon as IconName} className="w-7 h-7 sm:w-8 sm:h-8" />
+              )}
+            </span>
             <div>
               <h1 className="font-display text-3xl sm:text-4xl font-bold text-text-primary">
                 {topic.h1}
@@ -96,7 +104,11 @@ export async function TopicLandingPage({ topic }: { topic: TopicConfig }) {
                 href={t.path}
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-sm font-medium text-[#4A4A4A] border border-[#FFB5A7]/20 shadow-sm hover:border-[#FFB5A7]/60 hover:-translate-y-0.5 transition-all"
               >
-                <span>{t.emoji}</span>
+                {t.slug === 'paa-dansk' ? (
+                  <DanishFlag />
+                ) : (
+                  <Icon name={t.icon as IconName} className="w-4 h-4 text-[#C2410C]" />
+                )}
                 <span>{t.h1}</span>
               </Link>
             ))}

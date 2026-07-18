@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Icon } from '@/components/ui/Icon';
+import { FoxMascot } from '@/components/brand/FoxMascot';
 
 export default function ContactPage() {
   const t = useTranslations('contact');
@@ -47,7 +49,7 @@ export default function ContactPage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-[#A2D2FF] to-[#8ECAE6] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-6xl mb-4 block">✉️</span>
+          <Icon name="mail" className="w-14 h-14 mb-4 mx-auto text-white" />
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             {t('pageTitle')}
           </h1>
@@ -72,7 +74,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#BAFFC9] flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">📧</span>
+                  <Icon name="mail" className="w-6 h-6 text-[#C2410C]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#4A4A4A]">{t('emailTitle')}</h3>
@@ -92,7 +94,7 @@ export default function ContactPage() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#FFD1DC] flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">💡</span>
+                  <Icon name="lightbulb" className="w-6 h-6 text-[#9A6700]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#4A4A4A]">{t('tipTitle')}</h3>
@@ -108,7 +110,7 @@ export default function ContactPage() {
           <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
             {status === 'success' ? (
               <div className="text-center py-8">
-                <span className="text-6xl mb-4 block">🎉</span>
+                <FoxMascot className="w-28 h-auto mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-[#4A4A4A] mb-2">
                   Tak for din besked!
                 </h3>
@@ -127,7 +129,7 @@ export default function ContactPage() {
                 {status === 'error' && (
                   <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700">
                     <p className="flex items-center gap-2">
-                      <span>⚠️</span>
+                      <Icon name="warning" className="w-4 h-4" />
                       {errorMessage}
                     </p>
                   </div>

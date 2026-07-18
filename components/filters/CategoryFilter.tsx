@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { forwardRef, HTMLAttributes } from 'react';
+import { Icon } from '@/components/ui/Icon';
 
 // ============================================================================
 // CATEGORY CONFIGURATIONS
@@ -93,7 +94,6 @@ function CategoryPill({ config, selected, onClick, size = 'md' }: CategoryPillPr
         borderColor: selected ? config.color.border : 'transparent',
       }}
     >
-      <span>{config.emoji}</span>
       <span>{config.label}</span>
       {selected && (
         <span className="w-4 h-4 rounded-full bg-white/50 flex items-center justify-center ml-0.5">
@@ -177,7 +177,7 @@ export const CategoryFilter = forwardRef<HTMLDivElement, CategoryFilterProps>(
         {showLabel && (
           <div className="flex items-center justify-between">
             <label className="text-sm font-semibold text-[#4A4A4A] flex items-center gap-2">
-              <span>🏷️</span>
+              <Icon name="tag" className="w-4 h-4 text-[#C2410C]" />
               <span>{displayLabel}</span>
             </label>
             {selected.length > 0 && (
@@ -266,7 +266,7 @@ export function SimpleCategoryFilter({
   return (
     <div className={cn('space-y-3', className)}>
       <h3 className="font-bold text-lg text-[#4A4A4A] flex items-center gap-2">
-        <span>🏷️</span>
+        <Icon name="tag" className="w-5 h-5 text-[#C2410C]" />
         <span>Kategorier</span>
       </h3>
 

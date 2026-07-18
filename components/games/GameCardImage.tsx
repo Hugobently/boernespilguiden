@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useCallback } from 'react';
+import { Icon } from '@/components/ui/Icon';
 
 // ============================================================================
 // IMAGE FORMAT HELPERS
@@ -45,7 +46,6 @@ export function GameImageWithFallback({
 }: GameImageWithFallbackProps) {
   const [formatIndex, setFormatIndex] = useState(0);
   const [hasError, setHasError] = useState(false);
-  const typeEmoji = type === 'digital' ? '🎮' : '🎲';
 
   // Determine current image source - try different formats on error
   const currentSrc = src.startsWith('/images/games/') && slug
@@ -66,7 +66,7 @@ export function GameImageWithFallback({
     // Show game title as fallback instead of random placeholder
     return (
       <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-        <span className="text-4xl mb-2">{typeEmoji}</span>
+        <Icon name={type === 'digital' ? 'gamepad' : 'dice'} className="w-10 h-10 mb-2 text-[#4A443C]/60" />
         <span className="text-sm font-semibold text-[#4A4A4A]/80 line-clamp-2">
           {title}
         </span>
@@ -121,12 +121,11 @@ export function CompactGameImageWithFallback({
   type,
 }: CompactGameImageWithFallbackProps) {
   const [hasError, setHasError] = useState(false);
-  const typeEmoji = type === 'digital' ? '🎮' : '🎲';
 
   if (hasError) {
     return (
       <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-2xl">{typeEmoji}</span>
+        <Icon name={type === 'digital' ? 'gamepad' : 'dice'} className="w-7 h-7 text-[#4A443C]/60" />
       </div>
     );
   }

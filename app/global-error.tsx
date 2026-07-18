@@ -26,7 +26,10 @@ export default function GlobalError({
           fontFamily: 'system-ui, sans-serif',
         }}>
           <div style={{ textAlign: 'center', maxWidth: '400px' }}>
-            <span style={{ fontSize: '5rem', display: 'block', marginBottom: '1.5rem' }}>😢</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C2410C" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ width: '4rem', height: '4rem', margin: '0 auto 1.5rem', display: 'block' }} aria-hidden="true">
+              <path d="M12 3.5L22 20H2L12 3.5z" />
+              <path d="M12 10v4.5M12 17.2h.01" />
+            </svg>
             <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', color: '#4A4A4A', marginBottom: '1rem' }}>
               Ups! Noget gik galt
             </h1>

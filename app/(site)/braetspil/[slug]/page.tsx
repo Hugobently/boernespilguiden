@@ -8,6 +8,7 @@ import { GameCard, BoardGameParentInfo } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { getBoardGameWithTranslation, getBoardGamesWithTranslation } from '@/lib/translations';
 import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { Icon } from '@/components/ui/Icon';
 import { resolveGameImage } from '@/lib/game-image';
 
 // ============================================================================
@@ -159,20 +160,21 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
   const ageColors = getAgeGroupColorExtended(game.minAge);
 
   // Get complexity info with translations
+  // Sværhedsgrad vises som 1-5 udfyldte prikker + label (ingen emoji)
   const getComplexityInfo = (complexity: number) => {
     switch (complexity) {
       case 1:
-        return { label: t('easy'), emoji: '😊', color: '#77DD77' };
+        return { label: t('easy'), level: 1, color: '#77DD77' };
       case 2:
-        return { label: t('easy'), emoji: '🙂', color: '#BAFFC9' };
+        return { label: t('easy'), level: 2, color: '#BAFFC9' };
       case 3:
-        return { label: t('medium'), emoji: '🤔', color: '#FFE66D' };
+        return { label: t('medium'), level: 3, color: '#FFE66D' };
       case 4:
-        return { label: t('hard'), emoji: '😤', color: '#FFB5A7' };
+        return { label: t('hard'), level: 4, color: '#FFB5A7' };
       case 5:
-        return { label: t('hard'), emoji: '🧠', color: '#E2C2FF' };
+        return { label: t('hard'), level: 5, color: '#E2C2FF' };
       default:
-        return { label: '?', emoji: '❓', color: '#E5E5E5' };
+        return { label: '?', level: 0, color: '#E5E5E5' };
     }
   };
 
@@ -248,7 +250,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               {game.editorChoice && (
                 <div className="absolute top-4 right-4 z-10">
                   <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#FFE66D] to-[#FFB5A7] text-white font-bold shadow-lg text-sm">
-                    <span className="animate-pulse">⭐</span>
+                    <Icon name="star" className="w-4 h-4" />
                     {tCard('editorChoice')}
                   </span>
                 </div>
@@ -258,7 +260,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               {game.featured && !game.editorChoice && (
                 <div className="absolute top-4 right-4 z-10">
                   <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#77DD77] text-white font-bold shadow-lg text-sm">
-                    ✨ {tCard('recommended')}
+                    <Icon name="sparkle" className="w-4 h-4" /> {tCard('recommended')}
                   </span>
                 </div>
               )}
@@ -273,7 +275,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#FF9900] text-white font-semibold hover:bg-[#E68A00] transition-all hover:shadow-lg"
                 >
-                  <span className="text-xl">🛒</span>
+                  <Icon name="tag" className="w-5 h-5" />
                   <span>{t('buyAt')} Amazon</span>
                 </a>
               )}
@@ -284,7 +286,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#5B4670] text-white font-semibold hover:bg-[#4A3660] transition-all hover:shadow-lg"
                 >
-                  <span className="text-xl">🎁</span>
+                  <Icon name="coins" className="w-5 h-5" />
                   <span>{t('buyAt')}</span>
                 </a>
               )}
@@ -299,7 +301,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               {/* Badges */}
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFE66D] text-[#7D6608] font-semibold text-sm">
-                  <span>🎲</span> {tCard('boardGame')}
+                  <Icon name="dice" className="w-4 h-4" /> {tCard('boardGame')}
                 </span>
                 <span
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-semibold text-sm"
@@ -329,7 +331,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
             {/* Quick Stats Cards */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4">
               <div className="bg-[#BAE1FF]/30 rounded-2xl p-4 text-center">
-                <span className="text-3xl block mb-2">👥</span>
+                <span className="flex justify-center mb-2"><Icon name="users" className="w-8 h-8 text-[#1D4E89]" /></span>
                 <span className="text-xs text-[#1D4E89] opacity-70">{t('players')}</span>
                 <span className="block font-bold text-lg text-[#1D4E89]">
                   {game.minPlayers === game.maxPlayers
@@ -338,7 +340,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                 </span>
               </div>
               <div className="bg-[#BAFFC9]/30 rounded-2xl p-4 text-center">
-                <span className="text-3xl block mb-2">⏱️</span>
+                <span className="flex justify-center mb-2"><Icon name="clock" className="w-8 h-8 text-[#2D6A4F]" /></span>
                 <span className="text-xs text-[#2D6A4F] opacity-70">{t('playTime')}</span>
                 <span className="block font-bold text-lg text-[#2D6A4F]">
                   {game.playTimeMinutes} min
@@ -348,7 +350,17 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                 className="rounded-2xl p-4 text-center"
                 style={{ backgroundColor: `${complexityInfo.color}30` }}
               >
-                <span className="text-3xl block mb-2">{complexityInfo.emoji}</span>
+                <span className="flex items-center justify-center gap-1 h-8 mb-2">
+                  {[1, 2, 3, 4, 5].map((dot) => (
+                    <span
+                      key={dot}
+                      className="w-2.5 h-2.5 rounded-full"
+                      style={{
+                        backgroundColor: dot <= complexityInfo.level ? '#5B4670' : '#5B467030',
+                      }}
+                    />
+                  ))}
+                </span>
                 <span className="text-xs text-[#5B4670] opacity-70">{t('complexity')}</span>
                 <span className="block font-bold text-lg text-[#5B4670]">
                   {complexityInfo.label}
@@ -379,7 +391,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
             {(game.price || skills.length > 0 || themes.length > 0) && (
             <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm border border-[#FFE66D]/10">
               <h2 className="text-lg font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <span className="text-2xl">📋</span>
+                <Icon name="info" className="w-6 h-6 text-[#C2410C]" />
                 {tGames('details')}
               </h2>
 
@@ -432,7 +444,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                 {pros.length > 0 && (
                   <div className="bg-[#D8F3DC] rounded-3xl p-6">
                     <h3 className="font-bold text-[#2D6A4F] mb-4 flex items-center gap-2 text-lg">
-                      <span className="text-2xl">👍</span>
+                      <Icon name="check" className="w-6 h-6 text-[#16603A]" />
                       {tGames('pros')}
                     </h3>
                     <ul className="space-y-3">
@@ -449,7 +461,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                 {cons.length > 0 && (
                   <div className="bg-[#FFB5A7]/20 rounded-3xl p-6">
                     <h3 className="font-bold text-[#6B3A2E] mb-4 flex items-center gap-2 text-lg">
-                      <span className="text-2xl">👎</span>
+                      <Icon name="warning" className="w-6 h-6 text-[#A93409]" />
                       {tGames('cons')}
                     </h3>
                     <ul className="space-y-3">
@@ -473,7 +485,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
           <section className="mt-16">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-[#4A4A4A] flex items-center gap-3">
-                <span className="text-3xl">🎲</span>
+                <Icon name="dice" className="w-8 h-8 text-[#5B4670]" />
                 {t('similar')}
               </h2>
               <Link

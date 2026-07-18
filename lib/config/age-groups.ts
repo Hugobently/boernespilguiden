@@ -1,11 +1,15 @@
 // Age group configuration - shared between server and client components
 import { AgeGroup } from '@/lib/types';
+import type { IconName } from '@/components/ui/Icon';
 
 export interface AgeGroupConfig {
   slug: AgeGroup;
   label: string;
   shortLabel: string;
+  /** Kun til native <option>-elementer, hvor SVG ikke kan renderes */
   emoji: string;
+  /** SVG-ikon fra Icon-sættet - brug denne i al anden UI */
+  icon: IconName;
   color: {
     bg: string;
     bgHover: string;
@@ -23,6 +27,7 @@ export const ageGroups: AgeGroupConfig[] = [
     label: '0-3 år',
     shortLabel: 'Baby',
     emoji: '👶',
+    icon: 'blocks',
     color: {
       bg: '#FFD1DC',
       bgHover: '#FFBDCC',
@@ -38,6 +43,7 @@ export const ageGroups: AgeGroupConfig[] = [
     label: '3-6 år',
     shortLabel: 'Småbørn',
     emoji: '🧒',
+    icon: 'kite',
     color: {
       bg: '#BAFFC9',
       bgHover: '#A5F5B8',
@@ -53,6 +59,7 @@ export const ageGroups: AgeGroupConfig[] = [
     label: '7+ år',
     shortLabel: 'Større børn',
     emoji: '👦',
+    icon: 'rocket',
     color: {
       bg: '#BAE1FF',
       bgHover: '#A5D4F5',

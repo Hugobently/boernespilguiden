@@ -6,6 +6,8 @@ import { getTranslations } from 'next-intl/server';
 import { GameCard } from '@/components/games';
 import { MediaCard } from '@/components/media/MediaCard';
 import { SearchBar } from '@/components/filters';
+import { Icon } from '@/components/ui/Icon';
+import { FoxMascot } from '@/components/brand/FoxMascot';
 import prisma from '@/lib/db';
 import { parseAgeGroup } from '@/lib/utils';
 import { SearchTabs, SearchFilters, SearchSuggestions, SortSelect, type SortOption } from './components';
@@ -401,7 +403,7 @@ async function SearchResults({
     return (
       <div className="space-y-12">
         <div className="text-center py-12">
-          <span className="text-7xl block mb-6">🔍</span>
+          <FoxMascot className="w-32 h-auto mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-[#4A4A4A] mb-3">
             Hvad leder du efter?
           </h2>
@@ -414,7 +416,7 @@ async function SearchResults({
         {/* Popular games suggestion */}
         <div>
           <h3 className="text-xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-2">
-            <span>⭐</span> Populære spil
+            <Icon name="star" className="w-5 h-5 text-[#9A6700]" /> Populære spil
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {popular.digitalGames.map((game, index) => (
@@ -453,7 +455,7 @@ async function SearchResults({
         {popular.boardGames.length > 0 && (
           <div>
             <h3 className="text-xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-2">
-              <span>🎲</span> Populære brætspil
+              <Icon name="dice" className="w-5 h-5 text-[#5B4670]" /> Populære brætspil
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {popular.boardGames.map((game, index) => (
@@ -488,7 +490,7 @@ async function SearchResults({
         {popular.media.length > 0 && (
           <div>
             <h3 className="text-xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-2">
-              <span>📺</span> Populære Film & Serier
+              <Icon name="tv" className="w-5 h-5 text-[#1D4E89]" /> Populære Film & Serier
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
               {popular.media.map((item, index) => {
@@ -528,7 +530,7 @@ async function SearchResults({
     return (
       <div className="space-y-12">
         <div className="text-center py-12 bg-[#FFFCF7] rounded-3xl">
-          <span className="text-7xl block mb-6">😕</span>
+          <FoxMascot className="w-32 h-auto mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-[#4A4A4A] mb-3">
             Ingen resultater fundet
           </h2>
@@ -573,7 +575,7 @@ async function SearchResults({
           {tab === 'alle' && (
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-[#4A4A4A] flex items-center gap-2">
-                <span>🎮</span> Digitale spil ({digitalGames.length})
+                <Icon name="gamepad" className="w-5 h-5 text-[#1D4E89]" /> Digitale spil ({digitalGames.length})
               </h2>
               {digitalGames.length > 8 && (
                 <Link
@@ -627,7 +629,7 @@ async function SearchResults({
           {tab === 'alle' && (
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-[#4A4A4A] flex items-center gap-2">
-                <span>🎲</span> Brætspil ({boardGames.length})
+                <Icon name="dice" className="w-5 h-5 text-[#5B4670]" /> Brætspil ({boardGames.length})
               </h2>
               {boardGames.length > 8 && (
                 <Link
@@ -676,7 +678,7 @@ async function SearchResults({
           {tab === 'alle' && (
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-[#4A4A4A] flex items-center gap-2">
-                <span>📺</span> Film & Serier ({media.length})
+                <Icon name="tv" className="w-5 h-5 text-[#1D4E89]" /> Film & Serier ({media.length})
               </h2>
               {media.length > 8 && (
                 <Link
@@ -762,8 +764,9 @@ export default async function SearchPage({ searchParams }: PageProps) {
           </nav>
 
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              🔍 Søg efter spil
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6 flex items-center justify-center gap-3">
+              <Icon name="search" className="w-8 h-8" />
+              Søg efter spil
             </h1>
 
             {/* Search bar */}
@@ -779,25 +782,25 @@ export default async function SearchPage({ searchParams }: PageProps) {
                 href="/soeg?q=læringsspil"
                 className="px-4 py-2 rounded-full bg-white/90 text-[#4A4A4A] text-sm font-medium hover:bg-white transition-colors shadow-sm"
               >
-                📚 Læringsspil
+                Læringsspil
               </Link>
               <Link
                 href="/soeg?gratis=true"
                 className="px-4 py-2 rounded-full bg-white/90 text-[#4A4A4A] text-sm font-medium hover:bg-white transition-colors shadow-sm"
               >
-                🆓 Gratis spil
+                Gratis spil
               </Link>
               <Link
                 href="/soeg?reklamefri=true"
                 className="px-4 py-2 rounded-full bg-white/90 text-[#4A4A4A] text-sm font-medium hover:bg-white transition-colors shadow-sm"
               >
-                🚫 Reklamefri
+                Reklamefri
               </Link>
               <Link
                 href="/soeg?alder=3-6"
                 className="px-4 py-2 rounded-full bg-white/90 text-[#4A4A4A] text-sm font-medium hover:bg-white transition-colors shadow-sm"
               >
-                🧒 3-6 år
+                3-6 år
               </Link>
             </div>
           </div>
@@ -828,7 +831,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
           fallback={
             <div className="text-center py-16">
               <div className="inline-flex items-center gap-3">
-                <span className="text-4xl animate-bounce">🔍</span>
+                <Icon name="search" className="w-8 h-8 animate-bounce text-[#C2410C]" />
                 <span className="text-[#7A7A7A] font-medium">Søger...</span>
               </div>
             </div>

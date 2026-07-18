@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { StreamingBadges } from '@/components/media/StreamingBadges';
 import { MediaParentInfo } from '@/components/media/MediaParentInfo';
+import { Icon } from '@/components/ui/Icon';
+import { DanishFlag } from '@/components/games/GameCardBadges';
 
 interface PageProps {
   params: {
@@ -92,8 +94,8 @@ export default async function MediaDetailPage({ params }: PageProps) {
               )}
             </div>
             {media.isDanish && (
-              <span className="bg-red-600 text-white px-3 py-1 rounded text-sm font-medium">
-                🇩🇰 Dansk
+              <span className="bg-red-600 text-white px-3 py-1 rounded text-sm font-medium inline-flex items-center gap-1.5">
+                <DanishFlag /> Dansk
               </span>
             )}
           </div>
@@ -117,13 +119,13 @@ export default async function MediaDetailPage({ params }: PageProps) {
               </span>
             )}
             {media.hasDanishAudio && (
-              <span className="px-3 py-1 bg-green-100 text-green-700 rounded">
-                🇩🇰 Dansk tale
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded inline-flex items-center gap-1.5">
+                <DanishFlag /> Dansk tale
               </span>
             )}
             {media.hasDanishSubtitles && !media.hasDanishAudio && (
-              <span className="px-3 py-1 bg-green-100 text-green-700 rounded">
-                🇩🇰 Danske undertekster
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded inline-flex items-center gap-1.5">
+                <DanishFlag /> Danske undertekster
               </span>
             )}
           </div>
@@ -132,12 +134,12 @@ export default async function MediaDetailPage({ params }: PageProps) {
           {media.streamingInfo.length > 0 && (
             <div className="mb-6 bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl p-5 border border-primary-200">
               <h2 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-                <span className="text-2xl">📺</span> Se {media.type === 'MOVIE' ? 'filmen' : 'serien'} her
+                <Icon name="tv" className="w-6 h-6 text-[#1D4E89]" /> Se {media.type === 'MOVIE' ? 'filmen' : 'serien'} her
               </h2>
               <StreamingBadges providers={media.streamingInfo} size="large" />
               {media.streamingInfo.some(s => s.isFree) && (
                 <p className="mt-3 text-sm text-green-700 font-medium">
-                  ✨ Gratis at se på udvalgte tjenester
+                  Gratis at se på udvalgte tjenester
                 </p>
               )}
             </div>

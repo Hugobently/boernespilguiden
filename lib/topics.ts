@@ -11,7 +11,7 @@ export interface TopicConfig {
   slug: string;
   /** Full site-relative path, used for canonical, links and sitemap */
   path: string;
-  emoji: string;
+  icon: string;
   h1: string;
   /** Meta title - the root layout template appends "| Børnespilguiden" */
   title: string;
@@ -27,7 +27,7 @@ export const CURATED_TOPICS: TopicConfig[] = [
   {
     slug: 'uden-reklamer',
     path: '/spil/uden-reklamer',
-    emoji: '🚫',
+    icon: 'shield',
     h1: 'Spil uden reklamer',
     title: 'Spil uden reklamer til børn - reklamefri apps og spil',
     metaDescription:
@@ -41,7 +41,7 @@ export const CURATED_TOPICS: TopicConfig[] = [
   {
     slug: 'gratis',
     path: '/spil/gratis',
-    emoji: '🆓',
+    icon: 'check',
     h1: 'Gratis spil til børn',
     title: 'Gratis spil til børn - helt gratis apps uden skjulte køb',
     metaDescription:
@@ -55,7 +55,7 @@ export const CURATED_TOPICS: TopicConfig[] = [
   {
     slug: 'offline',
     path: '/spil/offline',
-    emoji: '📵',
+    icon: 'gamepad',
     h1: 'Offline spil til børn',
     title: 'Offline spil til børn - spil uden internet til bilen og flyet',
     metaDescription:
@@ -69,7 +69,7 @@ export const CURATED_TOPICS: TopicConfig[] = [
   {
     slug: 'paa-dansk',
     path: '/spil/paa-dansk',
-    emoji: '🇩🇰',
+    icon: 'world',
     h1: 'Spil på dansk',
     title: 'Spil på dansk til børn - apps med dansk tale og tekst',
     metaDescription:
@@ -86,7 +86,7 @@ export const CATEGORY_TOPICS: TopicConfig[] = [
   {
     slug: 'laeringsspil',
     path: '/spil/emne/laeringsspil',
-    emoji: '📚',
+    icon: 'book',
     h1: 'Læringsspil til børn',
     title: 'Læringsspil til børn - de bedste lære-apps efter alder',
     metaDescription:
@@ -101,7 +101,7 @@ export const CATEGORY_TOPICS: TopicConfig[] = [
   {
     slug: 'matematikspil',
     path: '/spil/emne/matematikspil',
-    emoji: '🔢',
+    icon: 'blocks',
     h1: 'Matematikspil til børn',
     title: 'Matematikspil til børn - lær tal og regning gennem leg',
     metaDescription:
@@ -121,7 +121,7 @@ export const CATEGORY_TOPICS: TopicConfig[] = [
   {
     slug: 'puslespil',
     path: '/spil/emne/puslespil',
-    emoji: '🧩',
+    icon: 'sparkle',
     h1: 'Puslespil og tænkespil til børn',
     title: 'Puslespil til børn - de bedste tænke- og logikspil',
     metaDescription:
@@ -136,7 +136,7 @@ export const CATEGORY_TOPICS: TopicConfig[] = [
   {
     slug: 'eventyrspil',
     path: '/spil/emne/eventyrspil',
-    emoji: '🗺️',
+    icon: 'rocket',
     h1: 'Eventyrspil til børn',
     title: 'Eventyrspil til børn - historier og verdener der skal udforskes',
     metaDescription:
@@ -151,7 +151,7 @@ export const CATEGORY_TOPICS: TopicConfig[] = [
   {
     slug: 'kreative-spil',
     path: '/spil/emne/kreative-spil',
-    emoji: '🎨',
+    icon: 'heart',
     h1: 'Kreative spil til børn',
     title: 'Kreative spil til børn - tegn, byg og skab på skærmen',
     metaDescription:
@@ -172,7 +172,7 @@ export const CATEGORY_TOPICS: TopicConfig[] = [
   {
     slug: 'kodningsspil',
     path: '/spil/emne/kodningsspil',
-    emoji: '💻',
+    icon: 'gamepad',
     h1: 'Kodningsspil til børn',
     title: 'Kodning for børn - spil der lærer børn at programmere',
     metaDescription:

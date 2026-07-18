@@ -4,7 +4,8 @@ import { getTranslations, getLocale } from 'next-intl/server';
 import { Navigation } from '@/components/layout';
 import { GameGrid } from '@/components/games';
 import { AgeFilter } from '@/components/filters';
-import { StickyFilterBar } from '@/components/ui';
+import { StickyFilterBar, Icon } from '@/components/ui';
+import { DanishFlag } from '@/components/games/GameCardBadges';
 import { FloatingBlobs } from '@/components/brand';
 import { getGamesWithTranslation } from '@/lib/translations';
 import { toGameCardData } from '@/lib/game-card-data';
@@ -96,7 +97,9 @@ export default async function DigitalGamesPage({ searchParams }: PageProps) {
         {/* Header */}
         <div className="mb-8 text-center sm:text-left">
           <div className="flex items-center justify-center sm:justify-start gap-4 mb-4">
-            <span className="text-4xl sm:text-5xl animate-bounce-slow">🎮</span>
+            <span className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCEDFC] text-[#1D4E89] flex items-center justify-center flex-shrink-0">
+              <Icon name="gamepad" className="w-7 h-7 sm:w-8 sm:h-8" />
+            </span>
             <div>
               <h1 className="font-display text-3xl sm:text-4xl font-bold text-text-primary">
                 {t('title')}
@@ -123,7 +126,7 @@ export default async function DigitalGamesPage({ searchParams }: PageProps) {
                 : 'bg-white text-text-secondary border border-gray-200 hover:border-[#C8102E]/30 hover:bg-red-50'
             }`}
           >
-            <span>🇩🇰</span>
+            <DanishFlag />
             <span>Dansk</span>
             {showDanishOnly && <span className="ml-1">✓</span>}
           </a>

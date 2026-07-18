@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { Icon } from '@/components/ui/Icon';
 
 // ============================================================================
 // TYPES
@@ -49,16 +50,6 @@ interface Translations {
 // CATEGORY CONFIG
 // ============================================================================
 
-const categoryEmojis: Record<string, string> = {
-  'strategi': '🧠',
-  'samarbejde': '🤝',
-  'læring': '📚',
-  'fest': '🎉',
-  'kort': '🃏',
-  'familie': '👨‍👩‍👧‍👦',
-  'hukommelse': '🧩',
-};
-
 const categoryColors: Record<string, { bg: string; text: string }> = {
   'strategi': { bg: '#BAE1FF', text: '#1D4E89' },
   'samarbejde': { bg: '#BAFFC9', text: '#2D6A4F' },
@@ -84,11 +75,11 @@ export function SortDropdown({ currentSort, translations }: SortDropdownProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  const sortOptions: { value: SortOption; label: string; emoji: string }[] = [
-    { value: 'popular', label: translations.popular, emoji: '🔥' },
-    { value: 'newest', label: translations.newest, emoji: '✨' },
-    { value: 'rating', label: translations.bestRated, emoji: '⭐' },
-    { value: 'playtime', label: translations.shortestPlaytime, emoji: '⏱️' },
+  const sortOptions: { value: SortOption; label: string }[] = [
+    { value: 'popular', label: translations.popular },
+    { value: 'newest', label: translations.newest },
+    { value: 'rating', label: translations.bestRated },
+    { value: 'playtime', label: translations.shortestPlaytime },
   ];
 
   const handleSortChange = (sort: SortOption) => {
@@ -113,7 +104,7 @@ export function SortDropdown({ currentSort, translations }: SortDropdownProps) {
       >
         {sortOptions.map((option) => (
           <option key={option.value} value={option.value}>
-            {option.emoji} {option.label}
+            {option.label}
           </option>
         ))}
       </select>
@@ -188,11 +179,11 @@ export function FilterSidebar({
   const hasFilters = filters.players || filters.maxPlayTime || filters.maxComplexity || selectedCategories.length > 0;
 
   const difficultyOptions = [
-    { value: 1, label: translations.veryEasy, emoji: '😊' },
-    { value: 2, label: translations.easyDifficulty, emoji: '🙂' },
-    { value: 3, label: translations.mediumDifficulty, emoji: '🤔' },
-    { value: 4, label: translations.hardDifficulty, emoji: '😤' },
-    { value: 5, label: translations.veryHard, emoji: '🧠' },
+    { value: 1, label: translations.veryEasy },
+    { value: 2, label: translations.easyDifficulty },
+    { value: 3, label: translations.mediumDifficulty },
+    { value: 4, label: translations.hardDifficulty },
+    { value: 5, label: translations.veryHard },
   ];
 
   return (
@@ -200,7 +191,7 @@ export function FilterSidebar({
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h3 className="font-bold text-lg text-[#4A4A4A] flex items-center gap-2">
-          <span>🎯</span>
+          <Icon name="filter" className="w-5 h-5 text-[#C2410C]" />
           <span>{translations.filters}</span>
         </h3>
         {hasFilters && (
@@ -216,7 +207,7 @@ export function FilterSidebar({
       {/* Player Count Filter */}
       <div className="mb-6">
         <h4 className="text-sm font-semibold text-[#4A4A4A] flex items-center gap-2 mb-3">
-          <span>👥</span>
+          <Icon name="users" className="w-4 h-4 text-[#C2410C]" />
           <span>{translations.playersFilter}</span>
         </h4>
         <div className="flex flex-wrap gap-2">
@@ -240,7 +231,7 @@ export function FilterSidebar({
       {/* Play Time Filter */}
       <div className="mb-6">
         <h4 className="text-sm font-semibold text-[#4A4A4A] flex items-center gap-2 mb-3">
-          <span>⏱️</span>
+          <Icon name="clock" className="w-4 h-4 text-[#C2410C]" />
           <span>{translations.playTimeFilter}</span>
         </h4>
         <div className="flex flex-wrap gap-2">
@@ -269,7 +260,7 @@ export function FilterSidebar({
       {/* Complexity Filter */}
       <div className="mb-6">
         <h4 className="text-sm font-semibold text-[#4A4A4A] flex items-center gap-2 mb-3">
-          <span>🎚️</span>
+          <Icon name="blocks" className="w-4 h-4 text-[#C2410C]" />
           <span>{translations.difficultyFilter}</span>
         </h4>
         <div className="flex flex-wrap gap-2">
@@ -284,7 +275,6 @@ export function FilterSidebar({
                   : 'bg-white text-[#4A4A4A] hover:bg-[#CDB4DB]/20'
               )}
             >
-              <span>{option.emoji}</span>
               <span>{option.label}</span>
             </button>
           ))}
@@ -295,7 +285,7 @@ export function FilterSidebar({
       {availableCategories.length > 0 && (
         <div>
           <h4 className="text-sm font-semibold text-[#4A4A4A] flex items-center gap-2 mb-3">
-            <span>🏷️</span>
+            <Icon name="tag" className="w-4 h-4 text-[#C2410C]" />
             <span>{translations.categories}</span>
           </h4>
 
@@ -303,7 +293,6 @@ export function FilterSidebar({
             {availableCategories.map((cat) => {
               const isSelected = selectedCategories.includes(cat.name);
               const colors = categoryColors[cat.name] || { bg: '#F5F5F5', text: '#4A4A4A' };
-              const emoji = categoryEmojis[cat.name] || '🎲';
               const displayName = categoryTranslations[cat.name] || cat.name;
 
               return (
@@ -321,7 +310,6 @@ export function FilterSidebar({
                     borderColor: isSelected ? colors.text + '30' : 'transparent',
                   }}
                 >
-                  <span>{emoji}</span>
                   <span className="capitalize">{displayName}</span>
                   <span className="text-xs opacity-60">({cat.count})</span>
                   {isSelected && (
@@ -493,7 +481,7 @@ export function ActiveFilters({ filters, selectedCategories, translations, categ
     <div className="flex flex-wrap gap-2 mb-6">
       {filters.players && (
         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFE66D]/20 text-[#7D6608] text-sm font-medium">
-          <span>👥</span>
+          <Icon name="users" className="w-4 h-4" />
           <span>{translations.playersPlus.replace('{num}', String(filters.players))}</span>
           <button
             onClick={() => removeFilter('spillere')}
@@ -508,7 +496,7 @@ export function ActiveFilters({ filters, selectedCategories, translations, categ
 
       {filters.maxPlayTime && (
         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#A2D2FF]/20 text-[#1D4E89] text-sm font-medium">
-          <span>⏱️</span>
+          <Icon name="clock" className="w-4 h-4" />
           <span>{translations.maxMinutes.replace('{time}', String(filters.maxPlayTime))}</span>
           <button
             onClick={() => removeFilter('spilletid')}
@@ -523,7 +511,7 @@ export function ActiveFilters({ filters, selectedCategories, translations, categ
 
       {filters.maxComplexity && (
         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#CDB4DB]/20 text-[#5B4670] text-sm font-medium">
-          <span>🎚️</span>
+          <Icon name="blocks" className="w-4 h-4" />
           <span>{translations.difficultyLevel.replace('{level}', String(filters.maxComplexity))}</span>
           <button
             onClick={() => removeFilter('kompleksitet')}
@@ -538,7 +526,6 @@ export function ActiveFilters({ filters, selectedCategories, translations, categ
 
       {selectedCategories.map((cat) => {
         const colors = categoryColors[cat] || { bg: '#F5F5F5', text: '#4A4A4A' };
-        const emoji = categoryEmojis[cat] || '🎲';
         const displayName = categoryTranslations[cat] || cat;
 
         return (
@@ -547,7 +534,6 @@ export function ActiveFilters({ filters, selectedCategories, translations, categ
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium"
             style={{ backgroundColor: `${colors.bg}60`, color: colors.text }}
           >
-            <span>{emoji}</span>
             <span className="capitalize">{displayName}</span>
             <button
               onClick={() => removeCategory(cat)}

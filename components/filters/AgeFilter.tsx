@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { forwardRef, HTMLAttributes } from 'react';
 import { AgeGroup } from '@/lib/types';
 import { ageGroups, AgeGroupConfig } from '@/lib/config/age-groups';
+import { Icon } from '@/components/ui/Icon';
 
 // ============================================================================
 // AGE CHIP (Interactive button)
@@ -19,9 +20,9 @@ interface AgeChipProps {
 
 function AgeChip({ config, selected, onClick, size = 'md' }: AgeChipProps) {
   const sizeStyles = {
-    sm: { padding: 'px-3 py-1.5', text: 'text-sm', emoji: 'text-lg', gap: 'gap-1.5' },
-    md: { padding: 'px-4 py-2', text: 'text-base', emoji: 'text-xl', gap: 'gap-2' },
-    lg: { padding: 'px-5 py-3', text: 'text-lg', emoji: 'text-2xl', gap: 'gap-2.5' },
+    sm: { padding: 'px-3 py-1.5', text: 'text-sm', icon: 'w-4 h-4', gap: 'gap-1.5' },
+    md: { padding: 'px-4 py-2', text: 'text-base', icon: 'w-5 h-5', gap: 'gap-2' },
+    lg: { padding: 'px-5 py-3', text: 'text-lg', icon: 'w-6 h-6', gap: 'gap-2.5' },
   };
 
   const styles = sizeStyles[size];
@@ -48,7 +49,7 @@ function AgeChip({ config, selected, onClick, size = 'md' }: AgeChipProps) {
         borderWidth: '2px',
       } as React.CSSProperties}
     >
-      <span className={styles.emoji}>{config.emoji}</span>
+      <Icon name={config.icon} className={styles.icon} />
       <span>{config.label}</span>
 
       {selected && (
@@ -93,9 +94,9 @@ function AgeCard({ config, selected, onClick }: AgeCardProps) {
           'w-16 h-16 rounded-2xl flex items-center justify-center mb-3 transition-transform',
           selected ? 'scale-110' : ''
         )}
-        style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}
+        style={{ backgroundColor: 'rgba(255,255,255,0.5)', color: config.color.text }}
       >
-        <span className="text-4xl">{config.emoji}</span>
+        <Icon name={config.icon} className="w-9 h-9" />
       </div>
 
       <span className="font-bold text-lg" style={{ color: config.color.text }}>
@@ -213,7 +214,7 @@ export const AgeFilterControlled = forwardRef<HTMLDivElement, AgeFilterControlle
                   : 'bg-[#FFFCF7] text-[#4A4A4A] shadow-sm hover:shadow-md border-2 border-[#FFB5A7]/30'
               )}
             >
-              <span className={size === 'sm' ? 'text-lg' : size === 'md' ? 'text-xl' : 'text-2xl'}>✨</span>
+              <Icon name="sparkle" className={size === 'sm' ? 'w-4 h-4' : size === 'md' ? 'w-5 h-5' : 'w-6 h-6'} />
               <span>Alle aldre</span>
             </button>
           )}
@@ -263,7 +264,7 @@ export function AgeFilter({ basePath, selectedAge, className }: AgeFilterProps) 
             : 'bg-[#FFFCF7] text-[#4A4A4A] shadow-sm hover:shadow-md border-2 border-[#FFB5A7]/30'
         )}
       >
-        <span className="text-lg sm:text-xl">✨</span>
+        <Icon name="sparkle" className="w-4 h-4 sm:w-5 sm:h-5" />
         <span className="text-sm sm:text-base">Alle aldre</span>
       </Link>
 
@@ -285,7 +286,7 @@ export function AgeFilter({ basePath, selectedAge, className }: AgeFilterProps) 
             borderColor: selectedAge === config.slug ? config.color.border : 'transparent',
           } as React.CSSProperties}
         >
-          <span className="text-lg sm:text-xl">{config.emoji}</span>
+          <Icon name={config.icon} className="w-4 h-4 sm:w-5 sm:h-5" />
           <span className="text-sm sm:text-base">{config.label}</span>
         </Link>
       ))}
@@ -316,10 +317,10 @@ export function CompactAgeSelector({ selected, onChange }: CompactAgeSelectorPro
           'transition-colors cursor-pointer'
         )}
       >
-        <option value="">✨ Alle aldre</option>
+        <option value="">Alle aldre</option>
         {ageGroups.map((config) => (
           <option key={config.slug} value={config.slug}>
-            {config.emoji} {config.label}
+            {config.label}
           </option>
         ))}
       </select>

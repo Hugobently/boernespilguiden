@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 // ============================================================================
 // SEARCH SUGGESTION TYPES
@@ -12,7 +13,7 @@ interface SearchSuggestion {
   type: 'game' | 'category' | 'age' | 'query' | 'popular';
   label: string;
   slug?: string;
-  emoji?: string;
+  icon?: IconName;
   href?: string;
 }
 
@@ -21,18 +22,18 @@ interface SearchSuggestion {
 // ============================================================================
 
 const popularSearches: SearchSuggestion[] = [
-  { type: 'popular', label: 'Læringsspil', emoji: '📚', href: '/spil?kategori=læring' },
-  { type: 'popular', label: 'Spil til småbørn', emoji: '🧒', href: '/spil?alder=3-6' },
-  { type: 'popular', label: 'Puslespil', emoji: '🧩', href: '/spil?kategori=puslespil' },
-  { type: 'popular', label: 'Gratis spil', emoji: '🆓', href: '/spil?pris=gratis' },
-  { type: 'popular', label: 'Offline spil', emoji: '📱', href: '/spil?offline=true' },
+  { type: 'popular', label: 'Læringsspil', icon: 'book', href: '/spil?kategori=læring' },
+  { type: 'popular', label: 'Spil til småbørn', icon: 'kite', href: '/spil?alder=3-6' },
+  { type: 'popular', label: 'Puslespil', icon: 'blocks', href: '/spil?kategori=puslespil' },
+  { type: 'popular', label: 'Gratis spil', icon: 'check', href: '/spil?pris=gratis' },
+  { type: 'popular', label: 'Offline spil', icon: 'gamepad', href: '/spil?offline=true' },
 ];
 
 const quickCategories: SearchSuggestion[] = [
-  { type: 'category', label: 'Læring', slug: 'læring', emoji: '📚' },
-  { type: 'category', label: 'Eventyr', slug: 'eventyr', emoji: '🏰' },
-  { type: 'category', label: 'Puslespil', slug: 'puslespil', emoji: '🧩' },
-  { type: 'category', label: 'Kreativ', slug: 'kreativ', emoji: '🎨' },
+  { type: 'category', label: 'Læring', slug: 'læring', icon: 'book' },
+  { type: 'category', label: 'Eventyr', slug: 'eventyr', icon: 'rocket' },
+  { type: 'category', label: 'Puslespil', slug: 'puslespil', icon: 'blocks' },
+  { type: 'category', label: 'Kreativ', slug: 'kreativ', icon: 'sparkle' },
 ];
 
 // ============================================================================
@@ -186,7 +187,7 @@ export function SearchBar({
             type: 'game' as const,
             label: game.title,
             slug: game.slug,
-            emoji: game.type === 'DIGITAL' ? '🎮' : '🎲',
+            icon: (game.type === 'DIGITAL' ? 'gamepad' : 'dice') as IconName,
             href: game.type === 'DIGITAL' ? `/spil/${game.slug}` : `/braetspil/${game.slug}`,
           }));
           setSuggestions(gameSuggestions);
@@ -383,7 +384,7 @@ export function SearchBar({
                       : 'hover:bg-[#FFF9F0]'
                   )}
                 >
-                  <span className="text-xl">{suggestion.emoji}</span>
+                  {suggestion.icon && <Icon name={suggestion.icon} className="w-5 h-5 text-[#C2410C]" />}
                   <span className="font-medium text-[#4A4A4A]">{suggestion.label}</span>
                 </button>
               ))}
@@ -405,7 +406,7 @@ export function SearchBar({
                       : 'hover:bg-[#FFF9F0]'
                   )}
                 >
-                  <span className="text-xl">{search.emoji}</span>
+                  {search.icon && <Icon name={search.icon} className="w-5 h-5 text-[#C2410C]" />}
                   <span className="font-medium text-[#4A4A4A]">{search.label}</span>
                 </button>
               ))}
@@ -422,7 +423,7 @@ export function SearchBar({
                     onClick={() => handleSuggestionClick(cat)}
                     className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-white text-[#4A4A4A] hover:bg-[#FFB5A7]/20 transition-colors"
                   >
-                    <span>{cat.emoji}</span>
+                    {cat.icon && <Icon name={cat.icon} className="w-3.5 h-3.5 text-[#C2410C]" />}
                     <span>{cat.label}</span>
                   </button>
                 ))}

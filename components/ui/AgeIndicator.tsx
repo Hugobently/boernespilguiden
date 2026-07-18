@@ -2,6 +2,13 @@
 
 import { cn } from '@/lib/utils';
 import { HTMLAttributes, forwardRef, useMemo } from 'react';
+import { Icon, type IconName } from './Icon';
+
+const ageIconMap: Record<'0-3' | '3-6' | '7+', IconName> = {
+  '0-3': 'blocks',
+  '3-6': 'kite',
+  '7+': 'rocket',
+};
 
 // ============================================================================
 // TYPES
@@ -393,7 +400,7 @@ export const AgeIndicator = forwardRef<HTMLDivElement, AgeIndicatorProps>(
       return (
         <div ref={ref} className={cn(variantStyles, className)} {...props}>
           {showEmoji ? (
-            <span className={sizeStyles.emoji}>{config.emoji}</span>
+            <Icon name={ageIconMap[ageGroup]} className="w-[1.1em] h-[1.1em]" />
           ) : (
             <span className={sizeStyles.text}>{config.shortLabel}</span>
           )}
@@ -418,7 +425,7 @@ export const AgeIndicator = forwardRef<HTMLDivElement, AgeIndicatorProps>(
 
     return (
       <div ref={ref} className={cn(variantStyles, className)} {...props}>
-        {showEmoji && <span className={sizeStyles.emoji}>{config.emoji}</span>}
+        {showEmoji && <Icon name={ageIconMap[ageGroup]} className="w-[1.1em] h-[1.1em]" />}
         {showLabel && <span className={sizeStyles.text}>{config.label}</span>}
         {showDescription && variant !== 'minimal' && (
           <span className={cn(sizeStyles.text, 'opacity-70')}>
@@ -485,7 +492,7 @@ export const AgeSelector = forwardRef<HTMLDivElement, AgeSelectorProps>(
                 `focus-visible:ring-[${config.color.border}]`
               )}
             >
-              <span>{config.emoji}</span>
+              <Icon name={ageIconMap[age]} className="w-4 h-4" />
               <span className={sizeConfig[size].text}>{config.label}</span>
             </button>
           );

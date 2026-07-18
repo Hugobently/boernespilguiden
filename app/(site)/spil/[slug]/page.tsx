@@ -10,6 +10,7 @@ import { ScreenshotGallery } from '@/components/games/GameDetailComponents';
 import { getGameWithTranslation, getGamesWithTranslation } from '@/lib/translations';
 import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 import { resolveGameImage } from '@/lib/game-image';
+import { Icon } from '@/components/ui/Icon';
 import { getTopicForCategory } from '@/lib/topics';
 
 // ============================================================================
@@ -91,14 +92,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // HELPER COMPONENTS
 // ============================================================================
 
-const platformConfig: Record<Platform, { icon: string; label: string; color: string }> = {
-  iOS: { icon: '🍎', label: 'iOS', color: '#007AFF' },
-  Android: { icon: '🤖', label: 'Android', color: '#3DDC84' },
-  PC: { icon: '💻', label: 'PC', color: '#6B7280' },
-  Nintendo: { icon: '🎮', label: 'Nintendo', color: '#E60012' },
-  PlayStation: { icon: '🎯', label: 'PlayStation', color: '#003791' },
-  Xbox: { icon: '🟢', label: 'Xbox', color: '#107C10' },
-  Web: { icon: '🌐', label: 'Web', color: '#4F46E5' },
+const platformConfig: Record<Platform, { label: string; color: string }> = {
+  iOS: { label: 'iOS', color: '#007AFF' },
+  Android: { label: 'Android', color: '#3DDC84' },
+  PC: { label: 'PC', color: '#6B7280' },
+  Nintendo: { label: 'Nintendo', color: '#E60012' },
+  PlayStation: { label: 'PlayStation', color: '#003791' },
+  Xbox: { label: 'Xbox', color: '#107C10' },
+  Web: { label: 'Web', color: '#4F46E5' },
 };
 
 function StarRating({ rating }: { rating: number }) {
@@ -188,7 +189,7 @@ export default async function GameDetailPage({ params }: PageProps) {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#000000] text-white font-semibold hover:bg-[#333333] transition-all hover:shadow-lg"
         >
-          <span className="text-xl">🍎</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden="true"><path d="M16.4 1.7c.1 1-.3 2-.9 2.8-.7.8-1.7 1.4-2.7 1.3-.1-1 .4-2 1-2.7.6-.8 1.7-1.4 2.6-1.4zM19 17.3c-.5 1.1-.7 1.6-1.3 2.6-.9 1.4-2.1 3.1-3.6 3.1-1.3 0-1.7-.9-3.5-.8-1.8 0-2.2.8-3.5.8-1.5 0-2.7-1.6-3.5-2.9-2.4-3.7-2.6-8-1.2-10.3 1-1.6 2.6-2.6 4.1-2.6 1.5 0 2.5.9 3.8.9 1.2 0 2-.9 3.8-.9 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.4 1 8.1z" /></svg>
           <span>{t('downloadAppStore')}</span>
         </a>
       )}
@@ -199,7 +200,7 @@ export default async function GameDetailPage({ params }: PageProps) {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#3DDC84] text-white font-semibold hover:bg-[#2BC472] transition-all hover:shadow-lg"
         >
-          <span className="text-xl">🤖</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.3v16.8c0 .6.1 1 .4 1.3l.1.1 9.4-9.4v-.2L3.7 2.2l-.1.1z" /><path d="M16.3 15.2l-3.2-3.2v-.2l3.2-3.2.1.1 3.8 2.1c1.1.6 1.1 1.6 0 2.2l-3.8 2.2-.1.1z" /></svg>
           <span>{t('downloadPlayStore')}</span>
         </a>
       )}
@@ -210,7 +211,7 @@ export default async function GameDetailPage({ params }: PageProps) {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#4F46E5] text-white font-semibold hover:bg-[#4338CA] transition-all hover:shadow-lg"
         >
-          <span className="text-xl">🌐</span>
+          <Icon name="world" className="w-5 h-5" />
           <span>{t('visitWebsite')}</span>
         </a>
       )}
@@ -287,7 +288,7 @@ export default async function GameDetailPage({ params }: PageProps) {
               {game.editorChoice && (
                 <div className="absolute top-4 right-4 z-10">
                   <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#FFE66D] to-[#FFB5A7] text-white font-bold shadow-lg text-sm">
-                    <span className="animate-pulse">⭐</span>
+                    <Icon name="star" className="w-4 h-4" />
                     {tCard('editorChoice')}
                   </span>
                 </div>
@@ -297,7 +298,7 @@ export default async function GameDetailPage({ params }: PageProps) {
               {game.featured && !game.editorChoice && (
                 <div className="absolute top-4 right-4 z-10">
                   <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#77DD77] text-white font-bold shadow-lg text-sm">
-                    ✨ {tCard('recommended')}
+                    <Icon name="sparkle" className="w-4 h-4" /> {tCard('recommended')}
                   </span>
                 </div>
               )}
@@ -315,7 +316,7 @@ export default async function GameDetailPage({ params }: PageProps) {
               {/* Badges */}
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#BAE1FF] text-[#1D4E89] font-semibold text-sm">
-                  <span>🎮</span> {t('digitalGame')}
+                  <Icon name="gamepad" className="w-4 h-4" /> {t('digitalGame')}
                 </span>
                 <span
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-semibold text-sm"
@@ -367,7 +368,7 @@ export default async function GameDetailPage({ params }: PageProps) {
             {screenshots.length > 0 && (
               <div>
                 <h2 className="text-lg font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                  <span className="text-2xl">📸</span>
+                  <Icon name="camera" className="w-6 h-6 text-[#C2410C]" />
                   <span>Screenshots</span>
                 </h2>
                 <ScreenshotGallery screenshots={screenshots} title={game.title} />
@@ -378,7 +379,7 @@ export default async function GameDetailPage({ params }: PageProps) {
             {game.videoUrl && (
               <div>
                 <h2 className="text-lg font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                  <span className="text-2xl">🎬</span>
+                  <Icon name="film" className="w-6 h-6 text-[#C2410C]" />
                   <span>Gameplay video</span>
                 </h2>
                 <VideoPlayer url={game.videoUrl} title={game.title} />
@@ -416,7 +417,7 @@ export default async function GameDetailPage({ params }: PageProps) {
             {(platforms.length > 0 || skills.length > 0 || themes.length > 0) && (
             <div className="bg-[#FFFCF7] rounded-3xl p-6 shadow-sm border border-[#FFB5A7]/10">
               <h2 className="text-lg font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <span className="text-2xl">📋</span>
+                <Icon name="info" className="w-6 h-6 text-[#C2410C]" />
                 {t('details')}
               </h2>
 
@@ -432,7 +433,10 @@ export default async function GameDetailPage({ params }: PageProps) {
                             key={p}
                             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-sm font-medium shadow-sm"
                           >
-                            <span>{config?.icon || '📱'}</span>
+                            <span
+                              className="w-2 h-2 rounded-full"
+                              style={{ backgroundColor: config?.color || '#6B7280' }}
+                            />
                             <span>{config?.label || p}</span>
                           </span>
                         );
@@ -482,7 +486,7 @@ export default async function GameDetailPage({ params }: PageProps) {
                 {pros.length > 0 && (
                   <div className="bg-[#D8F3DC] rounded-3xl p-6">
                     <h3 className="font-bold text-[#2D6A4F] mb-4 flex items-center gap-2 text-lg">
-                      <span className="text-2xl">👍</span>
+                      <Icon name="check" className="w-6 h-6 text-[#16603A]" />
                       {t('pros')}
                     </h3>
                     <ul className="space-y-3">
@@ -499,7 +503,7 @@ export default async function GameDetailPage({ params }: PageProps) {
                 {cons.length > 0 && (
                   <div className="bg-[#FFB5A7]/20 rounded-3xl p-6">
                     <h3 className="font-bold text-[#6B3A2E] mb-4 flex items-center gap-2 text-lg">
-                      <span className="text-2xl">👎</span>
+                      <Icon name="warning" className="w-6 h-6 text-[#A93409]" />
                       {t('cons')}
                     </h3>
                     <ul className="space-y-3">
@@ -522,7 +526,7 @@ export default async function GameDetailPage({ params }: PageProps) {
           <section className="mt-16">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-[#4A4A4A] flex items-center gap-3">
-                <span className="text-3xl">🎮</span>
+                <Icon name="gamepad" className="w-8 h-8 text-[#1D4E89]" />
                 {t('similar')}
               </h2>
               <Link

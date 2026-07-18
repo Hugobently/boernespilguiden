@@ -8,6 +8,7 @@ import { StreamingFilter } from '@/components/filters';
 import { FloatingBlobs } from '@/components/brand';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { Icon } from '@/components/ui/Icon';
 
 interface SearchParams {
   type?: string;
@@ -125,7 +126,9 @@ export default async function FilmSerierPage({
         {/* Header */}
         <div className="mb-8 text-center sm:text-left">
           <div className="flex items-center justify-center sm:justify-start gap-3 mb-4">
-            <span className="text-4xl sm:text-5xl">📺</span>
+            <span className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCEDFC] text-[#1D4E89] flex items-center justify-center flex-shrink-0">
+              <Icon name="tv" className="w-7 h-7 sm:w-8 sm:h-8" />
+            </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-text-primary">
               Film & Serier til Børn
             </h1>
@@ -151,7 +154,7 @@ export default async function FilmSerierPage({
                     : 'bg-white text-text-secondary hover:bg-gray-50 border border-gray-200'
                 )}
               >
-                <span>✨</span>
+                <Icon name="sparkle" className="w-4 h-4" />
                 <span>Alle</span>
               </Link>
               <Link
@@ -164,7 +167,7 @@ export default async function FilmSerierPage({
                     : 'bg-white text-text-secondary hover:bg-gray-50 border border-gray-200'
                 )}
               >
-                <span>🎬</span>
+                <Icon name="film" className="w-4 h-4" />
                 <span>Film</span>
               </Link>
               <Link
@@ -177,7 +180,7 @@ export default async function FilmSerierPage({
                     : 'bg-white text-text-secondary hover:bg-gray-50 border border-gray-200'
                 )}
               >
-                <span>📺</span>
+                <Icon name="tv" className="w-4 h-4" />
                 <span>Serier</span>
               </Link>
             </div>
@@ -197,7 +200,7 @@ export default async function FilmSerierPage({
                     : 'bg-white text-text-secondary hover:bg-gray-50 border border-gray-200'
                 )}
               >
-                <span className="text-lg">✨</span>
+                <Icon name="sparkle" className="w-4 h-4" />
                 <span>Alle aldre</span>
               </Link>
 
@@ -217,7 +220,7 @@ export default async function FilmSerierPage({
                     color: alder === config.slug ? config.color.text : undefined,
                   }}
                 >
-                  <span className="text-lg">{config.emoji}</span>
+                  <Icon name={config.icon} className="w-4 h-4" />
                   <span>{config.label}</span>
                 </Link>
               ))}
@@ -236,7 +239,7 @@ export default async function FilmSerierPage({
         {/* Results */}
         {media.length === 0 ? (
           <div className="text-center py-16 bg-white/60 rounded-2xl">
-            <span className="text-5xl mb-4 block">🔍</span>
+            <Icon name="search" className="w-12 h-12 mb-4 mx-auto text-[#6B6258]/60" />
             <p className="text-text-secondary text-lg">Ingen film eller serier fundet</p>
             <p className="text-text-muted text-sm mt-2">Prøv at ændre dine filtre</p>
           </div>

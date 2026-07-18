@@ -3,6 +3,7 @@
 import { cn } from '@/lib/utils';
 import { forwardRef, HTMLAttributes } from 'react';
 import { TargetGender } from '@/lib/types';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 // ============================================================================
 // GENDER CONFIGURATION
@@ -11,7 +12,7 @@ import { TargetGender } from '@/lib/types';
 interface GenderConfig {
   value: TargetGender;
   label: string;
-  emoji: string;
+  icon: IconName;
   color: {
     bg: string;
     bgSelected: string;
@@ -25,7 +26,7 @@ const genderConfigs: GenderConfig[] = [
   {
     value: 'alle',
     label: 'Alle',
-    emoji: '✨',
+    icon: 'sparkle',
     color: {
       bg: '#FFB5A7',
       bgSelected: '#F8A99B',
@@ -37,7 +38,7 @@ const genderConfigs: GenderConfig[] = [
   {
     value: 'piger',
     label: 'Piger',
-    emoji: '👧',
+    icon: 'heart',
     color: {
       bg: '#FFD1DC',
       bgSelected: '#FFB6C1',
@@ -49,7 +50,7 @@ const genderConfigs: GenderConfig[] = [
   {
     value: 'drenge',
     label: 'Drenge',
-    emoji: '👦',
+    icon: 'star',
     color: {
       bg: '#BAE1FF',
       bgSelected: '#8ECAE6',
@@ -80,9 +81,9 @@ function GenderOption({
   size,
 }: GenderOptionProps) {
   const sizeStyles = {
-    sm: { padding: 'px-3 py-1.5', text: 'text-sm', emoji: 'text-lg', gap: 'gap-1.5' },
-    md: { padding: 'px-4 py-2', text: 'text-base', emoji: 'text-xl', gap: 'gap-2' },
-    lg: { padding: 'px-5 py-3', text: 'text-lg', emoji: 'text-2xl', gap: 'gap-2.5' },
+    sm: { padding: 'px-3 py-1.5', text: 'text-sm', icon: 'w-4 h-4', gap: 'gap-1.5' },
+    md: { padding: 'px-4 py-2', text: 'text-base', icon: 'w-5 h-5', gap: 'gap-2' },
+    lg: { padding: 'px-5 py-3', text: 'text-lg', icon: 'w-6 h-6', gap: 'gap-2.5' },
   };
 
   const styles = sizeStyles[size];
@@ -103,7 +104,9 @@ function GenderOption({
           borderColor: selected ? config.color.border : 'transparent',
         }}
       >
-        <span className="text-4xl mb-2">{config.emoji}</span>
+        <span className="mb-2" style={{ color: config.color.text }}>
+          <Icon name={config.icon} className="w-9 h-9" />
+        </span>
         <span className="font-bold" style={{ color: config.color.text }}>
           {config.label}
         </span>
@@ -145,7 +148,7 @@ function GenderOption({
           '--shadow-color': config.color.border,
         } as React.CSSProperties}
       >
-        <span className={styles.emoji}>{config.emoji}</span>
+        <Icon name={config.icon} className={styles.icon} />
         <span>{config.label}</span>
       </button>
     );
@@ -173,7 +176,7 @@ function GenderOption({
         borderColor: selected ? config.color.border : 'transparent',
       }}
     >
-      <span className={styles.emoji}>{config.emoji}</span>
+      <Icon name={config.icon} className={styles.icon} />
       <span>{config.label}</span>
       {selected && (
         <span className="w-5 h-5 rounded-full bg-white/50 flex items-center justify-center ml-0.5">
@@ -219,7 +222,7 @@ export const GenderFilter = forwardRef<HTMLDivElement, GenderFilterProps>(
       <div ref={ref} className={cn('space-y-3', className)} {...props}>
         {showLabel && (
           <label className="block text-sm font-semibold text-[#4A4A4A] flex items-center gap-2">
-            <span>👫</span>
+            <Icon name="users" className="w-4 h-4 text-[#C2410C]" />
             <span>{label}</span>
             <span className="text-xs font-normal text-[#6B7280]">(valgfrit)</span>
           </label>
@@ -285,7 +288,7 @@ export function CompactGenderSelector({
       >
         {genderConfigs.map((config) => (
           <option key={config.value} value={config.value}>
-            {config.emoji} {config.label}
+            {config.label}
           </option>
         ))}
       </select>

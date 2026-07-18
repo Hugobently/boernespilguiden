@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { DataCollection, PriceModel } from '@/lib/types';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 // ============================================================================
 // DANISH FLAG SVG COMPONENT
@@ -88,12 +89,12 @@ export function ParentInfoExpanded({
 }: ParentInfoExpandedProps) {
   // Kun de vigtigste advarsler vises som badges - alle detaljer står i
   // kategorierne nedenfor, så positive badges ville blot gentage dem
-  const warnings: Array<{ icon: string; label: string }> = [];
-  if (hasAds === true) warnings.push({ icon: '📢', label: 'Indeholder reklamer' });
-  if (hasInAppPurchases === true) warnings.push({ icon: '💳', label: 'Køb i appen' });
-  if (hasChat === true) warnings.push({ icon: '💬', label: 'Chat med fremmede' });
-  if (hasManipulativeDesign === true) warnings.push({ icon: '⚠️', label: 'Manipulativt design' });
-  if (hasScaryContent === true) warnings.push({ icon: '😱', label: 'Skræmmende elementer' });
+  const warnings: Array<{ icon: IconName; label: string }> = [];
+  if (hasAds === true) warnings.push({ icon: 'bell', label: 'Indeholder reklamer' });
+  if (hasInAppPurchases === true) warnings.push({ icon: 'coins', label: 'Køb i appen' });
+  if (hasChat === true) warnings.push({ icon: 'chat', label: 'Chat med fremmede' });
+  if (hasManipulativeDesign === true) warnings.push({ icon: 'warning', label: 'Manipulativt design' });
+  if (hasScaryContent === true) warnings.push({ icon: 'warning', label: 'Skræmmende elementer' });
 
   return (
     <div className="bg-gradient-to-br from-[#E8F4EA] to-[#D8F3DC] rounded-3xl overflow-hidden border border-[#95D5B2]/30">
@@ -101,7 +102,7 @@ export function ParentInfoExpanded({
       <div className="bg-[#2D6A4F]/10 px-6 py-4 border-b border-[#95D5B2]/30">
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-3">
-            <span className="text-3xl">👨‍👩‍👧‍👦</span>
+            <Icon name="users" className="w-8 h-8 text-[#2D6A4F]" />
             <div>
               <h2 className="font-bold text-xl text-[#2D6A4F]">
                 Hvad forældre skal vide
@@ -120,7 +121,7 @@ export function ParentInfoExpanded({
                   key={warning.label}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold bg-[#FFD1DC] text-[#8B4563] border border-[#FFB6C1]"
                 >
-                  <span>{warning.icon}</span>
+                  <Icon name={warning.icon} className="w-4 h-4" />
                   <span>{warning.label}</span>
                 </span>
               ))}
@@ -143,7 +144,7 @@ export function ParentInfoExpanded({
         {/* Reklamer og køb */}
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>💰</span>
+            <Icon name="coins" className="w-5 h-5" />
             <span>Reklamer og køb</span>
           </h3>
           <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
@@ -180,7 +181,7 @@ export function ParentInfoExpanded({
         {/* Skærmtid og engagement */}
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>⏱️</span>
+            <Icon name="clock" className="w-5 h-5" />
             <span>Skærmtid</span>
           </h3>
           <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
@@ -216,7 +217,7 @@ export function ParentInfoExpanded({
         {/* Social interaktion */}
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>👥</span>
+            <Icon name="users" className="w-5 h-5" />
             <span>Social interaktion</span>
           </h3>
           <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
@@ -246,7 +247,7 @@ export function ParentInfoExpanded({
         {/* Privatliv */}
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>🔒</span>
+            <Icon name="lock" className="w-5 h-5" />
             <span>Privatliv</span>
           </h3>
           <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
@@ -283,7 +284,7 @@ export function ParentInfoExpanded({
         {/* Sprog og tilgængelighed */}
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>🌍</span>
+            <Icon name="world" className="w-5 h-5" />
             <span>Sprog og tilgængelighed</span>
           </h3>
           <ul className="space-y-1.5 text-sm text-[#4A4A4A]">
@@ -330,7 +331,7 @@ export function ParentInfoExpanded({
         <div className="px-6 pb-6">
           <div className="bg-[#FFF3B0]/50 rounded-2xl p-4 border border-[#FFE66D]/50">
             <div className="flex items-start gap-3">
-              <span className="text-2xl flex-shrink-0">💡</span>
+              <Icon name="lightbulb" className="w-6 h-6 flex-shrink-0 text-[#9A6700]" />
               <div>
                 <h4 className="font-semibold text-[#7D6608] mb-1">Tip til forældre</h4>
                 <p className="text-[#4A4A4A] text-sm leading-relaxed">{parentTip}</p>
@@ -389,7 +390,7 @@ export function BoardGameParentInfo({
       {/* Header */}
       <div className="bg-[#2D6A4F]/10 px-6 py-4 border-b border-[#95D5B2]/30">
         <div className="flex items-center gap-3">
-          <span className="text-3xl">👨‍👩‍👧‍👦</span>
+          <Icon name="users" className="w-8 h-8 text-[#2D6A4F]" />
           <div>
             <h2 className="font-bold text-xl text-[#2D6A4F]">
               Hvad forældre skal vide
@@ -407,7 +408,7 @@ export function BoardGameParentInfo({
       <div className="px-6 py-5 grid sm:grid-cols-2 gap-4">
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>🧩</span>
+            <Icon name="blocks" className="w-5 h-5" />
             <span>Sværhedsgrad</span>
           </h3>
           <p className="text-sm text-[#4A4A4A]">{complexityText}</p>
@@ -415,7 +416,7 @@ export function BoardGameParentInfo({
 
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>{isCooperative ? '🤝' : '🏆'}</span>
+            <Icon name={isCooperative ? 'users' : 'star'} className="w-5 h-5" />
             <span>{isCooperative ? 'Samarbejdsspil' : 'Konkurrencespil'}</span>
           </h3>
           <p className="text-sm text-[#4A4A4A]">
@@ -427,7 +428,7 @@ export function BoardGameParentInfo({
 
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>⏱️</span>
+            <Icon name="clock" className="w-5 h-5" />
             <span>Spilletid</span>
           </h3>
           <p className="text-sm text-[#4A4A4A]">
@@ -438,7 +439,7 @@ export function BoardGameParentInfo({
 
         <div className="bg-white/50 rounded-2xl p-4">
           <h3 className="font-semibold text-[#2D6A4F] mb-2 flex items-center gap-2">
-            <span>🌍</span>
+            <Icon name="world" className="w-5 h-5" />
             <span>Sprog</span>
           </h3>
           <p className="text-sm text-[#4A4A4A] flex items-center gap-1.5 flex-wrap">
@@ -458,7 +459,7 @@ export function BoardGameParentInfo({
         <div className="px-6 pb-6">
           <div className="bg-[#FFF3B0]/50 rounded-2xl p-4 border border-[#FFE66D]/50">
             <div className="flex items-start gap-3">
-              <span className="text-2xl flex-shrink-0">💡</span>
+              <Icon name="lightbulb" className="w-6 h-6 flex-shrink-0 text-[#9A6700]" />
               <div>
                 <h4 className="font-semibold text-[#7D6608] mb-1">Tip til forældre</h4>
                 <p className="text-[#4A4A4A] text-sm leading-relaxed">{parentTip}</p>

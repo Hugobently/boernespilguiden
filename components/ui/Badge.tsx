@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { HTMLAttributes, forwardRef, type ReactNode } from 'react';
+import { Icon, type IconName } from './Icon';
 
 // ============================================================================
 // TYPES
@@ -196,9 +197,9 @@ interface AgeBadgeProps extends Omit<BadgeProps, 'color' | 'children'> {
 }
 
 const ageGroupConfig = {
-  '0-3': { label: '0-3 år', emoji: '👶', color: 'coral' as BadgeColor },
-  '3-6': { label: '3-6 år', emoji: '🧒', color: 'mint' as BadgeColor },
-  '7+': { label: '7+ år', emoji: '👦', color: 'sky' as BadgeColor },
+  '0-3': { label: '0-3 år', icon: 'blocks' as IconName, color: 'coral' as BadgeColor },
+  '3-6': { label: '3-6 år', icon: 'kite' as IconName, color: 'mint' as BadgeColor },
+  '7+': { label: '7+ år', icon: 'rocket' as IconName, color: 'sky' as BadgeColor },
 };
 
 export const AgeBadge = forwardRef<HTMLSpanElement, AgeBadgeProps>(
@@ -206,7 +207,7 @@ export const AgeBadge = forwardRef<HTMLSpanElement, AgeBadgeProps>(
     const config = ageGroupConfig[ageGroup];
     return (
       <Badge ref={ref} variant={variant} color={config.color} {...props}>
-        <span>{config.emoji}</span>
+        <Icon name={config.icon} className="w-3.5 h-3.5" />
         <span>{config.label}</span>
       </Badge>
     );
@@ -236,11 +237,11 @@ interface FeatureBadgeProps extends Omit<BadgeProps, 'children'> {
 }
 
 const featureConfig = {
-  noAds: { label: 'Ingen reklamer', icon: '🚫', color: 'mint' as BadgeColor },
-  offline: { label: 'Virker offline', icon: '📴', color: 'sky' as BadgeColor },
-  free: { label: 'Gratis', icon: '🆓', color: 'sunflower' as BadgeColor },
-  editorChoice: { label: 'Anbefalet', icon: '⭐', color: 'coral' as BadgeColor },
-  noIAP: { label: 'Ingen køb', icon: '💰', color: 'lavender' as BadgeColor },
+  noAds: { label: 'Ingen reklamer', icon: 'shield' as IconName, color: 'mint' as BadgeColor },
+  offline: { label: 'Virker offline', icon: 'gamepad' as IconName, color: 'sky' as BadgeColor },
+  free: { label: 'Gratis', icon: 'check' as IconName, color: 'sunflower' as BadgeColor },
+  editorChoice: { label: 'Anbefalet', icon: 'star' as IconName, color: 'coral' as BadgeColor },
+  noIAP: { label: 'Ingen køb', icon: 'coins' as IconName, color: 'lavender' as BadgeColor },
 };
 
 export const FeatureBadge = forwardRef<HTMLSpanElement, FeatureBadgeProps>(
@@ -248,7 +249,7 @@ export const FeatureBadge = forwardRef<HTMLSpanElement, FeatureBadgeProps>(
     const config = featureConfig[feature];
     return (
       <Badge ref={ref} variant={variant} color={config.color} {...props}>
-        <span>{config.icon}</span>
+        <Icon name={config.icon} className="w-3.5 h-3.5" />
         <span>{config.label}</span>
       </Badge>
     );

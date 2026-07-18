@@ -4,6 +4,7 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useState, useCallback, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 // ============================================================================
 // SEARCH TABS
@@ -19,10 +20,10 @@ export function SearchTabs({ activeTab }: SearchTabsProps) {
   const searchParams = useSearchParams();
 
   const tabs = [
-    { id: 'alle', label: 'Alle', emoji: '🔍' },
-    { id: 'spil', label: 'Digitale spil', emoji: '🎮' },
-    { id: 'braetspil', label: 'Brætspil', emoji: '🎲' },
-    { id: 'film-serier', label: 'Film & Serier', emoji: '📺' },
+    { id: 'alle', label: 'Alle', icon: 'search' as IconName },
+    { id: 'spil', label: 'Digitale spil', icon: 'gamepad' as IconName },
+    { id: 'braetspil', label: 'Brætspil', icon: 'dice' as IconName },
+    { id: 'film-serier', label: 'Film & Serier', icon: 'tv' as IconName },
   ] as const;
 
   const handleTabChange = (tabId: string) => {
@@ -48,7 +49,7 @@ export function SearchTabs({ activeTab }: SearchTabsProps) {
               : 'text-[#7A7A7A] hover:text-[#4A4A4A]'
           )}
         >
-          <span>{tab.emoji}</span>
+          <Icon name={tab.icon} className="w-4 h-4" />
           <span className="hidden sm:inline">{tab.label}</span>
         </button>
       ))}
@@ -189,7 +190,7 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
                 Sprog
               </label>
               <FilterToggle
-                label="🇩🇰 Dansk understøttet"
+                label="Dansk understøttet"
                 checked={filters.supportsDanish || false}
                 onChange={(checked) => updateFilter('dansk', checked ? true : null)}
               />
@@ -200,11 +201,11 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
               <>
                 <div className="border-t border-[#FFB5A7]/10 pt-4">
                   <label className="block text-xs font-semibold text-[#7A7A7A] mb-2">
-                    🎮 Digitale spil filtre
+                    Digitale spil filtre
                   </label>
                   <div className="space-y-2">
                     <FilterToggle
-                      label="🚫 Reklamefri"
+                      label="Reklamefri"
                       checked={filters.adFree || false}
                       onChange={(checked) => updateFilter('reklamefri', checked ? true : null)}
                     />
@@ -214,12 +215,12 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
                       onChange={(checked) => updateFilter('gratis', checked ? true : null)}
                     />
                     <FilterToggle
-                      label="📱 Offline tilgængelig"
+                      label="Offline tilgængelig"
                       checked={filters.offline || false}
                       onChange={(checked) => updateFilter('offline', checked ? true : null)}
                     />
                     <FilterToggle
-                      label="💰 Ingen in-app køb"
+                      label="Ingen in-app køb"
                       checked={filters.noInAppPurchases || false}
                       onChange={(checked) => updateFilter('ingenKob', checked ? true : null)}
                     />
@@ -232,7 +233,7 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
             {(activeTab === 'alle' || activeTab === 'braetspil') && (
               <div className="border-t border-[#FFB5A7]/10 pt-4">
                 <label className="block text-xs font-semibold text-[#7A7A7A] mb-2">
-                  🎲 Brætspil filtre
+                  Brætspil filtre
                 </label>
                 <div className="space-y-3">
                   {/* Players */}
@@ -338,7 +339,7 @@ export function SearchSuggestions({ query }: SearchSuggestionsProps) {
   return (
     <div className="bg-[#FFFCF7] rounded-3xl p-6">
       <h3 className="text-lg font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-        <span>💡</span> Søgte du efter...?
+        <Icon name="lightbulb" className="w-5 h-5 text-[#9A6700]" /> Søgte du efter...?
       </h3>
 
       <div className="flex flex-wrap gap-2 mb-6">
@@ -360,28 +361,28 @@ export function SearchSuggestions({ query }: SearchSuggestionsProps) {
             href="/spil/kategori/3-6"
             className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-[#BAFFC9]/30 hover:bg-[#BAFFC9]/50 transition-colors"
           >
-            <span className="text-2xl">🧒</span>
+            <Icon name="kite" className="w-6 h-6 text-[#2D6A4F]" />
             <span className="text-sm font-semibold text-[#2D6A4F]">3-6 år</span>
           </Link>
           <Link
             href="/spil/kategori/7+"
             className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-[#BAE1FF]/30 hover:bg-[#BAE1FF]/50 transition-colors"
           >
-            <span className="text-2xl">👦</span>
+            <Icon name="rocket" className="w-6 h-6 text-[#1D4E89]" />
             <span className="text-sm font-semibold text-[#1D4E89]">7+ år</span>
           </Link>
           <Link
             href="/soeg?reklamefri=true"
             className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-[#FFB5A7]/20 hover:bg-[#FFB5A7]/40 transition-colors"
           >
-            <span className="text-2xl">🚫</span>
+            <Icon name="shield" className="w-6 h-6 text-[#6B3A2E]" />
             <span className="text-sm font-semibold text-[#6B3A2E]">Reklamefri</span>
           </Link>
           <Link
             href="/braetspil"
             className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-[#FFE66D]/20 hover:bg-[#FFE66D]/40 transition-colors"
           >
-            <span className="text-2xl">🎲</span>
+            <Icon name="dice" className="w-6 h-6 text-[#7D6608]" />
             <span className="text-sm font-semibold text-[#7D6608]">Brætspil</span>
           </Link>
         </div>
@@ -405,11 +406,11 @@ export function SortDropdown({ currentSort, onSortChange }: SortDropdownProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const sortOptions: { value: SortOption; label: string; icon: string }[] = [
-    { value: 'relevans', label: 'Relevans', icon: '🎯' },
-    { value: 'rating', label: 'Bedst bedømt', icon: '⭐' },
-    { value: 'navn', label: 'Navn (A-Å)', icon: '🔤' },
-    { value: 'alder', label: 'Yngste først', icon: '👶' },
+  const sortOptions: { value: SortOption; label: string }[] = [
+    { value: 'relevans', label: 'Relevans' },
+    { value: 'rating', label: 'Bedst bedømt' },
+    { value: 'navn', label: 'Navn (A-Å)' },
+    { value: 'alder', label: 'Yngste først' },
   ];
 
   const handleSortChange = (value: SortOption) => {
@@ -437,7 +438,7 @@ export function SortDropdown({ currentSort, onSortChange }: SortDropdownProps) {
       >
         {sortOptions.map((option) => (
           <option key={option.value} value={option.value}>
-            {option.icon} {option.label}
+            {option.label}
           </option>
         ))}
       </select>
@@ -457,10 +458,10 @@ export function SortSelect() {
   const currentSort = (searchParams.get('sort') || 'relevans') as SortOption;
 
   const sortOptions: { value: SortOption; label: string }[] = [
-    { value: 'relevans', label: '🎯 Relevans' },
-    { value: 'rating', label: '⭐ Bedst bedømt' },
-    { value: 'navn', label: '🔤 Navn (A-Å)' },
-    { value: 'alder', label: '👶 Yngste først' },
+    { value: 'relevans', label: 'Relevans' },
+    { value: 'rating', label: 'Bedst bedømt' },
+    { value: 'navn', label: 'Navn (A-Å)' },
+    { value: 'alder', label: 'Yngste først' },
   ];
 
   const handleSortChange = (value: string) => {

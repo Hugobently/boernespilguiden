@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { forwardRef, HTMLAttributes } from 'react';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 // ============================================================================
 // TOGGLE SWITCH COMPONENT
@@ -12,7 +13,7 @@ interface ToggleSwitchProps {
   onChange: (checked: boolean) => void;
   label: string;
   description?: string;
-  emoji: string;
+  icon: IconName;
   color: { active: string; track: string };
   size?: 'sm' | 'md';
 }
@@ -22,7 +23,7 @@ function ToggleSwitch({
   onChange,
   label,
   description,
-  emoji,
+  icon,
   color,
   size = 'md',
 }: ToggleSwitchProps) {
@@ -33,7 +34,7 @@ function ToggleSwitch({
       thumbTranslate: 'translate-x-5',
       padding: 'p-3',
       text: 'text-sm',
-      emoji: 'text-lg',
+      icon: 'w-4 h-4',
     },
     md: {
       track: 'w-12 h-6',
@@ -41,7 +42,7 @@ function ToggleSwitch({
       thumbTranslate: 'translate-x-6',
       padding: 'p-4',
       text: 'text-base',
-      emoji: 'text-xl',
+      icon: 'w-5 h-5',
     },
   };
 
@@ -65,8 +66,8 @@ function ToggleSwitch({
         borderColor: checked ? color.active : 'transparent',
       }}
     >
-      {/* Emoji */}
-      <span className={cn(styles.emoji, 'flex-shrink-0')}>{emoji}</span>
+      {/* Ikon */}
+      <Icon name={icon} className={cn(styles.icon, 'flex-shrink-0 text-[#C2410C]')} />
 
       {/* Label and description */}
       <div className="flex-1 text-left">
@@ -109,7 +110,7 @@ interface FilterConfig {
   key: string;
   label: string;
   description: string;
-  emoji: string;
+  icon: IconName;
   color: { active: string; track: string };
 }
 
@@ -118,28 +119,28 @@ const parentFilterConfigs: FilterConfig[] = [
     key: 'adFree',
     label: 'Kun reklamefri',
     description: 'Vis kun spil uden reklamer',
-    emoji: '🚫',
+    icon: 'shield',
     color: { active: '#77DD77', track: '#E5E5E5' },
   },
   {
     key: 'noInAppPurchases',
     label: 'Ingen in-app køb',
     description: 'Vis kun spil uden køb i appen',
-    emoji: '💰',
+    icon: 'coins',
     color: { active: '#77DD77', track: '#E5E5E5' },
   },
   {
     key: 'offlineOnly',
     label: 'Kun offline spil',
     description: 'Vis kun spil der virker uden internet',
-    emoji: '📱',
+    icon: 'gamepad',
     color: { active: '#A2D2FF', track: '#E5E5E5' },
   },
   {
     key: 'freeOnly',
     label: 'Kun gratis',
     description: 'Vis kun helt gratis spil',
-    emoji: '🆓',
+    icon: 'check',
     color: { active: '#FFE66D', track: '#E5E5E5' },
   },
 ];
@@ -202,7 +203,7 @@ export const ParentFilters = forwardRef<HTMLDivElement, ParentFiltersProps>(
           {showLabel && (
             <div className="flex items-center justify-between">
               <label className="text-sm font-semibold text-[#4A4A4A] flex items-center gap-2">
-                <span>👨‍👩‍👧‍👦</span>
+                <Icon name="users" className="w-4 h-4 text-[#C2410C]" />
                 <span>{label}</span>
               </label>
               {activeCount > 0 && (
@@ -236,7 +237,7 @@ export const ParentFilters = forwardRef<HTMLDivElement, ParentFiltersProps>(
                     color: isActive ? '#2D6A4F' : undefined,
                   }}
                 >
-                  <span>{config.emoji}</span>
+                  <Icon name={config.icon} className="w-4 h-4" />
                   <span>{config.label}</span>
                   {isActive && (
                     <span className="w-4 h-4 rounded-full bg-white/50 flex items-center justify-center">
@@ -258,7 +259,7 @@ export const ParentFilters = forwardRef<HTMLDivElement, ParentFiltersProps>(
         {showLabel && (
           <div className="flex items-center justify-between">
             <label className="text-sm font-semibold text-[#4A4A4A] flex items-center gap-2">
-              <span>👨‍👩‍👧‍👦</span>
+              <Icon name="users" className="w-4 h-4 text-[#C2410C]" />
               <span>{label}</span>
               {activeCount > 0 && (
                 <span className="px-2 py-0.5 rounded-full bg-[#77DD77] text-white text-xs">
@@ -290,7 +291,7 @@ export const ParentFilters = forwardRef<HTMLDivElement, ParentFiltersProps>(
               onChange={() => handleToggle(config.key as keyof ParentFiltersState)}
               label={config.label}
               description={variant === 'list' ? config.description : undefined}
-              emoji={config.emoji}
+              icon={config.icon}
               color={config.color}
               size={size}
             />
@@ -329,7 +330,7 @@ export function QuickParentFilter({
       onChange={onChange}
       label={config.label}
       description={config.description}
-      emoji={config.emoji}
+      icon={config.icon}
       color={config.color}
       size={size}
     />
@@ -348,25 +349,25 @@ interface SafetyQuickFiltersProps {
   onFiltersChange: (filters: ParentFiltersState) => void;
 }
 
-const safetyPresets: Record<SafetyPreset, { label: string; emoji: string; filters: ParentFiltersState }> = {
+const safetyPresets: Record<SafetyPreset, { label: string; icon: IconName; filters: ParentFiltersState }> = {
   all: {
     label: 'Alle spil',
-    emoji: '🌟',
+    icon: 'star',
     filters: { adFree: false, noInAppPurchases: false, offlineOnly: false, freeOnly: false },
   },
   safe: {
     label: 'Børnesikker',
-    emoji: '🛡️',
+    icon: 'shield',
     filters: { adFree: true, noInAppPurchases: true, offlineOnly: false, freeOnly: false },
   },
   'free-safe': {
     label: 'Gratis & Sikker',
-    emoji: '✨',
+    icon: 'sparkle',
     filters: { adFree: true, noInAppPurchases: true, offlineOnly: false, freeOnly: true },
   },
   'offline-safe': {
     label: 'Offline & Sikker',
-    emoji: '📱',
+    icon: 'gamepad',
     filters: { adFree: true, noInAppPurchases: true, offlineOnly: true, freeOnly: false },
   },
 };
@@ -396,7 +397,7 @@ export function SafetyQuickFilters({
                 : 'bg-[#FFFCF7] text-[#4A4A4A] shadow-sm hover:shadow-md border-2 border-[#77DD77]/30'
             )}
           >
-            <span className="text-lg">{preset.emoji}</span>
+            <Icon name={preset.icon} className="w-5 h-5" />
             <span>{preset.label}</span>
           </button>
         )

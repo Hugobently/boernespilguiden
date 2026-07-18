@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { Icon } from '@/components/ui/Icon';
 
 // ============================================================================
 // AFFILIATE LINK TYPES
@@ -30,65 +31,83 @@ interface AffiliateLinkProps {
 // PROVIDER CONFIG
 // ============================================================================
 
+/** Officielle butiks-logoer som inline SVG (samme greb som App Store-badges) */
+function AppleLogo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M16.4 1.7c.1 1-.3 2-.9 2.8-.7.8-1.7 1.4-2.7 1.3-.1-1 .4-2 1-2.7.6-.8 1.7-1.4 2.6-1.4zM19 17.3c-.5 1.1-.7 1.6-1.3 2.6-.9 1.4-2.1 3.1-3.6 3.1-1.3 0-1.7-.9-3.5-.8-1.8 0-2.2.8-3.5.8-1.5 0-2.7-1.6-3.5-2.9-2.4-3.7-2.6-8-1.2-10.3 1-1.6 2.6-2.6 4.1-2.6 1.5 0 2.5.9 3.8.9 1.2 0 2-.9 3.8-.9 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.4 1 8.1z" />
+    </svg>
+  );
+}
+
+function GooglePlayLogo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M3.6 2.3c-.3.3-.4.7-.4 1.3v16.8c0 .6.1 1 .4 1.3l.1.1 9.4-9.4v-.2L3.7 2.2l-.1.1z" />
+      <path d="M16.3 15.2l-3.2-3.2v-.2l3.2-3.2.1.1 3.8 2.1c1.1.6 1.1 1.6 0 2.2l-3.8 2.2-.1.1z" />
+    </svg>
+  );
+}
+
 const providerConfig: Record<AffiliateProvider, {
   name: string;
-  icon: string;
+  icon: React.ReactNode;
   bgColor: string;
   hoverColor: string;
   textColor: string;
 }> = {
   apple: {
     name: 'App Store',
-    icon: '🍎',
+    icon: <AppleLogo className="w-5 h-5" />,
     bgColor: 'bg-black',
     hoverColor: 'hover:bg-[#333333]',
     textColor: 'text-white',
   },
   google: {
     name: 'Google Play',
-    icon: '🤖',
+    icon: <GooglePlayLogo className="w-5 h-5" />,
     bgColor: 'bg-[#3DDC84]',
     hoverColor: 'hover:bg-[#2BC472]',
     textColor: 'text-white',
   },
   amazon: {
     name: 'Amazon',
-    icon: '📦',
+    icon: <Icon name="tag" className="w-5 h-5" />,
     bgColor: 'bg-[#FF9900]',
     hoverColor: 'hover:bg-[#E88A00]',
     textColor: 'text-white',
   },
   coolshop: {
     name: 'Coolshop',
-    icon: '🛒',
+    icon: <Icon name="tag" className="w-5 h-5" />,
     bgColor: 'bg-[#00A0E3]',
     hoverColor: 'hover:bg-[#0090CC]',
     textColor: 'text-white',
   },
   proshop: {
     name: 'Proshop',
-    icon: '🛍️',
+    icon: <Icon name="tag" className="w-5 h-5" />,
     bgColor: 'bg-[#E31837]',
     hoverColor: 'hover:bg-[#CC1530]',
     textColor: 'text-white',
   },
   saxo: {
     name: 'Saxo',
-    icon: '📚',
+    icon: <Icon name="book" className="w-5 h-5" />,
     bgColor: 'bg-[#1A1A1A]',
     hoverColor: 'hover:bg-[#333333]',
     textColor: 'text-white',
   },
   website: {
     name: 'Officiel hjemmeside',
-    icon: '🌐',
+    icon: <Icon name="world" className="w-5 h-5" />,
     bgColor: 'bg-[#4F46E5]',
     hoverColor: 'hover:bg-[#4338CA]',
     textColor: 'text-white',
   },
   other: {
     name: 'Køb her',
-    icon: '🔗',
+    icon: <Icon name="arrow-right" className="w-5 h-5" />,
     bgColor: 'bg-[#6B7280]',
     hoverColor: 'hover:bg-[#4B5563]',
     textColor: 'text-white',
@@ -184,7 +203,7 @@ export function AffiliateLink({
           className
         )}
       >
-        <span className="text-xl">{config.icon}</span>
+        <span className="inline-flex items-center justify-center">{config.icon}</span>
       </a>
     );
   }
@@ -205,7 +224,7 @@ export function AffiliateLink({
         className
       )}
     >
-      <span className="text-xl">{config.icon}</span>
+      <span className="inline-flex items-center justify-center">{config.icon}</span>
       <span>{children || config.name}</span>
     </a>
   );
@@ -242,7 +261,7 @@ export function AffiliateLinksGroup({
     <div className={cn('space-y-3', className)}>
       {title && (
         <h3 className="font-bold text-lg text-[#4A4A4A] flex items-center gap-2">
-          <span>📥</span>
+          <Icon name="download" className="w-5 h-5 text-[#C2410C]" />
           <span>{title}</span>
         </h3>
       )}

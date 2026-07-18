@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { HTMLAttributes, forwardRef } from 'react';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 // ============================================================================
 // AGE GROUP CONFIGURATION
@@ -14,7 +15,7 @@ const ageGroups = [
     slug: '0-3',
     label: '0-3 år',
     shortLabel: 'Baby',
-    emoji: '👶',
+    icon: 'blocks' as IconName,
     color: {
       bg: '#FFD1DC',
       bgHover: '#FFBDCC',
@@ -26,7 +27,7 @@ const ageGroups = [
     slug: '3-6',
     label: '3-6 år',
     shortLabel: 'Småbørn',
-    emoji: '🧒',
+    icon: 'kite' as IconName,
     color: {
       bg: '#BAFFC9',
       bgHover: '#A5F5B8',
@@ -38,7 +39,7 @@ const ageGroups = [
     slug: '7+',
     label: '7+ år',
     shortLabel: 'Større børn',
-    emoji: '👦',
+    icon: 'rocket' as IconName,
     color: {
       bg: '#BAE1FF',
       bgHover: '#A5D4F5',
@@ -83,7 +84,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
           href="/"
           className="text-[#6B7280] hover:text-[#FFB5A7] transition-colors flex items-center gap-1"
         >
-          <span>🏠</span>
+          <Icon name="home" className="w-4 h-4" />
           <span className="sr-only">Forside</span>
         </Link>
 
@@ -206,7 +207,7 @@ export const AgeTabs = forwardRef<HTMLDivElement, AgeTabsProps>(
             size={size}
             sizeStyles={sizeStyles}
           >
-            <span>✨</span>
+            <Icon name="sparkle" className="w-4 h-4" />
             <span>Alle aldre</span>
           </TabItem>
         )}
@@ -223,7 +224,7 @@ export const AgeTabs = forwardRef<HTMLDivElement, AgeTabsProps>(
             sizeStyles={sizeStyles}
             color={age.color}
           >
-            <span>{age.emoji}</span>
+            <Icon name={age.icon} className="w-4 h-4" />
             <span>{age.label}</span>
           </TabItem>
         ))}

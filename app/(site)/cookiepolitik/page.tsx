@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import { Icon } from '@/components/ui/Icon';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('cookies');
@@ -21,7 +22,7 @@ export default async function CookiePolicyPage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-[#FFE66D] to-[#FFD93D] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-6xl mb-4 block">🍪</span>
+          <Icon name="cookie" className="w-14 h-14 mb-4 mx-auto text-white" />
           <h1 className="text-4xl sm:text-5xl font-bold text-[#7D6608] mb-4">
             {t('pageTitle')}
           </h1>
@@ -38,7 +39,7 @@ export default async function CookiePolicyPage() {
           <div className="prose prose-lg max-w-none text-[#4A4A4A]">
             <section className="mb-8">
               <h2 className="text-xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <span>🤔</span> Hvad er cookies?
+                <Icon name="info" className="w-6 h-6 text-[#C2410C]" /> Hvad er cookies?
               </h2>
               <p className="text-[#7A7A7A] leading-relaxed">
                 Cookies er små tekstfiler, som gemmes på din computer, tablet eller
@@ -50,7 +51,7 @@ export default async function CookiePolicyPage() {
 
             <section className="mb-8">
               <h2 className="text-xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <span>📋</span> Hvilke cookies bruger vi?
+                <Icon name="info" className="w-6 h-6 text-[#C2410C]" /> Hvilke cookies bruger vi?
               </h2>
               <p className="text-[#7A7A7A] leading-relaxed mb-4">
                 Vi bruger følgende typer af cookies på Børnespilguiden:
@@ -59,7 +60,7 @@ export default async function CookiePolicyPage() {
               {/* Necessary cookies */}
               <div className="bg-[#BAFFC9]/20 rounded-xl p-4 mb-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xl">✅</span>
+                  <Icon name="check" className="w-5 h-5 text-[#16603A]" />
                   <h3 className="font-bold text-[#2D6A4F]">Nødvendige cookies</h3>
                 </div>
                 <p className="text-[#7A7A7A] text-sm mb-3">
@@ -92,7 +93,7 @@ export default async function CookiePolicyPage() {
               {/* Analytics cookies */}
               <div className="bg-[#BAE1FF]/20 rounded-xl p-4 mb-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xl">📊</span>
+                  <Icon name="info" className="w-5 h-5 text-[#1D4E89]" />
                   <h3 className="font-bold text-[#1D4E89]">Statistik-cookies</h3>
                 </div>
                 <p className="text-[#7A7A7A] text-sm mb-3">
@@ -125,7 +126,7 @@ export default async function CookiePolicyPage() {
               {/* Preference cookies */}
               <div className="bg-[#E2C2FF]/20 rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xl">⚙️</span>
+                  <Icon name="filter" className="w-5 h-5 text-[#5B4670]" />
                   <h3 className="font-bold text-[#5B4670]">Præference-cookies</h3>
                 </div>
                 <p className="text-[#7A7A7A] text-sm mb-3">
@@ -153,7 +154,7 @@ export default async function CookiePolicyPage() {
 
             <section className="mb-8">
               <h2 className="text-xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <span>🔧</span> Sådan administrerer du cookies
+                <Icon name="filter" className="w-6 h-6 text-[#C2410C]" /> Sådan administrerer du cookies
               </h2>
               <p className="text-[#7A7A7A] leading-relaxed mb-4">
                 Du kan til enhver tid ændre eller tilbagetrække dit samtykke til
@@ -179,7 +180,7 @@ export default async function CookiePolicyPage() {
 
             <section className="mb-8">
               <h2 className="text-xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <span>🌐</span> Browserindstillinger
+                <Icon name="world" className="w-6 h-6 text-[#C2410C]" /> Browserindstillinger
               </h2>
               <p className="text-[#7A7A7A] leading-relaxed mb-4">
                 Her er links til cookie-indstillinger for de mest populære browsere:
@@ -230,7 +231,7 @@ export default async function CookiePolicyPage() {
 
             <section className="mb-8">
               <h2 className="text-xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <span>🔄</span> Opdateringer
+                <Icon name="arrow-right" className="w-6 h-6 text-[#C2410C]" /> Opdateringer
               </h2>
               <p className="text-[#7A7A7A] leading-relaxed">
                 Vi kan opdatere denne cookiepolitik fra tid til anden. Hvis vi
@@ -242,7 +243,7 @@ export default async function CookiePolicyPage() {
 
             <section>
               <h2 className="text-xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-2">
-                <span>❓</span> Spørgsmål?
+                <Icon name="chat" className="w-6 h-6 text-[#C2410C]" /> Spørgsmål?
               </h2>
               <p className="text-[#7A7A7A] leading-relaxed">
                 Har du spørgsmål til vores brug af cookies, er du velkommen til

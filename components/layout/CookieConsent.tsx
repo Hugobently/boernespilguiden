@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useFocusTrap } from '@/lib/hooks';
+import { Icon } from '@/components/ui/Icon';
 
 type ConsentLevel = 'necessary' | 'analytics' | 'all';
 
@@ -117,7 +118,7 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
             {/* Main Content */}
             <div className="p-4 sm:p-6">
               <div className="flex items-start gap-3 sm:gap-4">
-                <span className="text-2xl sm:text-4xl flex-shrink-0">🍪</span>
+                <Icon name="cookie" className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 text-[#9A6700]" />
                 <div className="flex-1">
                   <h2 className="text-base sm:text-lg font-bold text-[#4A4A4A] mb-1 sm:mb-2">
                     {t.title}

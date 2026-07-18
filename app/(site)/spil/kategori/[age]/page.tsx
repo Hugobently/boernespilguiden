@@ -6,6 +6,8 @@ import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import prisma from '@/lib/db';
 import { GameCard } from '@/components/games';
+import { Icon, type IconName } from '@/components/ui/Icon';
+import { FoxMascot } from '@/components/brand/FoxMascot';
 import { FilterSidebar, MobileFilters, SortDropdown, Pagination, ActiveFilters } from './components';
 
 // ============================================================================
@@ -20,14 +22,14 @@ type AgeGroup = (typeof validAgeGroups)[number];
 const ageGroupConfig: Record<
   AgeGroup,
   {
-    emoji: string;
+    icon: IconName;
     minAge: number;
     maxAge: number;
     color: { bg: string; text: string; gradient: string };
   }
 > = {
   '0-3': {
-    emoji: '👶',
+    icon: 'blocks',
     minAge: 0,
     maxAge: 3,
     color: {
@@ -37,7 +39,7 @@ const ageGroupConfig: Record<
     },
   },
   '3-6': {
-    emoji: '🧒',
+    icon: 'kite',
     minAge: 3,
     maxAge: 6,
     color: {
@@ -47,7 +49,7 @@ const ageGroupConfig: Record<
     },
   },
   '7+': {
-    emoji: '👦',
+    icon: 'rocket',
     minAge: 7,
     maxAge: 99,
     color: {
@@ -295,7 +297,12 @@ export default async function AgeGroupPage({ params, searchParams }: PageProps) 
           </nav>
 
           <div className="flex items-center gap-4 sm:gap-6">
-            <span className="text-6xl sm:text-7xl">{config.emoji}</span>
+            <span
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white/60 flex items-center justify-center flex-shrink-0"
+              style={{ color: config.color.text }}
+            >
+              <Icon name={config.icon} className="w-9 h-9 sm:w-11 sm:h-11" />
+            </span>
             <div>
               <h1
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2"
@@ -418,7 +425,7 @@ export default async function AgeGroupPage({ params, searchParams }: PageProps) 
             ) : (
               /* Empty State */
               <div className="text-center py-16">
-                <span className="text-6xl block mb-4">🔍</span>
+                <FoxMascot className="w-28 h-auto mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-[#4A4A4A] mb-2">{t('noGamesFound')}</h3>
                 <p className="text-[#7A7A7A] mb-6">{t('tryChangeFilters')}</p>
                 <Link

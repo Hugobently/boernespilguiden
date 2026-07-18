@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import { Icon } from '@/components/ui/Icon';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('privacy');
@@ -21,7 +22,7 @@ export default async function PrivacyPolicyPage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-[#CDB4DB] to-[#B392C9] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-6xl mb-4 block">🔒</span>
+          <Icon name="lock" className="w-14 h-14 mb-4 mx-auto text-white" />
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             {t('pageTitle')}
           </h1>

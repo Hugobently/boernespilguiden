@@ -18,7 +18,26 @@ export type IconName =
   | 'arrow-right'
   | 'star'
   | 'book'
-  | 'info';
+  | 'info'
+  | 'tag'
+  | 'warning'
+  | 'coins'
+  | 'clock'
+  | 'users'
+  | 'lock'
+  | 'chat'
+  | 'bell'
+  | 'camera'
+  | 'x'
+  | 'heart'
+  | 'lightbulb'
+  | 'mail'
+  | 'cookie'
+  | 'world'
+  | 'film'
+  | 'home'
+  | 'download'
+  | 'filter';
 
 interface IconProps {
   name: IconName;
@@ -110,6 +129,112 @@ const STROKE_ICONS: Record<IconName, React.ReactNode> = {
       <path d="M12 8h.01M12 12v4" />
     </>
   ),
+  tag: (
+    <>
+      <path d="M3 3h8l10 10-8 8L3 11V3z" />
+      <circle cx="8" cy="8" r="1.5" />
+    </>
+  ),
+  warning: (
+    <>
+      <path d="M12 3.5L22 20H2L12 3.5z" />
+      <path d="M12 10v4.5M12 17.2h.01" />
+    </>
+  ),
+  coins: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M14.8 9.3c-.5-.9-1.5-1.4-2.8-1.4-1.8 0-3 .9-3 2.1s1.2 1.8 3 2.1 3 .9 3 2.1-1.2 2.1-3 2.1c-1.3 0-2.3-.5-2.8-1.4M12 5.8v2.1M12 16.1v2.1" />
+    </>
+  ),
+  clock: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3.5 2" />
+    </>
+  ),
+  users: (
+    <>
+      <circle cx="9" cy="8" r="3.5" />
+      <path d="M2.5 20c0-3.5 3-5.5 6.5-5.5s6.5 2 6.5 5.5" />
+      <circle cx="17.5" cy="9" r="2.8" />
+      <path d="M18 14.6c2.3.5 3.8 2.3 3.8 5" />
+    </>
+  ),
+  lock: (
+    <>
+      <rect x="5" y="11" width="14" height="9" rx="2.5" />
+      <path d="M8 11V8a4 4 0 0 1 8 0v3M12 15v2" />
+    </>
+  ),
+  chat: (
+    <path d="M12 4c5 0 9 3.4 9 7.5S17 19 12 19c-1 0-2-.1-2.9-.4L4 20l1.5-3.8C4.6 15 3 13.4 3 11.5 3 7.4 7 4 12 4z" />
+  ),
+  bell: (
+    <>
+      <path d="M18 16H6c1.2-1.2 2-2.5 2-6a4 4 0 0 1 8 0c0 3.5.8 4.8 2 6z" />
+      <path d="M10 19a2 2 0 0 0 4 0" />
+    </>
+  ),
+  camera: (
+    <>
+      <rect x="3" y="7" width="18" height="13" rx="3" />
+      <path d="M8.5 7L10 4.5h4L15.5 7" />
+      <circle cx="12" cy="13" r="3.5" />
+    </>
+  ),
+  x: <path d="M6 6l12 12M18 6L6 18" />,
+  heart: (
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+  ),
+  lightbulb: (
+    <>
+      <path d="M12 3a6 6 0 0 0-3.5 10.9V17h7v-3.1A6 6 0 0 0 12 3z" />
+      <path d="M9.5 20.5h5M10.5 17v3.5M13.5 17v3.5" />
+    </>
+  ),
+  mail: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="3" />
+      <path d="M3.5 7.5L12 13l8.5-5.5" />
+    </>
+  ),
+  cookie: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="9" cy="9.5" r="0.5" fill="currentColor" stroke="none" />
+      <circle cx="14.5" cy="10" r="0.5" fill="currentColor" stroke="none" />
+      <circle cx="10" cy="14.5" r="0.5" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="15" r="0.5" fill="currentColor" stroke="none" />
+      <circle cx="12.5" cy="12.5" r="0.5" fill="currentColor" stroke="none" />
+    </>
+  ),
+  world: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z" />
+    </>
+  ),
+  film: (
+    <>
+      <rect x="3" y="4" width="18" height="16" rx="3" />
+      <path d="M8 4v16M16 4v16M3 9h5M3 15h5M16 9h5M16 15h5" />
+    </>
+  ),
+  home: (
+    <>
+      <path d="M3 11l9-8 9 8" />
+      <path d="M5 9.5V21h14V9.5" />
+      <path d="M10 21v-6h4v6" />
+    </>
+  ),
+  download: (
+    <>
+      <path d="M12 3v11M7 10l5 5 5-5" />
+      <path d="M4 20h16" />
+    </>
+  ),
+  filter: <path d="M3 5h18l-7 8v5.5L10 21v-8L3 5z" />,
 };
 
 export function Icon({ name, className, label }: IconProps) {

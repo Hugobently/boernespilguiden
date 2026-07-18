@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { Icon, type IconName } from '@/components/ui/Icon';
+import { DanishFlag } from '@/components/games/GameCardBadges';
 
 export const metadata: Metadata = {
   title: 'Sådan tester vi spil',
@@ -12,42 +14,42 @@ export const metadata: Metadata = {
 
 const criteria = [
   {
-    emoji: '🚫',
+    icon: 'shield' as IconName,
     title: 'Reklamer',
     color: 'bg-[#FFD1DC]/20',
     titleColor: 'text-[#8B4563]',
     text: 'Vi tjekker, om spillet viser reklamer – og især om de kan lokke børn videre til andre apps eller butikker. Reklamefri spil fremhæves tydeligt med et badge.',
   },
   {
-    emoji: '💳',
+    icon: 'coins' as IconName,
     title: 'Køb og købspres',
     color: 'bg-[#BAFFC9]/20',
     titleColor: 'text-[#2D6A4F]',
     text: 'Kan der købes noget inde i spillet? Vi noterer altid in-app køb og vurderer, hvor aggressivt spillet presser på – fx med nedtællinger, "tilbud" eller låst indhold midt i legen.',
   },
   {
-    emoji: '🔒',
+    icon: 'lock' as IconName,
     title: 'Datasikkerhed',
     color: 'bg-[#BAE1FF]/20',
     titleColor: 'text-[#1D4E89]',
     text: 'Vi ser på, hvilke data spillet indsamler, om der kræves konto, og om spillet kan bruges offline. Jo mindre data om dit barn, jo bedre.',
   },
   {
-    emoji: '🇩🇰',
+    flag: true,
     title: 'Dansk sprog',
     color: 'bg-[#FFE66D]/20',
     titleColor: 'text-[#7A6206]',
     text: 'Findes spillet på dansk – med tale, tekst eller begge dele? Det betyder meget for de mindste, så spil med dansk sprog markeres med flag.',
   },
   {
-    emoji: '🎯',
+    icon: 'star' as IconName,
     title: 'Aldersvurdering',
     color: 'bg-[#E2C2FF]/20',
     titleColor: 'text-[#5B4670]',
     text: 'Vi vurderer selv, hvilke aldre spillet reelt passer til – ud fra sværhedsgrad, læsekrav, tempo og indhold. Vores vurdering kan afvige fra butikkernes officielle aldersgrænser.',
   },
   {
-    emoji: '📚',
+    icon: 'book' as IconName,
     title: 'Læring og kvalitet',
     color: 'bg-[#B8E0D2]/20',
     titleColor: 'text-[#2D6A4F]',
@@ -57,22 +59,22 @@ const criteria = [
 
 const steps = [
   {
-    emoji: '🔎',
+    icon: 'search' as IconName,
     title: 'Udvælgelse',
     text: 'Vi leder efter spil, der har udmærket sig: prisvindere (fx Spiel des Jahres, Guldbrikken og Apple Design Awards), anerkendte udgivere og anbefalinger fra forældre og fagfolk. Spil kommer aldrig på siden, fordi nogen har betalt for det.',
   },
   {
-    emoji: '🕹️',
+    icon: 'gamepad' as IconName,
     title: 'Afprøvning og research',
     text: 'Vi undersøger spillet grundigt: gameplay, butikssider, udgiverens oplysninger om reklamer, køb og data – og afprøver spillet, hvor det er muligt. Alle butikslinks kontrolleres, så de peger på det rigtige spil.',
   },
   {
-    emoji: '📝',
+    icon: 'book' as IconName,
     title: 'Vurdering og anmeldelse',
     text: 'Spillet vurderes op imod alle kriterierne ovenfor og får en samlet vurdering fra 1 til 5 stjerner. Anmeldelsen skrives, så du hurtigt kan se både fordele og ulemper – vi nævner altid begge dele.',
   },
   {
-    emoji: '🔄',
+    icon: 'arrow-right' as IconName,
     title: 'Løbende vedligeholdelse',
     text: 'Spil ændrer sig: priser stiger, apps skifter ejer, og nogle forsvinder helt fra butikkerne. Vi gennemgår løbende hele kataloget og fjerner spil, der ikke længere kan fås – så du ikke spilder tiden på at lede efter dem.',
   },
@@ -84,7 +86,7 @@ export default function HowWeTestPage() {
       {/* Header */}
       <header className="bg-gradient-to-r from-[#A2D2FF] to-[#8FC4F5] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-6xl mb-4 block">🔍</span>
+          <Icon name="search" className="w-14 h-14 mb-4 mx-auto text-white" />
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Sådan tester vi
           </h1>
@@ -100,7 +102,7 @@ export default function HowWeTestPage() {
         <section className="mb-12">
           <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
             <h2 className="text-2xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-3">
-              <span className="text-3xl">🎯</span>
+              <Icon name="star" className="w-7 h-7 text-[#C2410C]" />
               Hvad vi kigger efter
             </h2>
             <p className="text-[#7A7A7A] leading-relaxed mb-4">
@@ -119,13 +121,21 @@ export default function HowWeTestPage() {
         {/* Criteria */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-3">
-            <span className="text-3xl">✅</span>
+            <Icon name="check" className="w-7 h-7 text-[#16603A]" />
             De seks kriterier
           </h2>
           <div className="grid sm:grid-cols-2 gap-6">
             {criteria.map((c) => (
               <div key={c.title} className={`${c.color} rounded-2xl p-6`}>
-                <span className="text-4xl mb-3 block">{c.emoji}</span>
+                <span className={`mb-3 block ${c.titleColor}`}>
+                  {'flag' in c && c.flag ? (
+                    <span className="inline-block scale-[2] origin-left ml-1">
+                      <DanishFlag />
+                    </span>
+                  ) : (
+                    <Icon name={c.icon as IconName} className="w-9 h-9" />
+                  )}
+                </span>
                 <h3 className={`font-bold ${c.titleColor} mb-2`}>{c.title}</h3>
                 <p className="text-[#7A7A7A] text-sm">{c.text}</p>
               </div>
@@ -136,7 +146,7 @@ export default function HowWeTestPage() {
         {/* Process */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-3">
-            <span className="text-3xl">🛤️</span>
+            <Icon name="arrow-right" className="w-7 h-7 text-[#C2410C]" />
             Fra spil til anmeldelse
           </h2>
           <ol className="space-y-4">
@@ -145,7 +155,9 @@ export default function HowWeTestPage() {
                 key={step.title}
                 className="bg-white rounded-2xl p-6 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)] flex items-start gap-4"
               >
-                <span className="text-3xl shrink-0">{step.emoji}</span>
+                <span className="shrink-0 w-11 h-11 rounded-2xl bg-[#A2D2FF]/30 text-[#1D4E89] flex items-center justify-center">
+                  <Icon name={step.icon as IconName} className="w-6 h-6" />
+                </span>
                 <div>
                   <h3 className="font-bold text-[#4A4A4A] mb-1">
                     {i + 1}. {step.title}
@@ -161,7 +173,7 @@ export default function HowWeTestPage() {
         <section className="mb-12">
           <div className="bg-gradient-to-br from-[#FFE66D]/30 to-[#FFB5A7]/30 rounded-3xl p-8">
             <h2 className="text-2xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-3">
-              <span className="text-3xl">⭐</span>
+              <Icon name="star" className="w-7 h-7 text-[#9A6700]" />
               Sådan skal stjernerne læses
             </h2>
             <ul className="space-y-3 text-sm">
@@ -193,7 +205,7 @@ export default function HowWeTestPage() {
         <section className="mb-12">
           <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
             <h2 className="text-2xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-3">
-              <span className="text-3xl">🤝</span>
+              <Icon name="users" className="w-7 h-7 text-[#2D6A4F]" />
               Uafhængighed
             </h2>
             <p className="text-[#7A7A7A] leading-relaxed mb-4">
@@ -211,7 +223,7 @@ export default function HowWeTestPage() {
         {/* Contact CTA */}
         <section className="text-center">
           <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
-            <span className="text-5xl mb-4 block">💬</span>
+            <Icon name="chat" className="w-12 h-12 mb-4 mx-auto text-[#C2410C]" />
             <h2 className="text-2xl font-bold text-[#4A4A4A] mb-4">
               Fundet en fejl – eller et spil, vi bør teste?
             </h2>
