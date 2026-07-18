@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { parseJsonArray, Platform, DataCollection } from '@/lib/types';
 import { forwardRef, memo, useMemo } from 'react';
 import { GameImageWithFallback } from './GameCardImage';
+import { Icon } from '@/components/ui';
 import {
   QuickBadges,
   QuickBadge,
@@ -75,7 +76,6 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
   ) => {
     const t = useTranslations('gameCard');
     const href = type === 'digital' ? `/spil/${slug}` : `/braetspil/${slug}`;
-    const typeEmoji = type === 'digital' ? '🎮' : '🎲';
 
     // Fall back to slug-based image path if iconUrl/imageUrl is null
     const displayImage = type === 'digital'
@@ -145,7 +145,8 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
                 )}
               />
 
-              {/* Image with fallback to game title */}
+              {/* Digital games: square app icons shown as squircles (never
+                  cropped to a wide format); board games: box photo as cover */}
               <GameImageWithFallback
                 src={displayImage}
                 alt={title}
@@ -153,6 +154,7 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
                 type={type}
                 slug={slug}
                 priority={imagePriority}
+                squircle={type === 'digital'}
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
 
@@ -160,7 +162,7 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
               {(editorChoice || featured) && (
                 <div className="absolute bottom-3 left-3 z-10">
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-white/95 text-[#9A6700] shadow-sm">
-                    <span aria-hidden="true">⭐</span>
+                    <Icon name="star" className="w-3.5 h-3.5" />
                     {editorChoice ? t('editorChoice') : t('recommended')}
                   </span>
                 </div>
@@ -175,7 +177,7 @@ const GameCardInner = forwardRef<HTMLDivElement, GameCardProps>(
                     type === 'digital' ? 'text-[#1D4E89]' : 'text-[#5B4670]'
                   )}
                 >
-                  <span>{typeEmoji}</span>
+                  <Icon name={type === 'digital' ? 'gamepad' : 'dice'} className="w-3.5 h-3.5" />
                   <span>{type === 'digital' ? t('digital') : t('boardGame')}</span>
                 </span>
               </div>

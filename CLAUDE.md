@@ -154,6 +154,14 @@ Pasteller:     coral #FFB5A7, mint #B8E0D2, sky #A2D2FF, sunflower #FFE66D, lave
                - KUN som flader/fyld, ALDRIG som tekst på hvid. Ingen gradients på flader.
 ```
 
+### Typography & Brand (2026 redesign)
+- Display font: **Baloo 2** (700/800) via next/font as `--font-baloo`; `--font-display` in globals.css applies it to all h1-h6 and `font-display` utility. Body: Nunito.
+- Mascot: **ræven med terningen** — `FoxMascot`/`FoxFace` in `/components/brand/FoxMascot.tsx`. The old robot `Mascot.tsx` is deprecated but kept.
+- Hero scene: `/components/brand/HeroScene.tsx` (sun, clouds, kite, hills, rainbow, fox — all inline SVG).
+- Icons: NO emoji as UI elements. Use `Icon` from `/components/ui/Icon.tsx` (stroke-based set, currentColor).
+- App icons: digital games render as **squircles** (`squircle` prop on `GameImageWithFallback`, `border-radius: 22.5%`) — never crop square app icons to a wide format. Board games keep cover photos.
+- Scroll reveal: `Reveal` component (`/components/ui/Reveal.tsx`) + `.reveal`/`.is-visible` CSS — IntersectionObserver-based, respects `prefers-reduced-motion`, content visible without JS.
+
 ### Custom Shadows
 - `shadow-soft` - Subtle card shadow
 - `shadow-card` / `shadow-card-hover` - Card hover effects
@@ -410,6 +418,7 @@ GameCard/GameDetail were refactored into smaller components:
 
 ## Development Notes
 
+- Local dev: `.env.local` (gitignored) is a copy of `.env.production` plus `DATABASE_URL`/`DIRECT_URL` mapped from `POSTGRES_URL` — required for `npm run dev` to reach the database. Local `npm run build` may hit "too many connections" during static generation against the remote pool; type checking still completes, and Vercel builds are unaffected.
 - Database uses PostgreSQL on Vercel
 - Search parser handles Danish number words ("fem", "syv")
 - All games should have description > 500 characters

@@ -6,6 +6,8 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { useFocusTrap } from '@/lib/hooks';
+import { FoxFace } from '@/components/brand/FoxMascot';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 // ============================================================================
 // TYPES
@@ -280,18 +282,14 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
 function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5 group">
-      {/* Playful game controller icon */}
-      <div className="relative">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFB5A7] to-[#F8A99B] flex items-center justify-center shadow-[0_4px_0_0_#E8958A] group-hover:shadow-[0_2px_0_0_#E8958A] group-hover:translate-y-0.5 transition-all">
-          <span className="text-xl">🎮</span>
-        </div>
-        {/* Decorative sparkle */}
-        <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#FFE66D] opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity" />
+      {/* Ræven - Børnespilguidens maskot */}
+      <div className="w-10 h-10 flex items-center justify-center transition-transform duration-200 group-hover:-rotate-6 group-hover:scale-105">
+        <FoxFace className="w-9 h-9" />
       </div>
 
       {/* Text */}
       <div className="flex flex-col">
-        <span className="font-bold text-lg leading-tight text-[#4A4A4A] group-hover:text-[#F8A99B] transition-colors">
+        <span className="font-display font-bold text-lg leading-tight text-[#2E2822] group-hover:text-[#C2410C] transition-colors">
           Børnespilguiden
         </span>
         <span className="text-xs text-[#6B7280] hidden sm:block">
@@ -313,7 +311,7 @@ function MobileMenu({
 }: {
   isOpen: boolean;
   onClose: () => void;
-  navLinks: Array<{ href: string; label: string; emoji: string }>;
+  navLinks: Array<{ href: string; label: string; icon: IconName }>;
 }) {
   const t = useTranslations();
   const [mounted, setMounted] = useState(false);
@@ -383,12 +381,12 @@ function MobileMenu({
                     onClick={onClose}
                     className={cn(
                       'flex items-center gap-3 px-4 py-3 rounded-2xl',
-                      'font-semibold text-[#4A4A4A]',
-                      'hover:bg-[#FFB5A7]/10 hover:text-[#F8A99B]',
+                      'font-semibold text-[#4A443C]',
+                      'hover:bg-[#FFB5A7]/10 hover:text-[#C2410C]',
                       'transition-all duration-200'
                     )}
                   >
-                    <span className="text-xl">{link.emoji}</span>
+                    <Icon name={link.icon} className="w-5 h-5 text-[#C2410C]" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -402,23 +400,23 @@ function MobileMenu({
               {t('home.chooseAge')}
             </p>
             <div className="flex flex-wrap gap-2">
-              {[
-                { label: '0-3', color: 'bg-[#FFD1DC]', emoji: '👶' },
-                { label: '3-6', color: 'bg-[#BAFFC9]', emoji: '🧒' },
-                { label: '7+', color: 'bg-[#BAE1FF]', emoji: '👦' },
-              ].map((age) => (
+              {([
+                { label: '0-3', color: 'bg-[#FFD1DC] text-[#8B3A56]', icon: 'blocks' as IconName },
+                { label: '3-6', color: 'bg-[#BAFFC9] text-[#1E5C40]', icon: 'kite' as IconName },
+                { label: '7+', color: 'bg-[#BAE1FF] text-[#1D4E89]', icon: 'rocket' as IconName },
+              ]).map((age) => (
                 <Link
                   key={age.label}
                   href={`/spil?alder=${age.label}`}
                   onClick={onClose}
                   className={cn(
                     'flex items-center gap-1.5 px-3 py-1.5 rounded-full',
-                    'text-sm font-medium text-[#4A4A4A]',
+                    'text-sm font-semibold',
                     age.color,
                     'hover:scale-105 transition-transform'
                   )}
                 >
-                  <span>{age.emoji}</span>
+                  <Icon name={age.icon} className="w-4 h-4" />
                   <span>{age.label} {t('common.years')}</span>
                 </Link>
               ))}
@@ -439,11 +437,11 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = useTranslations();
 
-  const navLinks = [
-    { href: '/spil', label: t('nav.games'), emoji: '🎮' },
-    { href: '/braetspil', label: t('nav.boardGames'), emoji: '🎲' },
-    { href: '/film-serier', label: t('nav.filmSeries'), emoji: '📺' },
-    { href: '/om', label: t('nav.about'), emoji: '👋' },
+  const navLinks: Array<{ href: string; label: string; icon: IconName }> = [
+    { href: '/spil', label: t('nav.games'), icon: 'gamepad' },
+    { href: '/braetspil', label: t('nav.boardGames'), icon: 'dice' },
+    { href: '/film-serier', label: t('nav.filmSeries'), icon: 'tv' },
+    { href: '/om', label: t('nav.about'), icon: 'smile' },
   ];
 
   return (
@@ -474,12 +472,12 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   'flex items-center gap-2 px-4 py-2 rounded-xl',
-                  'font-semibold text-[#4A4A4A]',
-                  'hover:bg-[#FFB5A7]/10 hover:text-[#F8A99B]',
+                  'font-semibold text-[#4A443C]',
+                  'hover:bg-[#FFB5A7]/10 hover:text-[#C2410C]',
                   'transition-all duration-200'
                 )}
               >
-                <span>{link.emoji}</span>
+                <Icon name={link.icon} className="w-[18px] h-[18px] text-[#C2410C]" />
                 <span>{link.label}</span>
               </Link>
             ))}

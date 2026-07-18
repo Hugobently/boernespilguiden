@@ -181,6 +181,10 @@ const config: Config = {
         "wave": "wave 2.5s ease-in-out infinite",
         "float-slow": "float 4s ease-in-out infinite",
         "scale-up": "scale-up 0.2s ease-out",
+        // Hero scene (2026 redesign) - compositor-only, disabled on reduced motion
+        "drift": "drift 24s ease-in-out infinite",
+        "sway": "sway 7s ease-in-out infinite",
+        "float-gentle": "float-gentle 5s ease-in-out infinite",
       },
 
       keyframes: {
@@ -241,6 +245,18 @@ const config: Config = {
         "scale-up": {
           "0%": { transform: "scale(0.95)" },
           "100%": { transform: "scale(1)" },
+        },
+        "drift": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(18px)" },
+        },
+        "sway": {
+          "0%, 100%": { transform: "translate(0, 0) rotate(0deg)" },
+          "50%": { transform: "translate(-8px, 6px) rotate(-4deg)" },
+        },
+        "float-gentle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
         },
       },
 

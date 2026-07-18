@@ -27,6 +27,9 @@ interface GameImageWithFallbackProps {
   className?: string;
   /** Set for above-the-fold cards so the image loads eagerly (better LCP) */
   priority?: boolean;
+  /** App-store-style: centered rounded square instead of cropped cover.
+      Square app icons must never be cropped to a wide format. */
+  squircle?: boolean;
 }
 
 export function GameImageWithFallback({
@@ -38,6 +41,7 @@ export function GameImageWithFallback({
   fill = true,
   className,
   priority = false,
+  squircle = false,
 }: GameImageWithFallbackProps) {
   const [formatIndex, setFormatIndex] = useState(0);
   const [hasError, setHasError] = useState(false);
@@ -66,6 +70,24 @@ export function GameImageWithFallback({
         <span className="text-sm font-semibold text-[#4A4A4A]/80 line-clamp-2">
           {title}
         </span>
+      </div>
+    );
+  }
+
+  if (squircle) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative h-[68%] aspect-square rounded-[22.5%] overflow-hidden bg-white shadow-[0_8px_20px_-6px_rgba(46,40,34,0.35)] transition-transform duration-300 ease-out group-hover:scale-105">
+          <Image
+            src={currentSrc}
+            alt={alt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 40vw, 20vw"
+            {...(priority ? { priority: true } : { loading: 'lazy' as const })}
+            onError={handleError}
+          />
+        </div>
       </div>
     );
   }

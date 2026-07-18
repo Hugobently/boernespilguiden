@@ -1,15 +1,22 @@
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { cn } from '@/lib/utils';
+import { FoxFace } from '@/components/brand/FoxMascot';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
 // ============================================================================
 // AGE GROUP CONFIG
 // ============================================================================
 
-const ageCategories = [
-  { slug: '0-3', labelKey: '0-3', emoji: '👶', color: 'hover:text-[#FFD1DC]' },
-  { slug: '3-6', labelKey: '3-6', emoji: '🧒', color: 'hover:text-[#BAFFC9]' },
-  { slug: '7+', labelKey: '7+', emoji: '👦', color: 'hover:text-[#BAE1FF]' },
+const ageCategories: Array<{
+  slug: string;
+  labelKey: string;
+  icon: IconName;
+  color: string;
+}> = [
+  { slug: '0-3', labelKey: '0-3', icon: 'blocks', color: 'hover:text-[#FFD1DC]' },
+  { slug: '3-6', labelKey: '3-6', icon: 'kite', color: 'hover:text-[#BAFFC9]' },
+  { slug: '7+', labelKey: '7+', icon: 'rocket', color: 'hover:text-[#BAE1FF]' },
 ];
 
 // ============================================================================
@@ -39,11 +46,11 @@ function FooterWave() {
 function FooterLogo() {
   return (
     <Link href="/" className="flex items-center gap-3 group">
-      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFB5A7] to-[#F8A99B] flex items-center justify-center shadow-[0_4px_0_0_#E8958A] group-hover:shadow-[0_2px_0_0_#E8958A] group-hover:translate-y-0.5 transition-all">
-        <span className="text-2xl">🎮</span>
+      <div className="w-12 h-12 flex items-center justify-center transition-transform duration-200 group-hover:-rotate-6 group-hover:scale-105">
+        <FoxFace className="w-11 h-11" />
       </div>
       <div>
-        <span className="font-bold text-xl text-white block">
+        <span className="font-display font-bold text-xl text-white block">
           Børnespilguiden
         </span>
         <span className="text-sm text-[#6B7280]">
@@ -60,21 +67,21 @@ function FooterLogo() {
 
 interface FooterLinkSectionProps {
   title: string;
-  emoji: string;
+  icon: IconName;
   titleColor: string;
   links: Array<{
     href: string;
     label: string;
-    emoji?: string;
+    icon?: IconName;
     hoverColor?: string;
   }>;
 }
 
-function FooterLinkSection({ title, emoji, titleColor, links }: FooterLinkSectionProps) {
+function FooterLinkSection({ title, icon, titleColor, links }: FooterLinkSectionProps) {
   return (
     <div>
       <h4 className={cn('font-bold text-lg mb-4 flex items-center gap-2', titleColor)}>
-        <span>{emoji}</span>
+        <Icon name={icon} className="w-5 h-5" />
         <span>{title}</span>
       </h4>
       <ul className="space-y-3">
@@ -83,11 +90,11 @@ function FooterLinkSection({ title, emoji, titleColor, links }: FooterLinkSectio
             <Link
               href={link.href}
               className={cn(
-                'text-[#6B7280] hover:text-white transition-colors text-sm flex items-center gap-2',
+                'text-[#9C948A] hover:text-white transition-colors text-sm flex items-center gap-2',
                 link.hoverColor
               )}
             >
-              {link.emoji && <span>{link.emoji}</span>}
+              {link.icon && <Icon name={link.icon} className="w-4 h-4 opacity-70" />}
               <span>{link.label}</span>
             </Link>
           </li>
@@ -116,7 +123,7 @@ export async function Footer() {
           {/* Brand & description */}
           <div className="lg:col-span-1">
             <FooterLogo />
-            <p className="text-[#6B7280] text-sm mt-4 leading-relaxed">
+            <p className="text-[#9C948A] text-sm mt-4 leading-relaxed">
               {t('home.heroDescription')}
             </p>
           </div>
@@ -124,12 +131,12 @@ export async function Footer() {
           {/* Digital games */}
           <FooterLinkSection
             title={t('footer.digitalGames')}
-            emoji="🎮"
+            icon="gamepad"
             titleColor="text-[#A2D2FF]"
             links={ageCategories.map((age) => ({
               href: `/spil/kategori/${age.slug}`,
               label: t(`ageGroups.${age.labelKey}`),
-              emoji: age.emoji,
+              icon: age.icon,
               hoverColor: age.color,
             }))}
           />
@@ -137,12 +144,12 @@ export async function Footer() {
           {/* Board games */}
           <FooterLinkSection
             title={t('footer.boardGames')}
-            emoji="🎲"
+            icon="dice"
             titleColor="text-[#FFE66D]"
             links={ageCategories.map((age) => ({
               href: `/braetspil/kategori/${age.slug}`,
               label: t(`ageGroups.${age.labelKey}`),
-              emoji: age.emoji,
+              icon: age.icon,
               hoverColor: age.color,
             }))}
           />
@@ -150,28 +157,28 @@ export async function Footer() {
           {/* Popular topics */}
           <FooterLinkSection
             title={t('footer.topics')}
-            emoji="⭐"
+            icon="star"
             titleColor="text-[#B8E0D2]"
             links={[
-              { href: '/spil/uden-reklamer', label: 'Spil uden reklamer', emoji: '🚫' },
-              { href: '/spil/gratis', label: 'Gratis spil', emoji: '🆓' },
-              { href: '/spil/emne/laeringsspil', label: 'Læringsspil', emoji: '📚' },
-              { href: '/spil/offline', label: 'Offline spil', emoji: '📵' },
-              { href: '/spil/paa-dansk', label: 'Spil på dansk', emoji: '🇩🇰' },
+              { href: '/spil/uden-reklamer', label: 'Spil uden reklamer', icon: 'shield' },
+              { href: '/spil/gratis', label: 'Gratis spil', icon: 'check' },
+              { href: '/spil/emne/laeringsspil', label: 'Læringsspil', icon: 'book' },
+              { href: '/spil/offline', label: 'Offline spil', icon: 'gamepad' },
+              { href: '/spil/paa-dansk', label: 'Spil på dansk' },
             ]}
           />
 
           {/* Quick links */}
           <FooterLinkSection
             title={t('footer.information')}
-            emoji="📋"
+            icon="info"
             titleColor="text-[#FFB5A7]"
             links={[
-              { href: '/om', label: t('nav.about'), emoji: '👋' },
-              { href: '/saadan-tester-vi', label: 'Sådan tester vi', emoji: '🔍' },
-              { href: '/kontakt', label: t('nav.contact'), emoji: '✉️' },
-              { href: '/privatlivspolitik', label: t('nav.privacy'), emoji: '🔒' },
-              { href: '/cookiepolitik', label: t('nav.cookies'), emoji: '🍪' },
+              { href: '/om', label: t('nav.about'), icon: 'smile' },
+              { href: '/saadan-tester-vi', label: 'Sådan tester vi', icon: 'search' },
+              { href: '/kontakt', label: t('nav.contact') },
+              { href: '/privatlivspolitik', label: t('nav.privacy') },
+              { href: '/cookiepolitik', label: t('nav.cookies') },
             ]}
           />
         </div>
@@ -179,7 +186,7 @@ export async function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-8">
           {/* Copyright */}
-          <p className="text-[#6B7280] text-sm text-center">
+          <p className="text-[#9C948A] text-sm text-center">
             © {currentYear} Børnespilguiden. {t('footer.copyright')}
           </p>
         </div>

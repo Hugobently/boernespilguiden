@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Nunito } from 'next/font/google';
+import { Nunito, Baloo_2 } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/react';
@@ -12,6 +12,15 @@ const nunito = Nunito({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-nunito',
+  preload: true,
+});
+
+// Display font til overskrifter ("Raffineret legende" 2026-redesign)
+const baloo = Baloo_2({
+  subsets: ['latin'],
+  weight: ['700', '800'],
+  display: 'swap',
+  variable: '--font-baloo',
   preload: true,
 });
 
@@ -109,7 +118,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={nunito.variable}>
+    <html lang={locale} className={`${nunito.variable} ${baloo.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />

@@ -54,3 +54,5 @@ lighthouse-report.json
 scripts/output/*.csv
 scripts/output/*.html
 scripts/output/.~lock.*
+
+.vercel

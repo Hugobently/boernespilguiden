@@ -14,7 +14,7 @@
 :root {
   /* Typography - Using next/font variable for optimal loading */
   --font-body: var(--font-nunito), system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-nunito), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-baloo), var(--font-nunito), system-ui, -apple-system, sans-serif;
 
   /* Primary Pastel Palette */
   --coral: #FFB5A7;
@@ -524,6 +524,66 @@ a:hover {
 
   .input-playful::placeholder {
     color: var(--text-muted);
+  }
+}
+
+/* Skjul scrollbar på hylder (indholdet kan stadig swipes/scrolles) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL (2026 redesign)
+   Content is visible by default; the .reveal class only animates once the
+   IntersectionObserver adds .is-visible - so content never hides if JS fails.
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* No-JS fallback: uden observer forbliver .reveal uden .is-visible,
+   men noscript-brugere skal stadig se indholdet */
+@media (scripting: none) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .animate-drift,
+  .animate-sway,
+  .animate-float-gentle,
+  .animate-float,
+  .animate-float-slow,
+  .animate-sparkle,
+  .animate-bounce-slow,
+  .animate-wiggle,
+  .animate-wave {
+    animation: none !important;
   }
 }
 
