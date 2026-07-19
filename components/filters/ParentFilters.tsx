@@ -210,7 +210,7 @@ export const ParentFilters = forwardRef<HTMLDivElement, ParentFiltersProps>(
                 <button
                   type="button"
                   onClick={handleClearAll}
-                  className="text-xs text-[#7A7A7A] hover:text-[#F8A99B] transition-colors"
+                  className="text-xs text-[#7A7A7A] hover:text-[#C2410C] transition-colors"
                 >
                   Ryd alle
                 </button>
@@ -262,7 +262,7 @@ export const ParentFilters = forwardRef<HTMLDivElement, ParentFiltersProps>(
               <Icon name="users" className="w-4 h-4 text-[#C2410C]" />
               <span>{label}</span>
               {activeCount > 0 && (
-                <span className="px-2 py-0.5 rounded-full bg-[#77DD77] text-white text-xs">
+                <span className="px-2 py-0.5 rounded-full bg-[#DCF2E3] text-[#16603A] text-xs font-semibold">
                   {activeCount} aktiv
                 </span>
               )}
@@ -271,7 +271,7 @@ export const ParentFilters = forwardRef<HTMLDivElement, ParentFiltersProps>(
               <button
                 type="button"
                 onClick={handleClearAll}
-                className="text-xs text-[#7A7A7A] hover:text-[#F8A99B] transition-colors"
+                className="text-xs text-[#7A7A7A] hover:text-[#C2410C] transition-colors"
               >
                 Ryd alle
               </button>
@@ -393,7 +393,7 @@ export function SafetyQuickFilters({
             className={cn(
               'inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-semibold transition-all duration-200',
               selected === key
-                ? 'bg-[#77DD77] text-white shadow-[0_4px_0_0_#5BC45B]'
+                ? 'bg-[#16603A] text-white shadow-[0_4px_0_0_#0D3F25]'
                 : 'bg-[#FFFCF7] text-[#4A4A4A] shadow-sm hover:shadow-md border-2 border-[#77DD77]/30'
             )}
           >

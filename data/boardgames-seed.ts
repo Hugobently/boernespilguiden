@@ -421,6 +421,13 @@ export const boardGames0to3: BoardGameSeedData[] = [
     featured: true,
     editorChoice: false,
   },
+];
+
+// ============================================
+// 3-6 ÅR (12+ spil)
+// ============================================
+
+export const boardGames3to6: BoardGameSeedData[] = [
   {
     title: "Race to the Treasure!",
     slug: "race-to-the-treasure",
@@ -428,7 +435,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     shortDescription: "Byg stien til skatten før orken når frem",
     minAge: 5,
     maxAge: 8,
-    ageGroup: "0-3",
+    ageGroup: "3-6",
     minPlayers: 2,
     maxPlayers: 4,
     playTimeMinutes: 20,
@@ -463,7 +470,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     shortDescription: "Find drageæg i denne Kingdomino for børn",
     minAge: 5,
     maxAge: 8,
-    ageGroup: "0-3",
+    ageGroup: "3-6",
     minPlayers: 2,
     maxPlayers: 4,
     playTimeMinutes: 15,
@@ -488,7 +495,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
       "Kort spilletid kan efterlade ønsker om mere",
       "Held med ægvending"
     ],
-    parentTip: "Det perfekte første 'rigtige' brætspil efter de helt simple spil. Vinder som godt familiespil!",
+    parentTip: "Et oplagt første 'rigtige' brætspil efter de helt simple - og vinder af Kinderspiel des Jahres 2021.",
     featured: true,
     editorChoice: true,
   },
@@ -499,7 +506,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     shortDescription: "Børneversion af prisbelønnede Cascadia",
     minAge: 6,
     maxAge: 10,
-    ageGroup: "0-3",
+    ageGroup: "3-6",
     minPlayers: 2,
     maxPlayers: 4,
     playTimeMinutes: 25,
@@ -527,13 +534,6 @@ export const boardGames0to3: BoardGameSeedData[] = [
     featured: true,
     editorChoice: false,
   },
-];
-
-// ============================================
-// 3-6 ÅR (12+ spil)
-// ============================================
-
-export const boardGames3to6: BoardGameSeedData[] = [
   {
     title: "Chutes and Ladders",
     slug: "chutes-and-ladders",

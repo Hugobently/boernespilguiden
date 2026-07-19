@@ -34,7 +34,7 @@ export function ExpandableDescription({
           className={cn(
             'inline-flex items-center gap-2 px-4 py-2 rounded-xl',
             'bg-[#FFB5A7]/10 hover:bg-[#FFB5A7]/20',
-            'text-[#F8A99B] font-semibold text-sm',
+            'text-[#C2410C] font-semibold text-sm',
             'transition-colors duration-200'
           )}
         >

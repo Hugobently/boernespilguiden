@@ -83,13 +83,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // HELPER FUNCTIONS
 // ============================================================================
 
-function getAgeGroupColorExtended(minAge: number) {
-  if (minAge <= 3) return { bg: '#FFD1DC', text: '#8B4563', gradient: 'from-[#FFD1DC] to-[#FFB6C1]' };
-  if (minAge <= 6) return { bg: '#BAFFC9', text: '#2D6A4F', gradient: 'from-[#BAFFC9] to-[#95D5A6]' };
-  // 7+ age group
-  return { bg: '#BAE1FF', text: '#1D4E89', gradient: 'from-[#BAE1FF] to-[#8ECAE6]' };
-}
-
 function StarRating({ rating }: { rating: number }) {
   const fullStars = Math.floor(rating);
   const hasHalf = rating - fullStars >= 0.5;
@@ -101,10 +94,10 @@ function StarRating({ rating }: { rating: number }) {
           key={i}
           className={`text-3xl transition-colors ${
             i < fullStars
-              ? 'text-[#FFE66D]'
+              ? 'text-[#9A6700]'
               : i === fullStars && hasHalf
-              ? 'text-[#FFE66D]/60'
-              : 'text-[#E5E5E5]'
+              ? 'text-[#9A6700]/50'
+              : 'text-[#6B6258]/25'
           }`}
         >
           ★
@@ -157,8 +150,6 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
     locale
   );
 
-  const ageColors = getAgeGroupColorExtended(game.minAge);
-
   // Get complexity info with translations
   // Sværhedsgrad vises som 1-5 udfyldte prikker + label (ingen emoji)
   const getComplexityInfo = (complexity: number) => {
@@ -203,13 +194,13 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
           <nav>
             <ol className="flex items-center gap-2 text-sm text-[#7A7A7A]">
               <li>
-                <Link href="/" className="hover:text-[#FFE66D] transition-colors">
+                <Link href="/" className="hover:text-[#C2410C] transition-colors">
                   {t('home')}
                 </Link>
               </li>
               <li>/</li>
               <li>
-                <Link href="/braetspil" className="hover:text-[#FFE66D] transition-colors">
+                <Link href="/braetspil" className="hover:text-[#C2410C] transition-colors">
                   {t('breadcrumbBoardGames')}
                 </Link>
               </li>
@@ -217,7 +208,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               <li>
                 <Link
                   href={`/braetspil/kategori/${game.ageGroup}`}
-                  className="hover:text-[#FFE66D] transition-colors"
+                  className="hover:text-[#C2410C] transition-colors"
                 >
                   {game.ageGroup} {tCommon('years')}
                 </Link>
@@ -249,7 +240,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               {/* Editor's Choice Badge */}
               {game.editorChoice && (
                 <div className="absolute top-4 right-4 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#FFE66D] to-[#FFB5A7] text-white font-bold shadow-lg text-sm">
+                  <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/95 text-[#9A6700] font-bold shadow-lg text-sm">
                     <Icon name="star" className="w-4 h-4" />
                     {tCard('editorChoice')}
                   </span>
@@ -259,7 +250,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               {/* Featured Badge */}
               {game.featured && !game.editorChoice && (
                 <div className="absolute top-4 right-4 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#77DD77] text-white font-bold shadow-lg text-sm">
+                  <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/95 text-[#16603A] font-bold shadow-lg text-sm">
                     <Icon name="sparkle" className="w-4 h-4" /> {tCard('recommended')}
                   </span>
                 </div>
@@ -303,10 +294,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFE66D] text-[#7D6608] font-semibold text-sm">
                   <Icon name="dice" className="w-4 h-4" /> {tCard('boardGame')}
                 </span>
-                <span
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-semibold text-sm"
-                  style={{ backgroundColor: ageColors.bg, color: ageColors.text }}
-                >
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-bold text-sm bg-[#0E5A6D] text-white">
                   {getAgeLabel(game.minAge, game.maxAge)}
                 </span>
                 {categories.slice(0, 3).map((cat) => (
@@ -490,7 +478,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
               </h2>
               <Link
                 href={`/braetspil/kategori/${game.ageGroup}`}
-                className="text-[#FFE66D] font-semibold hover:underline hidden sm:inline-flex items-center gap-1"
+                className="text-[#C2410C] font-semibold hover:underline hidden sm:inline-flex items-center gap-1"
               >
                 {t('seeAllForAge', { age: game.ageGroup })}
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

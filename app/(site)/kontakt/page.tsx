@@ -47,13 +47,13 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#A2D2FF] to-[#8ECAE6] py-16">
+      <header className="bg-[#FBF5EC] border-b border-[#EAE3D8] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Icon name="mail" className="w-14 h-14 mb-4 mx-auto text-white" />
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <Icon name="mail" className="w-14 h-14 mb-4 mx-auto text-[#C2410C]" />
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#2E2822] mb-4">
             {t('pageTitle')}
           </h1>
-          <p className="text-xl text-white/90">
+          <p className="text-xl text-[#4A443C]">
             {t('pageSubtitle')}
           </p>
         </div>
@@ -64,10 +64,10 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact info */}
           <div>
-            <h2 className="text-2xl font-bold text-[#4A4A4A] mb-6">
+            <h2 className="text-2xl font-bold text-[#2E2822] mb-6">
               {t('writeToUs')}
             </h2>
-            <p className="text-[#7A7A7A] mb-8">
+            <p className="text-[#4A443C] mb-8">
               {t('writeToUsText')}
             </p>
 
@@ -77,18 +77,18 @@ export default function ContactPage() {
                   <Icon name="mail" className="w-6 h-6 text-[#C2410C]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#4A4A4A]">{t('emailTitle')}</h3>
-                  <a href="mailto:boernespislguiden@proton.me" className="text-[#1D4E89] hover:underline">boernespislguiden@proton.me</a>
+                  <h3 className="font-semibold text-[#2E2822]">{t('emailTitle')}</h3>
+                  <a href="mailto:boernespislguiden@proton.me" className="text-[#C2410C] hover:text-[#A93409] hover:underline">boernespislguiden@proton.me</a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#BAE1FF] flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">⏰</span>
+                  <Icon name="clock" className="w-6 h-6 text-[#1D4E89]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#4A4A4A]">{t('responseTimeTitle')}</h3>
-                  <p className="text-[#7A7A7A]">{t('responseTimeText')}</p>
+                  <h3 className="font-semibold text-[#2E2822]">{t('responseTimeTitle')}</h3>
+                  <p className="text-[#4A443C]">{t('responseTimeText')}</p>
                 </div>
               </div>
 
@@ -97,8 +97,8 @@ export default function ContactPage() {
                   <Icon name="lightbulb" className="w-6 h-6 text-[#9A6700]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#4A4A4A]">{t('tipTitle')}</h3>
-                  <p className="text-[#7A7A7A]">
+                  <h3 className="font-semibold text-[#2E2822]">{t('tipTitle')}</h3>
+                  <p className="text-[#4A443C]">
                     {t('tipText')}
                   </p>
                 </div>
@@ -111,10 +111,10 @@ export default function ContactPage() {
             {status === 'success' ? (
               <div className="text-center py-8">
                 <FoxMascot className="w-28 h-auto mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-[#4A4A4A] mb-2">
+                <h3 className="text-xl font-bold text-[#2E2822] mb-2">
                   Tak for din besked!
                 </h3>
-                <p className="text-[#7A7A7A]">
+                <p className="text-[#4A443C]">
                   Vi vender tilbage hurtigst muligt.
                 </p>
                 <button
@@ -136,7 +136,7 @@ export default function ContactPage() {
                 )}
 
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-[#4A4A4A] mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-[#2E2822] mb-1">
                     {t('nameLabel')}
                   </label>
                   <input
@@ -145,14 +145,14 @@ export default function ContactPage() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E0E0E0] focus:border-[#FFB5A7] focus:ring-2 focus:ring-[#FFB5A7]/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-[#EAE3D8] focus:border-[#C2410C] focus:ring-2 focus:ring-[#C2410C]/20 outline-none transition-all"
                     placeholder={t('namePlaceholder')}
                     disabled={status === 'loading'}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-[#4A4A4A] mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-[#2E2822] mb-1">
                     {t('emailLabel')}
                   </label>
                   <input
@@ -161,14 +161,14 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E0E0E0] focus:border-[#FFB5A7] focus:ring-2 focus:ring-[#FFB5A7]/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-[#EAE3D8] focus:border-[#C2410C] focus:ring-2 focus:ring-[#C2410C]/20 outline-none transition-all"
                     placeholder={t('emailPlaceholder')}
                     disabled={status === 'loading'}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-[#4A4A4A] mb-1">
+                  <label htmlFor="subject" className="block text-sm font-medium text-[#2E2822] mb-1">
                     {t('subjectLabel')}
                   </label>
                   <select
@@ -176,7 +176,7 @@ export default function ContactPage() {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E0E0E0] focus:border-[#FFB5A7] focus:ring-2 focus:ring-[#FFB5A7]/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-[#EAE3D8] focus:border-[#C2410C] focus:ring-2 focus:ring-[#C2410C]/20 outline-none transition-all"
                     disabled={status === 'loading'}
                   >
                     <option value="">{t('subjectPlaceholder')}</option>
@@ -189,7 +189,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-[#4A4A4A] mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-[#2E2822] mb-1">
                     {t('messageLabel')}
                   </label>
                   <textarea
@@ -198,7 +198,7 @@ export default function ContactPage() {
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-[#E0E0E0] focus:border-[#FFB5A7] focus:ring-2 focus:ring-[#FFB5A7]/20 outline-none transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-[#EAE3D8] focus:border-[#C2410C] focus:ring-2 focus:ring-[#C2410C]/20 outline-none transition-all resize-none"
                     placeholder={t('messagePlaceholder')}
                     disabled={status === 'loading'}
                   />
@@ -207,7 +207,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full py-3 rounded-xl bg-[#FFB5A7] text-white font-semibold hover:bg-[#F8A99B] transition-colors shadow-[0_4px_0_0_#E8958A] hover:shadow-[0_2px_0_0_#E8958A] hover:translate-y-0.5 active:shadow-none active:translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-[0_4px_0_0_#E8958A]"
+                  className="w-full py-3 rounded-xl bg-[#C2410C] text-white font-semibold hover:bg-[#A93409] transition-colors shadow-[0_4px_0_0_#A93409] hover:shadow-[0_2px_0_0_#8A2B07] hover:translate-y-0.5 active:shadow-none active:translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-[0_4px_0_0_#A93409]"
                 >
                   {status === 'loading' ? (
                     <span className="flex items-center justify-center gap-2">

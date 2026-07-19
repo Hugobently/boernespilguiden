@@ -31,7 +31,7 @@ export function BackToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-[#FFB5A7] text-white shadow-lg hover:bg-[#F8A99B] transition-all duration-300 hover:scale-110 active:scale-95 sm:bottom-8 sm:right-8"
+      className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-[#0E5A6D] text-white shadow-lg hover:bg-[#0B4756] transition-all duration-300 hover:scale-110 active:scale-95 sm:bottom-8 sm:right-8"
       aria-label="Tilbage til toppen"
     >
       <svg

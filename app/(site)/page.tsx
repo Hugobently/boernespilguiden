@@ -633,7 +633,7 @@ export const metadata: Metadata = {
     absolute: 'Børnespilguiden - Find de bedste spil til børn 2026 | Anmeldelser & Guide',
   },
   description:
-    'Danmarks bedste guide til børnespil! ⭐ Ærlige anmeldelser af 130+ digitale spil og brætspil til børn 0-15 år. ✓ Reklamefri ✓ Sikre ✓ Lærerige. Find det perfekte spil i dag!',
+    'Ærlige anmeldelser af 130+ digitale spil og brætspil til børn 0-15 år. Testet af forældre med fokus på reklamefri, sikre og lærerige spil.',
   keywords: [
     'børnespil',
     'spil til børn',

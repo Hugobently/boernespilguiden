@@ -84,13 +84,13 @@ export default function HowWeTestPage() {
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#A2D2FF] to-[#8FC4F5] py-16">
+      <header className="bg-[#FBF5EC] border-b border-[#EAE3D8] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Icon name="search" className="w-14 h-14 mb-4 mx-auto text-white" />
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <Icon name="search" className="w-14 h-14 mb-4 mx-auto text-[#C2410C]" />
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#2E2822] mb-4">
             Sådan tester vi
           </h1>
-          <p className="text-xl text-white/90">
+          <p className="text-xl text-[#4A443C]">
             Ærlige vurderinger efter faste kriterier – aldrig betalte anmeldelser
           </p>
         </div>
@@ -101,16 +101,16 @@ export default function HowWeTestPage() {
         {/* Intro */}
         <section className="mb-12">
           <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
-            <h2 className="text-2xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-3">
+            <h2 className="text-2xl font-bold text-[#2E2822] mb-4 flex items-center gap-3">
               <Icon name="star" className="w-7 h-7 text-[#C2410C]" />
               Hvad vi kigger efter
             </h2>
-            <p className="text-[#7A7A7A] leading-relaxed mb-4">
+            <p className="text-[#4A443C] leading-relaxed mb-4">
               Alle spil på Børnespilguiden vurderes efter de samme seks kriterier.
               Målet er, at du på få sekunder kan se, om et spil er trygt og passer
               til dit barn – uden selv at skulle grave i butikkernes småtekst.
             </p>
-            <p className="text-[#7A7A7A] leading-relaxed">
+            <p className="text-[#4A443C] leading-relaxed">
               Vi anmelder både digitale spil (apps, konsol og pc) og brætspil.
               Kriterierne er de samme, men for brætspil ser vi også på regler,
               spilletid og hvor let spillet er at gå til for familien.
@@ -120,7 +120,7 @@ export default function HowWeTestPage() {
 
         {/* Criteria */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-[#2E2822] mb-6 flex items-center gap-3">
             <Icon name="check" className="w-7 h-7 text-[#16603A]" />
             De seks kriterier
           </h2>
@@ -137,7 +137,7 @@ export default function HowWeTestPage() {
                   )}
                 </span>
                 <h3 className={`font-bold ${c.titleColor} mb-2`}>{c.title}</h3>
-                <p className="text-[#7A7A7A] text-sm">{c.text}</p>
+                <p className="text-[#4A443C] text-sm">{c.text}</p>
               </div>
             ))}
           </div>
@@ -145,7 +145,7 @@ export default function HowWeTestPage() {
 
         {/* Process */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-[#2E2822] mb-6 flex items-center gap-3">
             <Icon name="arrow-right" className="w-7 h-7 text-[#C2410C]" />
             Fra spil til anmeldelse
           </h2>
@@ -159,10 +159,10 @@ export default function HowWeTestPage() {
                   <Icon name={step.icon as IconName} className="w-6 h-6" />
                 </span>
                 <div>
-                  <h3 className="font-bold text-[#4A4A4A] mb-1">
+                  <h3 className="font-bold text-[#2E2822] mb-1">
                     {i + 1}. {step.title}
                   </h3>
-                  <p className="text-[#7A7A7A] text-sm leading-relaxed">{step.text}</p>
+                  <p className="text-[#4A443C] text-sm leading-relaxed">{step.text}</p>
                 </div>
               </li>
             ))}
@@ -171,31 +171,31 @@ export default function HowWeTestPage() {
 
         {/* Star scale */}
         <section className="mb-12">
-          <div className="bg-gradient-to-br from-[#FFE66D]/30 to-[#FFB5A7]/30 rounded-3xl p-8">
-            <h2 className="text-2xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-3">
+          <div className="bg-[#FBF5EC] border border-[#EAE3D8] rounded-3xl p-8">
+            <h2 className="text-2xl font-bold text-[#2E2822] mb-6 flex items-center gap-3">
               <Icon name="star" className="w-7 h-7 text-[#9A6700]" />
               Sådan skal stjernerne læses
             </h2>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
-                <strong className="text-[#4A4A4A] shrink-0 w-24">5 stjerner:</strong>
-                <span className="text-[#7A7A7A]">Fremragende – trygt, gennemarbejdet og noget særligt. Køb det med det samme.</span>
+                <strong className="text-[#2E2822] shrink-0 w-24">5 stjerner:</strong>
+                <span className="text-[#4A443C]">Fremragende – trygt, gennemarbejdet og noget særligt. Køb det med det samme.</span>
               </li>
               <li className="flex items-start gap-3">
-                <strong className="text-[#4A4A4A] shrink-0 w-24">4 stjerner:</strong>
-                <span className="text-[#7A7A7A]">Rigtig godt – små skønhedsfejl, men klart anbefalelsesværdigt.</span>
+                <strong className="text-[#2E2822] shrink-0 w-24">4 stjerner:</strong>
+                <span className="text-[#4A443C]">Rigtig godt – små skønhedsfejl, men klart anbefalelsesværdigt.</span>
               </li>
               <li className="flex items-start gap-3">
-                <strong className="text-[#4A4A4A] shrink-0 w-24">3 stjerner:</strong>
-                <span className="text-[#7A7A7A]">Godt – fungerer fint, men har mangler, du bør kende på forhånd.</span>
+                <strong className="text-[#2E2822] shrink-0 w-24">3 stjerner:</strong>
+                <span className="text-[#4A443C]">Godt – fungerer fint, men har mangler, du bør kende på forhånd.</span>
               </li>
               <li className="flex items-start gap-3">
-                <strong className="text-[#4A4A4A] shrink-0 w-24">1-2 stjerner:</strong>
-                <span className="text-[#7A7A7A]">Anbefales ikke – spil med den slags problemer optager vi som udgangspunkt slet ikke i guiden.</span>
+                <strong className="text-[#2E2822] shrink-0 w-24">1-2 stjerner:</strong>
+                <span className="text-[#4A443C]">Anbefales ikke – spil med den slags problemer optager vi som udgangspunkt slet ikke i guiden.</span>
               </li>
             </ul>
-            <p className="text-[#7A7A7A] text-sm mt-6">
-              Spil markeret med <strong className="text-[#4A4A4A]">Redaktørens valg</strong> er
+            <p className="text-[#4A443C] text-sm mt-6">
+              Spil markeret med <strong className="text-[#2E2822]">Redaktørens valg</strong> er
               vores personlige topvalg i deres kategori.
             </p>
           </div>
@@ -204,17 +204,17 @@ export default function HowWeTestPage() {
         {/* Independence */}
         <section className="mb-12">
           <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
-            <h2 className="text-2xl font-bold text-[#4A4A4A] mb-4 flex items-center gap-3">
+            <h2 className="text-2xl font-bold text-[#2E2822] mb-4 flex items-center gap-3">
               <Icon name="users" className="w-7 h-7 text-[#2D6A4F]" />
               Uafhængighed
             </h2>
-            <p className="text-[#7A7A7A] leading-relaxed mb-4">
+            <p className="text-[#4A443C] leading-relaxed mb-4">
               Børnespilguiden modtager ikke betaling fra spiludgivere, og ingen
               anmeldelser er sponsoreret. Links til App Store, Google Play og
               webshops er en service, så du hurtigt kan finde spillet – vi tjener
               i øjeblikket ikke kommission på dem.
             </p>
-            <p className="text-[#7A7A7A] leading-relaxed">
+            <p className="text-[#4A443C] leading-relaxed">
               Skulle det ændre sig, vil det blive markeret tydeligt her på siden.
             </p>
           </div>
@@ -224,15 +224,15 @@ export default function HowWeTestPage() {
         <section className="text-center">
           <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
             <Icon name="chat" className="w-12 h-12 mb-4 mx-auto text-[#C2410C]" />
-            <h2 className="text-2xl font-bold text-[#4A4A4A] mb-4">
+            <h2 className="text-2xl font-bold text-[#2E2822] mb-4">
               Fundet en fejl – eller et spil, vi bør teste?
             </h2>
-            <p className="text-[#7A7A7A] mb-6">
+            <p className="text-[#4A443C] mb-6">
               Vi bliver glade for både ris, ros og forslag til nye spil.
             </p>
             <Link
               href="/kontakt"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#A2D2FF] text-white font-semibold hover:bg-[#8FC4F5] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#C2410C] text-white font-semibold hover:bg-[#A93409] transition-colors"
             >
               <span>Skriv til os</span>
               <span>→</span>

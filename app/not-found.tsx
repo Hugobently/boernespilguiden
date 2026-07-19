@@ -15,13 +15,13 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="px-6 py-3 bg-[#98DDCA] text-white font-semibold rounded-full hover:bg-[#7FC7B3] transition-colors"
+            className="px-6 py-3 bg-[#C2410C] text-white font-semibold rounded-full hover:bg-[#A93409] transition-colors"
           >
             Gå til forsiden
           </Link>
           <Link
             href="/spil"
-            className="px-6 py-3 bg-[#BAE1FF] text-white font-semibold rounded-full hover:bg-[#9BCFEF] transition-colors"
+            className="px-6 py-3 bg-white text-[#2E2822] font-semibold rounded-full border border-[#EAE3D8] hover:bg-[#FBF5EC] transition-colors"
           >
             Se alle spil
           </Link>

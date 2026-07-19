@@ -1833,7 +1833,7 @@ export const games3to6: GameSeedData[] = [
     developerName: "DR (Danmarks Radio)",
     pros: ["100% gratis - finansieret af licens", "Ingen reklamer", "Ingen in-app køb", "Virker helt offline", "Kreativ problemløsning", "Danske karakterer fra TV"],
     cons: ["Kun på dansk", "Kræver kendskab til serien for fuld oplevelse"],
-    parentTip: "Download alt indhold hjemmefra - perfekt til bilture uden internet!",
+    parentTip: "Download alt indhold hjemmefra - oplagt til bilture uden internet!",
     featured: true,
     editorChoice: true,
   },

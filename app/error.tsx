@@ -28,13 +28,13 @@ export default function Error({
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={() => reset()}
-            className="px-6 py-3 bg-[#98DDCA] text-white font-semibold rounded-full hover:bg-[#7FC7B3] transition-colors"
+            className="px-6 py-3 bg-[#C2410C] text-white font-semibold rounded-full hover:bg-[#A93409] transition-colors"
           >
             Prøv igen
           </button>
           <Link
             href="/"
-            className="px-6 py-3 bg-[#FFB5A7] text-white font-semibold rounded-full hover:bg-[#F8A99B] transition-colors"
+            className="px-6 py-3 bg-white text-[#2E2822] font-semibold rounded-full border border-[#EAE3D8] hover:bg-[#FBF5EC] transition-colors"
           >
             Gå til forsiden
           </Link>

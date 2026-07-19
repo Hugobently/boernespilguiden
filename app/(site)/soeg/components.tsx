@@ -23,7 +23,7 @@ export function SearchTabs({ activeTab }: SearchTabsProps) {
     { id: 'alle', label: 'Alle', icon: 'search' as IconName },
     { id: 'spil', label: 'Digitale spil', icon: 'gamepad' as IconName },
     { id: 'braetspil', label: 'Brætspil', icon: 'dice' as IconName },
-    { id: 'film-serier', label: 'Film & Serier', icon: 'tv' as IconName },
+    { id: 'film-serier', label: 'Film & serier', icon: 'tv' as IconName },
   ] as const;
 
   const handleTabChange = (tabId: string) => {
@@ -42,6 +42,7 @@ export function SearchTabs({ activeTab }: SearchTabsProps) {
         <button
           key={tab.id}
           onClick={() => handleTabChange(tab.id)}
+          aria-label={tab.label}
           className={cn(
             'inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all',
             activeTab === tab.id
@@ -138,7 +139,7 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
         className={cn(
           'inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all',
           'bg-[#FFFCF7] hover:bg-white shadow-sm',
-          activeFilterCount > 0 ? 'text-[#FFB5A7]' : 'text-[#4A4A4A]'
+          activeFilterCount > 0 ? 'text-[#C2410C]' : 'text-[#4A4A4A]'
         )}
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -151,7 +152,7 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
         </svg>
         <span>Filtre</span>
         {activeFilterCount > 0 && (
-          <span className="inline-flex items-center justify-center w-5 h-5 text-xs bg-[#FFB5A7] text-white rounded-full">
+          <span className="inline-flex items-center justify-center w-5 h-5 text-xs bg-[#C2410C] text-white rounded-full">
             {activeFilterCount}
           </span>
         )}
@@ -174,7 +175,7 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
                     className={cn(
                       'px-3 py-2 rounded-xl text-sm font-medium transition-colors',
                       filters.ageGroup === age
-                        ? 'bg-[#FFB5A7] text-white'
+                        ? 'bg-[#C2410C] text-white'
                         : 'bg-[#FFF9F0] text-[#4A4A4A] hover:bg-[#FFB5A7]/20'
                     )}
                   >
@@ -277,7 +278,7 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
             <div className="border-t border-[#FFB5A7]/10 p-3 bg-[#FFF9F0]">
               <button
                 onClick={clearFilters}
-                className="w-full py-2 rounded-xl text-sm font-semibold text-[#FFB5A7] hover:bg-white transition-colors"
+                className="w-full py-2 rounded-xl text-sm font-semibold text-[#C2410C] hover:bg-white transition-colors"
               >
                 Ryd alle filtre
               </button>

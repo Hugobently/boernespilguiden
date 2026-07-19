@@ -280,42 +280,39 @@ export default async function BoardGameAgeGroupPage({ params, searchParams }: Pa
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
       {/* Header */}
-      <header className={`bg-gradient-to-r ${config.color.gradient} py-12 sm:py-16`}>
+      <header className="bg-[#FBF5EC] py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-6">
-            <ol className="flex items-center gap-2 text-sm" style={{ color: config.color.text }}>
+            <ol className="flex items-center gap-2 text-sm text-[#6B6258]">
               <li>
-                <Link href={`/${locale === 'da' ? '' : locale}`} className="hover:underline opacity-70">
+                <Link href={`/${locale === 'da' ? '' : locale}`} className="hover:underline hover:text-[#C2410C]">
                   {t('home')}
                 </Link>
               </li>
-              <li className="opacity-50">/</li>
+              <li>/</li>
               <li>
-                <Link href={`/${locale === 'da' ? '' : locale + '/'}braetspil`} className="hover:underline opacity-70">
+                <Link href={`/${locale === 'da' ? '' : locale + '/'}braetspil`} className="hover:underline hover:text-[#C2410C]">
                   {t('breadcrumbBoardGames')}
                 </Link>
               </li>
-              <li className="opacity-50">/</li>
-              <li className="font-semibold">{ageLabel}</li>
+              <li>/</li>
+              <li className="font-semibold text-[#2E2822]">{ageLabel}</li>
             </ol>
           </nav>
 
           <div className="flex items-center gap-4 sm:gap-6">
             <span
-              className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white/60 flex items-center justify-center flex-shrink-0"
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white flex items-center justify-center flex-shrink-0"
               style={{ color: config.color.text }}
             >
               <Icon name="dice" className="w-9 h-9 sm:w-11 sm:h-11" />
             </span>
             <div>
-              <h1
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2"
-                style={{ color: config.color.text }}
-              >
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 text-[#2E2822]">
                 {t('boardGamesForAge', { age: ageLabel })}
               </h1>
-              <p className="text-lg opacity-80" style={{ color: config.color.text }}>
+              <p className="text-lg text-[#4A443C]">
                 {ageDesc} • {t('boardGamesFound', { count: gamesData.totalCount })}
               </p>
             </div>

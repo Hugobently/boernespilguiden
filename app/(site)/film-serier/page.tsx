@@ -18,7 +18,7 @@ interface SearchParams {
 }
 
 export const metadata = {
-  title: 'Film & Serier til Børn',
+  title: 'Film & serier til børn',
   description:
     'Find de bedste børnefilm og serier på streaming. Se hvor du kan se dem - Netflix, Disney+, DR TV og flere.',
   alternates: {
@@ -130,7 +130,7 @@ export default async function FilmSerierPage({
               <Icon name="tv" className="w-7 h-7 sm:w-8 sm:h-8" />
             </span>
             <h1 className="text-3xl sm:text-4xl font-bold text-text-primary">
-              Film & Serier til Børn
+              Film & serier til børn
             </h1>
           </div>
           <p className="text-lg text-text-secondary max-w-xl">

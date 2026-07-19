@@ -127,7 +127,7 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
                     {t.description}{' '}
                     <Link
                       href="/cookiepolitik"
-                      className="text-[#FFB5A7] hover:underline"
+                      className="text-[#C2410C] hover:text-[#A93409] hover:underline"
                     >
                       {t.learnMore}
                     </Link>
@@ -146,7 +146,7 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
                         />
                         <div>
                           <span className="font-medium text-[#4A4A4A] text-sm">{t.necessary}</span>
-                          <span className="ml-2 text-xs text-[#98DDCA] font-medium">(Altid aktiv)</span>
+                          <span className="ml-2 text-xs text-[#16603A] font-medium">(Altid aktiv)</span>
                           <p className="text-xs text-[#7A7A7A]">{t.necessaryDesc}</p>
                         </div>
                       </label>
@@ -157,7 +157,7 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
                           type="checkbox"
                           checked={analyticsEnabled}
                           onChange={(e) => setAnalyticsEnabled(e.target.checked)}
-                          className="mt-1 w-4 h-4 rounded border-[#E0E0E0] text-[#98DDCA] focus:ring-[#98DDCA]"
+                          className="mt-1 w-4 h-4 rounded border-[#E0E0E0] text-[#C2410C] focus:ring-[#C2410C]"
                         />
                         <div>
                           <span className="font-medium text-[#4A4A4A] text-sm">{t.analytics}</span>
@@ -171,7 +171,7 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
                           type="checkbox"
                           checked={preferencesEnabled}
                           onChange={(e) => setPreferencesEnabled(e.target.checked)}
-                          className="mt-1 w-4 h-4 rounded border-[#E0E0E0] text-[#98DDCA] focus:ring-[#98DDCA]"
+                          className="mt-1 w-4 h-4 rounded border-[#E0E0E0] text-[#C2410C] focus:ring-[#C2410C]"
                         />
                         <div>
                           <span className="font-medium text-[#4A4A4A] text-sm">{t.preferences}</span>
@@ -187,7 +187,7 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
                       <>
                         <button
                           onClick={handleSaveCustom}
-                          className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#98DDCA] text-white font-semibold rounded-full hover:bg-[#7FC7B3] transition-colors text-xs sm:text-sm"
+                          className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#C2410C] text-white font-semibold rounded-full hover:bg-[#A93409] transition-colors text-xs sm:text-sm"
                         >
                           {t.save}
                         </button>
@@ -202,7 +202,7 @@ export function CookieConsent({ translations = {} }: CookieConsentProps) {
                       <>
                         <button
                           onClick={handleAcceptAll}
-                          className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#98DDCA] text-white font-semibold rounded-full hover:bg-[#7FC7B3] transition-colors text-xs sm:text-sm"
+                          className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#C2410C] text-white font-semibold rounded-full hover:bg-[#A93409] transition-colors text-xs sm:text-sm"
                         >
                           {t.acceptAll}
                         </button>

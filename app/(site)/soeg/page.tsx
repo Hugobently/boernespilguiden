@@ -490,7 +490,7 @@ async function SearchResults({
         {popular.media.length > 0 && (
           <div>
             <h3 className="text-xl font-bold text-[#4A4A4A] mb-6 flex items-center gap-2">
-              <Icon name="tv" className="w-5 h-5 text-[#1D4E89]" /> Populære Film & Serier
+              <Icon name="tv" className="w-5 h-5 text-[#1D4E89]" /> Populære film & serier
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
               {popular.media.map((item, index) => {
@@ -678,7 +678,7 @@ async function SearchResults({
           {tab === 'alle' && (
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-[#4A4A4A] flex items-center gap-2">
-                <Icon name="tv" className="w-5 h-5 text-[#1D4E89]" /> Film & Serier ({media.length})
+                <Icon name="tv" className="w-5 h-5 text-[#1D4E89]" /> Film & serier ({media.length})
               </h2>
               {media.length > 8 && (
                 <Link
@@ -748,23 +748,23 @@ export default async function SearchPage({ searchParams }: PageProps) {
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#FFB5A7] via-[#FFE66D] to-[#B8E0D2] py-8 sm:py-12">
+      <header className="bg-[#FBF5EC] py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <nav className="mb-6">
-            <ol className="flex items-center gap-2 text-sm text-white/80">
+            <ol className="flex items-center gap-2 text-sm text-[#6B6258]">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">
+                <Link href="/" className="hover:text-[#C2410C] transition-colors">
                   Hjem
                 </Link>
               </li>
               <li>/</li>
-              <li className="text-white font-medium">Søg</li>
+              <li className="text-[#2E2822] font-medium">Søg</li>
             </ol>
           </nav>
 
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6 flex items-center justify-center gap-3">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#2E2822] mb-6 flex items-center justify-center gap-3">
               <Icon name="search" className="w-8 h-8" />
               Søg efter spil
             </h1>
