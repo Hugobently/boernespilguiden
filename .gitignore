@@ -56,3 +56,6 @@ scripts/output/*.html
 scripts/output/.~lock.*
 
 .vercel
+
+# production env (contains secrets - never commit)
+.env.production
