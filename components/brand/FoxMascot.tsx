@@ -39,8 +39,8 @@ export function FoxMascot({ className, label }: FoxMascotProps) {
       {/* øjne */}
       <ellipse cx="45" cy="42" rx="6.5" ry="7.5" fill="#fff" />
       <ellipse cx="75" cy="42" rx="6.5" ry="7.5" fill="#fff" />
-      <circle cx="46" cy="44" r="3.4" fill="#2D3436" />
-      <circle cx="76" cy="44" r="3.4" fill="#2D3436" />
+      <circle cx="46" cy="42.5" r="3.4" fill="#2D3436" />
+      <circle cx="76" cy="42.5" r="3.4" fill="#2D3436" />
       <circle cx="43" cy="39.5" r="1.8" fill="#fff" />
       <circle cx="73" cy="39.5" r="1.8" fill="#fff" />
       {/* kinder */}
@@ -48,8 +48,8 @@ export function FoxMascot({ className, label }: FoxMascotProps) {
       <circle cx="87" cy="54" r="4.5" fill="#FFB5A7" opacity=".85" />
       {/* næse og mund */}
       <path d="M55 51 Q 60 47.5 65 51 Q 63 57 60 58 Q 57 57 55 51 Z" fill="#6B4226" />
-      <path d="M60 58 Q 60 62.5 55.5 63" fill="none" stroke="#6B4226" strokeWidth="2.2" strokeLinecap="round" />
-      <path d="M60 58 Q 60 62.5 64.5 63" fill="none" stroke="#6B4226" strokeWidth="2.2" strokeLinecap="round" />
+      <path d="M60 58 Q 60 64 54 60.5" fill="none" stroke="#6B4226" strokeWidth="2.2" strokeLinecap="round" />
+      <path d="M60 58 Q 60 64 66 60.5" fill="none" stroke="#6B4226" strokeWidth="2.2" strokeLinecap="round" />
       {/* terning */}
       <g transform="rotate(-8 60 107)">
         <rect x="49" y="96" width="22" height="22" rx="5.5" fill="#FFD45E" />
@@ -84,15 +84,15 @@ export function FoxFace({ className, label }: FoxMascotProps) {
       <ellipse cx="25" cy="38.5" rx="5" ry="4" fill="#FFF3E6" />
       <ellipse cx="15.5" cy="26.5" rx="4" ry="4.6" fill="#fff" />
       <ellipse cx="34.5" cy="26.5" rx="4" ry="4.6" fill="#fff" />
-      <circle cx="16.2" cy="27.6" r="2.1" fill="#2D3436" />
-      <circle cx="35.2" cy="27.6" r="2.1" fill="#2D3436" />
+      <circle cx="16.2" cy="26.7" r="2.1" fill="#2D3436" />
+      <circle cx="35.2" cy="26.7" r="2.1" fill="#2D3436" />
       <circle cx="14" cy="24.8" r="1.1" fill="#fff" />
       <circle cx="34" cy="24.8" r="1.1" fill="#fff" />
       <circle cx="8.5" cy="33" r="2.8" fill="#FFB5A7" opacity=".85" />
       <circle cx="41.5" cy="33" r="2.8" fill="#FFB5A7" opacity=".85" />
       <path d="M21.8 32.5 Q 25 30.5 28.2 32.5 Q 27.1 36.5 25 37.2 Q 22.9 36.5 21.8 32.5 Z" fill="#6B4226" />
-      <path d="M25 37.2 Q 25 40 22 40.5" fill="none" stroke="#6B4226" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M25 37.2 Q 25 40 28 40.5" fill="none" stroke="#6B4226" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M25 37.2 Q 25 41 21.2 38.8" fill="none" stroke="#6B4226" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M25 37.2 Q 25 41 28.8 38.8" fill="none" stroke="#6B4226" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   );
 }
