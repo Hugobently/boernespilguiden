@@ -40,6 +40,41 @@ const nextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        // Statiske spilbilleder ændrer sig kun ved deploy — lad CDN og
+        // browser cache dem længe
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, s-maxage=2592000, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      {
+        // Katalogdata ændrer sig kun ved deploy — kortere CDN-cache med
+        // stale-while-revalidate så API-svar ikke rammer databasen pr. request
+        source: '/api/games/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, s-maxage=3600, stale-while-revalidate=86400' },
+        ],
+      },
+      {
+        source: '/api/boardgames/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, s-maxage=3600, stale-while-revalidate=86400' },
+        ],
+      },
+      {
+        source: '/api/search',
+        headers: [
+          { key: 'Cache-Control', value: 'public, s-maxage=600, stale-while-revalidate=3600' },
+        ],
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

@@ -156,7 +156,7 @@ Pasteller:     coral #FFB5A7, mint #B8E0D2, sky #A2D2FF, sunflower #FFE66D, lave
 
 ### Typography & Brand (2026 redesign)
 - Display font: **Baloo 2** (700/800) via next/font as `--font-baloo`; `--font-display` in globals.css applies it to all h1-h6 and `font-display` utility. Body: Nunito.
-- Mascot: **ræven med terningen** — `FoxMascot`/`FoxFace` in `/components/brand/FoxMascot.tsx`. The old robot `Mascot.tsx` is deprecated but kept.
+- Mascot: **ræven med terningen** — `FoxMascot`/`FoxFace` in `/components/brand/FoxMascot.tsx`. (The old robot `Mascot.tsx` was removed 2026-07-24.)
 - Hero scene: `/components/brand/HeroScene.tsx` (sun, clouds, kite, hills, rainbow, fox — all inline SVG).
 - Icons: NO emoji as UI elements. Use `Icon` from `/components/ui/Icon.tsx` (stroke-based set, currentColor).
 - App icons: digital games render as **squircles** (`squircle` prop on `GameImageWithFallback`, `border-radius: 22.5%`) — never crop square app icons to a wide format. Board games keep cover photos.

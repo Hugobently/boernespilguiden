@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { withRateLimit } from '@/lib/middleware/rate-limit';
 
 interface ContactFormData {
   name: string;
@@ -9,7 +10,23 @@ interface ContactFormData {
 
 const CONTACT_EMAIL = 'boernespislguiden@proton.me';
 
-export async function POST(request: NextRequest) {
+// Contact form: 5 submissions per 10 minutes per IP (spam protection)
+const contactRateLimit = { windowMs: 10 * 60 * 1000, maxRequests: 5 };
+
+const MAX_LENGTHS = { name: 100, email: 200, subject: 100, message: 5000 } as const;
+
+// User input is interpolated into an HTML email body — escape it so a
+// malicious message can't inject markup into the mail client
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+export const POST = withRateLimit(contactRateLimit, async (request: NextRequest) => {
   try {
     const body: ContactFormData = await request.json();
     const { name, email, subject, message } = body;
@@ -22,11 +39,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Validate lengths
+    if (
+      name.length > MAX_LENGTHS.name ||
+      email.length > MAX_LENGTHS.email ||
+      subject.length > MAX_LENGTHS.subject ||
+      message.length > MAX_LENGTHS.message
+    ) {
+      return NextResponse.json(
+        { error: 'Et eller flere felter er for lange' },
+        { status: 400 }
+      );
+    }
+
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { error: 'Ugyldig email-adresse' },
+        { error: 'Ugyldig e-mailadresse' },
         { status: 400 }
       );
     }
@@ -40,8 +70,12 @@ export async function POST(request: NextRequest) {
       andet: 'Andet',
     };
 
-    const readableSubject = subjectMap[subject] || subject;
-    const emailSubject = `[Børnespilguiden] ${readableSubject} fra ${name}`;
+    const readableSubject = subjectMap[subject] || 'Andet';
+    const emailSubject = `[Børnespilguiden] ${readableSubject} fra ${name.replace(/[\r\n]/g, ' ')}`;
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message);
 
     // Check if Resend is configured (recommended for Vercel)
     if (process.env.RESEND_API_KEY) {
@@ -58,14 +92,14 @@ export async function POST(request: NextRequest) {
           subject: emailSubject,
           html: `
             <h2>Ny besked fra kontaktformularen</h2>
-            <p><strong>Fra:</strong> ${name} (${email})</p>
+            <p><strong>Fra:</strong> ${safeName} (${safeEmail})</p>
             <p><strong>Emne:</strong> ${readableSubject}</p>
             <hr />
             <h3>Besked:</h3>
-            <p style="white-space: pre-wrap;">${message}</p>
+            <p style="white-space: pre-wrap;">${safeMessage}</p>
             <hr />
             <p style="color: #666; font-size: 12px;">
-              Denne email blev sendt fra kontaktformularen på børnespilguiden.dk
+              Denne e-mail blev sendt fra kontaktformularen på børnespilguiden.dk
             </p>
           `,
           text: `
@@ -78,7 +112,7 @@ Besked:
 ${message}
 
 ---
-Denne email blev sendt fra kontaktformularen på børnespilguiden.dk
+Denne e-mail blev sendt fra kontaktformularen på børnespilguiden.dk
           `.trim(),
         }),
       });
@@ -105,4 +139,4 @@ Denne email blev sendt fra kontaktformularen på børnespilguiden.dk
       { status: 500 }
     );
   }
-}
+});
