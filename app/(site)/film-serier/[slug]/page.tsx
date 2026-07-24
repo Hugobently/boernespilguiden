@@ -2,21 +2,39 @@
 
 import { prisma } from '@/lib/db';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { StreamingBadges } from '@/components/media/StreamingBadges';
 import { MediaParentInfo } from '@/components/media/MediaParentInfo';
+import { MediaCard } from '@/components/media/MediaCard';
 import { Icon } from '@/components/ui/Icon';
 import { DanishFlag } from '@/components/games/GameCardBadges';
+import { JsonLd, buildOpenGraph, generateBreadcrumbJsonLd, generateMediaJsonLd } from '@/lib/seo';
 
 interface PageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps) {
+// Prerender all media pages at build time; unknown slugs still render on
+// demand. The catalog only changes via deploys, so pages stay fresh.
+export async function generateStaticParams() {
+  try {
+    const media = await prisma.media.findMany({
+      where: { isActive: true },
+      select: { slug: true },
+    });
+    return media.map((m) => ({ slug: m.slug }));
+  } catch {
+    // No database at build time (e.g. local build) — render on demand
+    return [];
+  }
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
   const media = await prisma.media.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
   });
 
   if (!media) {
@@ -25,18 +43,34 @@ export async function generateMetadata({ params }: PageProps) {
     };
   }
 
+  const typeWord = media.type === 'MOVIE' ? 'film' : 'serie';
+  const ageText =
+    media.ageMin != null && media.ageMax != null ? ` til børn ${media.ageMin}-${media.ageMax} år` : '';
+  const title = `${media.title} – børne${typeWord}${ageText}`;
+  const description =
+    media.description?.slice(0, 155) ||
+    `Forældreguide til ${media.title}: aldersanbefaling, indhold og hvor ${typeWord}en kan streames.`;
+
   return {
-    title: `${media.title} – børne${media.type === 'MOVIE' ? 'film' : 'serie'}`,
-    description: media.description || `Se ${media.title} - børne${media.type === 'MOVIE' ? 'film' : 'serie'}`,
+    title,
+    description,
     alternates: {
-      canonical: `/film-serier/${params.slug}`,
+      canonical: `/film-serier/${slug}`,
     },
+    openGraph: buildOpenGraph({
+      title,
+      description,
+      url: `/film-serier/${slug}`,
+      type: 'article',
+      images: media.posterUrl ? [{ url: media.posterUrl, alt: media.title }] : undefined,
+    }),
   };
 }
 
 export default async function MediaDetailPage({ params }: PageProps) {
+  const { slug } = await params;
   const media = await prisma.media.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
     include: {
       streamingInfo: {
         where: { available: true },
@@ -52,19 +86,60 @@ export default async function MediaDetailPage({ params }: PageProps) {
   const ageText =
     media.ageMin && media.ageMax ? `${media.ageMin}-${media.ageMax} år` : null;
 
+  // Related titles: overlapping age range or shared genre
+  const relatedConditions = [
+    ...(media.ageMin != null && media.ageMax != null
+      ? [{ ageMin: { lte: media.ageMax }, ageMax: { gte: media.ageMin } }]
+      : []),
+    ...(media.genres.length > 0 ? [{ genres: { hasSome: media.genres } }] : []),
+  ];
+  const relatedMedia = await prisma.media.findMany({
+    where: {
+      isActive: true,
+      slug: { not: media.slug },
+      ...(relatedConditions.length > 0 ? { OR: relatedConditions } : {}),
+    },
+    include: {
+      streamingInfo: { where: { available: true } },
+    },
+    orderBy: [{ isFeatured: 'desc' }, { updatedAt: 'desc' }],
+    take: 4,
+  });
+
+  const breadcrumbItems = [
+    { name: 'Hjem', url: '/' },
+    { name: 'Film & serier', url: '/film-serier' },
+    { name: media.title },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Back button */}
-      <a
-        href="/film-serier"
-        className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6"
-      >
-        ← Tilbage til oversigt
-      </a>
+      <JsonLd data={[generateMediaJsonLd(media), generateBreadcrumbJsonLd(breadcrumbItems)]} />
+
+      {/* Breadcrumb */}
+      <nav aria-label="Brødkrumme" className="mb-6 text-sm">
+        <ol className="flex flex-wrap items-center gap-1 text-gray-500">
+          <li>
+            <Link href="/" className="text-[#C2410C] hover:underline">
+              Hjem
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li>
+            <Link href="/film-serier" className="text-[#C2410C] hover:underline">
+              Film &amp; serier
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" className="text-gray-700">
+            {media.title}
+          </li>
+        </ol>
+      </nav>
 
       <div className="grid md:grid-cols-[300px_1fr] gap-8">
         {/* Poster */}
-        <div className="aspect-[2/3] relative bg-gray-100 rounded-lg overflow-hidden">
+        <div className="aspect-[2/3] relative bg-gray-100 rounded-lg overflow-hidden md:sticky md:top-24 self-start">
           {media.posterUrl ? (
             <Image
               src={media.posterUrl}
@@ -208,6 +283,30 @@ export default async function MediaDetailPage({ params }: PageProps) {
           )}
         </div>
       </div>
+
+      {/* Related titles */}
+      {relatedMedia.length > 0 && (
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <Icon name="tv" className="w-6 h-6 text-[#1D4E89]" /> Lignende film &amp; serier
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {relatedMedia.map((related) => (
+              <MediaCard
+                key={related.slug}
+                slug={related.slug}
+                title={related.title}
+                posterUrl={related.posterUrl}
+                type={related.type as 'MOVIE' | 'SERIES'}
+                ageMin={related.ageMin}
+                ageMax={related.ageMax}
+                isDanish={related.isDanish}
+                streamingInfo={related.streamingInfo}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Attribution */}
       <div className="mt-12 pt-8 border-t border-gray-200 text-sm text-gray-500">

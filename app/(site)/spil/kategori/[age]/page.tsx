@@ -9,6 +9,7 @@ import { GameCard } from '@/components/games';
 import { Icon, type IconName } from '@/components/ui/Icon';
 import { FoxMascot } from '@/components/brand/FoxMascot';
 import { FilterSidebar, MobileFilters, SortDropdown, Pagination, ActiveFilters } from './components';
+import { JsonLd, buildOpenGraph, generateBreadcrumbJsonLd, siteConfig } from '@/lib/seo';
 
 // ============================================================================
 // TYPES & CONSTANTS
@@ -58,6 +59,17 @@ const ageGroupConfig: Record<
       gradient: 'from-[#BAE1FF] to-[#8ECAE6]',
     },
   },
+};
+
+// SEO descriptions per age group (used in metadata — full sentences, not
+// concatenated fragments)
+const ageSeoDescriptions: Record<AgeGroup, string> = {
+  '0-3':
+    'Digitale spil og apps til babyer og småbørn på 0-3 år. Vi har testet dem for reklamer, in-app-køb og tryghed, så de mindste kan lege sikkert.',
+  '3-6':
+    'De bedste apps og digitale spil til børnehavebørn på 3-6 år. Ærlige anmeldelser med fokus på læring, tryghed og skærmtid uden reklamer.',
+  '7+':
+    'Digitale spil til skolebørn fra 7 år - fra læringsspil til Minecraft. Anmeldelser med alt det, forældre skal vide om sikkerhed, køb og indhold.',
 };
 
 type SortOption = 'popular' | 'newest' | 'rating' | 'adfree';
@@ -274,6 +286,23 @@ export default async function AgeGroupPage({ params, searchParams }: PageProps) 
 
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
+      <JsonLd
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: t('gamesForAge', { age: ageLabel }),
+            description: ageSeoDescriptions[ageGroup],
+            url: `${siteConfig.url}/spil/kategori/${ageGroup}`,
+            inLanguage: 'da',
+          },
+          generateBreadcrumbJsonLd([
+            { name: t('home'), url: '/' },
+            { name: t('breadcrumbDigital'), url: '/spil' },
+            { name: ageLabel },
+          ]),
+        ]}
+      />
       {/* Header */}
       <header className="bg-[#FBF5EC] py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -316,7 +345,7 @@ export default async function AgeGroupPage({ params, searchParams }: PageProps) 
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Mobile Filters Toggle */}
         <div className="lg:hidden mb-6">
           <Suspense fallback={<div className="h-12 bg-[#FFFCF7] rounded-2xl animate-pulse" />}>
@@ -435,7 +464,7 @@ export default async function AgeGroupPage({ params, searchParams }: PageProps) 
             )}
           </div>
         </div>
-      </main>
+      </div>
 
     </div>
   );
@@ -455,18 +484,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const ageLabel = tAgeGroups(age as AgeGroup);
-  const ageDesc = tAgeGroups(`${age}-desc`);
+  const description = ageSeoDescriptions[age as AgeGroup];
 
   return {
     title: t('gamesForAge', { age: ageLabel }),
-    description: t('description') + ' ' + ageDesc,
+    description,
     alternates: {
       canonical: `/spil/kategori/${age}`,
     },
-    openGraph: {
+    openGraph: buildOpenGraph({
       title: t('gamesForAge', { age: ageLabel }),
-      description: t('description') + ' ' + ageDesc,
-    },
+      description,
+      url: `/spil/kategori/${age}`,
+    }),
   };
 }
 

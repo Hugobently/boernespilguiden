@@ -7,7 +7,7 @@ import { parseJsonArray } from '@/lib/types';
 import { GameCard, BoardGameParentInfo } from '@/components/games';
 import { GameDetailImage } from '@/components/games/GameDetailImage';
 import { getBoardGameWithTranslation, getBoardGamesWithTranslation } from '@/lib/translations';
-import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { GameJsonLd, JsonLd, generateBreadcrumbJsonLd, buildOpenGraph } from '@/lib/seo';
 import { Icon } from '@/components/ui/Icon';
 import { resolveGameImage } from '@/lib/game-image';
 
@@ -45,7 +45,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Brætspillet blev ikke fundet' };
   }
 
-  const categories = parseJsonArray<string>(game.categories);
   const ageLabel = game.maxAge >= 99 ? `${game.minAge}+ år` : `${game.minAge}-${game.maxAge} år`;
   const shortDesc = game.shortDescription.trim();
   const intro = /[.!?]$/.test(shortDesc) ? shortDesc : `${shortDesc}.`;
@@ -55,22 +54,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${game.title} anmeldelse – brætspil til børn ${ageLabel}`,
     description,
-    keywords: [
-      game.title,
-      `${game.title} anmeldelse`,
-      'brætspil til børn',
-      `brætspil til ${game.minAge}-årige`,
-      ...categories,
-    ],
     alternates: {
       canonical: `/braetspil/${slug}`,
     },
-    openGraph: {
+    openGraph: buildOpenGraph({
       title: `${game.title} anmeldelse`,
       description,
+      url: `/braetspil/${slug}`,
       type: 'article',
       images: [{ url: image, alt: game.title }],
-    },
+    }),
     twitter: {
       card: 'summary_large_image',
       title: `${game.title} anmeldelse`,
@@ -221,7 +214,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
       </div>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Left Column - Image & Actions */}
           <div className="lg:col-span-2 space-y-6">
@@ -528,7 +521,7 @@ export default async function BoardGameDetailPage({ params }: PageProps) {
             </div>
           </section>
         )}
-      </main>
+      </div>
 
     </div>
   );

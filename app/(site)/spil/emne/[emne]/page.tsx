@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { CATEGORY_TOPICS, getCategoryTopic } from '@/lib/topics';
+import { buildOpenGraph } from '@/lib/seo';
 import { TopicLandingPage } from '../../topic-landing';
 
 interface PageProps {
@@ -25,10 +26,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: topic.path,
     },
-    openGraph: {
+    openGraph: buildOpenGraph({
       title: topic.title,
       description: topic.metaDescription,
-    },
+      url: topic.path,
+    }),
   };
 }
 

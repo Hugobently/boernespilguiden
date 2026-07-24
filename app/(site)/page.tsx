@@ -6,7 +6,7 @@ import { SearchBar } from '@/components/filters';
 import { GameCard } from '@/components/games';
 import { MediaCard } from '@/components/media/MediaCard';
 import { getHomepageDataWithTranslation } from '@/lib/translations';
-import { WebsiteJsonLdScript, JsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { WebsiteJsonLdScript, JsonLd, generateBreadcrumbJsonLd, buildOpenGraph } from '@/lib/seo';
 import { HeroScene } from '@/components/brand';
 
 // ============================================================================
@@ -452,6 +452,7 @@ function FilmSerierSection({ media, mediaCount, t }: FilmSerierSectionProps) {
                     type={item.type as 'MOVIE' | 'SERIES'}
                     isDanish={item.isDanish}
                     streamingInfo={streamingInfo}
+                    imagePriority={index < 4}
                   />
                 </Reveal>
               );
@@ -561,43 +562,10 @@ export default async function HomePage() {
   // Get data with translations
   const data = await getHomepageDataWithTranslation(locale);
 
-  // Generate FAQ structured data for SEO
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Hvad er de bedste spil til børn uden reklamer?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Vi anbefaler spil som Khan Academy Kids, Toca Life World, og LEGO-spil. Disse er alle reklamefri og sikre for børn. Se vores komplette liste over reklamefri spil.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Hvilke brætspil er gode til små børn?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Til børn 0-3 år anbefaler vi HABA First Orchard og Roll & Play. Til 3-6 år er Candy Land og Hoot Owl Hoot populære valg.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Er apps til børn sikre?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Det varierer meget. Vi gennemgår alle apps for reklamer, in-app køb og dataindsamling. Se vores anmeldelser for at finde sikre apps til dit barn.',
-        },
-      },
-    ],
-  };
-
   return (
     <div className="relative">
       {/* Structured Data for SEO */}
       <WebsiteJsonLdScript />
-      <JsonLd data={faqJsonLd} />
       <JsonLd data={generateBreadcrumbJsonLd([{ name: 'Forside' }])} />
 
       {/* Hero Section */}
@@ -630,49 +598,16 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Børnespilguiden - Find de bedste spil til børn 2026 | Anmeldelser & Guide',
+    absolute: 'Børnespilguiden - De bedste spil til børn 2026',
   },
   description:
-    'Ærlige anmeldelser af 130+ digitale spil og brætspil til børn 0-15 år. Testet af forældre med fokus på reklamefri, sikre og lærerige spil.',
-  keywords: [
-    'børnespil',
-    'spil til børn',
-    'brætspil børn',
-    'brætspil til børn',
-    'digitale spil børn',
-    'apps til børn',
-    'læringsspil',
-    'læringsspil til børn',
-    'familiespil',
-    'reklamefri spil',
-    'reklamefri apps børn',
-    'sikre spil til børn',
-    'spil uden reklamer',
-    'børnevenlige spil',
-    'iPad spil til børn',
-    'gratis spil til børn',
-    'spil til 3 årige',
-    'spil til 5 årige',
-    'spil til 7 årige',
-    'spil til 10 årige',
-    'bedste børnespil 2026',
-    'anmeldelser børnespil',
-  ],
-  openGraph: {
+    'Ærlige anmeldelser af 200+ digitale spil og brætspil til børn 0-15 år. Testet af forældre med fokus på reklamefri, sikre og lærerige spil.',
+  openGraph: buildOpenGraph({
     title: 'Børnespilguiden - Find de bedste spil til dine børn',
     description:
       'Ærlige anmeldelser af digitale spil og brætspil til børn. Reklamefri guide med fokus på sikkerhed, læring og sjov.',
-    type: 'website',
     url: '/',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Børnespilguiden - Find de bedste spil til dine børn',
-      },
-    ],
-  },
+  }),
   twitter: {
     card: 'summary_large_image',
     title: 'Børnespilguiden - Find de bedste spil til dine børn',

@@ -15,6 +15,38 @@ export const siteConfig = {
 };
 
 // ============================================================================
+// OPEN GRAPH HELPER
+// ============================================================================
+
+interface OpenGraphInput {
+  title: string;
+  description: string;
+  url: string;
+  type?: 'website' | 'article';
+  images?: Array<{ url: string; width?: number; height?: number; alt?: string }>;
+}
+
+/**
+ * Builds a complete openGraph object for generateMetadata/metadata exports.
+ * Next.js replaces the whole openGraph object per page (no deep merge with the
+ * root layout), so every page must carry siteName/locale/fallback image itself.
+ */
+export function buildOpenGraph({ title, description, url, type = 'website', images }: OpenGraphInput) {
+  return {
+    title,
+    description,
+    url,
+    type,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    images:
+      images && images.length > 0
+        ? images
+        : [{ url: '/og-image.png', width: 1200, height: 630, alt: siteConfig.name }],
+  };
+}
+
+// ============================================================================
 // JSON-LD TYPES
 // ============================================================================
 
@@ -276,6 +308,67 @@ export function generateBoardGameJsonLd(game: {
   };
 }
 
+interface MediaJsonLd {
+  '@context': 'https://schema.org';
+  '@type': 'Movie' | 'TVSeries';
+  name: string;
+  alternateName?: string;
+  description?: string;
+  url: string;
+  image?: string;
+  inLanguage?: string;
+  genre?: string[];
+  datePublished?: string;
+  numberOfSeasons?: number;
+  typicalAgeRange?: string;
+  review?: {
+    '@type': 'Review';
+    author: { '@type': 'Organization'; name: string };
+    reviewBody: string;
+  };
+}
+
+export function generateMediaJsonLd(media: {
+  slug: string;
+  type: string;
+  title: string;
+  originalTitle?: string | null;
+  description?: string | null;
+  review?: string | null;
+  posterUrl?: string | null;
+  releaseDate?: Date | null;
+  seasons?: number | null;
+  ageMin?: number | null;
+  ageMax?: number | null;
+  genres?: string[];
+  hasDanishAudio?: boolean | null;
+}): MediaJsonLd {
+  const isMovie = media.type === 'MOVIE';
+  return {
+    '@context': 'https://schema.org',
+    '@type': isMovie ? 'Movie' : 'TVSeries',
+    name: media.title,
+    alternateName:
+      media.originalTitle && media.originalTitle !== media.title ? media.originalTitle : undefined,
+    description: media.description || undefined,
+    url: `${siteConfig.url}/film-serier/${media.slug}`,
+    image: toAbsoluteUrl(media.posterUrl),
+    inLanguage: media.hasDanishAudio ? 'da' : undefined,
+    genre: media.genres && media.genres.length > 0 ? media.genres : undefined,
+    datePublished: media.releaseDate ? media.releaseDate.toISOString().split('T')[0] : undefined,
+    numberOfSeasons: !isMovie && media.seasons ? media.seasons : undefined,
+    typicalAgeRange:
+      media.ageMin != null && media.ageMax != null ? `${media.ageMin}-${media.ageMax}` : undefined,
+    review: media.review
+      ? {
+          '@type': 'Review',
+          author: { '@type': 'Organization', name: siteConfig.name },
+          reviewBody: media.review,
+        }
+      : undefined,
+  };
+}
+
 export function generateWebsiteJsonLd(): WebsiteJsonLd {
   return {
     '@context': 'https://schema.org',
@@ -301,7 +394,7 @@ export function generateOrganizationJsonLd(): OrganizationJsonLd {
     '@type': 'Organization',
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
+    logo: `${siteConfig.url}/icon-512.png`,
     description: siteConfig.description,
   };
 }

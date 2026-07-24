@@ -9,6 +9,7 @@ import { GameCard } from '@/components/games';
 import { Icon } from '@/components/ui/Icon';
 import { FoxMascot } from '@/components/brand/FoxMascot';
 import { FilterSidebar, MobileFilters, SortDropdown, Pagination, ActiveFilters } from './components';
+import { JsonLd, buildOpenGraph, generateBreadcrumbJsonLd, siteConfig } from '@/lib/seo';
 
 // ============================================================================
 // TYPES & CONSTANTS
@@ -58,6 +59,17 @@ const ageGroupConfig: Record<
       gradient: 'from-[#BAE1FF] to-[#8ECAE6]',
     },
   },
+};
+
+// SEO descriptions per age group (used in metadata — full sentences, not
+// concatenated fragments)
+const ageSeoDescriptions: Record<AgeGroup, string> = {
+  '0-3':
+    'De bedste første brætspil til børn på 0-3 år. Simple regler, robuste materialer og masser af leg - anmeldt med fokus på, hvad der faktisk virker for de mindste.',
+  '3-6':
+    'Brætspil til børnehavebørn på 3-6 år - fra HABA-klassikere til samarbejdsspil. Ærlige anmeldelser med spilletid, sværhedsgrad og aldersvurdering.',
+  '7+':
+    'Brætspil til skolebørn fra 7 år og hele familien. Strategi, samarbejde og familiespil - anmeldt med spilletid, kompleksitet og hvem de passer til.',
 };
 
 type SortOption = 'popular' | 'newest' | 'rating' | 'playtime';
@@ -279,6 +291,23 @@ export default async function BoardGameAgeGroupPage({ params, searchParams }: Pa
 
   return (
     <div className="min-h-screen bg-[#FFFDF8]">
+      <JsonLd
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: t('boardGamesForAge', { age: ageLabel }),
+            description: ageSeoDescriptions[ageGroup],
+            url: `${siteConfig.url}/braetspil/kategori/${ageGroup}`,
+            inLanguage: 'da',
+          },
+          generateBreadcrumbJsonLd([
+            { name: t('home'), url: '/' },
+            { name: t('breadcrumbBoardGames'), url: '/braetspil' },
+            { name: ageLabel },
+          ]),
+        ]}
+      />
       {/* Header */}
       <header className="bg-[#FBF5EC] py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -321,7 +350,7 @@ export default async function BoardGameAgeGroupPage({ params, searchParams }: Pa
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Mobile Filters Toggle */}
         <div className="lg:hidden mb-6">
           <Suspense fallback={<div className="h-12 bg-[#FFFCF7] rounded-2xl animate-pulse" />}>
@@ -435,7 +464,7 @@ export default async function BoardGameAgeGroupPage({ params, searchParams }: Pa
             )}
           </div>
         </div>
-      </main>
+      </div>
 
     </div>
   );
@@ -455,18 +484,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const ageLabel = tAgeGroups(age as AgeGroup);
-  const ageDesc = tAgeGroups(`${age}-desc`);
+  const description = ageSeoDescriptions[age as AgeGroup];
 
   return {
     title: t('boardGamesForAge', { age: ageLabel }),
-    description: t('description') + ' ' + ageDesc,
+    description,
     alternates: {
       canonical: `/braetspil/kategori/${age}`,
     },
-    openGraph: {
+    openGraph: buildOpenGraph({
       title: t('boardGamesForAge', { age: ageLabel }),
-      description: t('description') + ' ' + ageDesc,
-    },
+      description,
+      url: `/braetspil/kategori/${age}`,
+    }),
   };
 }
 

@@ -9,27 +9,18 @@ import { DanishFlag } from '@/components/games/GameCardBadges';
 import { FloatingBlobs } from '@/components/brand';
 import { getGamesWithTranslation } from '@/lib/translations';
 import { toGameCardData } from '@/lib/game-card-data';
+import { buildOpenGraph } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Digitale Spil til Børn - Apps, Tablet & Konsolspil',
+  title: 'Digitale spil til børn - apps, tablet- og konsolspil',
   description:
     'Find de bedste digitale spil til børn. Apps til iPad og Android, computerspil og konsolspil. Anmeldelser med fokus på sikkerhed, læring og sjov.',
-  keywords: [
-    'digitale spil til børn',
-    'apps til børn',
-    'tablet spil',
-    'iPad spil børn',
-    'Android spil børn',
-    'computerspil til børn',
-    'læringsspil',
-  ],
-  openGraph: {
-    title: 'Digitale Spil til Børn - Børnespilguiden',
+  openGraph: buildOpenGraph({
+    title: 'Digitale spil til børn - Børnespilguiden',
     description:
       'Find de bedste digitale spil til børn. Apps, computerspil og konsolspil med anmeldelser.',
-    type: 'website',
     url: '/spil',
-  },
+  }),
   alternates: {
     canonical: '/spil',
   },

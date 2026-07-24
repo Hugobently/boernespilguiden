@@ -8,27 +8,18 @@ import { StickyFilterBar, Icon } from '@/components/ui';
 import { FloatingBlobs } from '@/components/brand';
 import { getBoardGamesWithTranslation } from '@/lib/translations';
 import { toGameCardData } from '@/lib/game-card-data';
+import { buildOpenGraph } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Brætspil til Børn - Familie, Strategi & Samarbejdsspil',
+  title: 'Brætspil til børn - familie-, strategi- og samarbejdsspil',
   description:
     'Find de bedste brætspil til børn og familier. Anmeldelser af strategi-, samarbejds- og familiespil. Perfekt til hyggelige spilaftener.',
-  keywords: [
-    'brætspil til børn',
-    'familiespil',
-    'børnebrætspil',
-    'samarbejdsspil',
-    'strategispil børn',
-    'spil til familier',
-    'klassiske brætspil',
-  ],
-  openGraph: {
-    title: 'Brætspil til Børn - Børnespilguiden',
+  openGraph: buildOpenGraph({
+    title: 'Brætspil til børn - Børnespilguiden',
     description:
       'Find de bedste brætspil til børn og familier. Anmeldelser af strategi-, samarbejds- og familiespil.',
-    type: 'website',
     url: '/braetspil',
-  },
+  }),
   alternates: {
     canonical: '/braetspil',
   },
