@@ -28,6 +28,8 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
       return;
     }
 
+    // Positiv bottom-margin pre-trigger: animationen starter 200px FØR
+    // elementet når viewporten, så hurtig scroll aldrig viser blankt indhold.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,7 +39,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
           }
         });
       },
-      { rootMargin: '0px 0px -40px 0px', threshold: 0.1 }
+      { rootMargin: '0px 0px 200px 0px', threshold: 0 }
     );
 
     observer.observe(el);

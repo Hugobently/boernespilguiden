@@ -35,9 +35,11 @@ export function StickyFilterBar({
   return (
     <div
       className={cn(
-        'transition-all duration-300 z-40',
+        // z-30 + offset under den sticky header (h-16/sm:h-20, z-40), så
+        // filterbjælken ikke lægger sig oven i headerens søgefelt
+        'transition-all duration-300 z-30',
         isSticky && [
-          'sticky top-0',
+          'sticky top-16 sm:top-20',
           'bg-white/95 backdrop-blur-md',
           'shadow-md',
           '-mx-4 px-4 py-3 sm:-mx-6 sm:px-6',

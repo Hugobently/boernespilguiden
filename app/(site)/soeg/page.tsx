@@ -808,7 +808,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Tabs, Sort & Filters */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
           <Suspense fallback={<div className="h-12 bg-[#FFFCF7] rounded-2xl animate-pulse w-80" />}>
@@ -839,7 +839,7 @@ export default async function SearchPage({ searchParams }: PageProps) {
         >
           <SearchResults query={query} tab={tab} filters={filters} sort={sort} />
         </Suspense>
-      </main>
+      </div>
 
     </div>
   );

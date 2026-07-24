@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { useState, useRef, useEffect, useCallback, useMemo, useId } from 'react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { useFocusTrap } from '@/lib/hooks';
@@ -33,6 +33,7 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const listboxId = useId();
 
   // Quick suggestions when empty - memoized to prevent infinite loops
   const quickSuggestions: SearchSuggestion[] = useMemo(() => [
@@ -186,6 +187,11 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder={t('common.searchPlaceholder')}
+          aria-label="Søg efter spil"
+          role="combobox"
+          aria-expanded={isOpen}
+          aria-controls={listboxId}
+          aria-autocomplete="list"
           className={cn(
             'w-full pl-12 pr-4 py-3 rounded-2xl',
             'bg-[#FFFCF7] border-2 border-transparent',
@@ -216,7 +222,12 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
 
       {/* Suggestions dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-[#FFFCF7] rounded-2xl shadow-[0_8px_24px_-4px_rgba(0,0,0,0.1)] border border-[#FFB5A7]/20 overflow-hidden z-50">
+        <div
+          id={listboxId}
+          role="listbox"
+          aria-label="Søgeforslag"
+          className="absolute top-full left-0 right-0 mt-2 bg-[#FFFCF7] rounded-2xl shadow-[0_8px_24px_-4px_rgba(0,0,0,0.1)] border border-[#FFB5A7]/20 overflow-hidden z-50"
+        >
           <div className="p-2">
             {!query && (
               <p className="px-3 py-2 text-xs font-medium text-[#6B7280] uppercase tracking-wide">
@@ -227,6 +238,8 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
               <button
                 key={`${suggestion.type}-${suggestion.slug}`}
                 type="button"
+                role="option"
+                aria-selected={selectedIndex === index}
                 onClick={() => handleSelect(suggestion)}
                 className={cn(
                   'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl',
@@ -252,6 +265,8 @@ function SearchInput({ className, onClose }: { className?: string; onClose?: () 
             <div className="border-t border-[#FFB5A7]/10 p-2">
               <button
                 type="button"
+                role="option"
+                aria-selected={false}
                 onClick={() => {
                   router.push(`/soeg?q=${encodeURIComponent(query)}`);
                   setIsOpen(false);
@@ -460,7 +475,7 @@ export function Header() {
           <Logo />
 
           {/* Desktop Search */}
-          <div className="hidden md:block flex-1 max-w-md mx-8">
+          <div role="search" className="hidden md:block flex-1 max-w-md mx-8">
             <SearchInput />
           </div>
 

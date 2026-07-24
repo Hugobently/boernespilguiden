@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef, useEffect, useId } from 'react';
 import { cn } from '@/lib/utils';
 import { Icon, type IconName } from '@/components/ui/Icon';
 
@@ -162,6 +162,7 @@ export function SearchBar({
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const listboxId = useId();
 
   const debouncedQuery = useDebounce(query, 300);
 
@@ -335,6 +336,11 @@ export function SearchBar({
             onKeyDown={handleKeyDown}
             placeholder={placeholder}
             autoFocus={autoFocus}
+            aria-label="Søg efter spil"
+            role="combobox"
+            aria-expanded={showDropdown}
+            aria-controls={listboxId}
+            aria-autocomplete="list"
             className={cn(
               'w-full rounded-2xl pr-12',
               'bg-[#FFFCF7] border-2 border-transparent',
@@ -368,7 +374,12 @@ export function SearchBar({
 
       {/* Dropdown */}
       {showDropdown && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-lg border border-[#FFB5A7]/20 overflow-hidden z-50">
+        <div
+          id={listboxId}
+          role="listbox"
+          aria-label="Søgeforslag"
+          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-lg border border-[#FFB5A7]/20 overflow-hidden z-50"
+        >
           {/* Suggestions from search */}
           {suggestions.length > 0 && (
             <div className="p-2">
@@ -376,6 +387,8 @@ export function SearchBar({
               {suggestions.map((suggestion, index) => (
                 <button
                   key={`${suggestion.type}-${suggestion.slug || suggestion.label}`}
+                  role="option"
+                  aria-selected={selectedIndex === index}
                   onClick={() => handleSuggestionClick(suggestion)}
                   className={cn(
                     'w-full flex items-center gap-3 px-3 py-2 rounded-xl text-left transition-colors',
@@ -398,6 +411,8 @@ export function SearchBar({
               {popularSearches.map((search, index) => (
                 <button
                   key={search.label}
+                  role="option"
+                  aria-selected={selectedIndex === suggestions.length + index}
                   onClick={() => handleSuggestionClick(search)}
                   className={cn(
                     'w-full flex items-center gap-3 px-3 py-2 rounded-xl text-left transition-colors',
@@ -472,6 +487,7 @@ export function SimpleSearchInput({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        aria-label="Søg efter spil"
         className={cn(
           'w-full pl-10 pr-4 py-2.5 rounded-xl',
           'bg-[#FFFCF7] border-2 border-transparent',

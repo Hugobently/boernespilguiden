@@ -209,7 +209,9 @@ export const GameGrid = forwardRef<HTMLDivElement, GameGridProps>(
             key={game.slug}
             className="animate-slide-up opacity-0 h-full"
             style={{
-              animationDelay: `${index * 0.05}s`,
+              // Kaskaden er kun for de første kort — uden cap ventede kort
+              // nr. 134 i ~6,7 s på at blive synligt
+              animationDelay: `${Math.min(index, 11) * 0.05}s`,
               animationFillMode: 'forwards',
             }}
           >

@@ -34,7 +34,7 @@ export default async function AboutPage() {
       </header>
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Mission */}
         <section className="mb-12">
           <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
@@ -157,7 +157,7 @@ export default async function AboutPage() {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
 
     </div>
   );

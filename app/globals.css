@@ -45,7 +45,7 @@
 
   /* Text Colors */
   --text-primary: #4A4A4A;
-  --text-secondary: #7A7A7A;
+  --text-secondary: #6B6258; /* ink-500 — WCAG AA på hvid */
   --text-muted: #6B7280;
   --text-inverse: #FFFFFF;
 
@@ -186,7 +186,7 @@ a:hover {
    ========================================================================== */
 
 :focus-visible {
-  outline: 3px solid var(--sky);
+  outline: 3px solid #0E5A6D; /* petrol — min. 3:1 kontrast mod hvid */
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
@@ -544,8 +544,8 @@ a:hover {
 
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
   transition-delay: var(--reveal-delay, 0s);
 }
 
@@ -584,6 +584,15 @@ a:hover {
   .animate-wiggle,
   .animate-wave {
     animation: none !important;
+  }
+
+  /* Kort-kaskaden starter fra opacity-0 — uden denne regel ville kortene
+     være permanent usynlige, når animationen slås fra */
+  .animate-slide-up,
+  .animate-pop {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
