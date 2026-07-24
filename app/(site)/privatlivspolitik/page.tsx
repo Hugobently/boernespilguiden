@@ -30,10 +30,10 @@ export default async function PrivacyPolicyPage() {
       </header>
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
           <p className="text-[#4A443C] mb-6">
-            <strong>Sidst opdateret:</strong> Januar 2025
+            <strong>Sidst opdateret:</strong> 24. juli 2026
           </p>
 
           <div className="prose prose-lg max-w-none text-[#2E2822]">
@@ -57,7 +57,7 @@ export default async function PrivacyPolicyPage() {
                 som vi modtager om dig. Du kan kontakte os via:
               </p>
               <ul className="list-disc list-inside text-[#4A443C] mt-2 space-y-1">
-                <li>Email: boernespislguiden@proton.me</li>
+                <li>E-mail: boernespislguiden@proton.me</li>
               </ul>
             </section>
 
@@ -73,14 +73,8 @@ export default async function PrivacyPolicyPage() {
                 <div>
                   <strong className="text-[#2E2822]">Kontaktformular:</strong>
                   <p className="text-[#4A443C] text-sm">
-                    Hvis du udfylder vores kontaktformular, gemmer vi dit navn, email
+                    Hvis du udfylder vores kontaktformular, gemmer vi dit navn, din e-mail
                     og din besked, så vi kan svare dig.
-                  </p>
-                </div>
-                <div>
-                  <strong className="text-[#2E2822]">Nyhedsbrev:</strong>
-                  <p className="text-[#4A443C] text-sm">
-                    Hvis du tilmelder dig vores nyhedsbrev, gemmer vi din email-adresse.
                   </p>
                 </div>
                 <div>
@@ -101,7 +95,6 @@ export default async function PrivacyPolicyPage() {
               </p>
               <ul className="list-disc list-inside text-[#4A443C] mt-2 space-y-1">
                 <li>At besvare dine henvendelser via kontaktformularen</li>
-                <li>At sende dig nyhedsbrev, hvis du har tilmeldt dig</li>
                 <li>At forbedre vores hjemmeside baseret på anonym brugsstatistik</li>
                 <li>At huske dine præferencer (f.eks. cookie-samtykke)</li>
               </ul>
@@ -114,7 +107,7 @@ export default async function PrivacyPolicyPage() {
               <p className="text-[#4A443C] leading-relaxed">
                 Vi sælger aldrig dine personoplysninger til tredjeparter. Vi deler kun
                 data med betroede serviceudbydere, der hjælper os med at drive hjemmesiden
-                (f.eks. hosting, email-service), og kun i det omfang det er nødvendigt.
+                (f.eks. hosting og e-mailservice), og kun i det omfang det er nødvendigt.
               </p>
             </section>
 
@@ -128,7 +121,6 @@ export default async function PrivacyPolicyPage() {
               </p>
               <ul className="list-disc list-inside text-[#4A443C] mt-2 space-y-1">
                 <li>Kontaktformular-henvendelser: Slettes efter 12 måneder</li>
-                <li>Nyhedsbrev-tilmeldinger: Opbevares indtil du afmelder dig</li>
                 <li>Anonym statistik: Opbevares i op til 26 måneder</li>
               </ul>
             </section>
@@ -201,7 +193,7 @@ export default async function PrivacyPolicyPage() {
                 <p>Carl Jacobsens Vej 35</p>
                 <p>2500 Valby</p>
                 <p>Telefon: 33 19 32 00</p>
-                <p>Email: dt@datatilsynet.dk</p>
+                <p>E-mail: dt@datatilsynet.dk</p>
               </div>
             </section>
           </div>
@@ -213,7 +205,7 @@ export default async function PrivacyPolicyPage() {
             </p>
           </div>
         </div>
-      </main>
+      </div>
 
     </div>
   );

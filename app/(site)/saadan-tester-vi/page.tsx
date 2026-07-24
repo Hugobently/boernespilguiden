@@ -25,7 +25,7 @@ const criteria = [
     title: 'Køb og købspres',
     color: 'bg-[#BAFFC9]/20',
     titleColor: 'text-[#2D6A4F]',
-    text: 'Kan der købes noget inde i spillet? Vi noterer altid in-app køb og vurderer, hvor aggressivt spillet presser på – fx med nedtællinger, "tilbud" eller låst indhold midt i legen.',
+    text: 'Kan der købes noget inde i spillet? Vi noterer altid in-app-køb og vurderer, hvor aggressivt spillet presser på – fx med nedtællinger, "tilbud" eller låst indhold midt i legen.',
   },
   {
     icon: 'lock' as IconName,
@@ -97,7 +97,7 @@ export default function HowWeTestPage() {
       </header>
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Intro */}
         <section className="mb-12">
           <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
@@ -239,7 +239,7 @@ export default function HowWeTestPage() {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

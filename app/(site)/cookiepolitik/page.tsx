@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { Icon } from '@/components/ui/Icon';
+import { WithdrawConsentButton } from '@/components/layout/WithdrawConsentButton';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('cookies');
@@ -30,10 +31,10 @@ export default async function CookiePolicyPage() {
       </header>
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.06)]">
           <p className="text-[#4A443C] mb-6">
-            <strong>Sidst opdateret:</strong> Januar 2025
+            <strong>Sidst opdateret:</strong> 24. juli 2026
           </p>
 
           <div className="prose prose-lg max-w-none text-[#2E2822]">
@@ -158,8 +159,12 @@ export default async function CookiePolicyPage() {
               </h2>
               <p className="text-[#4A443C] leading-relaxed mb-4">
                 Du kan til enhver tid ændre eller tilbagetrække dit samtykke til
-                cookies (undtagen de nødvendige).
+                cookies (undtagen de nødvendige). Klik på knappen herunder for at
+                nulstille dit valg - så vises cookie-banneret igen.
               </p>
+              <div className="mb-4">
+                <WithdrawConsentButton />
+              </div>
               <div className="bg-[#FBF5EC] rounded-xl p-4 space-y-3">
                 <div>
                   <strong className="text-[#2E2822]">I din browser:</strong>
@@ -236,7 +241,7 @@ export default async function CookiePolicyPage() {
               <p className="text-[#4A443C] leading-relaxed">
                 Vi kan opdatere denne cookiepolitik fra tid til anden. Hvis vi
                 foretager væsentlige ændringer, vil vi informere dig via
-                hjemmesiden. Tjek &quot;Sidst opdateret&quot; datoen øverst for at se,
+                hjemmesiden. Tjek &quot;Sidst opdateret&quot;-datoen øverst for at se,
                 hvornår politikken sidst blev ændret.
               </p>
             </section>
@@ -268,7 +273,7 @@ export default async function CookiePolicyPage() {
             </p>
           </div>
         </div>
-      </main>
+      </div>
 
     </div>
   );

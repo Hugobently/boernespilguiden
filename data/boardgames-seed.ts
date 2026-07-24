@@ -60,7 +60,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
       "Samarbejdsspil - ingen tabere",
       "Store trækomponenter sikre for små børn",
       "Lærer farver og turtagning",
-      "HABA kvalitet"
+      "HABA-kvalitet"
     ],
     cons: [
       "Meget simpelt for børn over 4",
@@ -74,7 +74,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     title: "Feed the Woozle",
     slug: "feed-the-woozle",
     description: "Kan du balancere en snack på en ske uden at tabe den? Det er udfordringen i dette søde samarbejdsspil, hvor børnene på skift skal føre snacks over til det evigt sultne Woozle-monster og fodre det. Undervejs trænes finmotorik, balance og hånd-øje-koordination på en måde, der bare føles som leg, og fordi alle arbejder sammen, hepper børnene på hinanden i stedet for at konkurrere. Sværhedsgraden kan justeres, så man kan starte med den nemme udgave og arbejde sig op, efterhånden som barnet bliver bedre. Woozle-monsteret er sødt og fjollet, og de fleste børn elsker det med det samme. Snack-brikkerne kan dog være svære at holde på skeen for de mindste, og genspilsværdien er noget begrænset i længden. Godt til 2-5 spillere fra omkring 3 år, og en runde tager kun et kvarter.",
-    shortDescription: "Balancespil hvor I fodrer det søde Woozle-monster",
+    shortDescription: "Balancespil, hvor I fodrer det søde Woozle-monster",
     minAge: 3,
     maxAge: 6,
     ageGroup: "0-3",
@@ -83,7 +83,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     playTimeMinutes: 15,
     complexity: 1,
     categories: ["samarbejde", "dexterity", "motorik"],
-    skills: ["finmotorik", "balance", "samarbejde", "hånd-øje koordination"],
+    skills: ["finmotorik", "balance", "samarbejde", "hånd-øje-koordination"],
     themes: ["monstre", "mad"],
     supportsDanish: true,
     price: 179,
@@ -118,7 +118,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     playTimeMinutes: 15,
     complexity: 1,
     categories: ["familie", "motorik", "samling"],
-    skills: ["finmotorik", "farvegenkendelse", "strategi-basics"],
+    skills: ["finmotorik", "farvegenkendelse", "grundlæggende strategi"],
     themes: ["dyr", "natur", "egern"],
     supportsDanish: true,
     price: 169,
@@ -134,7 +134,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     ],
     cons: [
       "Primært held-baseret",
-      "Kan blive gentaget"
+      "Kan blive ensformigt"
     ],
     parentTip: "Egern-klemmen kan også bruges til andre lege - god værdi for pengene!",
     featured: false,
@@ -165,13 +165,13 @@ export const boardGames0to3: BoardGameSeedData[] = [
       "Zinger-maskinen er super sjov",
       "Lærer ord og billeder",
       "Mange kan spille",
-      "Kort spilletid velegnet for små børn"
+      "Kort spilletid velegnet til små børn"
     ],
     cons: [
       "Kan blive højlydt og kaotisk",
       "Brikker kan blive væk"
     ],
-    parentTip: "Findes også i Sight Words og Number versioner for mere læring.",
+    parentTip: "Findes også i Sight Words- og Number-versioner for mere læring.",
     featured: true,
     editorChoice: false,
   },
@@ -206,7 +206,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
       "Primært for fans af bogen",
       "Simpelt gameplay"
     ],
-    parentTip: "Læs bogen før I spiller - det gør spillet meget mere meningsfuldt!",
+    parentTip: "Læs bogen, før I spiller - det gør spillet meget mere meningsfuldt!",
     featured: false,
     editorChoice: false,
   },
@@ -306,7 +306,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
       "Samarbejdsspil - alle vinder sammen",
       "Lærer tælling naturligt",
       "Søde kylling-figurer",
-      "Peaceable Kingdom kvalitet"
+      "Peaceable Kingdom-kvalitet"
     ],
     cons: [
       "Simpelt for ældre børn",
@@ -382,7 +382,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
       "Primært for fans af bøgerne",
       "Simpelt gameplay"
     ],
-    parentTip: "Læs Pete the Cat bøgerne først - det gør spillet meget sjovere!",
+    parentTip: "Læs Pete the Cat-bøgerne først - det gør spillet meget sjovere!",
     featured: false,
     editorChoice: false,
   },
@@ -390,7 +390,7 @@ export const boardGames0to3: BoardGameSeedData[] = [
     title: "Richard Scarry's Busytown Eye Found It!",
     slug: "richard-scarry-busytown",
     description: "Selve spillebrættet er en oplevelse her: næsten to meter langt og tæt pakket med Richard Scarrys myldrende illustrationer fra Busytown. Spillerne rejser sammen mod færgen og skal undervejs stoppe op og lede efter bestemte ting på det store bræt, inden grisene når at spise al maden. Alle vinder eller taber som ét hold, så spillet fremmer samarbejde frem for rivalisering, og børnene træner observation og turtagning, mens de nærstuderer de detaljerede tegninger. Kvaliteten er høj, og illustrationerne fanger selv voksne. Det lange bræt kræver dog et stort gulv eller bord, og man skal holde styr på de mange små brikker. Et oplagt valg til familier med børn i 3-6-årsalderen, der elsker at kigge og finde.",
-    shortDescription: "6-fods brætspil hvor alle leder sammen",
+    shortDescription: "2 meter langt brætspil, hvor alle leder sammen",
     minAge: 3,
     maxAge: 6,
     ageGroup: "0-3",
@@ -452,12 +452,12 @@ export const boardGames3to6: BoardGameSeedData[] = [
     pros: [
       "Samarbejdsspil",
       "Lærer planlægning",
-      "Peaceable Kingdom kvalitet",
-      "God for blandede aldre"
+      "Peaceable Kingdom-kvalitet",
+      "God til blandede aldre"
     ],
     cons: [
       "Held med kort påvirker",
-      "Kan blive gentaget"
+      "Kan blive ensformigt"
     ],
     parentTip: "Et af de bedste spil til at lære strategisk tænkning - 'hvis vi lægger den her, hvad sker der så?'",
     featured: false,
@@ -485,7 +485,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.8,
     pros: [
-      "Kinderspiel des Jahres 2021 vinder",
+      "Vinder af Kinderspiel des Jahres 2021",
       "Simpel men engagerende mekanik",
       "Spænding ved at vende æg",
       "Smukke komponenter",
@@ -556,7 +556,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.3,
     pros: [
-      "Lærer tælning til 100",
+      "Lærer tælling til 100",
       "Klassiker alle kender",
       "Lærer om konsekvenser",
       "Billigt"
@@ -583,7 +583,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     playTimeMinutes: 15,
     complexity: 1,
     categories: ["familie", "matematik", "tælling"],
-    skills: ["tælning", "addition", "subtraktion"],
+    skills: ["tælling", "addition", "subtraktion"],
     themes: ["frugt", "natur"],
     supportsDanish: true,
     price: 129,
@@ -599,7 +599,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     ],
     cons: [
       "Rent held",
-      "Kan blive gentaget",
+      "Kan blive ensformigt",
       "Spanden kan være svær at fylde"
     ],
     parentTip: "God til at introducere addition og subtraktion - 'du havde 5, nu har du 3, hvor mange mistede du?'",
@@ -628,7 +628,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.8,
     pros: [
-      "Genialt spor-afslører mekanik",
+      "Genial spor-afslører-mekanik",
       "Samarbejde fremfor konkurrence",
       "Lærer deduktiv tænkning",
       "Spændende hver gang"
@@ -654,7 +654,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     playTimeMinutes: 15,
     complexity: 1,
     categories: ["samarbejde", "strategi", "familie"],
-    skills: ["strategi-basics", "samarbejde", "farver", "planlægning"],
+    skills: ["grundlæggende strategi", "samarbejde", "farver", "planlægning"],
     themes: ["dyr", "natur", "ugler"],
     supportsDanish: true,
     price: 169,
@@ -737,7 +737,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
       "Sjovt for hele familien",
       "Billigt",
       "Kompakt - godt rejsespil",
-      "HABA kvalitet"
+      "HABA-kvalitet"
     ],
     cons: [
       "Kort spilletid",
@@ -771,7 +771,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     pros: [
       "Smukke træfigurer",
       "Sjovt for alle aldre",
-      "HABA kvalitet",
+      "HABA-kvalitet",
       "Simpelt at forstå"
     ],
     cons: [
@@ -785,7 +785,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
   {
     title: "Monza",
     slug: "monza",
-    description: "Racerbiler på startlinjen og et bæger fuld af farveterninger. Så enkelt begynder dette taktiske racerspil fra HABA, hvor op til seks børn kan køre med. På sin tur kaster barnet terningerne og rykker sin bil frem over banens farvede felter, men kun hvis farverne bruges i den rigtige rækkefølge, så der skal tænkes et skridt frem: bruger jeg den blå nu, kan jeg måske komme udenom de andre. Farvegenkendelse, planlægning og taktik trænes i et tempo, hvor runderne er hurtige nok til, at ingen når at kede sig. Materialerne er i solid HABA-kvalitet med et racertema, der især fænger fartglade børn. Terningeheld kan dog afgøre løbet og give sure miner, og den taktiske dybde er begrænset. Et godt bud til 5-10-årige, der er klar til deres første taktiske valg.",
+    description: "Racerbiler på startlinjen og et bæger fuldt af farveterninger. Så enkelt begynder dette taktiske racerspil fra HABA, hvor op til seks børn kan køre med. På sin tur kaster barnet terningerne og rykker sin bil frem over banens farvede felter, men kun hvis farverne bruges i den rigtige rækkefølge, så der skal tænkes et skridt frem: bruger jeg den blå nu, kan jeg måske komme uden om de andre. Farvegenkendelse, planlægning og taktik trænes i et tempo, hvor runderne er hurtige nok til, at ingen når at kede sig. Materialerne er i solid HABA-kvalitet med et racertema, der især fænger fartglade børn. Terningeheld kan dog afgøre løbet og give sure miner, og den taktiske dybde er begrænset. Et godt bud til 5-10-årige, der er klar til deres første taktiske valg.",
     shortDescription: "Farverigt racerspil med taktiske valg",
     minAge: 5,
     maxAge: 10,
@@ -806,7 +806,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     pros: [
       "Introducerer taktisk tænkning",
       "Spændende racertema",
-      "HABA kvalitet",
+      "HABA-kvalitet",
       "Hurtige runder"
     ],
     cons: [
@@ -848,7 +848,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
       "Meget simpelt",
       "Begrænset genspilsværdi"
     ],
-    parentTip: "God for børn med monsterfrygt - de elsker at smide monstrene væk!",
+    parentTip: "God til børn med monsterfrygt - de elsker at smide monstrene væk!",
     featured: false,
     editorChoice: false,
   },
@@ -865,7 +865,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     playTimeMinutes: 20,
     complexity: 1,
     categories: ["strategi", "matching", "familie"],
-    skills: ["mønstergenkendelse", "strategi-basics", "matching"],
+    skills: ["mønstergenkendelse", "grundlæggende strategi", "matching"],
     themes: ["dyr"],
     supportsDanish: true,
     price: 169,
@@ -881,7 +881,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     ],
     cons: [
       "Held med kort påvirker meget",
-      "Kan blive gentaget"
+      "Kan blive ensformigt"
     ],
     parentTip: "God træning i at tænke fremad - 'hvis du spiller der, kan du vinde næste tur!'",
     featured: false,
@@ -918,7 +918,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
       "Kan blive kaotisk",
       "Yngre børn kan have svært ved at følge med"
     ],
-    parentTip: "Spil de roligere varianter først før I går til speed-versionerne.",
+    parentTip: "Spil de roligere varianter først, før I går til speed-versionerne.",
     featured: false,
     editorChoice: false,
   },
@@ -935,7 +935,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     playTimeMinutes: 20,
     complexity: 1,
     categories: ["læring", "matematik", "familie"],
-    skills: ["addition", "subtraktion", "tælning"],
+    skills: ["addition", "subtraktion", "tælling"],
     themes: ["transport", "by"],
     supportsDanish: true,
     price: 139,
@@ -947,13 +947,13 @@ export const boardGames3to6: BoardGameSeedData[] = [
       "Lærer matematik gennem leg",
       "Realistisk tema børn kender",
       "Sjovt at være buschauffør",
-      "Orchard Toys kvalitet"
+      "Orchard Toys-kvalitet"
     ],
     cons: [
       "Begrænset til simpel matematik",
-      "Kan blive gentaget"
+      "Kan blive ensformigt"
     ],
-    parentTip: "God til børn der skal lære addition og subtraktion - føles ikke som lektier!",
+    parentTip: "God til børn, der skal lære addition og subtraktion - føles ikke som lektier!",
     featured: false,
     editorChoice: false,
   },
@@ -961,7 +961,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     title: "Topp die Torte",
     slug: "topp-die-torte",
     description: "Vinderen af Kinderspiel des Jahres 2025 kommer fra designeren Wolfgang Warsch og handler om at bygge lagkager. Spillerne stabler farverige kagebrikker lag for lag, men her kommer twistet: Man skal huske, hvad der ligger i hvert lag, for terningerne bestemmer, hvad der senere skal fjernes fra kagen. Det lyder enkelt, men får både børn og voksne til at fokusere intenst – og børnene er tit de bedste til det, så forbered dig på at tabe. Spillet træner hukommelse, koncentration og finmotorik, og præsentationen er smuk med kagebrikker, der stables som en rigtig lagkage. Børn med svagere hukommelse kan blive lidt frustrerede, og da spillet er ret nyt, kan det være svært at opstøve i butikkerne. Et rigtig godt bud til familier med børn fra 6 år, der vil have et hukommelsesspil med noget ekstra.",
-    shortDescription: "2025 Kinderspiel des Jahres vinder om at bygge kager",
+    shortDescription: "Vinder af Kinderspiel des Jahres 2025 - byg lagkager",
     minAge: 6,
     maxAge: 10,
     ageGroup: "3-6",
@@ -979,13 +979,13 @@ export const boardGames3to6: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.7,
     pros: [
-      "2025 Kinderspiel des Jahres vinder",
+      "Vinder af Kinderspiel des Jahres 2025",
       "Innovativt hukommelsesspil",
       "Smuk præsentation",
       "Wolfgang Warsch design"
     ],
     cons: [
-      "Kan være frustrerende for dårlige hukommelser",
+      "Kan være frustrerende for børn med dårlig hukommelse",
       "Relativt ny - kan være svær at finde"
     ],
     parentTip: "Børn er ofte bedre end voksne til hukommelsesspil - forvent at tabe!",
@@ -1014,7 +1014,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.5,
     pros: [
-      "Kinderspiel des Jahres 2025 nomineret",
+      "Nomineret til Kinderspiel des Jahres 2025",
       "Alle er altid involveret",
       "Fungerer for alle aldre",
       "Kort spilletid"
@@ -1055,8 +1055,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
       "God introduktion til engine-building"
     ],
     cons: [
-      "Kan være for simpelt for erfarne",
-      "Kommende udgivelse"
+      "Kan være for simpelt for erfarne"
     ],
     parentTip: "Når børnene mestrer dette, er Splendor det naturlige næste skridt op i kompleksitet!",
     featured: false,
@@ -1100,8 +1099,8 @@ export const boardGames3to6: BoardGameSeedData[] = [
   {
     "title": "Mooki Island",
     "slug": "mooki-island",
-    "description": "Vinderen af Kinderspiel des Jahres 2026 er et lille tospillerspil, hvor børn vender og samler søde Mookie-væsner fra forskellige familier – og helst undgår den drilske edderkop, der gemmer sig imellem dem. Reglerne er så enkle, at en 4-årig kan være med efter et par minutters forklaring, og et parti tager kun et kvarters tid. Undervejs træner barnet hukommelse, simpel samlemekanik og at vente på tur, og efter spillet kan man sammen udforske øens plakat og finde de Mookies, man har mødt. Materialerne er nærmest sprogløse, så det gør ikke det store, at reglerne kun findes på engelsk og tysk. Til gengæld er spillet låst til præcis to spillere, hvilket begrænser brugen i større søskendeflokke. Med en pris omkring 165 kr. er det en overkommelig investering til hyggestunder mellem én voksen og ét barn.",
-    "shortDescription": "Kinderspiel des Jahres 2026: sødt samle- og huskespil for to, hvor børn fanger Mookie-væsner.",
+    "description": "Vinderen af Kinderspiel des Jahres 2026 er et lille tospillerspil, hvor børn vender og samler søde Mooki-væsner fra forskellige familier – og helst undgår den drilske edderkop, der gemmer sig imellem dem. Reglerne er så enkle, at en 4-årig kan være med efter et par minutters forklaring, og et parti tager kun et kvarters tid. Undervejs træner barnet hukommelse, simpel samlemekanik og at vente på tur, og efter spillet kan man sammen udforske øens plakat og finde de Mookis, man har mødt. Materialerne er nærmest sprogløse, så det gør ikke det store, at reglerne kun findes på engelsk og tysk. Til gengæld er spillet låst til præcis to spillere, hvilket begrænser brugen i større søskendeflokke. Med en pris omkring 165 kr. er det en overkommelig investering til hyggestunder mellem én voksen og ét barn.",
+    "shortDescription": "Kinderspiel des Jahres 2026: sødt samle- og huskespil for to, hvor børn fanger Mooki-væsner.",
     "minAge": 4,
     "maxAge": 10,
     "ageGroup": "3-6",
@@ -1139,7 +1138,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
       "Kun for præcis 2 spillere",
       "Regler kun på engelsk/tysk"
     ],
-    "parentTip": "Brug øplakaten efter hvert parti til at snakke om de Mookies, I mødte – det forlænger oplevelsen og træner sproget hos de mindste.",
+    "parentTip": "Brug øplakaten efter hvert parti til at snakke om de Mookis, I mødte – det forlænger oplevelsen og træner sproget hos de mindste.",
     "featured": false,
     "editorChoice": false
   },
@@ -1176,7 +1175,7 @@ export const boardGames3to6: BoardGameSeedData[] = [
     "rating": 4.4,
     "pros": [
       "Vinder af Kinderspiel des Jahres 2024",
-      "Magisk 3D-skattekiste, børn elsker",
+      "Magisk 3D-skattekiste, som børn elsker",
       "Enkle chancevalg, som 6-årige forstår",
       "Sprogneutrale komponenter"
     ],
@@ -1191,8 +1190,8 @@ export const boardGames3to6: BoardGameSeedData[] = [
   {
     "title": "Mysterium Kids: Captain Echo's Treasure",
     "slug": "mysterium-kids-captain-echos-treasure",
-    "description": "Kan man kommunikere med en tamburin? Det er præcis, hvad ét barn skal i denne børneudgave af deduktionsspillet Mysterium, som vandt Kinderspiel des Jahres 2023. Barnet spiller kaptajn Ekkos spøgelse, der ikke kan tale, men banker og rasler lyde på en tamburin, mens de andre spillere sammen tolker lydene og gætter, hvilket rum skatten gemmer sig i. Alle vinder eller taber som hold, og spillet træner lytning, koncentration, fantasi og fælles kommunikation – og spøgelsesrollen giver generte børn en sjov, ordløs måde at styre spillet på. Der kræves ingen læsefærdigheder, så selv de yngste kan deltage på lige fod. Man skal dog kunne holde tamburinstøjen ud i stuen, og tilgængeligheden i Danmark er svingende: Den engelske udgave til omkring 250 kr. er meldt udgået hos flere forhandlere, så slå til, hvis du ser den.",
-    "shortDescription": "Kinderspiel des Jahres 2023: samarbejdsspil hvor et spøgelse kommunikerer med tamburinlyde.",
+    "description": "Kan man kommunikere med en tamburin? Det er præcis, hvad ét barn skal i denne børneudgave af deduktionsspillet Mysterium, som vandt Kinderspiel des Jahres 2023. Barnet spiller kaptajn Ekkos spøgelse, der ikke kan tale, men banker og rasler med en tamburin, mens de andre spillere sammen tolker lydene og gætter, hvilket rum skatten gemmer sig i. Alle vinder eller taber som hold, og spillet træner lytning, koncentration, fantasi og fælles kommunikation – og spøgelsesrollen giver generte børn en sjov, ordløs måde at styre spillet på. Der kræves ingen læsefærdigheder, så selv de yngste kan deltage på lige fod. Man skal dog kunne holde tamburinstøjen ud i stuen, og tilgængeligheden i Danmark er svingende: Den engelske udgave til omkring 250 kr. er meldt udgået hos flere forhandlere, så slå til, hvis du ser den.",
+    "shortDescription": "Kinderspiel des Jahres 2023: samarbejdsspil, hvor et spøgelse kommunikerer med tamburinlyde.",
     "minAge": 6,
     "maxAge": 10,
     "ageGroup": "3-6",
@@ -1245,7 +1244,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     title: "Ticket to Ride: First Journey",
     slug: "ticket-to-ride-first-journey",
     description: "Togkort samles, ruter bygges, og byer forbindes på tværs af kortet – ligesom i det verdensberømte Ticket to Ride, bare i en udgave skåret til børn. Reglerne er enklere, spilletiden kortere, og målene overskuelige: Træk kort i din tur, eller brug dem til at bygge en togstrækning mellem to byer, og fuldfør dine billetter først. Undervejs snuser barnet til planlægning, ressourcestyring og en smule geografi, og med en spilletid på omkring en halv time holder engagementet hele vejen. Designet og komponenterne er flotte, med små togvogne der er sjove at sætte på brættet. For voksne og erfarne spillere bliver det dog hurtigt for simpelt, og genspilsværdien er mindre end i originalen – men som første rigtige strategispil for de 6-12-årige er det svært at gøre bedre. Og når det mestres, venter det store spil.",
-    shortDescription: "Børnevenlig version af Ticket to Ride klassikeren",
+    shortDescription: "Børnevenlig version af Ticket to Ride-klassikeren",
     minAge: 6,
     maxAge: 12,
     ageGroup: "7+",
@@ -1301,7 +1300,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "God introduktion til Catan-mekanikker",
       "Sjovt pirattema",
       "Lærer handel og ressourcer",
-      "Spøgelses-pirat er smart mekanik"
+      "Spøgelsespiraten er en smart mekanik"
     ],
     cons: [
       "Terningeheld kan frustrere",
@@ -1342,7 +1341,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Kan være for aggressivt for nogle",
       "Held med terninger afgør meget"
     ],
-    parentTip: "Godt 'gateway' spil til mere komplekse strategispil.",
+    parentTip: "Godt 'gateway'-spil til mere komplekse strategispil.",
     featured: true,
     editorChoice: false,
   },
@@ -1359,7 +1358,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     playTimeMinutes: 20,
     complexity: 1,
     categories: ["kort", "familie", "matematik"],
-    skills: ["matematik", "hukommelse", "strategi-basics"],
+    skills: ["matematik", "hukommelse", "grundlæggende strategi"],
     themes: ["eventyr", "dronninger", "magi"],
     supportsDanish: true,
     price: 99,
@@ -1368,7 +1367,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.7,
     pros: [
-      "Opfundet af et barn - velegnet for børn!",
+      "Opfundet af et barn - velegnet til børn!",
       "Lærer addition naturligt",
       "Hurtige runder",
       "Billigt"
@@ -1405,7 +1404,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     pros: [
       "Tidløs klassiker",
       "Træner rumlig tænkning",
-      "Ravensburger kvalitet",
+      "Ravensburger-kvalitet",
       "Spændende hver gang"
     ],
     cons: [
@@ -1475,7 +1474,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     pros: [
       "Fremmer kreativitet",
       "Smukke illustrationer",
-      "God for forskellige aldre sammen",
+      "God til forskellige aldre sammen",
       "Ingen læsning nødvendig"
     ],
     cons: [
@@ -1490,7 +1489,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     title: "Sushi Go!",
     slug: "sushi-go",
     description: "Små tegneserie-sushier med glade ansigter sætter tonen i dette hurtige kortspil, hvor alle vælger ét kort ad gangen og sender resten af hånden videre til sidemanden. Kunsten er at sammensætte den bedste menu, og man må hele tiden holde øje med, hvad de andre mon beholder. Børnene lærer at planlægge, observere og vurdere chancer, uden at det på noget tidspunkt føles som skole. Reglerne er lært på fem minutter, en runde tager et kvarter, og prisen er lav. Point-optællingen kan dog godt forvirre de første gange, så lad en voksen styre den i starten, og kortene kan blive slidte med tiden. Et oplagt første drafting-spil for familier med børn fra omkring 8 år - og prøv Sushi Go Party, hvis I senere vil have mere variation.",
-    shortDescription: "Adorabelt sushi-drafting kortspil",
+    shortDescription: "Nuttet sushi-drafting-kortspil",
     minAge: 8,
     maxAge: 99,
     ageGroup: "7+",
@@ -1508,7 +1507,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.7,
     pros: [
-      "Adorabelt design",
+      "Nuttet design",
       "Nemme regler",
       "Hurtige runder",
       "Billigt"
@@ -1560,7 +1559,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     title: "Kingdomino",
     slug: "kingdomino",
     description: "Vinderen af Spiel des Jahres 2017 tager domino-princippet og bruger det til at bygge kongeriger: hver runde vælger man en brik med to landskaber og lægger den i sit eget lille rige. Rækkefølgen er det snedige - vælger man en eftertragtet brik, må man vælge sidst i næste runde. Point tælles ved at gange områdets størrelse med antallet af kroner, så børnene får trænet multiplikation og mønstergenkendelse helt naturligt, uden at det føles som lektier. Brikkerne er tykke og holdbare, og reglerne kan forklares på et par minutter. Held med hvilke brikker der dukker op spiller en rolle, og med kun to spillere mister spillet lidt af sin nerve, men med tre eller fire er det tæt og hyggeligt. Et sikkert valg til familier med børn fra 8 år, der vil have noget enkelt med reel dybde.",
-    shortDescription: "Byg dit rige med domino-brikker - Spil des Årets vinder",
+    shortDescription: "Byg dit rige med domino-brikker - vinder af Spiel des Jahres",
     minAge: 8,
     maxAge: 99,
     ageGroup: "7+",
@@ -1578,7 +1577,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.8,
     pros: [
-      "Spil des Årets vinder",
+      "Vinder af Spiel des Jahres",
       "Elegant og simpelt",
       "Træner multiplikation",
       "Hurtig spilletid"
@@ -1587,7 +1586,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Held med brikker påvirker",
       "2 spillere er mindre spændende"
     ],
-    parentTip: "Point-tælling er multiplikation - god matematikrening uden at det føles som lektier!",
+    parentTip: "Point-tælling er multiplikation - god matematiktræning uden at det føles som lektier!",
     featured: true,
     editorChoice: true,
   },
@@ -1620,7 +1619,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     ],
     cons: [
       "Kan være for svært på højere niveauer",
-      "Alpha-spiller problem muligt"
+      "Alfaspiller-problem muligt"
     ],
     parentTip: "Start på 'Novice' og arbejd jer op. God til at lære at kommunikere og samarbejde.",
     featured: false,
@@ -1630,7 +1629,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     title: "Dobble/Spot It!",
     slug: "dobble",
     description: "Runde kort i en lille metaldåse - og et snedigt trick: mellem to vilkårlige kort er der altid præcis ét symbol, der går igen. Opgaven er at finde det før alle andre, og det udløser hyl og grin rundt om bordet, når hjernen driller. Æsken indeholder fem forskellige spilvarianter, så der er altid en ny måde at bruge kortene på. Undervejs trænes observation, koncentration og reaktionsevne, og fordi der ingen tekst er, kan børn fra omkring 6 år være med på lige fod med voksne - og de slår dem ofte. Dåsen er nem at have i tasken, så det fungerer fint som rejsespil. Tempoet kan dog blive for intenst for langsommere eller yngre spillere, så prøv de roligere varianter først. Et lille, billigt spil, der bliver taget frem igen og igen i familier med børn i skolealderen.",
-    shortDescription: "Lynhurtigt symbol-matchning spil",
+    shortDescription: "Lynhurtigt symbol-matching-spil",
     minAge: 6,
     maxAge: 99,
     ageGroup: "7+",
@@ -1657,14 +1656,14 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Kan være for intenst",
       "Yngre/langsommere spillere kan frustreres"
     ],
-    parentTip: "Prøv de roligere spilvarianter med yngre børn før I går til speed-versionerne.",
+    parentTip: "Prøv de roligere spilvarianter med yngre børn, før I går til speed-versionerne.",
     featured: false,
     editorChoice: false,
   },
   {
     title: "Gardlings",
     slug: "gardlings",
-    description: "En have fuld af blomster er rammen om et af 2025's mest omtalte nye familiespil. Gardlings blander to elskede mekanikker: man trækker brikker op af en pose med samme spænding som i Quacks og lægger dem som landskabsbrikker à la Carcassonne, så hver runde bliver et livligt kapløb om at samle point først. Blandingen af held, planlægning og hurtige beslutninger betyder, at både børn fra 8 år og voksne har en reel chance for at vinde, og undervejs øves strategi og ressourcestyring uden løftede pegefingre. Æstetikken er smuk og gennemført, og reglerne er lette at komme i gang med, selvom der gemmer sig god dybde nedenunder. Da spillet er helt nyt, kan det dog være svært at opstøve i butikkerne endnu. Værd at holde øje med for familier, der vil have et fælles spil med både charme og substans.",
+    description: "En have fuld af blomster er rammen om et af 2025s mest omtalte nye familiespil. Gardlings blander to elskede mekanikker: man trækker brikker op af en pose med samme spænding som i Quacks og lægger dem som landskabsbrikker à la Carcassonne, så hver runde bliver et livligt kapløb om at samle point først. Blandingen af held, planlægning og hurtige beslutninger betyder, at både børn fra 8 år og voksne har en reel chance for at vinde, og undervejs øves strategi og ressourcestyring uden løftede pegefingre. Æstetikken er smuk og gennemført, og reglerne er lette at komme i gang med, selvom der gemmer sig god dybde nedenunder. Da spillet er helt nyt, kan det dog være svært at opstøve i butikkerne endnu. Værd at holde øje med for familier, der vil have et fælles spil med både charme og substans.",
     shortDescription: "Byg din have i dette charmerende familiestrategispil",
     minAge: 8,
     maxAge: 99,
@@ -1683,7 +1682,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.6,
     pros: [
-      "2025's overraskelse",
+      "2025s overraskelse",
       "Smuk æstetik",
       "Let at lære",
       "God dybde"
@@ -1692,7 +1691,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Nyt spil - begrænset tilgængelighed",
       "Kan være svært at finde"
     ],
-    parentTip: "Et af 2025's bedste nye familiespil - hold øje med det i butikkerne!",
+    parentTip: "Et af 2025s bedste nye familiespil - hold øje med det i butikkerne!",
     featured: true,
     editorChoice: false,
   },
@@ -1727,7 +1726,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Simpelt for strategielskere",
       "Held-baseret"
     ],
-    parentTip: "God til familiefester eller når der skal være sjovt hurtigt.",
+    parentTip: "God til familiefester eller når det hurtigt skal være sjovt.",
     featured: false,
     editorChoice: false,
   },
@@ -1735,7 +1734,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     title: "Fate of the Fellowship",
     slug: "fate-of-the-fellowship",
     description: "Matt Leacock, manden bag Pandemic, står bag dette samarbejdsspil, hvor 1-5 spillere sammen genoplever Ringenes Herres historie og guider fællesskabet hele vejen mod Dommedagsbjerget. Rundt om bordet skal der planlægges, prioriteres og samarbejdes, for man vinder eller taber i fællesskab, og hver beslutning påvirker hele holdet. Det giver god træning i planlægning og strategi, og for børn, der kender bøgerne eller filmene, er fortællingen en stor del af oplevelsen. Produktionen er i høj kvalitet, og den episke stemning holder hele vejen. En omgang varer dog omkring en time, og kompleksiteten er højere end i de fleste familiespil, så de yngste vil have svært ved at følge med - regn med, at det passer bedst fra 10 år og op. For familier med Ringenes Herre-fans er det til gengæld en oplagt spilleaften.",
-    shortDescription: "Ringenes Herre samarbejdsspil fra Pandemic-skaberen",
+    shortDescription: "Ringenes Herre-samarbejdsspil fra Pandemic-skaberen",
     minAge: 10,
     maxAge: 99,
     ageGroup: "7+",
@@ -1762,7 +1761,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Længere spilletid",
       "Komplekst for yngre børn"
     ],
-    parentTip: "Velegnet for familier der elsker Ringenes Herre - en episk spilleaften!",
+    parentTip: "Velegnet til familier, der elsker Ringenes Herre - en episk spilleaften!",
     featured: false,
     editorChoice: false,
   },
@@ -1770,7 +1769,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     title: "Zombie Kidz Evolution",
     slug: "zombie-kidz-evolution",
     description: "Bag det fjollede zombie-tema gemmer sig det højest vurderede børnespil på BoardGameGeek - og det første legacy-spil lavet specielt til børn. Selve grundspillet er enkelt: I samarbejder om at forsvare skolen mod zombier, og et parti tager kun et kvarter. Det virkelige trumfkort er progressionen. Hver gang I når et mål, må I åbne en forseglet konvolut med nye regler, figurer og evner, så spillet bogstaveligt vokser og bliver mere komplekst og spændende hen over 15+ partier. Børnene træner samarbejde, planlægning og strategi, mens glæden ved at åbne næste konvolut holder motivationen oppe. Materialerne er solide, og illustrationerne er mere fjollede end uhyggelige, selvom zombierne kan skræmme de alleryngste. Spil det jævnligt over nogle uger - det er sådan, oplevelsen folder sig helt ud. Oplagt til familier med børn fra omkring 7 år.",
-    shortDescription: "#1 børnespil på BGG - zombie-forsvar med legacy-twist",
+    shortDescription: "Nr. 1-børnespil på BGG - zombie-forsvar med legacy-twist",
     minAge: 7,
     maxAge: 14,
     ageGroup: "7+",
@@ -1788,7 +1787,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.9,
     pros: [
-      "#1 børnespil på BoardGameGeek",
+      "Nr. 1-børnespil på BoardGameGeek",
       "Første legacy-spil for børn",
       "Spillet udvikler sig over tid",
       "Kort spilletid per parti",
@@ -1806,7 +1805,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     title: "Zombie Teenz Evolution",
     slug: "zombie-teenz-evolution",
     description: "Opfølgeren til Zombie Kidz Evolution retter sig mod lidt ældre børn og skruer op for det hele: nu skal der koordineres på tværs af flere områder, specielle evner skal bruges klogt, og fjenderne er stærkere. Ligesom forgængeren er det et samarbejdsspil med legacy-system, hvor sejre låser op for konvolutter med nye regler og overraskelser - og her er systemet endnu mere imponerende, med en større historie, der folder sig ud undervejs. Spillet blev da også finalist til Spiel des Jahres 2021. Børnene øver samarbejde, koordination og planlægning, og et parti tager omkring 25 minutter. Kvaliteten i komponenter og illustrationer er høj hele vejen igennem. Det kræver dog mere koordination end forgængeren, så det giver mest mening at tage Zombie Kidz først - derefter er dette det naturlige og endnu bedre næste skridt for børn fra 8 år.",
-    shortDescription: "Zombie Kidz's store søster - mere kompleks legacy-oplevelse",
+    shortDescription: "Zombie Kidz' storesøster - mere kompleks legacy-oplevelse",
     minAge: 8,
     maxAge: 99,
     ageGroup: "7+",
@@ -1827,7 +1826,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Spiel des Jahres 2021 finalist",
       "Dybere strategi end forgængeren",
       "Episk legacy-oplevelse",
-      "God for erfarne Zombie Kidz-spillere"
+      "God til erfarne Zombie Kidz-spillere"
     ],
     cons: [
       "Kræver mere koordination",
@@ -1865,8 +1864,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Mange missioner"
     ],
     cons: [
-      "Trick-taking kan forvirre nybegyndere",
-      "Kommende udgivelse"
+      "Trick-taking kan forvirre nybegyndere"
     ],
     parentTip: "Hvis I kan Uno, kan I dette - men det er meget mere tilfredsstillende at vinde!",
     featured: false,
@@ -1886,7 +1884,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     complexity: 2,
     categories: ["escape-room", "puslespil", "samarbejde"],
     skills: ["problemløsning", "logik", "deduktion", "samarbejde"],
-    themes: ["uhygge", "mysterie", "midnat"],
+    themes: ["uhygge", "mysterium", "midnat"],
     supportsDanish: true,
     price: 179,
     imageUrl: null,
@@ -1897,11 +1895,11 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Fra EXIT-serien",
       "Genspilbart (modsat voksen-versioner)",
       "Sjovt tema",
-      "Alderspassende puzzles"
+      "Alderspassende gåder"
     ],
     cons: [
       "Nemmere end voksen-EXIT",
-      "Nogle puzzles kræver voksenhjælp"
+      "Nogle gåder kræver voksenhjælp"
     ],
     parentTip: "God introduktion til escape rooms - hvis de elsker det, prøv et rigtigt escape room sammen!",
     featured: false,
@@ -1932,20 +1930,20 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "100% dansk",
       "Lærerigt om Danmark",
       "Opdateret udgave",
-      "God for alle aldre"
+      "God til alle aldre"
     ],
     cons: [
       "Trivia kan være svært for yngre",
       "Held med terninger påvirker"
     ],
-    parentTip: "God til familieaftener - og til at vise børnene hvor i Danmark bedsteforældrene bor!",
+    parentTip: "God til familieaftener - og til at vise børnene, hvor i Danmark bedsteforældrene bor!",
     featured: false,
     editorChoice: false,
   },
   {
     title: "Ziggurat",
     slug: "ziggurat",
-    description: "Har familien lyst til at prøve et legacy-spil uden at binde sig til tyve lange aftener, er Ziggurat et oplagt sted at starte. Det er et kooperativt kampagnespil, hvor I over seks sessioner af cirka en halv time bygger en civilisation op, løser opgaver og følger en historie, der udvikler sig fra gang til gang. Undervejs samarbejder I om at lægge planer og løse problemer, så børnene træner både samarbejde og planlægning, mens de oplever den særlige fornemmelse af, at spillet forandrer sig permanent. Reglerne er enklere end i legacy-spil for voksne, og materialerne understøtter historien fint. Man skal dog vide, at kampagnen kun kan spilles én gang, og at den kræver, at I holder fast over flere aftener. Til gengæld er det en oplagt familietradition for børn fra omkring 6-7 år.",
+    description: "Har familien lyst til at prøve et legacy-spil uden at binde sig til tyve lange aftener, er Ziggurat et oplagt sted at starte. Det er et kooperativt kampagnespil, hvor I over seks sessioner af cirka en halv time bygger en civilisation op, løser opgaver og følger en historie, der udvikler sig fra gang til gang. Undervejs samarbejder I om at lægge planer og løse problemer, så børnene træner både samarbejde og planlægning, mens de oplever den særlige fornemmelse af, at spillet forandrer sig permanent. Reglerne er enklere end i legacy-spil for voksne, og materialerne understøtter historien fint. Man skal dog vide, at kampagnen kun kan spilles én gang, og at den kræver, at I holder fast over flere aftener. Til gengæld er det en oplagt familietradition for børn fra omkring 8 år.",
     shortDescription: "Kooperativ legacy-kampagne for familier i 6 sessioner",
     minAge: 8,
     maxAge: 12,
@@ -1966,7 +1964,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     pros: [
       "Tilgængeligt legacy-spil",
       "Kun 6 sessioner",
-      "God for familier",
+      "God til familier",
       "Tilfredsstillende progression"
     ],
     cons: [
@@ -1981,7 +1979,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     title: "Finspan",
     slug: "finspan",
     description: "Langs en flod bygger I hver jeres fiskeri i Finspan, et af de mest omtalte nye familiespil fra 2025. På sin tur vælger man handlinger, sætter nye fisk i spil og kombinerer forskellige arter, så de udløser bonusser og point — en motor, man langsomt bygger op undervejs. Børn fra omkring 8 år træner planlægning, ressourcestyring og mønstergenkendelse, fordi man hele tiden skal overveje, hvilke fisk der passer sammen, og hvad man har råd til. Spillet rummer mindre tilfældighed end mange lignende spil, og den rolige nordiske æstetik gør det behageligt at sidde med — illustrationer og komponenter er af høj kvalitet. Fisketemaet kan dog virke lidt kedeligt for nogle børn. Et godt valg til familier, der er klar til lidt dybere strategi uden alt for lange regler.",
-    shortDescription: "2025's hit - byg fiskerier langs floden",
+    shortDescription: "2025s hit - byg fiskerier langs floden",
     minAge: 8,
     maxAge: 99,
     ageGroup: "7+",
@@ -1999,7 +1997,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     affiliateUrl: null,
     rating: 4.7,
     pros: [
-      "2025's overraskelseshit",
+      "2025s overraskelseshit",
       "Smuk nordisk æstetik",
       "Tilgængeligt strategispil",
       "Mindre tilfældighed end lignende spil"
@@ -2008,7 +2006,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
       "Nyt spil - begrænset tilgængelighed",
       "Tema kan virke kedeligt for nogle børn"
     ],
-    parentTip: "Et af de bedste valg for familier der vil prøve lidt dybere strategi!",
+    parentTip: "Et af de bedste valg for familier, der vil prøve lidt dybere strategi!",
     featured: true,
     editorChoice: false,
   },
@@ -2060,7 +2058,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     "title": "Brick Like This!",
     "slug": "brick-like-this",
     "description": "Hvordan forklarer man en LEGO-model med ord alene? Det er udfordringen i dette holdspil, der vandt Guldbrikken 2025 som Årets Familiespil. Én spiller beskriver en model udelukkende med ord, mens holdkammeraterne forsøger at bygge den med de samme klodser – uden at kunne se den. Børn træner præcis mundtlig kommunikation, rumlig forståelse og aktiv lytning, og fordi klodserne er ægte LEGO, er tærsklen for at komme i gang næsten ikke-eksisterende. Den danske udgave med danske regler koster omkring 170 kr. og skalerer helt op til otte spillere, hvilket gør den oplagt til fødselsdage og familiekomsammener. Man skal dog helst være mindst fire i hold, før spillet folder sig ud, og det er mere leg og aktivitet end egentligt brætspil – strategifans finder ikke megen dybde her. Som fælles grineaktivitet fungerer det til gengæld på tværs af generationer.",
-    "shortDescription": "Guldbrikken 2025: holdspil hvor én beskriver en LEGO-model, og resten bygger i blinde.",
+    "shortDescription": "Guldbrikken 2025: holdspil, hvor én beskriver en LEGO-model, og resten bygger i blinde.",
     "minAge": 7,
     "maxAge": 15,
     "ageGroup": "7+",
@@ -2151,7 +2149,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     "title": "Harmonies",
     "slug": "harmonies",
     "description": "Blandt de mest roste familiespil fra 2024 finder man dette landskabspuslespil fra Libellud, som var nomineret til As d'Or Initié 2025. Hver spiller lægger farvede brikker – bjerge, floder, skove og marker – på sin egen plade og bygger landskaber, der tiltrækker dyrekort med bestemte krav til levesteder. Børn træner mønstergenkendelse, rumlig planlægning og evnen til at tænke flere træk frem, og undervejs får de en fornemmelse af, hvordan dyr og natur hænger sammen. Der følger en solovariant med, og den danske udgave fås bredt til omkring 270 kr. Æsken siger 10+, og selvom mange 8-årige sagtens kan være med, kræver pointkombinationerne reel koncentration. Spillerne interagerer stort set ikke med hinanden undervejs, så børn, der elsker drilleri og direkte konkurrence, kan savne liv ved bordet. For familier, der holder af Kingdomino eller Cascadia, er det et naturligt og smukt næste skridt.",
-    "shortDescription": "Roste landskabspuslespil hvor spillerne bygger naturmiljøer og tiltrækker dyr – med solovariant.",
+    "shortDescription": "Rost landskabspuslespil, hvor spillerne bygger naturmiljøer og tiltrækker dyr – med solovariant.",
     "minAge": 10,
     "maxAge": 15,
     "ageGroup": "7+",
@@ -2199,7 +2197,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     "title": "Dorfromantik: The Board Game",
     "slug": "dorfromantik-the-board-game",
     "description": "Vinderen af Spiel des Jahres 2023 bygger på det afstressende computerspil af samme navn. Sammen lægger familien landskabsbrikker og skaber et landsbylandskab med skinner, floder, skove og marker, mens opgavebrikker stiller krav om størrelser og forbindelser. Alle spiller på samme hold, så bordet fyldes af fælles planlægning og konstruktiv snak i stedet for konkurrence. Et let kampagnesystem låser nye brikker og muligheder op hen over mange partier, hvilket giver familien et langsigtet fælles projekt – og god motivation til faste spilleaftener. Den danske udgave koster omkring 299 kr. Spillet er helt roligt og uden konflikt, men netop derfor kan børn, der elsker direkte kamp og drilleri, finde det for stille, og kampagnen fungerer bedst med en fast gruppe. Til familier, der vil geare ned sammen efter en travl dag, rammer det en sjældent fredfyldt tone.",
-    "shortDescription": "Spiel des Jahres 2023: roligt samarbejdsspil hvor familien bygger landskaber med kampagnesystem.",
+    "shortDescription": "Spiel des Jahres 2023: roligt samarbejdsspil, hvor familien bygger landskaber med kampagnesystem.",
     "minAge": 8,
     "maxAge": 15,
     "ageGroup": "7+",
@@ -2245,7 +2243,7 @@ export const boardGames7to10: BoardGameSeedData[] = [
     "title": "Bomb Busters",
     "slug": "bomb-busters",
     "description": "Sjældent har et spil høstet priser i den grad: Bomb Busters vandt Spiel des Jahres 2025 og fik samme år Guldbrikkens specialpris herhjemme. Som bomberydningshold skal spillerne i fællesskab »klippe ledninger« ved at udlede, hvilke nummererede brikker holdkammeraterne sidder med – uden selv at have fuldt overblik over egen information. Det træner logisk deduktion, sandsynlighedsvurdering og præcis kommunikation, og en kampagne på 66 missioner drypper løbende nye finurligheder ind, så genspilsværdien er stor. Stemningen ved bordet svinger mellem anspændt tavshed og højlydt latter, når en ledning klippes forkert. Den danske udgave koster omkring 279 kr. Bombetemaet er tegneserieagtigt, men passer ikke til de yngste eller mest ængstelige børn, og med kun to spillere mister spillet en del af sin dynamik. Fra omkring 10 år er det til gengæld en medrivende fælles udfordring for hele familien.",
-    "shortDescription": "Spiel des Jahres 2025: kooperativ deduktion hvor familien klipper ledninger over 66 missioner.",
+    "shortDescription": "Spiel des Jahres 2025: kooperativ deduktion, hvor familien klipper ledninger over 66 missioner.",
     "minAge": 10,
     "maxAge": 15,
     "ageGroup": "7+",
@@ -2275,14 +2273,14 @@ export const boardGames7to10: BoardGameSeedData[] = [
     "pros": [
       "Spiel des Jahres 2025 og Guldbrikkens specialpris",
       "66-missioners kampagne giver enorm genspilsværdi",
-      "Anspændt og grinagtig deduktion, teenagere elsker",
+      "Anspændt og grinagtig deduktion, som teenagere elsker",
       "Dansk udgave findes"
     ],
     "cons": [
-      "Bombetema passer ikke ængstelige børn",
+      "Bombetema passer ikke til ængstelige børn",
       "Svagere med kun 2 spillere"
     ],
-    "parentTip": "Spil helst 3-5 personer og følg missionsrækkefølgen – kampagnen introducerer reglerne i små bidder, så ingen behøver læse hele hæftet først.",
+    "parentTip": "Spil helst med 3-5 personer og følg missionsrækkefølgen – kampagnen introducerer reglerne i små bidder, så ingen behøver læse hele hæftet først.",
     "featured": false,
     "editorChoice": false
   },
@@ -2296,7 +2294,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
   {
     title: "Catan",
     slug: "catan",
-    description: "Handel og forhandling er hjertet i Catan, klassikeren der satte gang i hele det moderne brætspilsboom. Spillerne samler ressourcer, bygger veje og byer og bytter indbyrdes for at komme først i mål som øens førende bygmester. Netop byttehandlerne gør spillet noget særligt: børn fra omkring 10 år lærer at forhandle, vurdere en handels værdi og tænke strategisk, mens terningerne afgør, hvilke ressourcer der lander på hånden. Komponenterne er solide, og det modulære bræt betyder, at ingen to partier er ens — genspilsværdien er høj, og der findes mange udvidelser. Vær opmærksom på, at det kræver mindst tre spillere, og at terningeheld og en spilletid på godt en time kan frustrere de utålmodige. Til gengæld er det en oplagt indgang til rigtige strategispil for hele familien.",
+    description: "Handel og forhandling er hjertet i Catan, klassikeren, der satte gang i hele det moderne brætspilsboom. Spillerne samler ressourcer, bygger veje og byer og bytter indbyrdes for at komme først i mål som øens førende bygmester. Netop byttehandlerne gør spillet noget særligt: børn fra omkring 10 år lærer at forhandle, vurdere en handels værdi og tænke strategisk, mens terningerne afgør, hvilke ressourcer der lander på hånden. Komponenterne er solide, og det modulære bræt betyder, at ingen to partier er ens — genspilsværdien er høj, og der findes mange udvidelser. Vær opmærksom på, at det kræver mindst tre spillere, og at terningeheld og en spilletid på godt en time kan frustrere de utålmodige. Til gengæld er det en oplagt indgang til rigtige strategispil for hele familien.",
     shortDescription: "Den legendariske klassiker - saml, byg og handel",
     minAge: 10,
     maxAge: 99,
@@ -2360,7 +2358,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
       "Kan blive blokeret af andre",
       "Sidst kan føles som tab"
     ],
-    parentTip: "Ticket to Ride: Europa har tunneler og stationer der gør det mere spændende!",
+    parentTip: "Ticket to Ride: Europa har tunneler og stationer, der gør det mere spændende!",
     featured: true,
     editorChoice: true,
   },
@@ -2393,7 +2391,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     ],
     cons: [
       "Kræver 4+ spillere",
-      "Kan være svært for yngre/ikke-native speakers"
+      "Kan være svært for yngre børn og børn med andet modersmål"
     ],
     parentTip: "Prøv Codenames: Pictures hvis ordene er for svære - det virker med alle aldre!",
     featured: true,
@@ -2423,7 +2421,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     pros: [
       "Meget smuk",
       "Lærer om rigtige fugle",
-      "Relaxende at spille",
+      "Afslappende at spille",
       "Kan spilles solo"
     ],
     cons: [
@@ -2431,7 +2429,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
       "Dyrere end mange spil",
       "Første spil tager tid at lære"
     ],
-    parentTip: "Brug app'en til at se og høre fuglene - det gør spillet endnu mere interessant!",
+    parentTip: "Brug appen til at se og høre fuglene - det gør spillet endnu mere interessant!",
     featured: true,
     editorChoice: true,
   },
@@ -2463,7 +2461,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
       "Hurtig at lære"
     ],
     cons: [
-      "Kan være 'mean' at blokere",
+      "Kan føles ondskabsfuldt at blokere",
       "Nogle finder det for abstrakt"
     ],
     parentTip: "Fliserne er så smukke - lad børnene lege med dem også udenfor spillet!",
@@ -2535,7 +2533,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     ],
     cons: [
       "Kan være for intenst for nogle",
-      "Alpha-spiller problem muligt",
+      "Alfaspiller-problem muligt",
       "Kan føles umuligt at vinde"
     ],
     parentTip: "Start på 'introductory' niveau og arbejd jer op. Det handler om at diskutere muligheder sammen!",
@@ -2566,11 +2564,11 @@ export const boardGames11to15: BoardGameSeedData[] = [
     pros: [
       "Unikt gameplay",
       "Smukke visuelle kort",
-      "God for kreative tænkere",
+      "God til kreative tænkere",
       "Stemningsfuldt"
     ],
     cons: [
-      "Spøgelse-rollen er svær",
+      "Spøgelsesrollen er svær",
       "Kan være frustrerende hvis gruppen ikke 'klikker'",
       "Lange forklaringsrunder"
     ],
@@ -2607,7 +2605,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     ],
     cons: [
       "Held med kort kan frustrere",
-      "Kan blive gentaget"
+      "Kan blive ensformigt"
     ],
     parentTip: "Start på 'normal' sværhedsgrad og tilføj udvidelser for mere udfordring.",
     featured: false,
@@ -2616,7 +2614,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
   {
     title: "Bluey Board Game",
     slug: "bluey-board-game",
-    description: "Kender jeres børn Bluey fra tegnefilmen, er genkendelsens glæde stor i dette samarbejdsspil, hvor spillerne hjælper Bluey-familien med forskellige aktiviteter. Terningen bestemmer, hvad der sker på turen, og alle arbejder sammen mod et fælles mål, så der er ingen tabere — en stor fordel for de mindste. Undervejs øver børn fra omkring 3 år sig i turtagning, samarbejde og at følge enkle regler, hvilket gør det til et fint første rigtige brætspil. Komponenterne er farverige og i børnevenlig kvalitet, og en runde tager kun et kvarters tid, så det passer til korte opmærksomhedsspand. Ældre børn vil dog hurtigt finde det for simpelt, og spillet henvender sig primært til Bluey-fans. Læs reglerne på forhånd, så går det glat fra første spil — så er det en hyggelig start på brætspilslivet.",
+    description: "Kender jeres børn Bluey fra tegnefilmen, er genkendelsens glæde stor i dette samarbejdsspil, hvor spillerne hjælper Bluey-familien med forskellige aktiviteter. Terningen bestemmer, hvad der sker på turen, og alle arbejder sammen mod et fælles mål, så der er ingen tabere — en stor fordel for de mindste. Undervejs øver børn fra omkring 3 år sig i turtagning, samarbejde og at følge enkle regler, hvilket gør det til et fint første rigtige brætspil. Komponenterne er farverige og i børnevenlig kvalitet, og en runde tager kun et kvarters tid, så det passer til korte opmærksomhedsspænd. Ældre børn vil dog hurtigt finde det for simpelt, og spillet henvender sig primært til Bluey-fans. Læs reglerne på forhånd, så går det glat fra første spil — så er det en hyggelig start på brætspilslivet.",
     shortDescription: "Samarbejdsspil med den populære Bluey-familie",
     minAge: 3,
     maxAge: 7,
@@ -2644,7 +2642,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
       "Simpelt for ældre børn",
       "Primært for Bluey-fans"
     ],
-    parentTip: "God første brætspil for Bluey-fans! Læs reglerne på forhånd så det går glat.",
+    parentTip: "Godt første brætspil til Bluey-fans! Læs reglerne på forhånd så det går glat.",
     featured: true,
     editorChoice: false,
   },
@@ -2672,7 +2670,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     pros: [
       "Træner hukommelse",
       "Lærer hverdagsting",
-      "Orchard Toys kvalitet",
+      "Orchard Toys-kvalitet",
       "Let at forstå"
     ],
     cons: [
@@ -2687,7 +2685,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     title: "Duck & Cover",
     slug: "duck-and-cover",
     description: "Ænder, der dukker sig for jægerne, sætter scenen i Duck & Cover, som blev kåret til bedste familiespil i 2025. Det er et hurtigt kortspil, hvor man forsøger at samle point og samtidig undgå at blive ramt, når jægerne dukker op — og timingen af, hvornår man satser, og hvornår man dækker sig, er hele nerven i spillet. Runderne er korte og intense, så børnene træner timing, risikostyring og observation, uden at nogen når at kede sig undervejs. Reglerne er lært på få minutter, og spillet fungerer med op til syv deltagere, hvilket gør det oplagt til familiefester og aftener med gæster. Med mange omkring bordet kan det dog blive temmelig kaotisk, og som nyt spil kan det være svært at opstøve i butikkerne. Et sjovt og letbenet festspil for familier med børn fra omkring 8 år.",
-    shortDescription: "2025's bedste familiespil - hurtig action for hele familien",
+    shortDescription: "2025s bedste familiespil - hurtig action for hele familien",
     minAge: 8,
     maxAge: 99,
     ageGroup: "7+",
@@ -2757,7 +2755,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     title: "Flip 7",
     slug: "flip-7",
     description: "Få kortspil er så lette at gå til som Flip 7, hvor hele pointen er at turde vende ét kort mere - eller stoppe, mens legen er god. På sin tur vender man kort fra bunken og samler point, men trækker man to ens tal, ryger rundens gevinst, så hvert træk bliver et lille sats, hvor man mærker sandsynligheden på egen krop. Første spiller til 200 point vinder, og runderne er så hurtige, at ingen når at kede sig. Netop derfor er spillet en fin, legende introduktion til sandsynlighed og risikostyring - børnene tænker ikke over matematikken, de vil bare vende ét kort til. Held fylder en del, og på sigt kan det føles gentaget, til gengæld er reglerne lært på to minutter, og æsken er kompakt og billig. Godt til familier fra 7 år, der vil have et hurtigt spil med sug i maven.",
-    shortDescription: "Push-your-luck kortspil - kom tættest på 7!",
+    shortDescription: "Push-your-luck kortspil - tør du vende ét kort til?",
     minAge: 7,
     maxAge: 99,
     ageGroup: "7+",
@@ -2782,7 +2780,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     ],
     cons: [
       "Primært held-baseret",
-      "Kan blive gentaget"
+      "Kan blive ensformigt"
     ],
     parentTip: "Godt til at introducere børn til sandsynlighed og risiko på en sjov måde.",
     featured: false,
@@ -2813,7 +2811,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
       "Nemme regler",
       "Hurtige runder",
       "Combos føles gode",
-      "God for alle aldre"
+      "God til alle aldre"
     ],
     cons: [
       "Simpelt for strategielskere",
@@ -2848,7 +2846,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
       "Star Wars-tema",
       "Holdbaseret spil",
       "Let at lære",
-      "God for blandede aldre"
+      "God til blandede aldre"
     ],
     cons: [
       "Tema kan skræmme ikke-fans væk",
@@ -2862,7 +2860,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
     title: "The Old King's Crown",
     slug: "the-old-kings-crown",
     description: "Kampen om tronen står i centrum i The Old King's Crown, et strategispil i et flot illustreret fantasy-univers, der har fået masser af ros siden udgivelsen. Spillerne opbygger deres position runde for runde - der skal planlægges, styres ressourcer og tænkes flere træk frem, for modstanderne kæmper om nøjagtig de samme fordele. Det gør spillet til god træning i strategi, planlægning og ressourcestyring for børn fra omkring 10 år, der er vokset fra de lette familiespil. Illustrationerne og komponenterne er smukke, og genspilsværdien er høj, fordi ingen partier udvikler sig ens. Prisen ligger dog i den høje ende, og reglerne kræver tålmodighed første gang, så sæt god tid af til den første aften. Til familier med større børn, der vil have noget at tygge på, er det en stærk investering.",
-    shortDescription: "2025's mest fængslende strategispil",
+    shortDescription: "2025s mest fængslende strategispil",
     minAge: 10,
     maxAge: 99,
     ageGroup: "7+",
@@ -2889,7 +2887,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
       "Højere pris",
       "Komplekst for nye spillere"
     ],
-    parentTip: "Et af de bedste strategispil i nyere tid - velegnet for familier der vil have mere udfordring.",
+    parentTip: "Et af de bedste strategispil i nyere tid - velegnet til familier, der vil have mere udfordring.",
     featured: true,
     editorChoice: true,
   },
@@ -2918,13 +2916,13 @@ export const boardGames11to15: BoardGameSeedData[] = [
       "Kennerspiel vinder",
       "Vanedannende gameplay",
       "Alle spiller samtidig",
-      "Ny 2025 udgave tilgængelig"
+      "Ny 2025-udgave tilgængelig"
     ],
     cons: [
       "Held kan frustrere",
       "Opsætning tager tid"
     ],
-    parentTip: "Et af de bedste 'gateway plus' spil - god når familien er klar til mere end Ticket to Ride.",
+    parentTip: "Et af de bedste 'gateway plus'-spil - god når familien er klar til mere end Ticket to Ride.",
     featured: true,
     editorChoice: false,
   },
@@ -2959,7 +2957,7 @@ export const boardGames11to15: BoardGameSeedData[] = [
       "Kommende udgivelse",
       "Kan være svær at finde"
     ],
-    parentTip: "Kommer i 2026 - hold øje med den som næste skridt op fra simple familiespil!",
+    parentTip: "Kommer i 2026 - hold øje med det som næste skridt op fra simple familiespil!",
     featured: false,
     editorChoice: false,
   },

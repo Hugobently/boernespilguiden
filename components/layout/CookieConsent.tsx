@@ -27,7 +27,7 @@ interface CookieConsentProps {
 
 const defaultTranslations = {
   title: 'Vi bruger cookies',
-  description: 'Vi bruger cookies for at give dig den bedste oplevelse på vores side. Nødvendige cookies sikrer at siden fungerer, mens statistik-cookies hjælper os med at forbedre den.',
+  description: 'Vi bruger cookies for at give dig den bedste oplevelse på vores side. Nødvendige cookies sikrer, at siden fungerer, mens statistik-cookies hjælper os med at forbedre den.',
   acceptAll: 'Accepter alle',
   acceptNecessary: 'Kun nødvendige',
   customize: 'Tilpas',
@@ -35,7 +35,7 @@ const defaultTranslations = {
   necessary: 'Nødvendige',
   necessaryDesc: 'Disse cookies er nødvendige for at siden fungerer og kan ikke slås fra.',
   analytics: 'Statistik',
-  analyticsDesc: 'Hjælper os med at forstå hvordan besøgende bruger siden.',
+  analyticsDesc: 'Hjælper os med at forstå, hvordan besøgende bruger siden.',
   preferences: 'Præferencer',
   preferencesDesc: 'Husker dine valg og præferencer.',
   learnMore: 'Læs mere',

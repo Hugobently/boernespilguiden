@@ -221,7 +221,7 @@ export function SearchFilters({ activeTab, filters, query }: SearchFiltersProps)
                       onChange={(checked) => updateFilter('offline', checked ? true : null)}
                     />
                     <FilterToggle
-                      label="Ingen in-app køb"
+                      label="Ingen in-app-køb"
                       checked={filters.noInAppPurchases || false}
                       onChange={(checked) => updateFilter('ingenKob', checked ? true : null)}
                     />

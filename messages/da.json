@@ -30,7 +30,7 @@
     "0-3": "0-3 år",
     "3-6": "3-6 år",
     "7+": "7+ år",
-    "0-3-desc": "Baby & Småbørn",
+    "0-3-desc": "Baby & småbørn",
     "3-6-desc": "Børnehave",
     "7+-desc": "Skolebørn"
   },
@@ -42,12 +42,12 @@
     "editorChoiceTitle": "Håndplukkede favoritter",
     "editorChoiceDesc": "Spil vi selv elsker og trygt kan anbefale til børn",
     "seeAllEditorChoice": "Se alle redaktørens valg",
-    "seeAllAdFree": "Se alle reklamefri spil",
+    "seeAllAdFree": "Se alle reklamefrie spil",
     "chooseAge": "Vælg aldersgruppe",
     "chooseAgeDesc": "Find spil der passer til dit barns alder",
     "adFree": "100% Reklamefri",
     "adFreeTitle": "Sikre spil uden reklamer",
-    "adFreeDesc": "Disse spil er uden reklamer og in-app køb - et trygt valg til de mindste",
+    "adFreeDesc": "Disse spil er uden reklamer og in-app-køb - et trygt valg til de mindste",
     "ourPromise": "Vores løfte",
     "ourPromiseText": "Vi markerer tydeligt alle spil med reklamer, så du altid ved hvad du får",
     "boardGamesTitle": "Også brætspil!",
@@ -62,7 +62,7 @@
     "filmSerierTitle": "Film & serier til børn",
     "filmSerierDesc": "Streaminganbefalinger med forældreguides - find sikre film og serier på Netflix, Disney+ og mere",
     "filmSerierTeaserTitle": "Film & serier med forældreguides",
-    "filmSerierTeaserDesc": "Vi har gennemgået 100+ film og serier på streaming-tjenester som Netflix, Disney+ og DR Ramasjang. Få ærlige anmeldelser og forældreguides.",
+    "filmSerierTeaserDesc": "Vi har gennemgået 290+ film og serier på streamingtjenester som Netflix, Disney+ og DR Ramasjang. Få ærlige anmeldelser og forældreguides.",
     "exploreFilmSerier": "Udforsk film & serier",
     "seeAllFilmSerier": "Se alle film & serier",
     "seriesCount": "{count} serier"
@@ -84,7 +84,7 @@
     "bestRated": "Bedst bedømt",
     "adFreeFirst": "Reklamefri først",
     "noAds": "Ingen reklamer",
-    "noInApp": "Ingen in-app køb",
+    "noInApp": "Ingen in-app-køb",
     "offlineCapable": "Virker offline",
     "platforms": "Platforme",
     "categories": "Kategorier",
@@ -107,11 +107,11 @@
     "parentInfo": "Information til forældre",
     "parentFilters": "Forældrefiltre",
     "adFree": "Reklamefri",
-    "noInAppPurchases": "Ingen in-app køb",
+    "noInAppPurchases": "Ingen in-app-køb",
     "offline": "Offline",
     "freeOnly": "Kun gratis",
     "hasAds": "Har reklamer",
-    "hasInAppPurchases": "In-app køb",
+    "hasInAppPurchases": "In-app-køb",
     "offlineOK": "Offline OK",
     "requiresInternet": "Kræver internet",
     "unknownData": "Ukendt data",
@@ -149,11 +149,11 @@
     "difficultyFilter": "Sværhedsgrad",
     "veryEasy": "Meget let",
     "easyDifficulty": "Let",
-    "mediumDifficulty": "Medium",
+    "mediumDifficulty": "Mellem",
     "hardDifficulty": "Svær",
     "veryHard": "Meget svær",
     "difficultyLevel": "Sværhed: {level}/5",
-    "maxMinutes": "Max {time} min",
+    "maxMinutes": "Maks. {time} min.",
     "players": "spillere",
     "playTime": "spilletid",
     "minutes": "minutter",
@@ -206,9 +206,9 @@
     "learningGames": "Læringsspil",
     "freeGames": "Gratis spil",
     "adFree": "Reklamefri",
-    "metaTitleWithQuery": "Søg: \"{query}\" - Børnespilguiden",
+    "metaTitleWithQuery": "Søg: \"{query}\"",
     "metaDescriptionWithQuery": "Søgeresultater for \"{query}\" - Find de bedste spil til børn",
-    "metaTitle": "Søg efter spil - Børnespilguiden",
+    "metaTitle": "Søg efter spil",
     "metaDescription": "Søg i vores store udvalg af digitale spil og brætspil til børn"
   },
   "footer": {
@@ -218,7 +218,7 @@
     "newsletter": "Nyhedsbrev",
     "newsletterDesc": "Få de nyeste anbefalinger direkte i din indbakke",
     "subscribe": "Tilmeld",
-    "emailPlaceholder": "Din email",
+    "emailPlaceholder": "Din e-mail",
     "copyright": "Alle rettigheder forbeholdes",
     "topics": "Populære emner"
   },
@@ -306,7 +306,7 @@
     "downloadGame": "Hent spillet"
   },
   "about": {
-    "metaTitle": "Om Børnespilguiden - Hvem er vi?",
+    "metaTitle": "Om os - Hvem står bag?",
     "metaDescription": "Lær mere om Børnespilguiden. Vi hjælper danske forældre med at finde de bedste spil til deres børn med fokus på kvalitet, sikkerhed og læring.",
     "pageTitle": "Om Børnespilguiden",
     "pageSubtitle": "Din guide til de bedste spil for børn",
@@ -336,21 +336,21 @@
     "contactButton": "Kontakt os"
   },
   "contact": {
-    "metaTitle": "Kontakt os - Børnespilguiden",
+    "metaTitle": "Kontakt os",
     "metaDescription": "Kontakt Børnespilguiden. Vi hører gerne fra dig med feedback, forslag eller spørgsmål.",
     "pageTitle": "Kontakt os",
     "pageSubtitle": "Vi hører gerne fra dig",
     "introText": "Har du spørgsmål, forslag til spil vi bør anmelde, eller feedback til siden? Udfyld formularen nedenfor, så vender vi tilbage hurtigst muligt.",
     "writeToUs": "Skriv til os",
     "writeToUsText": "Har du forslag til spil vi skal anmelde? Feedback til siden? Eller bare et spørgsmål? Vi svarer så hurtigt vi kan.",
-    "emailTitle": "Email",
+    "emailTitle": "E-mail",
     "responseTimeTitle": "Svartid",
     "responseTimeText": "Vi bestræber os på at svare inden for 2-3 hverdage",
     "tipTitle": "Tip",
     "tipText": "Kender du et godt spil vi mangler? Send os et tip!",
     "nameLabel": "Dit navn",
     "namePlaceholder": "Dit navn",
-    "emailLabel": "Din email",
+    "emailLabel": "Din e-mail",
     "emailPlaceholder": "din@email.dk",
     "subjectLabel": "Emne",
     "subjectPlaceholder": "Vælg emne",
@@ -366,11 +366,11 @@
     "errorMessage": "Der opstod en fejl. Prøv venligst igen."
   },
   "privacy": {
-    "metaTitle": "Privatlivspolitik - Børnespilguiden",
+    "metaTitle": "Privatlivspolitik",
     "pageTitle": "Privatlivspolitik"
   },
   "cookies": {
-    "metaTitle": "Cookiepolitik - Børnespilguiden",
+    "metaTitle": "Cookiepolitik",
     "pageTitle": "Cookiepolitik"
   }
 }
